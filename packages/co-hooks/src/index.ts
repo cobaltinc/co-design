@@ -1,8 +1,10 @@
 export * from './useBoolState';
 export * from './useClickAway';
+export * from './useClipboard';
 export * from './useDebounce';
 export * from './useHotKey';
 export * from './useHover';
+export * from './useId';
 export * from './useInterval';
 export * from './useIntervalFn';
 export * from './useIsomorphicEffect';
@@ -10,5 +12,6 @@ export * from './useKeyPress';
 export * from './useListState';
 export * from './useLoading';
 export * from './useOs';
+export * from './useRafState';
 export * from './useTimeout';
 export * from './useTimeoutFn';

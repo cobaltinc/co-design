@@ -1,0 +1,21 @@
+{
+  "name": "gatsby-plugin-co",
+  "version": "0.0.1",
+  "main": "dist/main.js",
+  "module": "dist/module.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "author": "Cobalt. Inc.",
+  "sideEffects": false,
+  "repository": {
+    "url": "https://github.com/cobaltinc/co.git",
+    "type": "git",
+    "directory": "packages/gatsby-plugin-co"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
