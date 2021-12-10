@@ -1,11 +1,8 @@
 {
   "exclude": [
     "node_modules",
-    "lib",
-    "esm",
-    "cjs",
-    "jest-config.js",
-    "configuration/storybook/main.js"
+    "dist",
+    "config/storybook/main.js"
   ],
   "compilerOptions": {
     "target": "ES2015",

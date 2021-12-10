@@ -1,9 +1,9 @@
 {
   "name": "@co/hooks",
   "version": "0.0.1",
-  "main": "dist/main.js",
-  "module": "dist/module.js",
-  "types": "dist/index.d.ts",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
   "license": "MIT",
   "author": "Cobalt. Inc.",
   "sideEffects": false,

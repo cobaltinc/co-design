@@ -1,5 +1,5 @@
 {
-  "name": "@co/icons",
+  "name": "@cco/types",
   "version": "0.0.1",
   "main": "dist/main.js",
   "module": "dist/module.js",
@@ -10,7 +10,7 @@
   "repository": {
     "url": "https://github.com/cobaltinc/co.git",
     "type": "git",
-    "directory": "packages/co-icons"
+    "directory": "packages/co-types"
   },
   "peerDependencies": {
     "react": ">=16.8.0",
