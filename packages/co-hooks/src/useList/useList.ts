@@ -1,8 +1,6 @@
 import { useCallback, useState } from 'react';
 
-const copy = <T>(list: T[]) => [...list];
-
-export const useListState = <T>(initialValue: T[] = []): [T[], typeof handlers] => {
+export const useList = <T>(initialValue: T[] = []): [T[], typeof handlers] => {
   const [state, setState] = useState(initialValue);
 
   const append = useCallback((...items: T[]) => setState((old) => [...old, ...items]), []);

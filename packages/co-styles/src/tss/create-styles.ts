@@ -2,7 +2,7 @@ import type { MantineTheme } from '../theme';
 import type { CSSObject } from './types';
 import { fromEntries } from './utils/fromEntries';
 import { useCss } from './useCss';
-import { useMantineTheme, useMantineThemeStyles } from '../theme/MantineProvider';
+import { useCoTheme, useCoThemeStyles } from '../theme/CoProvider';
 import { mergeClassNames } from './utils/mergeClassNames';
 
 export interface UseStylesOptions<Key extends string> {
@@ -20,8 +20,8 @@ export function createStyles<Key extends string = string, Params = void>(
   const getCssObject = typeof getCssObjectOrCssObject === 'function' ? getCssObjectOrCssObject : () => getCssObjectOrCssObject;
 
   function useStyles(params: Params, options?: UseStylesOptions<Key>) {
-    const theme = useMantineTheme();
-    const themeStyles = useMantineThemeStyles()[options?.name];
+    const theme = useCoTheme();
+    const themeStyles = useCoThemeStyles()[options?.name];
 
     const { css, cx } = useCss();
 

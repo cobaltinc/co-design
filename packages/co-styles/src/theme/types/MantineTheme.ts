@@ -1,10 +1,8 @@
 import type { CSSProperties } from 'react';
-import type { MantineSizes, MantineSize, MantineNumberSize } from './MantineSize';
+import type { CoSize, CoNumberSize } from './MantineSize';
 import type { Tuple } from './Tuple';
 import type { DeepPartial } from './DeepPartial';
 import { CSSObject } from '../../tss';
-
-export type LoaderType = 'bars' | 'oval' | 'dots';
 
 export interface HeadingStyle {
   fontSize: CSSProperties['fontSize'];
@@ -20,30 +18,25 @@ interface MantineThemeFunctions {
   size(props: { size: string | number; sizes: Record<string, any> }): any;
   linearGradient(deg: number, ...colors: string[]): string;
   radialGradient(...colors: string[]): string;
-  smallerThan(breakpoint: MantineNumberSize): string;
-  largerThan(breakpoint: MantineNumberSize): string;
+  smallerThan(breakpoint: CoNumberSize): string;
+  largerThan(breakpoint: CoNumberSize): string;
   lighten(color: string, alpha: number): string;
   darken(color: string, alpha: number): string;
 }
 
 export interface MantineTheme {
-  loader: LoaderType;
-  dateFormat: string;
   colorScheme: 'light' | 'dark';
-  white: string;
-  black: string;
   colors: Record<string, Tuple<string, 10>>;
   fontFamily: CSSProperties['fontFamily'];
   lineHeight: CSSProperties['lineHeight'];
-  transitionTimingFunction: CSSProperties['transitionTimingFunction'];
   fontFamilyMonospace: CSSProperties['fontFamily'];
   primaryColor: string;
 
-  fontSizes: MantineSizes;
-  radius: MantineSizes;
-  spacing: MantineSizes;
-  breakpoints: MantineSizes;
-  shadows: Record<MantineSize, string>;
+  fontSizes: Record<CoSize, number>;
+  radius: Record<CoSize, number>;
+  spacing: Record<CoSize, number>;
+  breakpoints: Record<CoSize, number>;
+  shadows: Record<CoSize, string>;
 
   headings: {
     fontFamily: CSSProperties['fontFamily'];
@@ -59,9 +52,9 @@ export interface MantineTheme {
   };
 
   fn: MantineThemeFunctions;
-  other: Record<string, any>;
+  extra: Record<string, any>;
 
-  datesLocale: string;
+  locale: string;
 }
 
 export type MantineThemeBase = Omit<MantineTheme, 'fn'>;

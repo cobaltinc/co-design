@@ -1,13 +1,13 @@
 import React from 'react';
-import { useListState } from '../useListState';
+import { useList } from '../useList';
 
 export default {
-  title: '@co/hooks/useListState',
+  title: '@co/hooks/useList',
 };
 
 let count = 5;
 export const Default = () => {
-  const [state, handlers] = useListState(['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']);
+  const [state, handlers] = useList(['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5']);
 
   return (
     <div>

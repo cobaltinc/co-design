@@ -190,6 +190,6 @@ const styles = {
   },
 } as const;
 
-export function NormalizeCSS() {
+export const NormalizeCSS = () => {
   return <Global styles={styles} />;
-}
+};

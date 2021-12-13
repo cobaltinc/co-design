@@ -1,3 +1,2 @@
-export type MantineSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type MantineNumberSize = MantineSize | number;
-export type MantineSizes = Record<MantineSize, number>;
+export type CoSize = 'xsmall' | 'small' | 'medium' | 'large' | 'xlarge';
+export type CoNumberSize = CoSize | number;

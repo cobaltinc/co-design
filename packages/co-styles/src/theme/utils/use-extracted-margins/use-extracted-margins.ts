@@ -1,4 +1,4 @@
-import { useMantineTheme } from '../../MantineProvider';
+import { useCoTheme } from '../../CoProvider';
 import type { MantineMargins } from '../../types';
 
 interface UseExtractedMargins {
@@ -19,7 +19,7 @@ const margins = {
 };
 
 export function useExtractedMargins({ others, style }: UseExtractedMargins) {
-  const theme = useMantineTheme();
+  const theme = useCoTheme();
   const mergedStyles: React.CSSProperties = { ...style };
 
   if (isValidMargin(others.my)) {
