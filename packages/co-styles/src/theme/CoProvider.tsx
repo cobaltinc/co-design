@@ -1,16 +1,16 @@
 import React, { createContext, useContext } from 'react';
 import type { Options as EmotionCacheOptions } from '@emotion/cache';
-import { DEFAULT_THEME } from './default-theme';
-import type { MantineThemeOverride, MantineTheme } from './types';
+import { DEFAULT_THEME } from './defaultTheme';
+import type { CoThemeOverride, CoTheme } from './types';
 import type { CSSObject } from '../tss';
 import { mergeTheme } from './utils/merge-theme/merge-theme';
 import { NormalizeCSS } from './NormalizeCSS';
 import { GlobalStyles } from './GlobalStyles';
 
-type ProviderStyles = Record<string, Record<string, CSSObject> | ((theme: MantineTheme) => Record<string, CSSObject>)>;
+type ProviderStyles = Record<string, Record<string, CSSObject> | ((theme: CoTheme) => Record<string, CSSObject>)>;
 
 interface CoThemeContextType {
-  theme: MantineTheme;
+  theme: CoTheme;
   styles: ProviderStyles;
   emotionOptions: EmotionCacheOptions;
 }
@@ -34,7 +34,7 @@ export function useCoEmotionOptions(): EmotionCacheOptions {
 }
 
 interface CoProviderProps {
-  theme?: MantineThemeOverride;
+  theme?: CoThemeOverride;
   styles?: ProviderStyles;
   emotionOptions?: EmotionCacheOptions;
   withNormalizeCSS?: boolean;

@@ -1,5 +1,4 @@
 import path from 'path';
-import { argv } from 'yargs';
 import storybook from '@storybook/react/standalone';
 
 storybook({

@@ -8,21 +8,21 @@ interface ColorSchemeContextProps {
 
 const ColorSchemeContext = createContext<ColorSchemeContextProps>(null);
 
-export function useMantineColorScheme() {
+export const useCoColorScheme = () => {
   const ctx = useContext(ColorSchemeContext);
 
   if (!ctx) {
-    throw new Error('useMantineColorScheme hook was called outside of context, make sure your app is wrapped with ColorSchemeProvider component');
+    throw new Error('useCoColorScheme hook was called outside of context, make sure your app is wrapped with ColorSchemeProvider component');
   }
 
   return ctx;
-}
+};
 
 interface ColorSchemeProviderProps extends ColorSchemeContextProps {
   children: React.ReactNode;
 }
 
-export function ColorSchemeProvider({ colorScheme, toggleColorScheme, children }: ColorSchemeProviderProps) {
+export const ColorSchemeProvider = ({ colorScheme, toggleColorScheme, children }: ColorSchemeProviderProps) => {
   const [key, setKey] = useState('init');
 
   useEffect(() => {
@@ -34,6 +34,6 @@ export function ColorSchemeProvider({ colorScheme, toggleColorScheme, children }
       {children}
     </ColorSchemeContext.Provider>
   );
-}
+};
 
-ColorSchemeProvider.displayName = '@mantine/core/ColorSchemeProvider';
+ColorSchemeProvider.displayName = '@co/styles/ColorSchemeProvider';

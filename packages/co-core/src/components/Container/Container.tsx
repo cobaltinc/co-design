@@ -1,0 +1,20 @@
+import React, { forwardRef } from 'react';
+import { CoBreakpoints, CoSpacing, DefaultProps } from '@co/styles';
+import useStyles from './Container.style';
+
+export interface ContainerProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+  size?: CoBreakpoints | number;
+  padding?: CoSpacing | number;
+  fluid?: boolean;
+  break?: boolean;
+}
+
+export const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ size = 'medium', padding, fluid, break: _break, className, styles, classNames, co, ...props }, ref) => {
+    const { classes, cx } = useStyles({ padding, fluid, size, break: _break }, { styles, classNames, co, name: 'Container' });
+
+    return <div ref={ref} className={cx(classes.root, classNames)} {...props} />;
+  },
+);
+
+Container.displayName = '@co/core/Container';

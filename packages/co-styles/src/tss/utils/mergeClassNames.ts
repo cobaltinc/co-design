@@ -5,7 +5,7 @@ export function mergeClassNames<T extends Record<string, string>>(
   name: string,
 ) {
   return Object.keys(classes).reduce((acc, className) => {
-    acc[className] = cx(classes[className], classNames != null && classNames[className], name ? `mantine-${name}-${className}` : null);
+    acc[className] = cx(classes[className], classNames != null && classNames[className], name ? `co-${name}-${className}` : null);
     return acc;
   }, {}) as T;
 }

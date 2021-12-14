@@ -1,15 +1,15 @@
 import React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
-import { MantineProvider, ColorSchemeProvider } from '@co/core';
+import { CoProvider, ColorSchemeProvider } from '@co/core';
 
 export const parameters = { layout: 'fullscreen' };
 
 function ThemeWrapper(props: any) {
   return (
     <ColorSchemeProvider colorScheme="light" toggleColorScheme={() => {}}>
-      <MantineProvider theme={{ colorScheme: useDarkMode() ? 'dark' : 'light' }} withGlobalStyles withNormalizeCSS>
+      <CoProvider theme={{ colorScheme: useDarkMode() ? 'dark' : 'light' }} withGlobalStyles withNormalizeCSS>
         {props.children}
-      </MantineProvider>
+      </CoProvider>
     </ColorSchemeProvider>
   );
 }
