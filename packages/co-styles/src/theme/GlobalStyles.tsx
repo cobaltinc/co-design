@@ -1,5 +1,5 @@
 import React from 'react';
-import { Global } from '../tss';
+import { Global } from '../tss/Global';
 
 export function GlobalStyles() {
   return (
@@ -11,8 +11,8 @@ export function GlobalStyles() {
 
         body: {
           fontFamily: theme.fontFamily,
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.white,
-          color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.black,
+          backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[8] : theme.colors.white,
+          color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colorPalettes.dark[9],
           lineHeight: theme.lineHeight,
           fontSizes: theme.fontSizes.medium,
         } as any,

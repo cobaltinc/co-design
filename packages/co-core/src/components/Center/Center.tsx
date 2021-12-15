@@ -6,8 +6,8 @@ export interface CenterProps extends DefaultProps, React.ComponentPropsWithoutRe
   inline?: boolean;
 }
 
-export const Center = forwardRef<HTMLDivElement, CenterProps>(({ inline, className, styles, classNames, co, ...props }, ref) => {
-  const { classes, cx } = useStyles({ inline }, { styles, classNames, co, name: 'Center' });
+export const Center = forwardRef<HTMLDivElement, CenterProps>(({ inline, className, co, ...props }, ref) => {
+  const { classes, cx } = useStyles({ inline }, { co, name: 'Center' });
 
   return <div ref={ref} className={cx(classes.root, className)} {...props} />;
 });

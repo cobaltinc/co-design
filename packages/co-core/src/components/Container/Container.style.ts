@@ -10,19 +10,19 @@ interface ContainerStyles {
 export default createStyles((theme, { size, padding, fluid, break: _break }: ContainerStyles) => {
   const mediaQueries = {
     [`@media screen and (min-width: ${theme.breakpoints['xlarge']}px)`]: {
-      maxWidth: theme.breakpoints['xlarge'],
+      width: theme.breakpoints['xlarge'],
     },
     [`@media screen and (max-width: ${theme.breakpoints['xlarge']}px)`]: {
-      maxWidth: theme.breakpoints['large'],
+      width: theme.breakpoints['large'],
     },
     [`@media screen and (max-width: ${theme.breakpoints['large']}px)`]: {
-      maxWidth: theme.breakpoints['medium'],
+      width: theme.breakpoints['medium'],
     },
     [`@media screen and (max-width: ${theme.breakpoints['medium']}px)`]: {
-      maxWidth: theme.breakpoints['small'],
+      width: theme.breakpoints['small'],
     },
     [`@media screen and (max-width: ${theme.breakpoints['small']}px)`]: {
-      maxWidth: theme.breakpoints['xmall'],
+      width: theme.breakpoints['xmall'],
     },
   };
 

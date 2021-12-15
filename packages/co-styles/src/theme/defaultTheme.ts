@@ -7,6 +7,8 @@ import {
   DEFAULT_RADIUS,
   DEFAULT_SPACING,
   DEFAULT_SHADOWS,
+  DEFAULT_OPACITY,
+  DEFAULT_COLOR_PALETTES,
 } from './tokens';
 
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
@@ -21,6 +23,8 @@ export const DEFAULT_THEME: CoTheme = {
 
   colors: DEFAULT_COLORS,
 
+  colorPalettes: DEFAULT_COLOR_PALETTES,
+
   shadows: DEFAULT_SHADOWS,
 
   fontSizes: DEFAULT_FONT_SIZES,
@@ -32,6 +36,8 @@ export const DEFAULT_THEME: CoTheme = {
   breakpoints: DEFAULT_BREAKPOINTS,
 
   headings: DEFAULT_HEADINGS,
+
+  opacity: DEFAULT_OPACITY,
 
   extra: {},
   locale: 'en',

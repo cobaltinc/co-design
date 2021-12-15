@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { Tuple } from './Tuple';
 import type { DeepPartial } from './DeepPartial';
-import { CoBreakpoints, CoColor, CoFontSizes, CoRadius, CoShadows, CoSpacing } from '../tokens';
+import { CoBreakpoints, CoColor, CoColorPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing } from '../tokens';
 
 export interface HeadingStyle {
   fontSize: CSSProperties['fontSize'];
@@ -16,12 +16,14 @@ export interface CoTheme {
   fontFamilyMonospace: CSSProperties['fontFamily'];
   primaryColor: string;
 
-  colors: Record<CoColor, Tuple<string, 10> | string>;
+  colors: Record<CoColor, string>;
+  colorPalettes: Record<CoColorPalette, Tuple<string, 10>>;
   fontSizes: Record<CoFontSizes, number>;
   radius: Record<CoRadius, number>;
   spacing: Record<CoSpacing, number>;
   breakpoints: Record<CoBreakpoints, number>;
   shadows: Record<CoShadows, string>;
+  opacity: Record<CoOpacity, number>;
 
   headings: {
     h1: HeadingStyle;

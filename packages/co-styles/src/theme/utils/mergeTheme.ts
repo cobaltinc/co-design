@@ -1,4 +1,4 @@
-import { CoThemeOverride, CoTheme } from '../../types';
+import { CoThemeOverride, CoTheme } from '../types';
 
 export function mergeTheme(currentTheme: CoTheme, themeOverride?: CoThemeOverride): CoTheme {
   if (!themeOverride) {

@@ -3,7 +3,7 @@ import type { Options as EmotionCacheOptions } from '@emotion/cache';
 import { DEFAULT_THEME } from './defaultTheme';
 import type { CoThemeOverride, CoTheme } from './types';
 import type { CSSObject } from '../tss';
-import { mergeTheme } from './utils/merge-theme/merge-theme';
+import { mergeTheme } from './utils/mergeTheme';
 import { NormalizeCSS } from './NormalizeCSS';
 import { GlobalStyles } from './GlobalStyles';
 
