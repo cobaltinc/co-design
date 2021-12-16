@@ -15,12 +15,10 @@
     "declarationDir": "lib",
     "composite": true,
     "paths": {
-      "@co/hooks": ["../co-hooks/src"],
       "@co/styles": ["../co-styles/src"]
     }
   },
   "references": [
-    { "path": "../co-hooks" },
     { "path": "../co-styles" }
   ]
 }

@@ -7,74 +7,41 @@ export type ButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary';
 interface ButtonStylesProps {
   color?: CoColorPalette;
   size: CoSize;
-  fullWidth: boolean;
 }
 
 const sizes = {
   xsmall: {
+    width: CO_HEIGHTS.xsmall,
     height: CO_HEIGHTS.xsmall,
-    padding: '0 16px',
   },
 
   small: {
+    width: CO_HEIGHTS.small,
     height: CO_HEIGHTS.small,
-    padding: '0 16px',
   },
 
   medium: {
+    width: CO_HEIGHTS.medium,
     height: CO_HEIGHTS.medium,
-    padding: '0 24px',
   },
 
   large: {
+    width: CO_HEIGHTS.large,
     height: CO_HEIGHTS.large,
-    padding: '0 24px',
   },
 
   xlarge: {
+    width: CO_HEIGHTS.xlarge,
     height: CO_HEIGHTS.xlarge,
-    padding: '0 30px',
   },
 };
-
-const getFontStyles = (theme: CoTheme) => ({
-  xsmall: {
-    fontWeight: 'normal',
-    fontSize: theme.fontSizes.xsmall,
-  },
-
-  small: {
-    fontWeight: 'normal',
-    fontSize: theme.fontSizes.xsmall,
-  },
-
-  medium: {
-    fontWeight: 'normal',
-    fontSize: theme.fontSizes.small,
-  },
-
-  large: {
-    fontWeight: 'bold',
-    fontSize: theme.fontSizes.medium,
-  },
-
-  xlarge: {
-    fontWeight: 'bold',
-    fontSize: theme.fontSizes.xlarge,
-  },
-});
 
 export const heights = Object.keys(sizes).reduce((acc, size) => {
   acc[size] = sizes[size].height;
   return acc;
 }, {} as Record<CoSize, number>);
 
-const getWidthStyles = (fullWidth: boolean) => ({
-  display: fullWidth ? 'block' : 'inline-block',
-  width: fullWidth ? '100%' : 'auto',
-});
-
-export default createStyles((theme, { color: _color, size, fullWidth }: ButtonStylesProps, getRef) => {
+export default createStyles((theme, { color: _color, size }: ButtonStylesProps, getRef) => {
   const loading = getRef('loading');
   const inner = getRef('inner');
   const spinner = getRef('spinner');
@@ -230,8 +197,6 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
 
     root: {
       ...sizes[size],
-      ...getWidthStyles(fullWidth),
-      ...getFontStyles(theme)[size],
       fontFamily: theme.fontFamily,
       borderRadius: theme.radius.medium,
       position: 'relative',
@@ -255,19 +220,6 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       },
     },
 
-    icon: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-
-    leftIcon: {
-      marginRight: 10,
-    },
-
-    rightIcon: {
-      marginLeft: 10,
-    },
-
     inner: {
       ref: inner,
       display: 'flex',
@@ -275,14 +227,6 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       justifyContent: 'center',
       height: '100%',
       overflow: 'visible',
-    },
-
-    label: {
-      whiteSpace: 'nowrap',
-      height: '100%',
-      overflow: 'hidden',
-      display: 'flex',
-      alignItems: 'center',
     },
 
     spinner: {

@@ -1,27 +1,24 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoSize, CoColorPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co/styles';
+import { DefaultProps, CoSize, CoColorPalette, PolymorphicComponentProps, PolymorphicRef } from '@co/styles';
 import { View } from '../View';
-import useStyles, { ButtonVariant } from './Button.style';
+import useStyles, { ButtonVariant } from './IconButton.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 
-export interface SharedButtonProps extends DefaultProps {
+export interface SharedIconButtonProps extends DefaultProps {
   size?: CoSize;
   color?: CoColorPalette;
   variant?: ButtonVariant;
-  fullWidth?: boolean;
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
   loading?: boolean;
 }
 
-export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedButtonProps>;
+export type IconButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedIconButtonProps>;
 
-type ButtonComponent = <C extends React.ElementType = 'button'>(props: ButtonProps<C>) => React.ReactElement;
+type IconButtonComponent = <C extends React.ElementType = 'button'>(props: IconButtonProps<C>) => React.ReactElement;
 
-export const Button: ButtonComponent & { displayName?: string } = forwardRef(
+export const IconButton: IconButtonComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'button'>(
     {
       children,
@@ -29,29 +26,24 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       size = 'medium',
       color: _color,
       variant = 'primary',
-      fullWidth = false,
       type = 'button',
       disabled = false,
-      leftIcon,
-      rightIcon,
       loading = false,
       className,
       co,
       ...props
-    }: ButtonProps<C>,
+    }: IconButtonProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const theme = useCoTheme();
-    const color = _color || theme.primaryColor;
-    const { classes, cx } = useStyles(
+    const { theme, classes, cx } = useStyles(
       {
         color: _color,
         size,
-        fullWidth,
       },
       { co, name: 'Button' },
     );
 
+    const color = _color || theme.primaryColor;
     const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.colorPalettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
 
     return (
@@ -64,18 +56,11 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
         onTouchStart={() => {}}
         {...props}
       >
-        <div className={classes.inner}>
-          {leftIcon && <span className={cx(classes.icon, classes.leftIcon)}>{leftIcon}</span>}
-
-          <span className={classes.label}>{children}</span>
-
-          {rightIcon && <span className={cx(classes.icon, classes.rightIcon)}>{rightIcon}</span>}
-        </div>
-
+        <div className={classes.inner}>{children}</div>
         <div className={classes.spinner}>{spinner}</div>
       </View>
     );
   },
 );
 
-Button.displayName = '@co/core/Button';
+IconButton.displayName = '@co/core/IconButton';
