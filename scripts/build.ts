@@ -7,7 +7,7 @@ import { buildAllPackages } from './utils/build-all-packages';
 const { argv }: { argv: any } = yargs(hideBin(process.argv))
   .option('all', {
     type: 'boolean',
-    default: true,
+    default: false,
     description: 'Build all packages.',
   })
   .option('project', {

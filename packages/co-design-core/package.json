@@ -13,10 +13,10 @@
   "repository": {
     "url": "https://github.com/cobaltinc/co.git",
     "type": "git",
-    "directory": "packages/co-core"
+    "directory": "packages/co-design-core"
   },
   "peerDependencies": {
-    "@co-design/hooks": "0.0.1",
+    "@co-design/hooks": "^0.1.0",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },

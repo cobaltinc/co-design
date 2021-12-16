@@ -18,10 +18,10 @@
     "declarationDir": "lib",
     "composite": true,
     "paths": {
-      "@co-design/styles": ["../co-styles/src"]
+      "@co-design/styles": ["../co-design-styles/src"]
     }
   },
   "references": [
-    { "path": "../co-styles" }
+    { "path": "../co-design-styles" }
   ]
 }
