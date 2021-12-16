@@ -2,9 +2,9 @@ import { createStyles, CoSize, CoTheme, CoColorPalette } from '@co-design/styles
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary';
+export type IconButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary';
 
-interface ButtonStylesProps {
+interface IconButtonStylesProps {
   color?: CoColorPalette;
   size: CoSize;
 }
@@ -41,7 +41,7 @@ export const heights = Object.keys(sizes).reduce((acc, size) => {
   return acc;
 }, {} as Record<CoSize, number>);
 
-export default createStyles((theme, { color: _color, size }: ButtonStylesProps, getRef) => {
+export default createStyles((theme, { color: _color, size }: IconButtonStylesProps, getRef) => {
   const loading = getRef('loading');
   const inner = getRef('inner');
   const spinner = getRef('spinner');

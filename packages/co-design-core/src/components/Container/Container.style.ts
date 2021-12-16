@@ -1,4 +1,5 @@
 import { CoBreakpoints, CoSpacing, createStyles } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
 interface ContainerStyles {
   size: CoBreakpoints | number;
@@ -22,7 +23,10 @@ export default createStyles((theme, { size, padding, fluid, break: _break }: Con
       width: theme.breakpoints['small'],
     },
     [`@media screen and (max-width: ${theme.breakpoints['small']}px)`]: {
-      width: theme.breakpoints['xmall'],
+      width: theme.breakpoints['xsmall'],
+    },
+    [`@media screen and (max-width: ${theme.breakpoints['xsmall']}px)`]: {
+      width: '100%',
     },
   };
 
@@ -31,8 +35,8 @@ export default createStyles((theme, { size, padding, fluid, break: _break }: Con
       maxWidth: fluid ? '100%' : size in theme.breakpoints ? theme.breakpoints[size] : size,
       marginLeft: 'auto',
       marginRight: 'auto',
-      paddingLeft: padding in theme.spacing ? theme.spacing[padding] : padding,
-      paddingRight: padding in theme.spacing ? theme.spacing[padding] : padding,
+      paddingLeft: getFieldValue(padding, theme.spacing),
+      paddingRight: getFieldValue(padding, theme.spacing),
 
       ...(_break && mediaQueries),
     },

@@ -1,14 +1,14 @@
 import React, { forwardRef } from 'react';
 import { DefaultProps, CoSize, CoColorPalette, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
 import { View } from '../View';
-import useStyles, { ButtonVariant } from './IconButton.style';
+import useStyles, { IconButtonVariant } from './IconButton.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 
 export interface SharedIconButtonProps extends DefaultProps {
   size?: CoSize;
   color?: CoColorPalette;
-  variant?: ButtonVariant;
+  variant?: IconButtonVariant;
   type?: 'submit' | 'button' | 'reset';
   disabled?: boolean;
   loading?: boolean;

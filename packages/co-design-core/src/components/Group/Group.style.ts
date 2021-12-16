@@ -1,5 +1,6 @@
 import React from 'react';
 import { createStyles, CoSpacing } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
 export type GroupPosition = 'right' | 'center' | 'left' | 'apart';
 
@@ -8,7 +9,7 @@ interface GroupStyles {
   position: GroupPosition;
   noWrap: boolean;
   grow: boolean;
-  gutter: CoSpacing | number;
+  spacing: CoSpacing | number;
   direction: 'row' | 'column';
   align: React.CSSProperties['alignItems'];
   count: number;
@@ -21,8 +22,8 @@ const POSITIONS = {
   apart: 'space-between',
 };
 
-export default createStyles((theme, { inline, gutter, position, noWrap, direction, grow, align, count }: GroupStyles) => {
-  const gutterValue = gutter in theme.spacing ? theme.spacing[gutter] : gutter;
+export default createStyles((theme, { inline, spacing, position, noWrap, direction, grow, align, count }: GroupStyles) => {
+  const spacingValue = getFieldValue(spacing, theme.spacing);
 
   return {
     root: {
@@ -32,12 +33,12 @@ export default createStyles((theme, { inline, gutter, position, noWrap, directio
       alignItems: align || (direction === 'row' ? 'center' : grow ? 'stretch' : position === 'apart' ? 'flex-start' : POSITIONS[position]),
       flexWrap: noWrap ? 'nowrap' : 'wrap',
       justifyContent: direction === 'row' ? POSITIONS[position] : undefined,
-      gap: gutterValue,
+      gap: spacingValue,
     },
 
     child: {
       boxSizing: 'border-box',
-      maxWidth: grow && direction === 'row' ? `calc(${100 / count}% - ${gutterValue - gutterValue / count}px)` : undefined,
+      maxWidth: grow && direction === 'row' ? `calc(${100 / count}% - ${spacingValue - spacingValue / count}px)` : undefined,
       flexGrow: grow ? 1 : 0,
     },
   };

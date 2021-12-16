@@ -1,1 +1,2 @@
-export * from './Burger';
+export { Burger } from './Burger';
+export type { BurgerProps } from './Burger';

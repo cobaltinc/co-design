@@ -1,4 +1,5 @@
 import { createStyles, CoSpacing } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
 interface DividerStyles {
   variant: string;
@@ -59,7 +60,7 @@ export default createStyles((theme, { margin, variant }: DividerStyles) => {
       borderTopWidth: 1,
       borderTopColor: borderColor,
       borderTopStyle: variant as any,
-      margin: `${margin in theme.spacing ? theme.spacing[margin] : margin}px 0`,
+      margin: `${getFieldValue(margin, theme.spacing)}px 0`,
     },
 
     vertical: {
@@ -71,7 +72,7 @@ export default createStyles((theme, { margin, variant }: DividerStyles) => {
       borderLeftWidth: 1,
       borderLeftColor: borderColor,
       borderLeftStyle: variant as any,
-      margin: `0 ${margin in theme.spacing ? theme.spacing[margin] : margin}px`,
+      margin: `0 ${getFieldValue(margin, theme.spacing)}px`,
     },
   };
 });

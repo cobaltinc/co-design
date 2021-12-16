@@ -1,9 +1,9 @@
 import { createStyles, CoBreakpoints, CSSObject } from '@co-design/styles';
 
 interface MediaQueryStyles {
-  smallerThan: CoBreakpoints | number;
-  largerThan: CoBreakpoints | number;
-  style: CSSObject;
+  smallerThan?: CoBreakpoints | number;
+  largerThan?: CoBreakpoints | number;
+  style?: CSSObject;
   query: string;
 }
 

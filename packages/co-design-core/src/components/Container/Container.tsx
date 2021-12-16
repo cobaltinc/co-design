@@ -11,7 +11,7 @@ export interface ContainerProps extends DefaultProps, React.ComponentPropsWithou
 }
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
-  ({ size = 'medium', padding, fluid, break: _break, className, co, ...props }, ref) => {
+  ({ size = 'large', padding, fluid, break: _break, className, co, ...props }, ref) => {
     const { classes, cx } = useStyles({ padding, fluid, size, break: _break }, { co, name: 'Container' });
 
     return <View component="div" ref={ref} className={cx(classes.root, className)} {...props} />;

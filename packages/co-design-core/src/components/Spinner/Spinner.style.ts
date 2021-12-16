@@ -1,4 +1,4 @@
-import { CoBreakpoints, CoColor, CoColorPalette, CoSize, CoSpacing, createStyles } from '@co-design/styles';
+import { CoColor, CoColorPalette, CoSize, createStyles } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 
 interface SpinnerStyles {

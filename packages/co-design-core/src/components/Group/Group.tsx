@@ -9,7 +9,7 @@ export interface GroupProps extends DefaultProps, React.ComponentPropsWithoutRef
   align?: React.CSSProperties['alignItems'];
   noWrap?: boolean;
   grow?: boolean;
-  gutter?: CoSpacing | number;
+  spacing?: CoSpacing | number;
   direction?: 'row' | 'column';
 }
 
@@ -22,7 +22,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
       align,
       noWrap = false,
       grow = false,
-      gutter = 'spacing2',
+      spacing = 'spacing2',
       direction = 'row',
       className,
       co,
@@ -37,7 +37,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
         align,
         grow,
         noWrap,
-        gutter,
+        spacing,
         position,
         direction,
         count,
