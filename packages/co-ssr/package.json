@@ -17,14 +17,13 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@emotion/server": "^11.4.0",
-    "@co/styles": "0.0.1",
+    "@co/styles": "^0.0.1",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
+    "@emotion/server": "^11.4.0",
     "@emotion/utils": "^1.0.0",
     "csstype": "^3.0.10",
     "html-react-parser": "^1.4.3"
-  },
-  "devDependencies": {}
+  }
 }

@@ -13,12 +13,11 @@
     "directory": "packages/co-next"
   },
   "peerDependencies": {
+    "next": "*",
     "react": ">=16.8.0",
-    "react-dom": ">=16.8.0",
-    "next": "*"
+    "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@co/ssr": "0.0.1"
-  },
-  "devDependencies": {}
+    "@co/ssr": "^0.0.1"
+  }
 }
