@@ -2,7 +2,7 @@
   Co Design System 💫
 </h1>
 
-<p align="center"><strong>Co is an open-source design system built by <a href="https://cobalt.run">Cobalt, Inc.</a></strong></p>
+<p align="center"><strong>Co is an open-source design system built by <a href="https://present.do">Cobalt, Inc.</a></strong></p>
 
 <p align='center'>
   <a href="https://cobalt.run">
