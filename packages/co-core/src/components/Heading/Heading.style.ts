@@ -1,4 +1,4 @@
-import { CoBreakpoints, CoColor, CoColorPalette, CoSpacing, createStyles } from '@co/styles';
+import { CoColor, CoColorPalette, createStyles } from '@co/styles';
 
 interface HeadingStyles {
   strong: boolean;
@@ -16,9 +16,7 @@ export default createStyles((theme, { inline, strong, underline, color }: Headin
       textDecoration: underline ? 'underline' : undefined,
       color:
         color in theme.colorPalettes
-          ? theme.colorScheme === 'light'
-            ? theme.colorPalettes[color][6]
-            : theme.colorPalettes[color][4]
+          ? theme.colorPalettes[color][theme.colorScheme === 'light' ? 6 : 4]
           : color in theme.colors
           ? theme.colors[color]
           : color,

@@ -4,5 +4,8 @@ export const DEFAULT_COLORS = {
   transparent: 'transparent',
   white: '#FFF',
   black: '#000',
-  border: '#E9EBF0',
+  lightBackground: '#FFF',
+  lightBorder: '#E9EBF0',
+  darkBackground: '#212121',
+  darkBorder: '#424242',
 } as Record<CoColor, string>;
