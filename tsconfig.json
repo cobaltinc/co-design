@@ -8,7 +8,7 @@
   "exclude": ["public", ".cache", "config/storybook/main.js"],
   "compilerOptions": {
     "paths": {
-      "@co/*": ["packages/co-*/src"],
+      "@co-design/*": ["packages/co-*/src"],
     }
   }
 }

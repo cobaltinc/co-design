@@ -1,0 +1,30 @@
+{
+  "name": "@co-design/styles",
+  "version": "0.0.1",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "author": "Cobalt. Inc.",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "https://github.com/cobaltinc/co.git",
+    "type": "git",
+    "directory": "packages/co-styles"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.6.0",
+    "@emotion/react": "^11.6.0",
+    "@emotion/serialize": "^1.0.2",
+    "@emotion/utils": "^1.0.0",
+    "clsx": "^1.1.1",
+    "csstype": "^3.0.9"
+  }
+}

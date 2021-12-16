@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
-import { CoProvider, ColorSchemeProvider } from '@co/core';
+import { CoProvider, ColorSchemeProvider } from '@co-design/core';
 
 export const parameters = { layout: 'fullscreen' };
 

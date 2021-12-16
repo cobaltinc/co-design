@@ -15,7 +15,7 @@
     "declarationDir": "lib",
     "composite": true,
     "paths": {
-      "@co/styles": ["../co-styles/src"]
+      "@co-design/styles": ["../co-styles/src"]
     }
   },
   "references": [

@@ -1,3 +1,3 @@
-# @co/styled
+# @co-design/styled
 
 WIP

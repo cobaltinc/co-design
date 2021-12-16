@@ -1,0 +1,26 @@
+{
+  "name": "@co-design/core",
+  "version": "0.0.1",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "author": "Cobalt. Inc.",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "url": "https://github.com/cobaltinc/co.git",
+    "type": "git",
+    "directory": "packages/co-core"
+  },
+  "peerDependencies": {
+    "@co-design/hooks": "0.0.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@co-design/styles": "^0.0.1"
+  }
+}

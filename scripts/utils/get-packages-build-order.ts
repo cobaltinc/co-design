@@ -16,7 +16,7 @@ export async function getPackageBuildOrder(packages: Package[], pkg: Package, or
     ...pkg.packageJson.peerDependencies,
     ...pkg.packageJson.dependencies,
   })
-    .filter((dependency) => dependency.includes('@co/'))
+    .filter((dependency) => dependency.includes('@co-design/'))
     .map((dependency) => packages.find((pkgItem) => pkgItem.packageJson.name === dependency));
 
   if (dependencies.length === 0) {
