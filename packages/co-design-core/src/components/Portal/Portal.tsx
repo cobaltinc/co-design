@@ -12,7 +12,7 @@ export interface PortalProps {
   style?: CSSProperties;
 }
 
-export const Portal = ({ children, zIndex = 1, target, className, style }: PortalProps): ReactPortal => {
+export const Portal = ({ children, zIndex, target, className, style }: PortalProps): ReactPortal => {
   const theme = useCoTheme();
   const [mounted, setMounted] = useState(false);
   const ref = useRef<HTMLDivElement>();
@@ -35,7 +35,7 @@ export const Portal = ({ children, zIndex = 1, target, className, style }: Porta
   }
 
   return createPortal(
-    <div className={className} style={{ ...style, position: 'relative', zIndex: getFieldValue(zIndex, theme.zIndex) }}>
+    <div className={className} style={{ ...style, position: 'relative', zIndex: getFieldValue(zIndex, theme.zIndex) || theme.zIndex.default }}>
       {children}
     </div>,
     ref.current,
