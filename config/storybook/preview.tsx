@@ -5,9 +5,10 @@ import { CoProvider, ColorSchemeProvider } from '@co-design/core';
 export const parameters = { layout: 'fullscreen', darkMode: { current: 'light' } };
 
 function ThemeWrapper(props: any) {
+  const colorScheme = useDarkMode() ? 'dark' : 'light';
   return (
-    <ColorSchemeProvider colorScheme="light" toggleColorScheme={() => {}}>
-      <CoProvider theme={{ colorScheme: useDarkMode() ? 'dark' : 'light' }} withGlobalStyles withNormalizeCSS>
+    <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={() => {}}>
+      <CoProvider theme={{ colorScheme }} withGlobalStyles withNormalizeCSS>
         {props.children}
       </CoProvider>
     </ColorSchemeProvider>
