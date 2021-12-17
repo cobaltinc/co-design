@@ -5,6 +5,7 @@ export * from './useForceUpdate';
 export * from './useHotKey';
 export * from './useHover';
 export * from './useId';
+export * from './useIntersection';
 export * from './useInterval';
 export * from './useIntervalFn';
 export * from './useIsomorphicEffect';
