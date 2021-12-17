@@ -10,6 +10,7 @@ export * from './IconButton';
 export * from './Image';
 export * from './Kbd';
 export * from './MediaQuery';
+export * from './Portal';
 export * from './SimpleGrid';
 export * from './Spinner';
 export * from './Switch';
