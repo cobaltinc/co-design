@@ -2,7 +2,7 @@
   Co Design System 💫
 </h1>
 
-<p align="center"><strong>Co is an open-source design system built by <a href="https://present.do">Cobalt, Inc.</a></strong></p>
+<p align="center"><strong>Co Design is an open-source design system built by <a href="https://present.do">Cobalt, Inc.</a></strong></p>
 
 <p align='center'>
   <a href="https://cobalt.run">
@@ -25,4 +25,4 @@
 
 ## :page_facing_up: License
 
-Co is made available under the [MIT License](./LICENSE).
+Co Design is made available under the [MIT License](./LICENSE).
