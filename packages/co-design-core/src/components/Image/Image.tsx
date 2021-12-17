@@ -24,38 +24,39 @@ export interface ImageProps extends DefaultProps, Omit<React.ComponentPropsWitho
   width?: number | string;
   height?: number | string;
   alt?: string;
-  mode?: 'cover' | 'fill' | 'contain';
+  fit?: 'cover' | 'fill' | 'contain';
 }
 
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
   (
-    { lazy, threshold = 0.5, placeholder, src, radius, width = '100%', height = 'auto', alt, mode, style, className, co, ...props }: ImageProps,
+    { lazy, threshold = 0.5, placeholder, src, radius, width = '100%', height = 'auto', alt, fit, style, className, co, ...props }: ImageProps,
     ref,
   ) => {
     const { classes, cx } = useStyles({ radius }, { co, name: 'Image' });
     const [loaded, setLoaded] = useState(false);
+    const [intersected, setIntersected] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
 
     const imageStyle: CSSProperties = {
       width,
       height,
-      objectFit: mode, // cover, fill, contain
+      objectFit: fit, // cover, fill, contain
     };
 
     useImperativeHandle(ref, () => imgRef.current!);
 
     useEffect(() => {
       if (!lazy) {
-        setLoaded(true);
+        setIntersected(true);
         return;
       }
 
-      const handleLoadImage = () => setLoaded(true);
+      const handleIntersect = () => setIntersected(true);
 
       const imgElement = imgRef.current;
-      imgElement && imgElement.addEventListener(LOAD_IMG_EVENT_TYPE, handleLoadImage);
+      imgElement && imgElement.addEventListener(LOAD_IMG_EVENT_TYPE, handleIntersect);
       return () => {
-        imgElement && imgElement.removeEventListener(LOAD_IMG_EVENT_TYPE, handleLoadImage);
+        imgElement && imgElement.removeEventListener(LOAD_IMG_EVENT_TYPE, handleIntersect);
       };
     }, [lazy]);
 
@@ -68,9 +69,9 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(
 
     return (
       <View className={cx(classes.root, className)} {...props}>
-        <img ref={imgRef} src={src} alt={alt} className={classes.image} style={imageStyle} />
+        <img ref={imgRef} src={src} alt={alt} className={classes.image} style={imageStyle} onLoad={() => setLoaded(true)} />
 
-        {!loaded && placeholder && (
+        {(!loaded || (lazy && !intersected)) && placeholder && (
           <div className={classes.placeholder} title={alt}>
             {placeholder}
           </div>
