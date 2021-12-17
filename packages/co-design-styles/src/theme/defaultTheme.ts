@@ -9,6 +9,7 @@ import {
   DEFAULT_SHADOWS,
   DEFAULT_OPACITY,
   DEFAULT_COLOR_PALETTES,
+  DEFAULT_Z_INDEX,
 } from './tokens';
 
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
@@ -38,6 +39,8 @@ export const DEFAULT_THEME: CoTheme = {
   headings: DEFAULT_HEADINGS,
 
   opacity: DEFAULT_OPACITY,
+
+  zIndex: DEFAULT_Z_INDEX,
 
   extra: {},
   locale: 'en',
