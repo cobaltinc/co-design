@@ -1,5 +1,6 @@
 export * from './useClickAway';
 export * from './useClipboard';
+export * from './useColorScheme';
 export * from './useDebounce';
 export * from './useForceUpdate';
 export * from './useHotKey';
