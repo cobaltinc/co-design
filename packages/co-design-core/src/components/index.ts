@@ -1,3 +1,4 @@
+export * from './Affix';
 export * from './Burger';
 export * from './Button';
 export * from './Center';
