@@ -2,7 +2,8 @@ import { RefObject, useEffect, useRef } from 'react';
 
 const events = ['mousedown', 'touchstart'];
 
-export const useClickAway = <E extends Event = Event>(ref: RefObject<HTMLElement>, handler: (event: E) => void) => {
+export const useClickAway = <T extends HTMLElement, E extends Event = Event>(handler: (event: E) => void): RefObject<T> => {
+  const ref = useRef<T>();
   const savedCallback = useRef(handler);
 
   useEffect(() => {
@@ -25,4 +26,6 @@ export const useClickAway = <E extends Event = Event>(ref: RefObject<HTMLElement
       }
     };
   }, [ref.current]);
+
+  return ref;
 };

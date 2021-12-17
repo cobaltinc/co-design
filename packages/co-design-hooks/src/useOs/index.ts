@@ -1,1 +1,2 @@
-export * from './useOs';
+export { useOs } from './useOs';
+export type { OS } from './useOs';

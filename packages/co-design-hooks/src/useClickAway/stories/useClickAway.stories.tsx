@@ -6,8 +6,7 @@ export default {
 };
 
 export const Default = () => {
-  const ref = useRef<HTMLDivElement>();
-  useClickAway(ref, () => {
+  const ref = useClickAway<HTMLDivElement>(() => {
     alert(`Click away from red box!`);
   });
 
