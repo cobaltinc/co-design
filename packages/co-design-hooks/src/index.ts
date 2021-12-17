@@ -13,6 +13,8 @@ export * from './useIsomorphicEffect';
 export * from './useKeyPress';
 export * from './useList';
 export * from './useLoading';
+export * from './useMediaQuery';
+export * from './useMergedRef';
 export * from './useOrientation';
 export * from './useOs';
 export * from './usePageLeave';
