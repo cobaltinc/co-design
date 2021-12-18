@@ -27,17 +27,16 @@ export default createStyles((theme) => ({
   },
 
   arrow: {
-    content: '""',
     position: 'absolute',
-    display: 'inline-block',
+    width: 12,
+    height: 12,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colorPalettes.dark[9],
     userSelect: 'none',
     pointerEvents: 'none',
-    color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colorPalettes.dark[9],
-    boxShadow: theme.shadows.large,
 
     '&[class^="top"]': {
-      top: -12,
-      transform: 'translate(-50%) rotate(180deg)',
+      top: -18,
+      transform: 'translate(-50%) rotate(-135deg)',
     },
 
     '&.top-left': {
@@ -49,8 +48,8 @@ export default createStyles((theme) => ({
     },
 
     '&[class^="bottom"]': {
-      bottom: -12,
-      transform: 'translate(-50%)',
+      bottom: -18,
+      transform: 'translate(-50%) rotate(45deg)',
     },
 
     '&.bottom-left': {
@@ -63,7 +62,7 @@ export default createStyles((theme) => ({
 
     '&[class^="right"]': {
       right: -18,
-      transform: 'translateY(-50%) rotate(-90deg)',
+      transform: 'translateY(-50%) rotate(-45deg)',
     },
 
     '&.right-top': {
@@ -76,7 +75,7 @@ export default createStyles((theme) => ({
 
     '&[class^="left"]': {
       left: -18,
-      transform: 'translateY(-50%) rotate(90deg)',
+      transform: 'translateY(-50%) rotate(135deg)',
     },
 
     '&.left-top': {
@@ -90,13 +89,12 @@ export default createStyles((theme) => ({
 
   content: {
     position: 'absolute',
-    padding: '4px 8px',
-    borderRadius: 4,
+    padding: theme.spacing.spacing2,
+    borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colorPalettes.dark[9],
     fontFamily: theme.fontFamily,
     fontSize: theme.fontSizes.small,
     color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colorPalettes.dark[0],
-    boxShadow: theme.shadows.large,
 
     '&[class^="top"]': {
       bottom: 0,

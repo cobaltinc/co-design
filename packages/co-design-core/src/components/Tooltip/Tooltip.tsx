@@ -95,15 +95,10 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
         <Portal zIndex={_zIndex}>
           {currentVisible && (
             <View className={classes.balloon} style={positionStyle} ref={ref} {...props}>
-              {withArrow && (
-                <svg className={cx(placement, classes.arrow)} width="24" height="12" viewBox="0 0 24 12">
-                  <path fill="currentColor" strokeWidth="1" stroke="currentColor" fillRule="evenodd" d="M20 12l-8-8-12 12" />
-                </svg>
-              )}
-
               <div className={cx(placement, classes.content)} style={contentStyle}>
                 {label}
               </div>
+              {withArrow && <div className={cx(placement, classes.arrow)} />}
             </View>
           )}
         </Portal>
