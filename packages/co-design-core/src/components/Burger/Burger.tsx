@@ -40,4 +40,4 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
   },
 );
 
-Burger.displayName = '@mantine/core/Burger';
+Burger.displayName = '@co-design/core/Burger';

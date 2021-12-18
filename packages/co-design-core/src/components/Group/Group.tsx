@@ -59,4 +59,4 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
   },
 );
 
-Group.displayName = '@mantine/core/Group';
+Group.displayName = '@co-design/core/Group';

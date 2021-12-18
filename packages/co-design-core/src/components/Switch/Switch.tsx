@@ -34,4 +34,4 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   },
 );
 
-Switch.displayName = '@mantine/core/Switch';
+Switch.displayName = '@co-design/core/Switch';

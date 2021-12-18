@@ -17,4 +17,4 @@ export const Kbd = forwardRef<HTMLElement, KbdProps>(({ children, className, co,
   );
 });
 
-Kbd.displayName = '@mantine/core/Kbd';
+Kbd.displayName = '@co-design/core/Kbd';
