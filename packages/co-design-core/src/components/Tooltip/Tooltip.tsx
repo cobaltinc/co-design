@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoZIndex, useCoTheme, ColorScheme } from '@co-design/styles';
+import { DefaultProps, CoZIndex, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
@@ -14,7 +14,6 @@ export interface TooltipProps extends DefaultProps, React.ComponentPropsWithoutR
   placement?: TooltipPlacement;
   trigger?: TooltipTrigger;
   zIndex?: CoZIndex | number;
-  colorScheme?: ColorScheme;
 }
 
 const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => {
@@ -53,7 +52,6 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
       placement = 'top',
       trigger = 'hover',
       zIndex,
-      colorScheme,
       className,
       co,
       ...props
@@ -62,7 +60,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(
   ) => {
     const theme = useCoTheme();
     const _zIndex = getFieldValue(zIndex, theme.zIndex) || theme.zIndex.dropdown;
-    const { classes, cx } = useStyles({ colorScheme }, { co, name: 'Tooltip' });
+    const { classes, cx } = useStyles(null, { co, name: 'Tooltip' });
 
     const [currentVisible, setCurrentVisible] = useToggle(visible);
     const targetRef = useClickAway<HTMLDivElement>((event: MouseEvent) => {

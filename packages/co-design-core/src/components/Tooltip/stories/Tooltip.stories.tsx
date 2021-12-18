@@ -10,10 +10,6 @@ export default {
       defaultValue: 'Peek-A-Boo',
       control: { type: 'text' },
     },
-    colorScheme: {
-      options: ['light', 'dark'],
-      control: { type: 'inline-radio' },
-    },
     withArrow: {
       defaultValue: true,
       control: { type: 'boolean' },
