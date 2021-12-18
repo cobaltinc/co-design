@@ -11,6 +11,7 @@ export * from './Heading';
 export * from './IconButton';
 export * from './Image';
 export * from './Kbd';
+export * from './Mark';
 export * from './MediaQuery';
 export * from './Popover';
 export * from './Portal';
