@@ -36,6 +36,11 @@ export default {
       ],
       control: { type: 'inline-radio' },
     },
+    trigger: {
+      defaultValue: 'hover',
+      options: ['hover', 'click', 'focus'],
+      control: { type: 'inline-radio' },
+    },
   },
 };
 
