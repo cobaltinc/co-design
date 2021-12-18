@@ -3,7 +3,7 @@ import { DefaultProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, C
 import { View } from '../View';
 import useStyles from './Text.style';
 
-export interface SharedTextProps extends DefaultProps {
+interface _TextProps extends DefaultProps {
   size?: CoFontSizes;
   color?: CoColorPalette | CoColor | string;
   strong?: boolean | React.CSSProperties['fontWeight'];
@@ -15,7 +15,7 @@ export interface SharedTextProps extends DefaultProps {
   inherit?: boolean;
 }
 
-export type TextProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedTextProps>;
+export type TextProps<C extends React.ElementType> = PolymorphicComponentProps<C, _TextProps>;
 
 type TextComponent = <C extends React.ElementType = 'span'>(props: TextProps<C>) => React.ReactElement;
 
