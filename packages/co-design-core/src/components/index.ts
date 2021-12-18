@@ -8,6 +8,7 @@ export * from './Divider';
 export * from './Grid';
 export * from './Group';
 export * from './Heading';
+export * from './Highlight';
 export * from './IconButton';
 export * from './Image';
 export * from './Kbd';
