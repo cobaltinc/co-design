@@ -1,10 +1,11 @@
-import React, { forwardRef, useRef } from 'react';
+import React, { useRef } from 'react';
 import { DefaultProps, CoZIndex, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
 import useStyles, { PopoverPlacement, PopoverTrigger } from './Popover.style';
 import { useClickAway, useToggle } from '@co-design/hooks';
+import { CoTransition, Transition } from '../Transition';
 
 export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
   visible?: boolean;
@@ -14,6 +15,9 @@ export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutR
   placement?: PopoverPlacement;
   trigger?: PopoverTrigger;
   zIndex?: CoZIndex | number;
+  transition?: CoTransition;
+  transitionDuration?: number;
+  transitionTimingFunction?: string;
 }
 
 const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => {
@@ -50,6 +54,9 @@ export const Popover = ({
   placement = 'top',
   trigger = 'click',
   zIndex,
+  transition = 'fade',
+  transitionDuration = 100,
+  transitionTimingFunction = 'ease',
   className,
   co,
   ...props
@@ -59,11 +66,12 @@ export const Popover = ({
   const { classes, cx } = useStyles(null, { co, name: 'Popover' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
-  const balloonRef = useRef<HTMLDivElement>();
+  const balloonRef = useRef<HTMLDivElement>(null);
   const targetRef = useClickAway<HTMLDivElement>((e: MouseEvent) => {
     if (
       trigger === 'click' &&
       targetRef.current &&
+      balloonRef.current &&
       !targetRef.current.contains(e.target as HTMLElement) &&
       !balloonRef.current.contains(e.target as HTMLElement)
     ) {
@@ -101,14 +109,16 @@ export const Popover = ({
       className={cx(classes.root, className)}
     >
       <Portal zIndex={_zIndex}>
-        {currentVisible && (
-          <View className={classes.balloon} style={positionStyle} ref={balloonRef} {...props}>
-            <div className={cx(placement, classes.content)} style={contentStyle}>
-              {content}
-            </div>
-            {withArrow && <div className={cx(placement, classes.arrow)} />}
-          </View>
-        )}
+        <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
+          {(styles) => (
+            <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
+              <div className={cx(placement, classes.content)} style={contentStyle}>
+                {content}
+              </div>
+              {withArrow && <div className={cx(placement, classes.arrow)} />}
+            </View>
+          )}
+        </Transition>
       </Portal>
 
       {children}
