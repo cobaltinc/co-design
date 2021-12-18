@@ -20,4 +20,5 @@ export * from './Switch';
 export * from './Tag';
 export * from './Text';
 export * from './Tooltip';
+export * from './Transition';
 export * from './View';
