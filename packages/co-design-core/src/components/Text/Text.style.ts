@@ -38,7 +38,7 @@ export default createStyles((theme, { color, size, lineClamp, block, inherit }: 
       ...getLineClamp(lineClamp),
       color: _color,
       fontFamily: inherit ? 'inherit' : theme.fontFamily,
-      fontSize: inherit ? 'inherit' : getFieldValue(size, theme.fontSizes[size]),
+      fontSize: inherit ? 'inherit' : getFieldValue(size, theme.fontSizes),
       lineHeight: inherit ? 'inherit' : block ? theme.lineHeight : 1,
       WebkitTapHighlightColor: 'transparent',
     },
