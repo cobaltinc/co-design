@@ -30,7 +30,7 @@ export const Default = (props) => {
         <button color={visible ? 'red' : 'teal'}>{!visible ? 'Click as much as you like' : "Won't click, haha"}</button>
       </div>
 
-      <button onClick={() => setVisible((v) => !v)}>Popover</button>
+      <button onClick={() => setVisible((v) => !v)}>Overlay</button>
     </>
   );
 };
