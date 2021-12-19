@@ -12,6 +12,7 @@ export * from './Heading';
 export * from './Highlight';
 export * from './IconButton';
 export * from './Image';
+export * from './Input';
 export * from './Kbd';
 export * from './Mark';
 export * from './MediaQuery';
