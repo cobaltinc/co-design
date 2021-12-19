@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Center } from '../../Center';
 import { Overlay } from '../Overlay';
 
 export default {
@@ -20,8 +19,6 @@ export default {
     },
   },
 };
-
-const Content = () => <div>Hi! I'm popover</div>;
 
 export const Default = (props) => {
   const [visible, setVisible] = useState(false);
