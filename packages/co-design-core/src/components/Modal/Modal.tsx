@@ -119,7 +119,7 @@ export const CoModal = ({
             className={classes.inner}
             onClick={() => closeOnClickOutside && onClose()}
             onKeyDownCapture={(event) => {
-              const shouldTrigger = (event.target as any)?.getAttribute('data-mantine-stop-propagation') !== 'true';
+              const shouldTrigger = (event.target as any)?.getAttribute('data-co-stop-propagation') !== 'true';
               shouldTrigger && event.nativeEvent.code === 'Escape' && onClose();
             }}
             ref={focusTrapRef}
