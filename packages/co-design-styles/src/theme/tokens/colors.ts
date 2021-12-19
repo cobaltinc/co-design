@@ -4,7 +4,7 @@ export const DEFAULT_COLORS = {
   transparent: 'transparent',
   white: '#FFF',
   black: '#000',
-  lightBackground: '#EFEFEF',
+  lightBackground: '#FFF',
   lightBorder: '#E9EBF0',
   darkBackground: '#212121',
   darkBorder: '#424242',
