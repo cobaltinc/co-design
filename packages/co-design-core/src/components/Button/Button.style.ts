@@ -2,7 +2,7 @@ import { createStyles, CoSize, CoTheme, CoColorPalette } from '@co-design/styles
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary';
+export type ButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary' | 'transparent';
 
 interface ButtonStylesProps {
   color?: CoColorPalette;
@@ -198,6 +198,37 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
     },
     tertiary: {
       backgroundColor: addAlpha(theme.colorPalettes[color][9], theme.opacity.opacity1),
+      color: theme.colorPalettes[color][6],
+
+      '&:not(:disabled):hover': {
+        backgroundColor: addAlpha(theme.colorPalettes[color][9], theme.opacity.opacity2),
+      },
+
+      '&:not(:disabled):active': {
+        backgroundColor: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+      },
+
+      '&:not(:disabled):focus-visible': {
+        outline: `1px solid ${theme.colorPalettes[color][6]}`,
+
+        '&::before': {
+          content: '""',
+          position: 'absolute',
+          top: -2,
+          bottom: -2,
+          left: -3,
+          right: -3,
+          borderRadius: 4,
+          outline: `1px solid ${theme.colorPalettes[color][6]}`,
+        },
+      },
+
+      [`&:disabled:not(.${loading})`]: {
+        color: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+      },
+    },
+    transparent: {
+      backgroundColor: 'transparent',
       color: theme.colorPalettes[color][6],
 
       '&:not(:disabled):hover': {
