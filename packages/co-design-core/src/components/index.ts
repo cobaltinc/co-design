@@ -23,6 +23,7 @@ export * from './Portal';
 export * from './SimpleGrid';
 export * from './Spinner';
 export * from './Switch';
+export * from './Tabs';
 export * from './Tag';
 export * from './Text';
 export * from './Tooltip';
