@@ -10,7 +10,7 @@ export interface SimpleGridBreakpoint {
 
 interface SimpleGridStyles {
   cols: number;
-  spacing: CoSpacing;
+  spacing: CoSpacing | number;
   breakpoints: SimpleGridBreakpoint[];
 }
 

@@ -5,7 +5,7 @@ import useStyles, { SimpleGridBreakpoint } from './SimpleGrid.style';
 
 export interface SimpleGridProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
   cols: number;
-  spacing?: CoSpacing;
+  spacing?: CoSpacing | number;
   breakpoints?: SimpleGridBreakpoint[];
 }
 
