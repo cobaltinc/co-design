@@ -15,6 +15,7 @@ export * from './Kbd';
 export * from './Mark';
 export * from './MediaQuery';
 export * from './Overlay';
+export * from './Paper';
 export * from './Popover';
 export * from './Portal';
 export * from './SimpleGrid';
