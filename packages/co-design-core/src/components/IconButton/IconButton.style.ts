@@ -2,7 +2,7 @@ import { createStyles, CoSize, CoTheme, CoColorPalette } from '@co-design/styles
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
-export type IconButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary';
+export type IconButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary' | 'transparent';
 
 interface IconButtonStylesProps {
   color?: CoColorPalette;
@@ -138,7 +138,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       color: theme.colorPalettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][1], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.colorPalettes[color][1], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):active': {

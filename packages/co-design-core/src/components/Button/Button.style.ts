@@ -171,7 +171,7 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       color: theme.colorPalettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][1], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.colorPalettes[color][1], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):active': {
