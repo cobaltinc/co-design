@@ -12,6 +12,7 @@
     "build": "esno scripts/build",
     "clean": "lerna run clean --parallel && rimraf node_modules yarn.lock",
     "storybook": "esno scripts/storybook-start",
+    "build-storybook": "build-storybook -c ./config/storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
