@@ -1,4 +1,4 @@
-import { ColorScheme, createStyles } from '@co-design/styles';
+import { createStyles } from '@co-design/styles';
 
 export type TooltipPlacement =
   | 'top-left'
