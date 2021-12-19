@@ -1,8 +1,9 @@
-import { createStyles, CoTheme, CSSObject, CoColorPalette, CoColor, CoFontSizes } from '@co-design/styles';
+import { createStyles, CSSObject, CoColorPalette, CoColor, CoFontSizes } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
 interface TextStyles {
   color: CoColorPalette | CoColor | string;
-  size: CoFontSizes;
+  size: CoFontSizes | number;
   lineClamp: number;
   block: boolean;
   inherit: boolean;
@@ -37,7 +38,7 @@ export default createStyles((theme, { color, size, lineClamp, block, inherit }: 
       ...getLineClamp(lineClamp),
       color: _color,
       fontFamily: inherit ? 'inherit' : theme.fontFamily,
-      fontSize: inherit ? 'inherit' : theme.fontSizes[size],
+      fontSize: inherit ? 'inherit' : getFieldValue(size, theme.fontSizes[size]),
       lineHeight: inherit ? 'inherit' : block ? theme.lineHeight : 1,
       WebkitTapHighlightColor: 'transparent',
     },

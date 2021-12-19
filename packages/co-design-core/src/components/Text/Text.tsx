@@ -4,7 +4,7 @@ import { View } from '../View';
 import useStyles from './Text.style';
 
 export interface SharedTextProps extends DefaultProps {
-  size?: CoFontSizes;
+  size?: CoFontSizes | number;
   color?: CoColorPalette | CoColor | string;
   strong?: boolean | React.CSSProperties['fontWeight'];
   underline?: boolean;
