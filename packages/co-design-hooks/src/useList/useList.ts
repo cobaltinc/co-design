@@ -34,6 +34,7 @@ export const useList = <T>(initialValue: T[] = []): [T[], typeof handlers] => {
   }, []);
 
   const handlers = {
+    setState,
     append,
     prepend,
     insert,
