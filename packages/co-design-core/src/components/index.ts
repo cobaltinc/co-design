@@ -4,6 +4,7 @@ export * from './Breadcrumbs';
 export * from './Burger';
 export * from './Button';
 export * from './Center';
+export * from './Chips';
 export * from './Container';
 export * from './Divider';
 export * from './Grid';
