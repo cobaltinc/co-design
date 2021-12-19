@@ -53,7 +53,7 @@ export const Popover = ({
   width,
   placement = 'top',
   trigger = 'click',
-  zIndex,
+  zIndex = 'dropdown',
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
@@ -62,7 +62,6 @@ export const Popover = ({
   ...props
 }: PopoverProps) => {
   const theme = useCoTheme();
-  const _zIndex = getFieldValue(zIndex, theme.zIndex) || theme.zIndex.dropdown;
   const { classes, cx } = useStyles(null, { co, name: 'Popover' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
@@ -108,7 +107,7 @@ export const Popover = ({
       onMouseLeave={handleMouseLeave}
       className={cx(classes.root, className)}
     >
-      <Portal zIndex={_zIndex}>
+      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
           {(styles) => (
             <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>

@@ -16,12 +16,10 @@ export interface AffixProps extends DefaultProps, React.ComponentPropsWithoutRef
 }
 
 export const Affix = forwardRef<HTMLDivElement, AffixProps>(
-  ({ target, zIndex, position = { bottom: 20, right: 20 }, className, co, ...props }: AffixProps, ref) => {
+  ({ target, zIndex = 'sticky', position = { bottom: 20, right: 20 }, className, co, ...props }: AffixProps, ref) => {
     const theme = useCoTheme();
-    const _zIndex = getFieldValue(zIndex, theme.zIndex) || theme.zIndex.sticky;
-
     return (
-      <Portal zIndex={_zIndex} target={target}>
+      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>
         <View co={[{ position: 'fixed', ...position }, co]} ref={ref} {...props} />
       </Portal>
     );
