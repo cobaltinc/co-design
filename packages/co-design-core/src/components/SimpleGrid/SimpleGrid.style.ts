@@ -2,8 +2,8 @@ import { createStyles, CoSpacing, CoTheme, CoBreakpoints } from '@co-design/styl
 import { getFieldValue } from '../../utils';
 
 export interface SimpleGridBreakpoint {
-  maxWidth?: CoBreakpoints;
-  minWidth?: CoBreakpoints;
+  maxWidth?: CoBreakpoints | number;
+  minWidth?: CoBreakpoints | number;
   cols: number;
   spacing?: CoSpacing;
 }
