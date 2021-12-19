@@ -27,4 +27,5 @@ export * from './useScrollLock';
 export * from './useTimeout';
 export * from './useTimeoutFn';
 export * from './useToggle';
+export * from './useUncontrolled';
 export * from './useUpdateEffect';
