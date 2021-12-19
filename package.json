@@ -11,7 +11,8 @@
     "type": "tsc --noEmit",
     "build": "esno scripts/build",
     "clean": "lerna run clean --parallel && rimraf node_modules yarn.lock",
-    "storybook": "esno scripts/storybook-start"
+    "storybook": "esno scripts/storybook-start",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -42,6 +43,7 @@
     "@storybook/addon-actions": "^6.4.9",
     "@storybook/addons": "^6.4.9",
     "@storybook/react": "^6.4.9",
+    "@storybook/storybook-deployer": "^2.8.10",
     "yargs": "^17.3.0",
     "esno": "^0.12.1",
     "execa": "^5.0.0",
