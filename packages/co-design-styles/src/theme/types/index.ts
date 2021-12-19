@@ -1,6 +1,5 @@
 export type { ColorScheme } from './ColorScheme';
 export type { DefaultProps } from './DefaultProps';
-// export type { MantineMargins, MantineMargin } from './MantineMargins';
 
 export type { CoNumberSize, CoSize } from './CoSize';
 export type { CoTheme, CoThemeOverride } from './CoTheme';
