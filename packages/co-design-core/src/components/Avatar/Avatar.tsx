@@ -34,7 +34,7 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
       <View<any> component={component || 'div'} className={cx(classes.root, className)} ref={ref} {...props}>
         {error ? (
           <div className={classes.placeholder} title={alt}>
-            {typeof children === 'string' ? children.substring(0, 2) : <AvatarPlaceholderIcon className={classes.placeholderIcon} />}
+            {children ? children : <AvatarPlaceholderIcon className={classes.placeholderIcon} />}
           </div>
         ) : (
           <img className={classes.image} src={src} alt={alt} onError={() => setError(true)} />

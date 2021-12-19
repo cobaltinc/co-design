@@ -32,7 +32,7 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
 
   placeholder: {
     fontFamily: theme.fontFamily,
-    fontSize: getFieldValue(size, CO_HEIGHTS) / 2.5,
+    fontSize: getFieldValue(size, CO_HEIGHTS) / 3,
     color: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 2 : 6],
     fontWeight: 700,
     backgroundColor: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 6 : 2],
