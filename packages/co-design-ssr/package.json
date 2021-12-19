@@ -1,6 +1,6 @@
 {
   "name": "@co-design/ssr",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -20,7 +20,7 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@co-design/styles": "^0.1.1",
+    "@co-design/styles": "^0.2.0",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
