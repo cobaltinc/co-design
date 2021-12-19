@@ -2,6 +2,7 @@ export * from './useClickAway';
 export * from './useClipboard';
 export * from './useColorScheme';
 export * from './useDebounce';
+export * from './useFocusTrap';
 export * from './useForceUpdate';
 export * from './useHotKey';
 export * from './useHover';
