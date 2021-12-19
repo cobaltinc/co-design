@@ -149,8 +149,8 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
         [`& + .${label}`]: {
           outline: 'none',
-          boxShadow: `0 0 0 2px ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.white}, 0 0 0 4px ${
-            theme.colorPalettes[theme.primaryColor][5]
+          boxShadow: `0 0 0 3px ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.white}, 0 0 0 4px ${
+            theme.colorPalettes[theme.primaryColor][6]
           }`,
         },
 
