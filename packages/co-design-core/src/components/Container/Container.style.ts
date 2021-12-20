@@ -37,6 +37,7 @@ export default createStyles((theme, { size, padding, fluid, break: _break }: Con
       marginRight: 'auto',
       paddingLeft: getFieldValue(padding, theme.spacing),
       paddingRight: getFieldValue(padding, theme.spacing),
+      boxSizing: 'border-box',
 
       ...(_break && mediaQueries),
     },
