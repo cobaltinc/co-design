@@ -1,0 +1,26 @@
+{
+  "name": "@co-design/icons",
+  "version": "0.0.1",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "source": "src/index.tsx",
+  "license": "MIT",
+  "author": "Cobalt. Inc.",
+  "sideEffects": false,
+  "repository": {
+    "url": "https://github.com/cobaltinc/co.git",
+    "type": "git",
+    "directory": "packages/co-design-icons"
+  },
+  "scripts": {
+    "prebuild": "rimraf src && svgr --icon --typescript --replace-attr-values '#5D636D=currentColor' --out-dir src -- icons"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@svgr/cli": "^6.1.2"
+  }
+}

@@ -3,9 +3,7 @@ const path = require('path');
 const { argv } = require('yargs');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').default;
 
-const stories = argv.gallery
-  ? [path.resolve(__dirname, '../../gallery/**/*.stories.@(ts|tsx)').replace(/\\/g, '/')]
-  : [path.resolve(__dirname, '../../packages/**/*.stories.@(ts|tsx)').replace(/\\/g, '/')];
+const stories = [path.resolve(__dirname, '../../packages/**/*.stories.@(ts|tsx)').replace(/\\/g, '/')];
 
 module.exports = {
   stories,

@@ -118,7 +118,7 @@ export default async function createPackageConfig(config: PkgConfigInput): Promi
   }
 
   return {
-    input: config?.entry || path.resolve(config.basePath, 'src/index.ts'),
+    input: config?.entry || packageJson.source ? path.resolve(config.basePath, packageJson.source) : path.resolve(config.basePath, 'src/index.ts'),
     output,
     external: externals,
     plugins,
