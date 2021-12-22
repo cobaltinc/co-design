@@ -53,7 +53,7 @@ const newStyled: BaseCreateStyled = (component) => {
     return (props) => {
       const theme = useCoTheme();
       const css = Array.isArray(styles)
-        ? styles.reduce((a, b, i) => a + b + ((fns[i] && fns[i]({ props, theme })) || ''), '')
+        ? styles.reduce((a, b, i) => a + b + ((fns[i] && (typeof fns[i] === 'function' ? fns[i]({ props, theme }) : fns[i])) || ''), '')
         : typeof styles === 'function'
         ? styles({ props, theme })
         : styles;

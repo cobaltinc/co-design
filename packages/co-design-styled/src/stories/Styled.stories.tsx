@@ -47,7 +47,9 @@ export const TaggedLiteral = () => {
   );
 };
 
+const borderColor = '#aaa';
 const TaggedDiv = styled(CustomDiv)`
   color: ${({ props }) => props.color};
   background-color: ${({ theme }) => theme.colorPalettes.red[3]};
+  border: 4px solid ${borderColor};
 `;
