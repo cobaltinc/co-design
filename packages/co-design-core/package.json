@@ -1,6 +1,6 @@
 {
   "name": "@co-design/core",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
