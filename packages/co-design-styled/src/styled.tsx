@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from '@emotion/styled';
 import { CoTheme, useCoTheme } from '@co-design/styles';
 import { Interpolation, PropsOf } from '@emotion/react';
 import { tags } from './utils';
+import { StyledComponent } from './StyledComponent';
 
 export interface StyledComponent<ComponentProps extends {}, SpecificComponentProps extends {} = {}, JSXProps extends {} = {}>
   extends React.FC<ComponentProps & SpecificComponentProps & JSXProps> {}
@@ -58,8 +58,7 @@ const newStyled: BaseCreateStyled = (component) => {
         ? styles({ props, theme })
         : styles;
 
-      const Component = styled(component)(css);
-      return <Component {...props} />;
+      return <StyledComponent {...props} component={component} co={css} />;
     };
   };
 };
