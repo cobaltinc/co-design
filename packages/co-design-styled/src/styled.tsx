@@ -1,7 +1,7 @@
+import React from 'react';
+import styled from '@emotion/styled';
 import { CoTheme, useCoTheme } from '@co-design/styles';
 import { Interpolation, PropsOf } from '@emotion/react';
-import styled from '@emotion/styled';
-import React from 'react';
 import { tags } from './utils';
 
 export interface StyledComponent<ComponentProps extends {}, SpecificComponentProps extends {} = {}, JSXProps extends {} = {}>
@@ -53,7 +53,7 @@ const newStyled: BaseCreateStyled = (component) => {
     return (props) => {
       const theme = useCoTheme();
       const css = Array.isArray(styles)
-        ? styles.reduce((prev, cur, i) => prev + cur + ((fns[i] && fns[i]({ props, theme })) || ''), '')
+        ? styles.reduce((a, b, i) => a + b + ((fns[i] && fns[i]({ props, theme })) || ''), '')
         : typeof styles === 'function'
         ? styles({ props, theme })
         : styles;
