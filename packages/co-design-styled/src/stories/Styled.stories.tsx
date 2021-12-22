@@ -49,7 +49,7 @@ export const TaggedLiteral = () => {
 
 const borderColor = '#aaa';
 const TaggedDiv = styled(CustomDiv)`
+  border: 4px solid ${borderColor};
   color: ${({ props }) => props.color};
   background-color: ${({ theme }) => theme.colorPalettes.red[3]};
-  border: 4px solid ${borderColor};
 `;
