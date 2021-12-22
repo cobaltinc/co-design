@@ -13,6 +13,7 @@ module.exports = {
     'storybook-addon-outline',
     '@storybook/addon-viewport',
     '@storybook/addon-controls',
+    '@storybook/addon-storysource',
     '@storybook/addon-actions',
     '@storybook/addon-a11y',
   ],
