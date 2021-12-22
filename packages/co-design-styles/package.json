@@ -1,6 +1,6 @@
 {
   "name": "@co-design/styles",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -26,5 +26,6 @@
     "@emotion/utils": "^1.0.0",
     "clsx": "^1.1.1",
     "csstype": "^3.0.9"
-  }
+  },
+  "gitHead": "c1fc37b737d487aa47ad453166dd2eafb2a3ed14"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@co-design/icons",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -22,5 +22,6 @@
   },
   "dependencies": {
     "@svgr/cli": "^6.1.2"
-  }
+  },
+  "gitHead": "c1fc37b737d487aa47ad453166dd2eafb2a3ed14"
 }
