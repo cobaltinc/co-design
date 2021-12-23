@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import styled from '../styled';
 
 export default {
@@ -52,4 +52,24 @@ const TaggedDiv = styled(CustomDiv)`
   border: 4px solid ${borderColor};
   color: ${({ props }) => props.color};
   background-color: ${({ theme }) => theme.colorPalettes.red[3]};
+`;
+
+export const Ref = () => {
+  const ref = useRef<HTMLDivElement>();
+
+  useEffect(() => {
+    console.log(ref);
+  }, [ref.current]);
+
+  return (
+    <div>
+      <Div color="blue" ref={ref}>
+        Div
+      </Div>
+    </div>
+  );
+};
+
+const Div = styled.div`
+  color: red;
 `;

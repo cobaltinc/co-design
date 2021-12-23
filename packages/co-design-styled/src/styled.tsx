@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import { CoTheme, useCoTheme } from '@co-design/styles';
 import { Interpolation, PropsOf } from '@emotion/react';
 import { tags } from './utils';
@@ -24,6 +24,16 @@ export interface CreateStyledComponent<ComponentProps extends {}, SpecificCompon
 }
 
 interface BaseCreateStyled {
+  <C extends React.ComponentClass<React.ComponentProps<C>>, ForwardedProps extends keyof React.ComponentProps<C> = keyof React.ComponentProps<C>>(
+    component: C,
+  ): CreateStyledComponent<Pick<PropsOf<C>, ForwardedProps>, {}, { ref?: React.Ref<InstanceType<C>> }>;
+
+  <C extends React.ComponentClass<React.ComponentProps<C>>>(component: C): CreateStyledComponent<
+    PropsOf<C>,
+    {},
+    { ref?: React.Ref<InstanceType<C>> }
+  >;
+
   <C extends React.ComponentType<React.ComponentProps<C>>, ForwardedProps extends keyof React.ComponentProps<C> = keyof React.ComponentProps<C>>(
     component: C,
   ): CreateStyledComponent<Pick<PropsOf<C>, ForwardedProps>>;
@@ -50,7 +60,7 @@ export interface CreateStyled extends BaseCreateStyled, StyledTags {}
 
 const newStyled: BaseCreateStyled = (component) => {
   return (styles, ...fns) => {
-    return (props) => {
+    return forwardRef((props, ref) => {
       const theme = useCoTheme();
       const css = Array.isArray(styles)
         ? styles.reduce((a, b, i) => a + b + ((fns[i] && (typeof fns[i] === 'function' ? fns[i]({ props, theme }) : fns[i])) || ''), '')
@@ -58,8 +68,8 @@ const newStyled: BaseCreateStyled = (component) => {
         ? styles({ props, theme })
         : styles;
 
-      return <StyledComponent {...props} component={component} co={css} />;
-    };
+      return <StyledComponent {...props} ref={ref} component={component} co={css} />;
+    });
   };
 };
 
