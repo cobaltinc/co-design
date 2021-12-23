@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { DefaultProps, CoZIndex, useCoTheme } from '@co-design/styles';
+import { DefaultProps, CoZIndex, useCoTheme, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
@@ -10,6 +10,7 @@ import { CoTransition, Transition } from '../Transition';
 export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
   visible?: boolean;
   content: React.ReactNode;
+  contentPadding?: CoSpacing | number;
   withArrow?: boolean;
   width?: number;
   placement?: PopoverPlacement;
@@ -49,6 +50,7 @@ export const Popover = ({
   children,
   visible = false,
   content,
+  contentPadding = 'spacing3',
   withArrow = true,
   width,
   placement = 'top',
@@ -62,7 +64,7 @@ export const Popover = ({
   ...props
 }: PopoverProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles(null, { co, name: 'Popover' });
+  const { classes, cx } = useStyles({ contentPadding }, { co, name: 'Popover' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
   const balloonRef = useRef<HTMLDivElement>(null);

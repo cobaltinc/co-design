@@ -33,6 +33,11 @@ export default {
       options: ['hover', 'click', 'focus'],
       control: { type: 'inline-radio' },
     },
+    contentPadding: {
+      defaultValue: 'spacing3',
+      options: ['spacing0', 'spacing1', 'spacing2', 'spacing3', 'spacing4', 'spacing5', 'spacing6', 'spacing7', 'spacing8', 'spacing9'],
+      control: { type: 'inline-radio' },
+    },
   },
 };
 

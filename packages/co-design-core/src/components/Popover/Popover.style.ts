@@ -1,4 +1,5 @@
-import { createStyles } from '@co-design/styles';
+import { CoSpacing, createStyles } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
 export type PopoverPlacement =
   | 'top-left'
@@ -16,7 +17,11 @@ export type PopoverPlacement =
 
 export type PopoverTrigger = 'hover' | 'click' | 'focus';
 
-export default createStyles((theme) => ({
+interface PopoverStyles {
+  contentPadding: CoSpacing | number;
+}
+
+export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
   root: {
     display: 'inline-block',
   },
@@ -91,7 +96,7 @@ export default createStyles((theme) => ({
 
   content: {
     position: 'absolute',
-    padding: theme.spacing.spacing2,
+    padding: getFieldValue(contentPadding, theme.spacing),
     borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colorPalettes.dark[0],
     fontFamily: theme.fontFamily,
