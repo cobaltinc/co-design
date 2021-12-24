@@ -11,7 +11,7 @@
     "access": "public"
   },
   "repository": {
-    "url": "https://github.com/cobaltinc/co.git",
+    "url": "https://github.com/cobaltinc/co-design.git",
     "type": "git",
     "directory": "packages/co-design-ssr"
   },
