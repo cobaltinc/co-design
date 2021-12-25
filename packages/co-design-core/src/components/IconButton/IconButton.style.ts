@@ -231,6 +231,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       fontFamily: theme.fontFamily,
       borderRadius: theme.radius.medium,
       position: 'relative',
+      padding: 0,
       lineHeight: 1,
       WebkitTapHighlightColor: 'transparent',
       userSelect: 'none',
