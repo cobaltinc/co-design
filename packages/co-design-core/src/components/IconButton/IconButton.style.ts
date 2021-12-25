@@ -258,11 +258,6 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       justifyContent: 'center',
       height: '100%',
       overflow: 'visible',
-
-      svg: {
-        width: '80%',
-        height: '80%',
-      },
     },
 
     spinner: {
