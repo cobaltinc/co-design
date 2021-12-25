@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoTheme, CoColorPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoColorPalette } from '@co-design/styles';
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
