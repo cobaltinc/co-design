@@ -4,7 +4,7 @@ import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
 import useStyles, { PopoverPlacement, PopoverTrigger } from './Popover.style';
-import { useClickAway, useToggle } from '@co-design/hooks';
+import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { CoTransition, Transition } from '../Transition';
 
 export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
@@ -19,6 +19,7 @@ export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutR
   transition?: CoTransition;
   transitionDuration?: number;
   transitionTimingFunction?: string;
+  onChangeVisible?(visible: boolean): void;
 }
 
 const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => {
@@ -59,6 +60,7 @@ export const Popover = ({
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
+  onChangeVisible,
   className,
   co,
   ...props
@@ -92,6 +94,10 @@ export const Popover = ({
       : undefined;
   const handleFocus = trigger === 'focus' ? () => setCurrentVisible(true) : undefined;
   const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
+
+  useUpdateEffect(() => {
+    onChangeVisible?.(currentVisible);
+  }, [currentVisible]);
 
   const contentStyle: React.CSSProperties = {
     width: width ? width : 'auto',

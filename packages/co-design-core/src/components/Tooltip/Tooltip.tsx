@@ -4,7 +4,7 @@ import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
 import useStyles, { TooltipPlacement, TooltipTrigger } from './Tooltip.style';
-import { useClickAway, useToggle } from '@co-design/hooks';
+import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { Transition, CoTransition } from '../Transition';
 
 export interface TooltipProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
@@ -18,6 +18,7 @@ export interface TooltipProps extends DefaultProps, React.ComponentPropsWithoutR
   transition?: CoTransition;
   transitionDuration?: number;
   transitionTimingFunction?: string;
+  onChangeVisible?(visible: boolean): boolean;
 }
 
 const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => {
@@ -57,6 +58,7 @@ export const Tooltip = ({
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
+  onChangeVisible,
   className,
   co,
   ...props
@@ -90,6 +92,10 @@ export const Tooltip = ({
       : undefined;
   const handleFocus = trigger === 'focus' ? () => setCurrentVisible(true) : undefined;
   const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
+
+  useUpdateEffect(() => {
+    onChangeVisible?.(currentVisible);
+  }, [currentVisible]);
 
   const contentStyle: React.CSSProperties = {
     width: width ? width : 'auto',
