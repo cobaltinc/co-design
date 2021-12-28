@@ -1,15 +1,15 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 
-const SvgInfoCircle = (props: SVGProps<SVGSVGElement>) => (
+const SvgMoveFat = (props: SVGProps<SVGSVGElement>) => (
   <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       fillRule="evenodd"
       clipRule="evenodd"
-      d="M11 17h2v-6h-2v6Zm1-15C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8ZM11 9h2V7h-2v2Z"
+      d="M10 9h4V6h3l-5-5-5 5h3v3Zm-1 1H6V7l-5 5 5 5v-3h3v-4Zm14 2-5-5v3h-3v4h3v3l5-5Zm-9 3h-4v3H7l5 5 5-5h-3v-3Z"
       fill="currentColor"
     />
   </svg>
 );
 
-export default SvgInfoCircle;
+export default SvgMoveFat;
