@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { SVGProps } from 'react';
 
-const SvgScenelist = (props: SVGProps<SVGSVGElement>) => (
+const SvgSquareFocus = (props: SVGProps<SVGSVGElement>) => (
   <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
       d="M4 5a1 1 0 0 1 1-1h5.2a1 1 0 0 1 1 1v5.2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V5ZM4 13.1a1 1 0 0 1 1-1h5.2a1 1 0 0 1 1 1v5.2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-5.2ZM12.102 5a1 1 0 0 1 1-1h5.2a1 1 0 0 1 1 1v5.2a1 1 0 0 1-1 1h-5.2a1 1 0 0 1-1-1V5Z"
@@ -22,4 +22,4 @@ const SvgScenelist = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export default SvgScenelist;
+export default SvgSquareFocus;
