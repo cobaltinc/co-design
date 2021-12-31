@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import { Text } from '../Text';
 import { View } from '../View';
 import useStyles from './Breadcrumbs.style';
@@ -10,11 +10,13 @@ export interface BreadcrumbsProps extends CoComponentProps, React.ComponentProps
 
   /** React nodes that should be separated */
   children: React.ReactNode;
+
+  spacing?: CoSpacing | number;
 }
 
 export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
-  ({ children, separator = '/', className, co, ...props }: BreadcrumbsProps, ref) => {
-    const { classes, cx } = useStyles(null, { co, name: 'Breadcrumbs' });
+  ({ children, separator = '/', spacing = 'spacing2', className, co, ...props }: BreadcrumbsProps, ref) => {
+    const { classes, cx } = useStyles({ spacing }, { co, name: 'Breadcrumbs' });
 
     const items = React.Children.toArray(children).reduce((acc: any[], child: any, index, array) => {
       acc.push(React.cloneElement(child, { className: classes.breadcrumb, key: index }));

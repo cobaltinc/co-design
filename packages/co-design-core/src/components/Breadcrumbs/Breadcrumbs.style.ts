@@ -1,6 +1,11 @@
-import { createStyles } from '@co-design/styles';
+import { CoSpacing, createStyles } from '@co-design/styles';
+import { getFieldValue } from '../../utils';
 
-export default createStyles((theme) => ({
+interface BreadcrumbsStylesProps {
+  spacing: CoSpacing | number;
+}
+
+export default createStyles((theme, { spacing }: BreadcrumbsStylesProps) => ({
   root: {
     display: 'flex',
   },
@@ -12,8 +17,8 @@ export default createStyles((theme) => ({
   },
 
   separator: {
-    marginLeft: theme.spacing.spacing2,
-    marginRight: theme.spacing.spacing2,
+    marginLeft: getFieldValue(spacing, theme.spacing),
+    marginRight: getFieldValue(spacing, theme.spacing),
     color: theme.colorScheme === 'dark' ? theme.palettes.dark[2] : theme.palettes.dark[7],
     lineHeight: 1,
     display: 'flex',
