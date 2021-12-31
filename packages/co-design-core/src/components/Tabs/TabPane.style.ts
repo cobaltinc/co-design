@@ -1,7 +1,7 @@
-import { createStyles, CoColorPalette } from '@co-design/styles';
+import { createStyles, CoPalette } from '@co-design/styles';
 
 interface TabControlStyles {
-  color: CoColorPalette;
+  color: CoPalette;
   orientation: 'horizontal' | 'vertical';
 }
 
@@ -27,17 +27,17 @@ export default createStyles((theme, { color, orientation }: TabControlStyles, ge
 
       '&:disabled': {
         cursor: 'not-allowed',
-        color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[4] : theme.colorPalettes.dark[6],
+        color: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[6],
       },
 
       transition: 'border-color 150ms ease, color 150ms ease',
-      color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.colors.black,
       [orientation === 'horizontal' ? 'borderBottom' : 'borderRight']: '2px solid transparent',
 
       [`&.${tabActive.ref}`]: {
         fontWeight: 'bold',
-        color: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 4 : 6],
-        [orientation === 'horizontal' ? 'borderBottomColor' : 'borderRightColor']: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 4 : 6],
+        color: theme.palettes[color][theme.colorScheme === 'dark' ? 4 : 6],
+        [orientation === 'horizontal' ? 'borderBottomColor' : 'borderRightColor']: theme.palettes[color][theme.colorScheme === 'dark' ? 4 : 6],
       },
     },
 

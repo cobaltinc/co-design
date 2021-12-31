@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useCoTheme, DefaultProps, CoNumberSize, CoColorPalette, CoColor } from '@co-design/styles';
+import { useCoTheme, DefaultProps, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Burger.style';
 import { useUpdateEffect, useToggle } from '@co-design/hooks';
@@ -8,18 +8,18 @@ import { useCallback } from 'react';
 export interface BurgerProps extends DefaultProps, React.ComponentPropsWithoutRef<'button'> {
   opened?: boolean;
   size?: CoNumberSize;
-  color?: CoColorPalette | CoColor | string;
+  color?: CoPalette | CoColor | string;
 }
 
 export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
   ({ opened = false, color, size = 'medium', co, className, ...props }: BurgerProps, ref) => {
     const theme = useCoTheme();
     const _color =
-      (color in theme.colorPalettes
-        ? theme.colorPalettes[color][theme.colorScheme === 'light' ? 6 : 2]
+      (color in theme.palettes
+        ? theme.palettes[color][theme.colorScheme === 'light' ? 6 : 2]
         : color in theme.colors
         ? theme.colors[color]
-        : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.colorPalettes.dark[9]);
+        : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9]);
     const { classes, cx } = useStyles({ color: _color, size }, { co, name: 'Burger' });
 
     const [currentOpened, toggleCurrentOpened] = useToggle(opened);

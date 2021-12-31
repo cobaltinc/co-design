@@ -1,6 +1,6 @@
 import React, { Children } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
-import { DefaultProps, CoSize, CoSpacing, CoRadius, CoColorPalette } from '@co-design/styles';
+import { DefaultProps, CoSize, CoSpacing, CoRadius, CoPalette } from '@co-design/styles';
 import { Group, GroupProps } from '../Group/Group';
 import { Chip } from './Chip';
 
@@ -36,7 +36,7 @@ export interface ChipsProps<T extends boolean = false>
   variant?: 'filled' | 'outline';
 
   /** Active chip color, defaults to theme.primaryColor */
-  color?: CoColorPalette;
+  color?: CoPalette;
 }
 
 export function Chips<T extends boolean>({

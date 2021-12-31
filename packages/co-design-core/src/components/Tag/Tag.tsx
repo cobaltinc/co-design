@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { CoColorPalette, DefaultProps } from '@co-design/styles';
+import { CoPalette, DefaultProps } from '@co-design/styles';
 import useStyles from './Tag.style';
 import { View } from '../View';
 
 export interface TagProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
-  color: CoColorPalette;
+  color: CoPalette;
   fullWidth?: boolean;
   strong?: boolean;
 }

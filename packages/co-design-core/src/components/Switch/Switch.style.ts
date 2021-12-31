@@ -1,8 +1,8 @@
-import { createStyles, CoSize, CoColorPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface SwitchStyles {
-  color: CoColorPalette;
+  color: CoPalette;
   size: CoSize;
 }
 
@@ -48,8 +48,8 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
       borderRadius: handleSize,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[7] : theme.colorPalettes.dark[3],
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[6] : theme.colorPalettes.dark[4]}`,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.palettes.dark[3],
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[6] : theme.palettes.dark[4]}`,
       height: switchHeight[size],
       width: switchWidth[size],
       minWidth: switchWidth[size],
@@ -71,7 +71,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
         backgroundColor: theme.colors.white,
         height: handleSize,
         width: handleSize,
-        border: `1px solid ${theme.colorPalettes.dark[3]}`,
+        border: `1px solid ${theme.palettes.dark[3]}`,
         transition: `transform 150ms ease`,
         transform: `translateX(${size === 'xsmall' ? 1 : 2}px)`,
 
@@ -81,8 +81,8 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       },
 
       '&:checked': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes[color][4] : theme.colorPalettes[color][6],
-        borderColor: theme.colorScheme === 'dark' ? theme.colorPalettes[color][4] : theme.colorPalettes[color][6],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][4] : theme.palettes[color][6],
+        borderColor: theme.colorScheme === 'dark' ? theme.palettes[color][4] : theme.palettes[color][6],
 
         '&::before': {
           transform: `translateX(${
@@ -93,13 +93,13 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       },
 
       '&:disabled': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[4] : theme.colorPalettes.dark[2],
-        borderColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[4] : theme.colorPalettes.dark[2],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
+        borderColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
         cursor: 'not-allowed',
 
         '&::before': {
-          borderColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[4] : theme.colorPalettes.dark[2],
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[3] : theme.colorPalettes.dark[0],
+          borderColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[0],
         },
       },
     },
@@ -109,7 +109,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       fontSize: theme.fontSizes[size],
       fontFamily: theme.fontFamily,
       paddingLeft: theme.spacing.spacing2,
-      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colorPalettes.dark[9],
+      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9],
     },
   };
 });

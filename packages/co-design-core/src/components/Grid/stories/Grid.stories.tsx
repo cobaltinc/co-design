@@ -38,7 +38,7 @@ const Box1 = () => {
 };
 
 const Box2 = () => {
-  return <View co={(theme) => ({ backgroundColor: theme.colorPalettes.blue[6], width: '100%', minHeight: 150 })} />;
+  return <View co={(theme) => ({ backgroundColor: theme.palettes.blue[6], width: '100%', minHeight: 150 })} />;
 };
 
 export const Default = (props) => {

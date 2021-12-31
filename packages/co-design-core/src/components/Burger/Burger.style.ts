@@ -1,9 +1,9 @@
-import { createStyles, CoNumberSize, CoColorPalette, CoColor } from '@co-design/styles';
+import { createStyles, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 
 interface BurgerStyles {
   size: CoNumberSize;
-  color: CoColorPalette | CoColor | string;
+  color: CoPalette | CoColor | string;
 }
 
 export const sizes = {

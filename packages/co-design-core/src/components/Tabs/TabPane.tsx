@@ -1,11 +1,11 @@
 import React from 'react';
-import { CoColorPalette, DefaultProps, useCoTheme } from '@co-design/styles';
+import { CoPalette, DefaultProps, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './TabPane.style';
 
 export interface TabPaneProps extends DefaultProps, React.ComponentPropsWithRef<'button'> {
   active?: boolean;
-  color?: CoColorPalette;
+  color?: CoPalette;
   orientation?: 'horizontal' | 'vertical';
   icon?: React.ReactNode;
   buttonRef?: React.ForwardedRef<HTMLButtonElement>;

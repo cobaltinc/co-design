@@ -1,7 +1,7 @@
-import { CoColorPalette, createStyles } from '@co-design/styles';
+import { CoPalette, createStyles } from '@co-design/styles';
 
 interface TagStyles {
-  color: CoColorPalette;
+  color: CoPalette;
   fullWidth: boolean;
   strong: boolean;
 }
@@ -14,9 +14,9 @@ export default createStyles((theme, { color, fullWidth, strong }: TagStyles) => 
     padding: `${theme.spacing.spacing1}px ${theme.spacing.spacing2}px`,
     fontWeight: strong ? 'bold' : 'normal',
     fontSize: theme.fontSizes.tiny,
-    color: theme.colorPalettes[color][theme.colorScheme === 'light' ? 6 : 4],
+    color: theme.palettes[color][theme.colorScheme === 'light' ? 6 : 4],
     borderRadius: theme.radius.large,
-    backgroundColor: theme.colorPalettes[color][theme.colorScheme === 'light' ? 2 : 8],
+    backgroundColor: theme.palettes[color][theme.colorScheme === 'light' ? 2 : 8],
     boxSizing: 'border-box',
   },
 }));

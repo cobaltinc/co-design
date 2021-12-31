@@ -1,6 +1,6 @@
 import React, { useRef, forwardRef } from 'react';
 import { useUncontrolled, mergeRefs } from '@co-design/hooks';
-import { CoColorPalette, CoSpacing, DefaultProps } from '@co-design/styles';
+import { CoPalette, CoSpacing, DefaultProps } from '@co-design/styles';
 import { View } from '../View';
 import { Group, GroupPosition } from '../Group';
 import { TabPane, TabType } from './TabPane';
@@ -18,7 +18,7 @@ export interface TabsProps extends DefaultProps, React.ComponentPropsWithRef<'di
   active?: number;
 
   /** Active tab color from theme.colors */
-  color?: CoColorPalette;
+  color?: CoPalette;
 
   /** True if tabs should take all available space */
   grow?: boolean;

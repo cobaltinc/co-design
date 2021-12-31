@@ -1,5 +1,5 @@
 import React, { useEffect, useState, forwardRef } from 'react';
-import { DefaultProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoColorPalette, useCoTheme } from '@co-design/styles';
+import { DefaultProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoPalette, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { AvatarPlaceholderIcon } from './AvatarPlaceholderIcon';
 import useStyles, { AvatarShape } from './Avatar.style';
@@ -9,7 +9,7 @@ interface _AvatarProps extends DefaultProps {
   alt?: string;
   size?: CoSize | number;
   shape?: AvatarShape;
-  color?: CoColorPalette;
+  color?: CoPalette;
 }
 
 export type AvatarProps<C extends React.ElementType> = PolymorphicComponentProps<C, _AvatarProps>;

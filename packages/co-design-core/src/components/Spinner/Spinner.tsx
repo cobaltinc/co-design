@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoColorPalette, CoSize, DefaultProps } from '@co-design/styles';
+import { CoColor, CoPalette, CoSize, DefaultProps } from '@co-design/styles';
 import useStyles from './Spinner.style';
 
 export interface SpinnerProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
   size?: CoSize | number;
-  color?: CoColorPalette | CoColor | string;
+  color?: CoPalette | CoColor | string;
 }
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ size = 'medium', color, className, co, ...props }, ref) => {

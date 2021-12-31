@@ -14,7 +14,7 @@ export const Tag = () => {
 };
 
 const StyledDiv = styled.div`
-  color: ${({ theme }) => theme.colorPalettes.purple[6]};
+  color: ${({ theme }) => theme.palettes.purple[6]};
 `;
 
 export const Component = () => {
@@ -36,7 +36,7 @@ const CustomDiv = (props: Props) => {
 
 const StyledComponent = styled(CustomDiv)(({ props, theme }) => ({
   color: props.color,
-  backgroundColor: theme.colorPalettes.blue[3],
+  backgroundColor: theme.palettes.blue[3],
 }));
 
 export const TaggedLiteral = () => {
@@ -51,7 +51,7 @@ const borderColor = '#aaa';
 const TaggedDiv = styled(CustomDiv)`
   border: 4px solid ${borderColor};
   color: ${({ props }) => props.color};
-  background-color: ${({ theme }) => theme.colorPalettes.red[3]};
+  background-color: ${({ theme }) => theme.palettes.red[3]};
 `;
 
 export const Ref = () => {

@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoColorPalette, CoColor } from '@co-design/styles';
+import { DefaultProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoPalette, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Text.style';
 
 export interface SharedTextProps extends DefaultProps {
   size?: CoFontSizes | number;
-  color?: CoColorPalette | CoColor | string;
+  color?: CoPalette | CoColor | string;
   strong?: boolean | React.CSSProperties['fontWeight'];
   underline?: boolean;
   transform?: 'capitalize' | 'uppercase' | 'lowercase';

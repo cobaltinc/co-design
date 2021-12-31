@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoSize, CoColorPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co-design/styles';
+import { DefaultProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner } from '../Spinner';
@@ -7,7 +7,7 @@ import { CO_HEIGHTS } from '../../constants';
 
 export interface SharedButtonProps extends DefaultProps {
   size?: CoSize;
-  color?: CoColorPalette;
+  color?: CoPalette;
   variant?: ButtonVariant;
   fullWidth?: boolean;
   type?: 'submit' | 'button' | 'reset';
@@ -52,7 +52,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       { co, name: 'Button' },
     );
 
-    const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.colorPalettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
+    const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
 
     return (
       <View<any>

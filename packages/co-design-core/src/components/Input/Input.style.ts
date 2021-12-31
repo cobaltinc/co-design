@@ -10,7 +10,7 @@ interface InputStyles {
 }
 
 export default createStyles((theme, { size, multiline, radius, invalid }: InputStyles) => {
-  const invalidColor = theme.colorPalettes.red[theme.colorScheme === 'dark' ? 5 : 6];
+  const invalidColor = theme.palettes.red[theme.colorScheme === 'dark' ? 5 : 6];
   const sizeStyles = {
     minHeight: getFieldValue(size, CO_HEIGHTS),
     paddingLeft: getFieldValue(size, CO_HEIGHTS) / 3,
@@ -33,38 +33,38 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       boxSizing: 'border-box',
       fontSize: getFieldValue(size, theme.fontSizes),
       width: '100%',
-      color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[1] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.palettes.dark[1] : theme.colors.black,
       display: 'block',
       textAlign: 'left',
       minHeight: getFieldValue(size, CO_HEIGHTS),
       paddingLeft: getFieldValue(size, CO_HEIGHTS) / 3,
       paddingRight: getFieldValue(size, CO_HEIGHTS) / 3,
       borderRadius: getFieldValue(radius, theme.radius),
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[7] : theme.colorPalettes.dark[3]}`,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.white,
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.palettes.dark[3]}`,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.white,
       transition: 'border-color 100ms ease',
 
       '&:focus, &:focus-within': {
         outline: 'none',
         borderWidth: 2,
-        borderColor: theme.colorPalettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
+        borderColor: theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
       },
 
       '&:disabled': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[8] : theme.colorPalettes.dark[1],
-        color: theme.colorPalettes.dark[7],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[1],
+        color: theme.palettes.dark[7],
         opacity: 0.6,
         cursor: 'not-allowed',
 
         '&::placeholder': {
-          color: theme.colorPalettes.dark[7],
+          color: theme.palettes.dark[7],
         },
       },
 
       '&::placeholder': {
         opacity: 1,
         userSelect: 'none',
-        color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[5] : theme.colorPalettes.dark[5],
+        color: theme.colorScheme === 'dark' ? theme.palettes.dark[5] : theme.palettes.dark[5],
       },
 
       '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration':
@@ -96,13 +96,13 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
     },
 
     disabled: {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[8] : theme.colorPalettes.dark[1],
-      color: theme.colorPalettes.dark[7],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[1],
+      color: theme.palettes.dark[7],
       opacity: 0.6,
       cursor: 'not-allowed',
 
       '&::placeholder': {
-        color: theme.colorPalettes.dark[7],
+        color: theme.palettes.dark[7],
       },
     },
 
@@ -118,10 +118,10 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       justifyContent: 'center',
       width: getFieldValue(size, CO_HEIGHTS),
       color: invalid
-        ? theme.colorPalettes.red[theme.colorScheme === 'dark' ? 6 : 7]
+        ? theme.palettes.red[theme.colorScheme === 'dark' ? 6 : 7]
         : theme.colorScheme === 'dark'
-        ? theme.colorPalettes.dark[2]
-        : theme.colorPalettes.dark[5],
+        ? theme.palettes.dark[2]
+        : theme.palettes.dark[5],
 
       svg: {
         width: '50%',

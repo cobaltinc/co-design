@@ -28,7 +28,7 @@ export default {
 
 export const Default = (props) => {
   return (
-    <Container {...props} co={(theme) => ({ backgroundColor: theme.colorPalettes.purple[6] })}>
+    <Container {...props} co={(theme) => ({ backgroundColor: theme.palettes.purple[6] })}>
       Container
     </Container>
   );

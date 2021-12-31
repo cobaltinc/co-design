@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { Tuple } from './Tuple';
 import type { DeepPartial } from './DeepPartial';
-import { CoBreakpoints, CoColor, CoColorPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing, CoZIndex } from '../tokens';
+import { CoBreakpoints, CoColor, CoPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing, CoZIndex } from '../tokens';
 
 export interface HeadingStyle {
   fontSize: CSSProperties['fontSize'];
@@ -17,7 +17,7 @@ export interface CoTheme {
   primaryColor: string;
 
   colors: Record<CoColor, string>;
-  colorPalettes: Record<CoColorPalette, Tuple<string, 10>>;
+  palettes: Record<CoPalette, Tuple<string, 10>>;
   fontSizes: Record<CoFontSizes, number>;
   radius: Record<CoRadius, number>;
   spacing: Record<CoSpacing, number>;

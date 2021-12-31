@@ -27,8 +27,8 @@ export default createStyles((theme, { radius }: ImageStyles) => {
       justifyContent: 'center',
       width: '100%',
       height: '100%',
-      color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[2] : theme.colorPalettes.dark[8],
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[8] : theme.colorPalettes.dark[2],
+      color: theme.colorScheme === 'dark' ? theme.palettes.dark[2] : theme.palettes.dark[8],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[2],
       borderRadius: radius ? (radius in theme.radius ? theme.radius[radius] : radius) : 0,
     },
   };

@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoColorPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 import { getFieldValue } from '../../utils';
 
@@ -7,7 +7,7 @@ export type AvatarShape = 'square' | 'round' | 'circle';
 interface AvatarStyles {
   size: CoSize | number;
   shape: AvatarShape;
-  color: CoColorPalette;
+  color: CoPalette;
 }
 
 export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
@@ -33,9 +33,9 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
   placeholder: {
     fontFamily: theme.fontFamily,
     fontSize: getFieldValue(size, CO_HEIGHTS) / 3,
-    color: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 2 : 6],
+    color: theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6],
     fontWeight: 700,
-    backgroundColor: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 6 : 2],
+    backgroundColor: theme.palettes[color][theme.colorScheme === 'dark' ? 6 : 2],
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,6 +47,6 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
   placeholderIcon: {
     width: '70%',
     height: '70%',
-    color: theme.colorPalettes[color][theme.colorScheme === 'dark' ? 2 : 6],
+    color: theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6],
   },
 }));

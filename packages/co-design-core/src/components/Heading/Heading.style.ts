@@ -1,10 +1,10 @@
-import { CoColor, CoColorPalette, createStyles } from '@co-design/styles';
+import { CoColor, CoPalette, createStyles } from '@co-design/styles';
 
 interface HeadingStyles {
   strong: boolean;
   inline: boolean;
   underline: boolean;
-  color?: CoColorPalette | CoColor | string;
+  color?: CoPalette | CoColor | string;
 }
 
 export default createStyles((theme, { inline, strong, underline, color }: HeadingStyles) => {
@@ -15,11 +15,7 @@ export default createStyles((theme, { inline, strong, underline, color }: Headin
       fontWeight: strong ? 'bold' : 'normal',
       textDecoration: underline ? 'underline' : undefined,
       color:
-        color in theme.colorPalettes
-          ? theme.colorPalettes[color][theme.colorScheme === 'light' ? 6 : 4]
-          : color in theme.colors
-          ? theme.colors[color]
-          : color,
+        color in theme.palettes ? theme.palettes[color][theme.colorScheme === 'light' ? 6 : 4] : color in theme.colors ? theme.colors[color] : color,
     },
 
     h1: { ...theme.headings.h1 },

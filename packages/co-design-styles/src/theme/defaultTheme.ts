@@ -8,7 +8,7 @@ import {
   DEFAULT_SPACING,
   DEFAULT_SHADOWS,
   DEFAULT_OPACITY,
-  DEFAULT_COLOR_PALETTES,
+  DEFAULT_PALETTES,
   DEFAULT_Z_INDEX,
 } from './tokens';
 
@@ -24,7 +24,7 @@ export const DEFAULT_THEME: CoTheme = {
 
   colors: DEFAULT_COLORS,
 
-  colorPalettes: DEFAULT_COLOR_PALETTES,
+  palettes: DEFAULT_PALETTES,
 
   shadows: DEFAULT_SHADOWS,
 

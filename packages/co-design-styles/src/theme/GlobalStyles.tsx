@@ -12,7 +12,7 @@ export function GlobalStyles() {
         body: {
           fontFamily: theme.fontFamily,
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.darkBackground : theme.colors.lightBackground,
-          color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[0] : theme.colorPalettes.dark[9],
+          color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
           lineHeight: theme.lineHeight,
           fontSizes: theme.fontSizes.medium,
         } as any,

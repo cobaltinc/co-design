@@ -1,5 +1,5 @@
 export * from './breakpoints';
-export * from './colorPalettes';
+export * from './palettes';
 export * from './colors';
 export * from './fontSizes';
 export * from './headings';

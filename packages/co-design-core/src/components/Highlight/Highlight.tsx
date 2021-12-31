@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { PolymorphicComponentProps, PolymorphicRef, CoTheme, CSSObject, CoColorPalette, useCoTheme } from '@co-design/styles';
+import { PolymorphicComponentProps, PolymorphicRef, CoTheme, CSSObject, CoPalette, useCoTheme } from '@co-design/styles';
 import { Text, SharedTextProps } from '../Text/Text';
 import { Mark } from '../Mark/Mark';
 import { highlighter } from './highlighter';
@@ -7,7 +7,7 @@ import { highlighter } from './highlighter';
 interface _HighlightProps extends SharedTextProps {
   children: string;
   highlight: string | string[];
-  highlightColor?: CoColorPalette;
+  highlightColor?: CoPalette;
   highlightStyles?: CSSObject | ((theme: CoTheme) => CSSObject);
 }
 

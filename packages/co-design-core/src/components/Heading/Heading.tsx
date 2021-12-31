@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoColorPalette, DefaultProps } from '@co-design/styles';
+import { CoColor, CoPalette, DefaultProps } from '@co-design/styles';
 import useStyles from './Heading.style';
 import { warning } from '../../utils';
 
@@ -9,7 +9,7 @@ export interface HeadingProps extends DefaultProps, React.ComponentPropsWithoutR
   strong?: boolean;
   underline?: boolean;
   delete?: boolean;
-  color?: CoColorPalette | CoColor | string;
+  color?: CoPalette | CoColor | string;
 }
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(

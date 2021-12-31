@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { CoColorPalette, DefaultProps, useCoTheme } from '@co-design/styles';
+import { CoPalette, DefaultProps, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Mark.style';
 
 export interface MarkProps extends DefaultProps, React.ComponentPropsWithoutRef<'mark'> {
-  color?: CoColorPalette;
+  color?: CoPalette;
 }
 
 export const Mark = forwardRef<HTMLElement, MarkProps>(({ color, className, co, ...props }: MarkProps, ref) => {

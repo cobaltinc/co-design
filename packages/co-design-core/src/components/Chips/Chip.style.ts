@@ -1,4 +1,4 @@
-import { CoColorPalette, CoRadius, CoSize, createStyles } from '@co-design/styles';
+import { CoPalette, CoRadius, CoSize, createStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 export const sizes = {
@@ -36,7 +36,7 @@ const checkedPadding = {
 interface ChipStyles {
   radius: CoRadius | number;
   size: CoSize;
-  color: CoColorPalette;
+  color: CoPalette;
 }
 
 export default createStyles((theme, { radius, size, color }: ChipStyles, getRef) => {
@@ -52,11 +52,11 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       ref: label,
       fontFamily: theme.fontFamily,
       boxSizing: 'border-box',
-      color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.black,
       display: 'inline-block',
       alignItems: 'center',
       userSelect: 'none',
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[3] : theme.colorPalettes.dark[4]}`,
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[4]}`,
       borderRadius: getFieldValue(radius, theme.radius),
       height: getFieldValue(size, sizes),
       fontSize: getFieldValue(size, theme.fontSizes),
@@ -71,26 +71,26 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
     outline: {
       ref: outline,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[7] : theme.colors.white,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.colors.white,
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[8] : theme.colorPalettes.dark[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[0],
       },
     },
 
     filled: {
       ref: filled,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[5] : theme.colorPalettes.dark[1],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[5] : theme.palettes.dark[1],
       borderColor: 'transparent',
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[6] : theme.colorPalettes.dark[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[6] : theme.palettes.dark[0],
       },
     },
 
     iconWrapper: {
       ref: iconWrapper,
-      color: theme.colorPalettes[color][6],
+      color: theme.palettes[color][6],
       width: getFieldValue(size, iconSizes),
       maxWidth: getFieldValue(size, iconSizes),
       height: getFieldValue(size, iconSizes),
@@ -101,17 +101,17 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
     },
 
     disabled: {
-      backgroundColor: `${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[5] : theme.colorPalettes.dark[1]} !important`,
-      borderColor: `${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[5] : theme.colorPalettes.dark[1]} !important`,
-      color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[3] : theme.colorPalettes.dark[5],
+      backgroundColor: `${theme.colorScheme === 'dark' ? theme.palettes.dark[5] : theme.palettes.dark[1]} !important`,
+      borderColor: `${theme.colorScheme === 'dark' ? theme.palettes.dark[5] : theme.palettes.dark[1]} !important`,
+      color: theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[5],
       cursor: 'not-allowed',
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[5] : theme.colorPalettes.dark[1],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[5] : theme.palettes.dark[1],
       },
 
       [`& .${iconWrapper}`]: {
-        color: theme.colorScheme === 'dark' ? theme.colorPalettes.dark[3] : theme.colorPalettes.dark[5],
+        color: theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[5],
       },
     },
 
@@ -120,12 +120,12 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       paddingRight: getFieldValue(size, checkedPadding),
 
       [`&.${outline}`]: {
-        border: `1px solid ${theme.colorPalettes[color][6]}`,
+        border: `1px solid ${theme.palettes[color][6]}`,
       },
 
       [`&.${filled}`]: {
         '&, &:hover': {
-          backgroundColor: theme.colorScheme === 'dark' ? theme.colorPalettes[color][6] : theme.colorPalettes[color][1],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][6] : theme.palettes[color][1],
         },
       },
     },
@@ -149,8 +149,8 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
         [`& + .${label}`]: {
           outline: 'none',
-          boxShadow: `0 0 0 3px ${theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.white}, 0 0 0 4px ${
-            theme.colorPalettes[theme.primaryColor][6]
+          boxShadow: `0 0 0 3px ${theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.white}, 0 0 0 4px ${
+            theme.palettes[theme.primaryColor][6]
           }`,
         },
 

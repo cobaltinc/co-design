@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
-import { DefaultProps, CoColorPalette, CoSize, CoRadius, useCoTheme } from '@co-design/styles';
+import { DefaultProps, CoPalette, CoSize, CoRadius, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
@@ -31,7 +31,7 @@ export interface ChipProps extends DefaultProps, Omit<React.ComponentPropsWithou
   onChange?(checked: boolean): void;
 
   /** Active color from theme, defaults to theme.primaryColor */
-  color?: CoColorPalette;
+  color?: CoPalette;
 
   /** Static id to bind input with label */
   id?: string;

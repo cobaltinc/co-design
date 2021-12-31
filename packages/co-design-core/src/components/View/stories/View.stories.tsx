@@ -7,5 +7,5 @@ export default {
 };
 
 export const Default = () => {
-  return <View co={(theme) => ({ width: 100, height: 100, backgroundColor: theme.colorPalettes.purple[3] })} />;
+  return <View co={(theme) => ({ width: 100, height: 100, backgroundColor: theme.palettes.purple[3] })} />;
 };

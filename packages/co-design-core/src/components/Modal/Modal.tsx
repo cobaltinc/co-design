@@ -160,7 +160,7 @@ export const CoModal = ({
           <div style={transitionStyles.overlay}>
             <Overlay
               zIndex={0}
-              color={overlayColor || (theme.colorScheme === 'dark' ? theme.colorPalettes.dark[9] : theme.colors.black)}
+              color={overlayColor || (theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.black)}
               opacity={_overlayOpacity}
             />
           </div>

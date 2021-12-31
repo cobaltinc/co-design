@@ -1,11 +1,11 @@
-import { createStyles, CoSize, CoColorPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette } from '@co-design/styles';
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
 export type IconButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary' | 'transparent';
 
 interface IconButtonStylesProps {
-  color?: CoColorPalette;
+  color?: CoPalette;
   size: CoSize;
 }
 
@@ -72,15 +72,15 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
     },
 
     primary: {
-      backgroundColor: theme.colorPalettes[color][6],
+      backgroundColor: theme.palettes[color][6],
       color: 'white',
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.colorPalettes[color][7],
+        backgroundColor: theme.palettes[color][7],
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.colorPalettes[color][8],
+        backgroundColor: theme.palettes[color][8],
       },
 
       '&:not(:disabled):focus-visible': {
@@ -92,26 +92,26 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
           left: -2,
           right: -2,
           borderRadius: 4,
-          outline: `1px solid ${theme.colorPalettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][6]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.colorPalettes.dark[2],
+        backgroundColor: theme.palettes.dark[2],
         color: addAlpha(theme.colors.black, theme.opacity.opacity3),
       },
     },
     inverse: {
       backgroundColor: theme.colors.white,
 
-      color: theme.colorPalettes[color][6],
+      color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.colorPalettes.dark[3],
+        backgroundColor: theme.palettes.dark[3],
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.colorPalettes.dark[4],
+        backgroundColor: theme.palettes.dark[4],
       },
 
       '&:not(:disabled):focus-visible': {
@@ -128,21 +128,21 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.colorPalettes.dark[2],
+        backgroundColor: theme.palettes.dark[2],
         color: addAlpha(theme.colors.black, theme.opacity.opacity3),
       },
     },
     secondary: {
       backgroundColor: theme.colors.transparent,
-      border: `1px solid ${theme.colorPalettes[color][6]}`,
-      color: theme.colorPalettes[color][6],
+      border: `1px solid ${theme.palettes[color][6]}`,
+      color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][1], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][1], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][2], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][2], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
@@ -154,29 +154,29 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
           left: -2,
           right: -2,
           borderRadius: 4,
-          outline: `1px solid ${theme.colorPalettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][6]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.colorPalettes[color][2], theme.opacity.opacity3),
-        border: `1px solid ${addAlpha(theme.colorPalettes[color][2], theme.opacity.opacity3)}`,
+        color: addAlpha(theme.palettes[color][2], theme.opacity.opacity3),
+        border: `1px solid ${addAlpha(theme.palettes[color][2], theme.opacity.opacity3)}`,
       },
     },
     tertiary: {
-      backgroundColor: addAlpha(theme.colorPalettes[color][9], theme.opacity.opacity1),
-      color: theme.colorPalettes[color][6],
+      backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity1),
+      color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][9], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity2),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
-        outline: `1px solid ${theme.colorPalettes[color][6]}`,
+        outline: `1px solid ${theme.palettes[color][6]}`,
 
         '&::before': {
           content: '""',
@@ -186,28 +186,28 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
           left: -3,
           right: -3,
           borderRadius: 4,
-          outline: `1px solid ${theme.colorPalettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][6]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+        color: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
       },
     },
     transparent: {
       backgroundColor: 'transparent',
-      color: theme.colorPalettes[color][6],
+      color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][9], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity2),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
-        outline: `1px solid ${theme.colorPalettes[color][6]}`,
+        outline: `1px solid ${theme.palettes[color][6]}`,
 
         '&::before': {
           content: '""',
@@ -217,12 +217,12 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
           left: -3,
           right: -3,
           borderRadius: 4,
-          outline: `1px solid ${theme.colorPalettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][6]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.colorPalettes[color][8], theme.opacity.opacity3),
+        color: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
       },
     },
 
