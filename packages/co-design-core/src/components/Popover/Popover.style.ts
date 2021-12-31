@@ -29,6 +29,47 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
   balloon: {
     position: 'fixed',
     display: 'inline-block',
+    width: 200,
+
+    '&.top': {
+      transform: 'translate(-50%, -100%)',
+    },
+
+    '&.top-left': {
+      transform: 'translate(0, -100%)',
+    },
+
+    '&.top-right': {
+      transform: 'translate(-100%, -100%)',
+    },
+
+    '&.bottom': {
+      transform: 'translate(-50%)',
+    },
+
+    '&.bottom-right': {
+      transform: 'translate(-100%)',
+    },
+
+    '&.right': {
+      transform: 'translateY(-50%)',
+    },
+
+    '&.right-bottom': {
+      transform: 'translateY(-100%)',
+    },
+
+    '&.left': {
+      transform: 'translate(-100%, -50%)',
+    },
+
+    '&.left-top': {
+      transform: 'translate(-100%, 0)',
+    },
+
+    '&.left-bottom': {
+      transform: 'translate(-100%, -100%)',
+    },
   },
 
   arrow: {
@@ -42,60 +83,80 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     borderLeft: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
 
     '&[class^="top"]': {
-      top: -18,
+      bottom: 6,
+      transform: 'rotate(-135deg)',
+    },
+
+    '&.top': {
+      left: '50%',
       transform: 'translate(-50%) rotate(-135deg)',
     },
 
     '&.top-left': {
-      marginLeft: 12,
+      left: 6,
     },
 
     '&.top-right': {
-      marginLeft: -12,
+      right: 6,
     },
 
     '&[class^="bottom"]': {
-      bottom: -18,
+      top: 6,
+      transform: 'rotate(45deg)',
+    },
+
+    '&.bottom': {
+      left: '50%',
       transform: 'translate(-50%) rotate(45deg)',
     },
 
     '&.bottom-left': {
-      marginLeft: 12,
+      left: 6,
     },
 
     '&.bottom-right': {
-      marginLeft: -12,
+      right: 6,
     },
 
     '&[class^="right"]': {
-      right: -18,
+      left: 6,
+      transform: 'rotate(-45deg)',
+    },
+
+    '&.right': {
+      top: '50%',
       transform: 'translateY(-50%) rotate(-45deg)',
     },
 
     '&.right-top': {
-      marginTop: 12,
+      top: 6,
     },
 
     '&.right-bottom': {
-      marginTop: -12,
+      bottom: 6,
     },
 
     '&[class^="left"]': {
-      left: -18,
+      right: 6,
+      transform: 'rotate(135deg)',
+    },
+
+    '&.left': {
+      top: '50%',
       transform: 'translateY(-50%) rotate(135deg)',
     },
 
     '&.left-top': {
-      marginTop: 12,
+      top: 6,
     },
 
     '&.left-bottom': {
-      marginTop: -12,
+      bottom: 6,
     },
   },
 
   content: {
-    position: 'absolute',
+    position: 'relative',
     padding: getFieldValue(contentPadding, theme.spacing),
     borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.palettes.dark[0],
@@ -110,49 +171,17 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
       marginBottom: 12,
     },
 
-    '&.top': {
-      transform: 'translate(-50%)',
-    },
-
-    '&.top-right': {
-      transform: 'translate(-100%)',
-    },
-
     '&[class^="bottom"]': {
       marginTop: 12,
-    },
-
-    '&.bottom': {
-      transform: 'translate(-50%)',
-    },
-
-    '&.bottom-right': {
-      transform: 'translate(-100%)',
     },
 
     '&[class^="right"]': {
       marginLeft: 12,
     },
 
-    '&.right': {
-      transform: 'translateY(-50%)',
-    },
-
-    '&.right-bottom': {
-      transform: 'translateY(-100%)',
-    },
-
     '&[class^="left"]': {
       right: 0,
       marginRight: 12,
-    },
-
-    '&.left': {
-      transform: 'translateY(-50%)',
-    },
-
-    '&.left-bottom': {
-      transform: 'translateY(-100%)',
     },
   },
 }));

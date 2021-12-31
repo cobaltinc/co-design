@@ -118,7 +118,7 @@ export const Popover = ({
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
           {(styles) => (
-            <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
+            <View className={cx(placement, classes.balloon)} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
               <div className={cx(placement, classes.content)} style={contentStyle}>
                 {content}
               </div>
