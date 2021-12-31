@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { CoTheme, CSSObject, DefaultProps, PolymorphicComponentProps, PolymorphicRef, useCo, useCoTheme, useCss } from '@co-design/styles';
+import { CoTheme, CSSObject, CoComponentProps, PolymorphicComponentProps, PolymorphicRef, useCo, useCoTheme, useCss } from '@co-design/styles';
 
 type Co = CSSObject | ((theme: CoTheme) => CSSObject);
 type ViewCo = Co | Co[];
 
-interface _ViewProps extends Omit<DefaultProps, 'co'> {
+interface _ViewProps extends Omit<CoComponentProps, 'co'> {
   co?: ViewCo;
 }
 

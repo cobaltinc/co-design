@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { useScrollLock, useFocusTrap, useFocusReturn, useId } from '@co-design/hooks';
-import { DefaultProps, ClassNames, CoZIndex, CoRadius, CoShadows, CoSpacing, CoSize } from '@co-design/styles';
+import { CoComponentProps, ClassNames, CoZIndex, CoRadius, CoShadows, CoSpacing, CoSize } from '@co-design/styles';
 import { CloseButton } from '../IconButton';
 import { Text } from '../Text';
 import { Paper } from '../Paper';
@@ -11,7 +11,7 @@ import { View } from '../View';
 import { GroupedTransition, CoTransition } from '../Transition';
 import useStyles from './Modal.style';
 
-export interface ModalProps extends DefaultProps, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
+export interface ModalProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   /** Mounts modal if true */
   opened: boolean;
 

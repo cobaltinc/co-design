@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoPalette, DefaultProps } from '@co-design/styles';
+import { CoColor, CoPalette, CoComponentProps } from '@co-design/styles';
 import useStyles from './Heading.style';
 import { warning } from '../../utils';
 
-export interface HeadingProps extends DefaultProps, React.ComponentPropsWithoutRef<'h1'> {
+export interface HeadingProps extends CoComponentProps, React.ComponentPropsWithoutRef<'h1'> {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   inline?: boolean;
   strong?: boolean;

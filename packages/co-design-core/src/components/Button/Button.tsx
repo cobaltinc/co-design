@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 
-export interface SharedButtonProps extends DefaultProps {
+export interface SharedButtonProps extends CoComponentProps {
   size?: CoSize;
   color?: CoPalette;
   variant?: ButtonVariant;

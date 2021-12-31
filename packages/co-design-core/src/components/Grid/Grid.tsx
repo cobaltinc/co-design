@@ -1,9 +1,9 @@
 import React, { Children, forwardRef } from 'react';
-import { DefaultProps, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Grid.style';
 
-export interface GridProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface GridProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
   spacing?: CoSpacing;
   grow?: boolean;

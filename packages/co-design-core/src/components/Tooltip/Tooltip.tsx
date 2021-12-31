@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { DefaultProps, CoZIndex, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoZIndex, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
@@ -7,7 +7,7 @@ import useStyles, { TooltipPlacement, TooltipTrigger } from './Tooltip.style';
 import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { Transition, CoTransition } from '../Transition';
 
-export interface TooltipProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface TooltipProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   visible?: boolean;
   label: string;
   withArrow?: boolean;

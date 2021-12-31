@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import { CoBreakpoints, CoSpacing, DefaultProps } from '@co-design/styles';
+import { CoBreakpoints, CoSpacing, CoComponentProps } from '@co-design/styles';
 import useStyles from './Center.style';
 
-export interface CenterProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface CenterProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   inline?: boolean;
 }
 

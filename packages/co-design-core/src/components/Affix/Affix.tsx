@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoZIndex, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoZIndex, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
 
-export interface AffixProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface AffixProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   target?: HTMLDivElement;
   zIndex?: CoZIndex | number;
   position?: {

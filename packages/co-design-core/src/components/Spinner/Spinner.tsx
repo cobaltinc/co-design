@@ -1,8 +1,8 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoPalette, CoSize, DefaultProps } from '@co-design/styles';
+import { CoColor, CoPalette, CoSize, CoComponentProps } from '@co-design/styles';
 import useStyles from './Spinner.style';
 
-export interface SpinnerProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface SpinnerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   size?: CoSize | number;
   color?: CoPalette | CoColor | string;
 }

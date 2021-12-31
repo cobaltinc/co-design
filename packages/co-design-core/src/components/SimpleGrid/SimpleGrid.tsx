@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { SimpleGridBreakpoint } from './SimpleGrid.style';
 
-export interface SimpleGridProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface SimpleGridProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   cols: number;
   spacing?: CoSpacing | number;
   breakpoints?: SimpleGridBreakpoint[];

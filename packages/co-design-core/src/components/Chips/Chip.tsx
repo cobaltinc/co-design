@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
-import { DefaultProps, CoPalette, CoSize, CoRadius, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
 
-export interface ChipProps extends DefaultProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'onChange'> {
+export interface ChipProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'onChange'> {
   /** Chip radius from theme or number to set value in px */
   radius?: CoRadius | number;
 

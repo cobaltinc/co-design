@@ -1,9 +1,9 @@
 import React, { Children, forwardRef } from 'react';
-import { DefaultProps, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { GroupPosition } from './Group.style';
 
-export interface GroupProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface GroupProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   inline?: boolean;
   position?: GroupPosition;
   align?: React.CSSProperties['alignItems'];

@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
 import { useId } from '@co-design/hooks';
-import { DefaultProps, CoSize, CoPalette, ClassNames, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoSize, CoPalette, ClassNames, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Switch.style';
 
 export type SwitchStylesNames = ClassNames<typeof useStyles>;
 
-export interface SwitchProps extends DefaultProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size' | 'children'> {
+export interface SwitchProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size' | 'children'> {
   id?: string;
   label?: React.ReactNode;
   color?: CoPalette;

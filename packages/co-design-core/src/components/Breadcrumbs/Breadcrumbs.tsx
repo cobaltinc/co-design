@@ -1,10 +1,10 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps } from '@co-design/styles';
+import { CoComponentProps } from '@co-design/styles';
 import { Text } from '../Text';
 import { View } from '../View';
 import useStyles from './Breadcrumbs.style';
 
-export interface BreadcrumbsProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface BreadcrumbsProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   /** Separator between breadcrumbs */
   separator?: React.ReactNode;
 

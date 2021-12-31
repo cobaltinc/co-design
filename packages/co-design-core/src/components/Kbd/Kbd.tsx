@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps } from '@co-design/styles';
+import { CoComponentProps } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Kbd.style';
 
-export interface KbdProps extends DefaultProps, React.ComponentPropsWithoutRef<'kbd'> {
+export interface KbdProps extends CoComponentProps, React.ComponentPropsWithoutRef<'kbd'> {
   children: React.ReactNode;
 }
 

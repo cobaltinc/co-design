@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { CoBreakpoints, CoSpacing, DefaultProps } from '@co-design/styles';
+import { CoBreakpoints, CoSpacing, CoComponentProps } from '@co-design/styles';
 import useStyles from './Container.style';
 import { View } from '../View';
 
-export interface ContainerProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface ContainerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   size?: CoBreakpoints | number;
   padding?: CoSpacing | number;
   fluid?: boolean;

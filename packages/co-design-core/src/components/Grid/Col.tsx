@@ -1,9 +1,9 @@
 import React from 'react';
-import { DefaultProps, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Col.style';
 
-export interface ColProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface ColProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   span: number;
   columns?: number;
   offset?: number;

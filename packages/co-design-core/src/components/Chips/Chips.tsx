@@ -1,11 +1,11 @@
 import React, { Children } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
-import { DefaultProps, CoSize, CoSpacing, CoRadius, CoPalette } from '@co-design/styles';
+import { CoComponentProps, CoSize, CoSpacing, CoRadius, CoPalette } from '@co-design/styles';
 import { Group, GroupProps } from '../Group/Group';
 import { Chip } from './Chip';
 
 export interface ChipsProps<T extends boolean = false>
-  extends DefaultProps,
+  extends CoComponentProps,
     Omit<GroupProps, 'value' | 'defaultValue' | 'onChange' | 'classNames' | 'styles'> {
   spacing?: CoSpacing | number;
 

@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoPalette, CoColor } from '@co-design/styles';
+import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoPalette, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Text.style';
 
-export interface SharedTextProps extends DefaultProps {
+export interface SharedTextProps extends CoComponentProps {
   size?: CoFontSizes | number;
   color?: CoPalette | CoColor | string;
   strong?: boolean | React.CSSProperties['fontWeight'];

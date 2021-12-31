@@ -1,11 +1,11 @@
 import React, { forwardRef } from 'react';
-import { useCoTheme, DefaultProps, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
+import { useCoTheme, CoComponentProps, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Burger.style';
 import { useUpdateEffect, useToggle } from '@co-design/hooks';
 import { useCallback } from 'react';
 
-export interface BurgerProps extends DefaultProps, React.ComponentPropsWithoutRef<'button'> {
+export interface BurgerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'button'> {
   opened?: boolean;
   size?: CoNumberSize;
   color?: CoPalette | CoColor | string;

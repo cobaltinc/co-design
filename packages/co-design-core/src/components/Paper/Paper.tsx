@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoShadows, PolymorphicComponentProps, PolymorphicRef, CoSpacing, CoRadius } from '@co-design/styles';
+import { CoComponentProps, CoShadows, PolymorphicComponentProps, PolymorphicRef, CoSpacing, CoRadius } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Paper.style';
 
-export interface SharedPaperProps extends DefaultProps {
+export interface SharedPaperProps extends CoComponentProps {
   padding?: CoSpacing | number;
   shadow?: CoShadows;
   radius?: CoRadius | number;

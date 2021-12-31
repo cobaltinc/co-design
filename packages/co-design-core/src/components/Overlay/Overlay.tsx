@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { PolymorphicComponentProps, PolymorphicRef, DefaultProps, CoOpacity, CoZIndex, CoRadius } from '@co-design/styles';
+import { PolymorphicComponentProps, PolymorphicRef, CoComponentProps, CoOpacity, CoZIndex, CoRadius } from '@co-design/styles';
 import { View } from '../View';
 import { getFieldValue } from '../../utils';
 
-interface _OverlayProps extends DefaultProps {
+interface _OverlayProps extends CoComponentProps {
   opacity?: CoOpacity | number;
   color?: string;
   zIndex?: CoZIndex | number;

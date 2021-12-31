@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, CSSProperties, forwardRef, useImperativeHandle } from 'react';
-import { CoRadius, DefaultProps } from '@co-design/styles';
+import { CoRadius, CoComponentProps } from '@co-design/styles';
 import useStyles from './Image.style';
 import { View } from '../View';
 
@@ -15,7 +15,7 @@ const onIntersection: IntersectionObserverCallback = (entries, io) => {
   });
 };
 
-export interface ImageProps extends DefaultProps, Omit<React.ComponentPropsWithoutRef<'h1'>, 'placeholder'> {
+export interface ImageProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'h1'>, 'placeholder'> {
   lazy?: boolean;
   threshold?: number;
   src: string;

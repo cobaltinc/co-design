@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { CoPalette, DefaultProps, useCoTheme } from '@co-design/styles';
+import { CoPalette, CoComponentProps, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Mark.style';
 
-export interface MarkProps extends DefaultProps, React.ComponentPropsWithoutRef<'mark'> {
+export interface MarkProps extends CoComponentProps, React.ComponentPropsWithoutRef<'mark'> {
   color?: CoPalette;
 }
 

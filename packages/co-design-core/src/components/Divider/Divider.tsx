@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
-import { DefaultProps, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoSpacing } from '@co-design/styles';
 import useStyles from './Divider.style';
 // import { Text } from '../Text';
 import { View } from '../View';
 
 export type DividerStylesNames = 'label';
 
-export interface DividerProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface DividerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   orientation?: 'horizontal' | 'vertical';
   variant?: 'solid' | 'dashed' | 'dotted';
   margin?: CoSpacing | number;

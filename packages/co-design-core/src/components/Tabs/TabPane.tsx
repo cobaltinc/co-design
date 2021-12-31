@@ -1,9 +1,9 @@
 import React from 'react';
-import { CoPalette, DefaultProps, useCoTheme } from '@co-design/styles';
+import { CoPalette, CoComponentProps, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './TabPane.style';
 
-export interface TabPaneProps extends DefaultProps, React.ComponentPropsWithRef<'button'> {
+export interface TabPaneProps extends CoComponentProps, React.ComponentPropsWithRef<'button'> {
   active?: boolean;
   color?: CoPalette;
   orientation?: 'horizontal' | 'vertical';

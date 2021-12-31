@@ -1,13 +1,13 @@
 import React, { useRef, forwardRef } from 'react';
 import { useUncontrolled, mergeRefs } from '@co-design/hooks';
-import { CoPalette, CoSpacing, DefaultProps } from '@co-design/styles';
+import { CoPalette, CoSpacing, CoComponentProps } from '@co-design/styles';
 import { View } from '../View';
 import { Group, GroupPosition } from '../Group';
 import { TabPane, TabType } from './TabPane';
 import useStyles from './Tabs.style';
 import { clamp } from './utils';
 
-export interface TabsProps extends DefaultProps, React.ComponentPropsWithRef<'div'> {
+export interface TabsProps extends CoComponentProps, React.ComponentPropsWithRef<'div'> {
   /** <Tab /> components only */
   children: React.ReactNode;
 

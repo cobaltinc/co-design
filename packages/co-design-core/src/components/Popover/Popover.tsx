@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { DefaultProps, CoZIndex, useCoTheme, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, CoZIndex, useCoTheme, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
@@ -7,7 +7,7 @@ import useStyles, { PopoverPlacement, PopoverTrigger } from './Popover.style';
 import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { CoTransition, Transition } from '../Transition';
 
-export interface PopoverProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface PopoverProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   visible?: boolean;
   content: React.ReactNode;
   contentPadding?: CoSpacing | number;

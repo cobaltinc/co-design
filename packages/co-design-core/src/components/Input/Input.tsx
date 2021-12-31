@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useCoTheme, DefaultProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius } from '@co-design/styles';
+import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
 
@@ -38,7 +38,7 @@ export interface InputBaseProps {
   size?: CoSize;
 }
 
-interface _InputProps extends InputBaseProps, DefaultProps {
+interface _InputProps extends InputBaseProps, CoComponentProps {
   /** Static css selector base */
   __staticSelector?: string;
 }

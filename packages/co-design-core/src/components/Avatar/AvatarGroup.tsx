@@ -1,12 +1,12 @@
 import React, { forwardRef } from 'react';
-import { CoSize, CoSpacing, DefaultProps } from '@co-design/styles';
+import { CoSize, CoSpacing, CoComponentProps } from '@co-design/styles';
 import { Avatar } from './Avatar';
 import { AvatarShape } from './Avatar.style';
 import { View } from '../View';
 import { Center } from '../Center';
 import useStyles from './AvatarGroup.style';
 
-export interface AvatarGroupProps extends DefaultProps, React.ComponentPropsWithoutRef<'div'> {
+export interface AvatarGroupProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
   /** <Avatar /> components only */
   children?: React.ReactNode;
 
