@@ -2,7 +2,7 @@ import React from 'react';
 import * as Icons from '../src';
 
 export default {
-  title: '@co-design/icons/icons',
+  title: '@co-design/icons',
   argTypes: {
     color: {
       control: { type: 'color' },
