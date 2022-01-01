@@ -1,4 +1,4 @@
-import { CoTheme } from './types';
+import { CoTheme, CoThemeBase } from './types';
 import {
   DEFAULT_BREAKPOINTS,
   DEFAULT_COLORS,
@@ -12,12 +12,22 @@ import {
   DEFAULT_Z_INDEX,
 } from './tokens';
 import { CSSObject } from '../tss';
+import { attachFunctions } from './functions/attachFunctions';
 
 export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
 export const CO_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
 
-export const DEFAULT_THEME: CoTheme = {
+export const defaultFontStyles = (theme: CoTheme) => {
+  return (): CSSObject => ({
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+    fontFamily: theme.fontFamily || 'sans-serif',
+  });
+};
+
+export const _DEFAULT_THEME: CoThemeBase = {
+  locale: 'en',
   colorScheme: 'light',
   lineHeight: 1.55,
   fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
@@ -45,13 +55,6 @@ export const DEFAULT_THEME: CoTheme = {
   zIndex: DEFAULT_Z_INDEX,
 
   extra: {},
-  locale: 'en',
 };
 
-export const defaultFontStyles = (theme: CoTheme) => {
-  return (): CSSObject => ({
-    WebkitFontSmoothing: 'antialiased',
-    MozOsxFontSmoothing: 'grayscale',
-    fontFamily: theme.fontFamily || 'sans-serif',
-  });
-};
+export const DEFAULT_THEME = attachFunctions(_DEFAULT_THEME);

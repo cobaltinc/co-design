@@ -2,10 +2,22 @@ import type { CSSProperties } from 'react';
 import type { Tuple } from './Tuple';
 import type { DeepPartial } from './DeepPartial';
 import { CoBreakpoints, CoColor, CoPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing, CoZIndex } from '../tokens';
+import { CoSize } from './CoSize';
 
 export interface HeadingStyle {
   fontSize: CSSProperties['fontSize'];
   lineHeight: CSSProperties['lineHeight'];
+}
+
+interface CoThemeFunctions {
+  rgba(color: string, alpha: number): string;
+  size(props: { size: string | number; sizes: Record<string, any> }): any;
+  linearGradient(deg: number, ...colors: string[]): string;
+  radialGradient(...colors: string[]): string;
+  smallerThan(breakpoint: CoSize | number): string;
+  largerThan(breakpoint: CoSize | number): string;
+  lighten(color: string, alpha: number): string;
+  darken(color: string, alpha: number): string;
 }
 
 export interface CoTheme {
@@ -35,8 +47,11 @@ export interface CoTheme {
     h6: HeadingStyle;
   };
 
+  fn: CoThemeFunctions;
   extra: Record<string, any>;
 }
+
+export type CoThemeBase = Omit<CoTheme, 'fn'>;
 
 export type CoThemeOverride = DeepPartial<Omit<CoTheme, 'extra'>> & {
   extra?: Record<string, any>;

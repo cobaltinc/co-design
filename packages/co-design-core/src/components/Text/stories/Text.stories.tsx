@@ -61,7 +61,15 @@ export const Inherit = () => {
           Lorem
         </Text>{' '}
         ipsum dolor sit amet,{' '}
-        <Text inherit strong color="blue">
+        <Text
+          size="large"
+          strong
+          co={(theme) => ({
+            background: theme.fn.linearGradient(90, 'red', 'green', 'blue'),
+            backgroundClip: 'text',
+            color: 'transparent',
+          })}
+        >
           consectetur
         </Text>{' '}
         <Text inherit transform="uppercase">
