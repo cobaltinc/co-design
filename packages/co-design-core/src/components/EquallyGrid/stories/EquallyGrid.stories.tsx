@@ -1,10 +1,10 @@
 import React from 'react';
 import { View } from '../../View';
-import { SimpleGrid } from '../SimpleGrid';
+import { EquallyGrid } from '../EquallyGrid';
 
 export default {
-  title: '@co-design/core/SimpleGrid',
-  component: SimpleGrid,
+  title: '@co-design/core/EquallyGrid',
+  component: EquallyGrid,
   argTypes: {
     cols: {
       defaultValue: 3,
@@ -25,7 +25,7 @@ const Box = () => {
 export const Default = (props) => {
   return (
     <div>
-      <SimpleGrid {...props}>
+      <EquallyGrid {...props}>
         <Box />
         <Box />
         <Box />
@@ -34,7 +34,7 @@ export const Default = (props) => {
         <Box />
         <Box />
         <Box />
-      </SimpleGrid>
+      </EquallyGrid>
     </div>
   );
 };

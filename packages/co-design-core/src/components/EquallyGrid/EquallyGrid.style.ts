@@ -1,20 +1,20 @@
 import { createStyles, CoSpacing, CoTheme, CoBreakpoints } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
-export interface SimpleGridBreakpoint {
+export interface EquallyGridBreakpoint {
   maxWidth?: CoBreakpoints | number;
   minWidth?: CoBreakpoints | number;
   cols: number;
   spacing?: CoSpacing;
 }
 
-interface SimpleGridStyles {
+interface EquallyGridStyles {
   cols: number;
   spacing: CoSpacing | number;
-  breakpoints: SimpleGridBreakpoint[];
+  breakpoints: EquallyGridBreakpoint[];
 }
 
-const getSortedBreakpoints = (theme: CoTheme, breakpoints: SimpleGridBreakpoint[]) => {
+const getSortedBreakpoints = (theme: CoTheme, breakpoints: EquallyGridBreakpoint[]) => {
   if (breakpoints.length === 0) {
     return breakpoints;
   }
@@ -25,7 +25,7 @@ const getSortedBreakpoints = (theme: CoTheme, breakpoints: SimpleGridBreakpoint[
   return property === 'minWidth' ? sorted.reverse() : sorted;
 };
 
-export default createStyles((theme, { cols, spacing, breakpoints }: SimpleGridStyles) => {
+export default createStyles((theme, { cols, spacing, breakpoints }: EquallyGridStyles) => {
   const gridBreakpoints = getSortedBreakpoints(theme, breakpoints).reduce((acc, breakpoint) => {
     const property = 'maxWidth' in breakpoint ? 'max-width' : 'min-width';
     const breakpointSize = getFieldValue(property === 'max-width' ? breakpoint.maxWidth : breakpoint.minWidth, theme.breakpoints);

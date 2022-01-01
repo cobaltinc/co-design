@@ -22,7 +22,7 @@ export * from './Overlay';
 export * from './Paper';
 export * from './Popover';
 export * from './Portal';
-export * from './SimpleGrid';
+export * from './EquallyGrid';
 export * from './Spinner';
 export * from './Switch';
 export * from './Tabs';
