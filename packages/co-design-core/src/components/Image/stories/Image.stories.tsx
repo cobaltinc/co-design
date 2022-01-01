@@ -11,7 +11,7 @@ export default {
     },
     radius: {
       defaultValue: 'small',
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'medium', 'large', 'round', 'circular'],
       control: { type: 'inline-radio' },
     },
     lazy: {

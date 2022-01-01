@@ -20,7 +20,7 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
     width: getFieldValue(size, CO_HEIGHTS),
     minWidth: getFieldValue(size, CO_HEIGHTS),
     height: getFieldValue(size, CO_HEIGHTS),
-    borderRadius: shape === 'circle' ? '50%' : shape === 'round' ? theme.radius.medium : 0,
+    borderRadius: shape === 'circle' ? theme.radius.circular : shape === 'round' ? theme.radius.medium : 0,
   },
 
   image: {

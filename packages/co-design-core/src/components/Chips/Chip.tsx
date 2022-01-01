@@ -48,7 +48,7 @@ export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React
 export const Chip = forwardRef<HTMLInputElement, ChipProps>(
   (
     {
-      radius = 9999,
+      radius = 'round',
       type = 'checkbox',
       size = 'small',
       variant,

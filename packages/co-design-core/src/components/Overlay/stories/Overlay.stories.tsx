@@ -10,7 +10,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     radius: {
-      options: ['small', 'medium', 'large'],
+      options: ['small', 'medium', 'large', 'round', 'circular'],
       control: { type: 'inline-radio' },
     },
     color: {
