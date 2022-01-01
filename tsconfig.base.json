@@ -1,7 +1,9 @@
 {
   "exclude": [
     "node_modules",
-    "dist",
+    "lib",
+    "esm",
+    "cjs",
     "config/storybook/main.js"
   ],
   "compilerOptions": {
