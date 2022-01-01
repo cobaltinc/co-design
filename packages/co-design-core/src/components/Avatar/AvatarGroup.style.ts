@@ -1,4 +1,4 @@
-import { createStyles, CoSpacing } from '@co-design/styles';
+import { createStyles, CoSpacing, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface AvatarsGroupStyles {
@@ -18,7 +18,7 @@ export default createStyles((theme, { spacing }: AvatarsGroupStyles) => ({
   },
 
   truncated: {
-    fontFamily: theme.fontFamily,
+    ...defaultFontStyles(theme),
     lineHeight: 1,
     color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
     width: '100%',

@@ -1,4 +1,4 @@
-import { createStyles } from '@co-design/styles';
+import { createStyles, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 export const sizes = {
@@ -38,7 +38,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => ({
   },
 
   title: {
-    fontFamily: theme.fontFamily,
+    ...defaultFontStyles(theme),
     fontSize: theme.fontSizes.xlarge,
     marginRight: theme.spacing.medium,
     textOverflow: 'ellipsis',

@@ -11,6 +11,7 @@ import {
   DEFAULT_PALETTES,
   DEFAULT_Z_INDEX,
 } from './tokens';
+import { CSSObject } from '../tss';
 
 export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
@@ -45,4 +46,12 @@ export const DEFAULT_THEME: CoTheme = {
 
   extra: {},
   locale: 'en',
+};
+
+export const defaultFontStyles = (theme: CoTheme) => {
+  return (): CSSObject => ({
+    WebkitFontSmoothing: 'antialiased',
+    MozOsxFontSmoothing: 'grayscale',
+    fontFamily: theme.fontFamily || 'sans-serif',
+  });
 };

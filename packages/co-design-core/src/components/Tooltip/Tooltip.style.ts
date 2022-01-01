@@ -1,4 +1,4 @@
-import { createStyles } from '@co-design/styles';
+import { createStyles, defaultFontStyles } from '@co-design/styles';
 
 export type TooltipPlacement =
   | 'top-left'
@@ -92,7 +92,7 @@ export default createStyles((theme) => ({
     padding: theme.spacing.small,
     borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
-    fontFamily: theme.fontFamily,
+    ...defaultFontStyles(theme),
     fontSize: theme.fontSizes.small,
     color: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.palettes.dark[0],
 

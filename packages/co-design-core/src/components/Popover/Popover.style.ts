@@ -1,4 +1,4 @@
-import { CoSpacing, createStyles } from '@co-design/styles';
+import { CoSpacing, createStyles, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 export type PopoverPlacement =
@@ -160,7 +160,7 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     padding: getFieldValue(contentPadding, theme.spacing),
     borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.palettes.dark[0],
-    fontFamily: theme.fontFamily,
+    ...defaultFontStyles(theme),
     fontSize: theme.fontSizes.small,
     color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
     border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,

@@ -1,4 +1,4 @@
-import { CoRadius, CoSize, createStyles } from '@co-design/styles';
+import { CoRadius, CoSize, createStyles, defaultFontStyles } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 import { getFieldValue } from '../../utils';
 
@@ -24,7 +24,7 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
     },
 
     input: {
-      fontFamily: theme.fontFamily,
+      ...defaultFontStyles(theme),
       height: multiline ? 'auto' : getFieldValue(size, CO_HEIGHTS),
       WebkitTapHighlightColor: 'transparent',
       lineHeight: multiline ? theme.lineHeight : `${getFieldValue(size, CO_HEIGHTS) - 2}px`,

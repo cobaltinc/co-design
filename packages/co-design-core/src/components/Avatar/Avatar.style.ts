@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 import { getFieldValue } from '../../utils';
 
@@ -31,7 +31,7 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
   },
 
   placeholder: {
-    fontFamily: theme.fontFamily,
+    ...defaultFontStyles(theme),
     fontSize: getFieldValue(size, CO_HEIGHTS) / 3,
     color: theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6],
     fontWeight: 700,

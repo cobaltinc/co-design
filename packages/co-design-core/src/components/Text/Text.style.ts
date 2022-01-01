@@ -1,4 +1,4 @@
-import { createStyles, CSSObject, CoPalette, CoColor, CoFontSizes } from '@co-design/styles';
+import { createStyles, CSSObject, CoPalette, CoColor, CoFontSizes, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface TextStyles {
@@ -37,6 +37,7 @@ export default createStyles((theme, { color, size, lineClamp, block, inherit }: 
       display: block ? 'block' : 'inline',
       ...getLineClamp(lineClamp),
       color: _color,
+      ...defaultFontStyles(theme),
       fontFamily: inherit ? 'inherit' : theme.fontFamily,
       fontSize: inherit ? 'inherit' : getFieldValue(size, theme.fontSizes),
       lineHeight: inherit ? 'inherit' : block ? theme.lineHeight : 1,

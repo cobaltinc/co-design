@@ -1,4 +1,4 @@
-import { createStyles, CoPalette } from '@co-design/styles';
+import { createStyles, CoPalette, defaultFontStyles } from '@co-design/styles';
 
 interface TabControlStyles {
   color: CoPalette;
@@ -13,7 +13,7 @@ export default createStyles((theme, { color, orientation }: TabControlStyles, ge
     tabLabel: {},
 
     tabPane: {
-      fontFamily: theme.fontFamily,
+      ...defaultFontStyles(theme),
       WebkitTapHighlightColor: 'transparent',
       boxSizing: 'border-box',
       display: 'block',

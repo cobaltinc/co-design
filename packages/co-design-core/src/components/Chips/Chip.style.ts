@@ -1,4 +1,4 @@
-import { CoPalette, CoRadius, CoSize, createStyles } from '@co-design/styles';
+import { CoPalette, CoRadius, CoSize, createStyles, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 export const sizes = {
@@ -50,7 +50,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
     label: {
       ref: label,
-      fontFamily: theme.fontFamily,
+      ...defaultFontStyles(theme),
       boxSizing: 'border-box',
       color: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.black,
       display: 'inline-block',

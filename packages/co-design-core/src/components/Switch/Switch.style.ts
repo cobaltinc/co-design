@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface SwitchStyles {
@@ -107,7 +107,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
     label: {
       WebkitTapHighlightColor: 'transparent',
       fontSize: theme.fontSizes[size],
-      fontFamily: theme.fontFamily,
+      ...defaultFontStyles(theme),
       paddingLeft: theme.spacing.small,
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9],
     },

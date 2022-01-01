@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoTheme, CoPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoTheme, CoPalette, defaultFontStyles } from '@co-design/styles';
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
@@ -262,8 +262,8 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
     root: {
       ...sizes[size],
       ...getWidthStyles(fullWidth),
+      ...defaultFontStyles(theme),
       ...getFontStyles(theme)[size],
-      fontFamily: theme.fontFamily,
       borderRadius: theme.radius.medium,
       position: 'relative',
       lineHeight: 1,

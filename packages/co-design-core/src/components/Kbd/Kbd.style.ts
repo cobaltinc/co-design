@@ -1,8 +1,9 @@
-import { createStyles } from '@co-design/styles';
+import { createStyles, defaultFontStyles } from '@co-design/styles';
 
 export default createStyles((theme) => ({
   root: {
     lineHeight: theme.lineHeight,
+    ...defaultFontStyles(theme),
     fontFamily: theme.fontFamilyMonospace,
     fontSize: theme.fontSizes.xsmall,
     fontWeight: 700,

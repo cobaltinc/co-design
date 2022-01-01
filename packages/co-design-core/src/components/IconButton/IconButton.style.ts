@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
@@ -226,7 +226,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
 
     root: {
       ...sizes[size],
-      fontFamily: theme.fontFamily,
+      ...defaultFontStyles(theme),
       borderRadius: theme.radius.medium,
       position: 'relative',
       padding: 0,
