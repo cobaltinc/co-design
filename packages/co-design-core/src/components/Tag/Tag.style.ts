@@ -11,7 +11,7 @@ export default createStyles((theme, { color, fullWidth, strong }: TagStyles) => 
     display: fullWidth ? 'flex' : 'inline-flex',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: `${theme.spacing.spacing1}px ${theme.spacing.spacing2}px`,
+    padding: `${theme.spacing.xsmall}px ${theme.spacing.small}px`,
     fontWeight: strong ? 'bold' : 'normal',
     fontSize: theme.fontSizes.tiny,
     color: theme.palettes[color][theme.colorScheme === 'light' ? 6 : 4],

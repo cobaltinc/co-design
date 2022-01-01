@@ -17,7 +17,7 @@ export interface BreadcrumbsProps extends CoComponentProps<BreadcrumbsStylesName
 }
 
 export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
-  ({ children, separator = '/', spacing = 'spacing2', className, co, overrideStyles, ...props }: BreadcrumbsProps, ref) => {
+  ({ children, separator = '/', spacing = 'small', className, co, overrideStyles, ...props }: BreadcrumbsProps, ref) => {
     const { classes, cx } = useStyles({ spacing }, { co, overrideStyles, name: 'Breadcrumbs' });
 
     const items = React.Children.toArray(children).reduce((acc: any[], child: any, index, array) => {

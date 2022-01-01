@@ -89,7 +89,7 @@ export default createStyles((theme) => ({
 
   content: {
     position: 'absolute',
-    padding: theme.spacing.spacing2,
+    padding: theme.spacing.small,
     borderRadius: theme.radius.medium,
     backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
     fontFamily: theme.fontFamily,

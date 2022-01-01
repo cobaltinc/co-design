@@ -12,7 +12,7 @@ export interface EquallyGridProps extends CoComponentProps<EquallyGridStylesName
 }
 
 export const EquallyGrid = forwardRef<HTMLDivElement, EquallyGridProps>(
-  ({ children, cols, spacing = 'spacing2', breakpoints = [], className, co, overrideStyles, ...props }: EquallyGridProps, ref) => {
+  ({ children, cols, spacing = 'medium', breakpoints = [], className, co, overrideStyles, ...props }: EquallyGridProps, ref) => {
     const { classes, cx } = useStyles({ breakpoints, cols, spacing }, { co, overrideStyles, name: 'EquallyGrid' });
 
     return (

@@ -20,7 +20,7 @@ export default createStyles((theme, { color, orientation }: TabControlStyles, ge
       height: 40,
       backgroundColor: 'transparent',
       border: 0,
-      padding: `0 ${theme.spacing.spacing4}px`,
+      padding: `0 ${theme.spacing.large}px`,
       fontSize: theme.fontSizes.medium,
       cursor: 'pointer',
       width: orientation === 'vertical' ? '100%' : 'auto',
@@ -52,7 +52,7 @@ export default createStyles((theme, { color, orientation }: TabControlStyles, ge
 
     tabIcon: {
       '&:not(:only-child)': {
-        marginRight: theme.spacing.spacing1,
+        marginRight: theme.spacing.small,
       },
 
       // this fixes alignment as by default images and svg are inline and will have extra space on the bottom

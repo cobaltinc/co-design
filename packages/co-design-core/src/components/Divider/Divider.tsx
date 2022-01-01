@@ -18,7 +18,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     {
       variant = 'solid',
       orientation = 'horizontal',
-      margin = 'spacing3',
+      margin = 'medium',
       label,
       labelPosition = 'center',
       className,

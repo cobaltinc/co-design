@@ -2,7 +2,7 @@ import { createStyles, CoSpacing } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface GridStyles {
-  spacing: CoSpacing;
+  spacing: CoSpacing | number;
   justify?: React.CSSProperties['justifyContent'];
   align?: React.CSSProperties['alignContent'];
 }

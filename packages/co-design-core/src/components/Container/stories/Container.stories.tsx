@@ -11,9 +11,8 @@ export default {
       control: { type: 'inline-radio' },
     },
     padding: {
-      defaultValue: 'spacing0',
-      options: ['spacing0', 'spacing1', 'spacing2', 'spacing3', 'spacing4', 'spacing5', 'spacing6', 'spacing7', 'spacing8', 'spacing9'],
-      control: { type: 'inline-radio' },
+      defaultValue: 0,
+      control: { type: 'number' },
     },
     fluid: {
       defaultValue: false,

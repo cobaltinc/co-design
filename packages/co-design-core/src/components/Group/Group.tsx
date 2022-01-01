@@ -24,7 +24,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
       align,
       noWrap = false,
       grow = false,
-      spacing = 'spacing2',
+      spacing = 'medium',
       direction = 'row',
       className,
       co,

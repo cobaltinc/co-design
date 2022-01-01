@@ -14,7 +14,7 @@ export interface ColProps extends CoComponentProps<ColStylesNames>, React.Compon
   offsetMd?: number;
   offsetLg?: number;
   offsetXl?: number;
-  spacing?: CoSpacing;
+  spacing?: CoSpacing | number;
   grow?: boolean;
   xsmall?: number;
   small?: number;

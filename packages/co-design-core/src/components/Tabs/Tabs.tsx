@@ -83,7 +83,7 @@ export const Tabs: TabsComponent = forwardRef<HTMLDivElement, TabsProps>(
       grow = false,
       onTabChange,
       color,
-      tabPadding = 'spacing2',
+      tabPadding = 'medium',
       orientation = 'horizontal',
       className,
       co,

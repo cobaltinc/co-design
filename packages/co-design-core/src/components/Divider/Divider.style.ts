@@ -44,14 +44,14 @@ export default createStyles((theme, { margin, variant }: DividerStyles) => {
         flex: 1,
         height: 1,
         // borderTop: theme.colorScheme === 'light' ? theme.colors.lightBorder : theme.colors.darkBorder,
-        marginRight: theme.spacing.spacing2,
+        marginRight: theme.spacing.small,
       },
 
       '&::after': {
         content: '""',
         flex: 1,
         // borderTop: theme.colors.lightBorder,
-        marginLeft: theme.spacing.spacing2,
+        marginLeft: theme.spacing.small,
       },
     },
 

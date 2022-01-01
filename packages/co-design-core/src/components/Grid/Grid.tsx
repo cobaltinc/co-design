@@ -7,7 +7,7 @@ export type GridStylesNames = ClassNames<typeof useStyles>;
 
 export interface GridProps extends CoComponentProps<GridStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
-  spacing?: CoSpacing;
+  spacing?: CoSpacing | number;
   grow?: boolean;
   justify?: React.CSSProperties['justifyContent'];
   align?: React.CSSProperties['alignContent'];
@@ -18,7 +18,7 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(
   (
     {
       children,
-      spacing = 'spacing2',
+      spacing = 'medium',
       grow = false,
       justify = 'flex-start',
       align = 'stretch',

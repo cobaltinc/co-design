@@ -30,18 +30,7 @@ export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesName
 
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
   (
-    {
-      children,
-      size = 'medium',
-      shape = 'circle',
-      limit = 2,
-      spacing = 'spacing4',
-      total,
-      className,
-      co,
-      overrideStyles,
-      ...props
-    }: AvatarGroupProps,
+    { children, size = 'medium', shape = 'circle', limit = 2, spacing = 'large', total, className, co, overrideStyles, ...props }: AvatarGroupProps,
     ref,
   ) => {
     const { classes, cx } = useStyles({ spacing }, { co, overrideStyles, name: 'AvatarGroup' });

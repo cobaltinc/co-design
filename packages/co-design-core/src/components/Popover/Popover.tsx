@@ -53,7 +53,7 @@ export const Popover = ({
   children,
   visible = false,
   content,
-  contentPadding = 'spacing3',
+  contentPadding = 'medium',
   withArrow = true,
   width,
   placement = 'top',

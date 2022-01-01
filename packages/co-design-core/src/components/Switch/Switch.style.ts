@@ -108,7 +108,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       fontSize: theme.fontSizes[size],
       fontFamily: theme.fontFamily,
-      paddingLeft: theme.spacing.spacing2,
+      paddingLeft: theme.spacing.small,
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9],
     },
   };

@@ -12,8 +12,8 @@ export default {
       control: { type: 'inline-radio' },
     },
     spacing: {
-      defaultValue: 'spacing4',
-      options: ['spacing0', 'spacing1', 'spacing2', 'spacing3', 'spacing4', 'spacing5', 'spacing6', 'spacing7', 'spacing8', 'spacing9'],
+      defaultValue: 'large',
+      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     limit: {

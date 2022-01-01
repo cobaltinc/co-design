@@ -83,7 +83,7 @@ export const CoModal = ({
   overlayColor,
   overflow = 'outside',
   transition = 'pop',
-  padding = 'spacing4',
+  padding = 'large',
   shadow = 'large',
   radius = 'medium',
   closeOnClickOutside = true,

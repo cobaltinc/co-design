@@ -25,7 +25,7 @@ export function Chips<T extends boolean>({
   id,
   variant,
   color,
-  spacing = 'spacing2',
+  spacing = 'small',
   radius = 9999,
   size = 'small',
   value,

@@ -92,7 +92,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             [classes.disabled]: disabled,
           })}
           disabled={disabled}
-          style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.spacing2 }}
+          style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
         />
 
         {rightSection && (

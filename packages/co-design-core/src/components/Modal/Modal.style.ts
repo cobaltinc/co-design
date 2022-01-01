@@ -40,7 +40,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => ({
   title: {
     fontFamily: theme.fontFamily,
     fontSize: theme.fontSizes.xlarge,
-    marginRight: theme.spacing.spacing3,
+    marginRight: theme.spacing.medium,
     textOverflow: 'ellipsis',
     display: 'block',
     wordBreak: 'break-word',
@@ -58,7 +58,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginBottom: theme.spacing.spacing2,
+    marginBottom: theme.spacing.small,
     marginTop: -8,
     marginRight: -8,
   },

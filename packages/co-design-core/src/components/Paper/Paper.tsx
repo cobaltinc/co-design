@@ -22,7 +22,7 @@ export const Paper: PaperComponent & { displayName?: string } = forwardRef(
       component,
       className,
       children,
-      padding = 'spacing3',
+      padding = 'medium',
       radius = 'medium',
       withBorder = false,
       shadow = 'medium',

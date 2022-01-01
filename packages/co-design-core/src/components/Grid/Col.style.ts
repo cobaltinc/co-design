@@ -2,7 +2,7 @@ import { createStyles, CoSpacing, CO_SIZES, CoSize, CoTheme } from '@co-design/s
 import { getFieldValue } from '../../utils';
 
 interface ColStyles {
-  spacing: CoSpacing;
+  spacing: CoSpacing | number;
   columns: number;
   grow: boolean;
   offset: number;

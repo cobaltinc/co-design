@@ -35,8 +35,8 @@ export default {
       control: { type: 'inline-radio' },
     },
     contentPadding: {
-      defaultValue: 'spacing3',
-      options: ['spacing0', 'spacing1', 'spacing2', 'spacing3', 'spacing4', 'spacing5', 'spacing6', 'spacing7', 'spacing8', 'spacing9'],
+      defaultValue: 'medium',
+      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
   },

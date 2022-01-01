@@ -94,7 +94,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       width: getFieldValue(size, iconSizes),
       maxWidth: getFieldValue(size, iconSizes),
       height: getFieldValue(size, iconSizes),
-      marginRight: theme.spacing.spacing2,
+      marginRight: theme.spacing.small,
       display: 'inline-block',
       verticalAlign: 'middle',
       overflow: 'hidden',

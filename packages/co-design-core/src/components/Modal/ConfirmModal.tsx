@@ -47,7 +47,7 @@ export const ConfirmModal = ({
 
   return (
     <>
-      {children && <View co={{ marginBottom: theme.spacing.spacing3 }}>{children}</View>}
+      {children && <View co={{ marginBottom: theme.spacing.medium }}>{children}</View>}
 
       <Group position="right" {...groupProps}>
         <Button variant="secondary" {...cancelProps} onClick={handleCancel}>
