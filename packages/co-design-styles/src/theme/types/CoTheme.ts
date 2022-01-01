@@ -18,6 +18,7 @@ interface CoThemeFunctions {
   largerThan(breakpoint: CoSize | number): string;
   lighten(color: string, alpha: number): string;
   darken(color: string, alpha: number): string;
+  spacing(size: number): number;
 }
 
 export interface CoTheme {

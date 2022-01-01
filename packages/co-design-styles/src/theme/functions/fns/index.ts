@@ -4,6 +4,7 @@ import { rgba } from './rgba';
 import { size } from './size';
 import { darken } from './darken';
 import { lighten } from './lighten';
+import { spacing } from './spacing';
 
 export const fns = {
   linearGradient,
@@ -14,4 +15,5 @@ export const fns = {
   size,
   darken,
   lighten,
+  spacing,
 } as const;

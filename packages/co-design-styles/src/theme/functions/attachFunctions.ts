@@ -13,6 +13,7 @@ export const attachFunctions = (themeBase: CoThemeBase): CoTheme => {
       size: fns.size,
       lighten: fns.lighten,
       darken: fns.darken,
+      spacing: fns.spacing,
     },
   };
 };
