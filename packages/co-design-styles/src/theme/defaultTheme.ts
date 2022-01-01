@@ -12,6 +12,10 @@ import {
   DEFAULT_Z_INDEX,
 } from './tokens';
 
+export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
+export const CO_COLORS = Object.keys(DEFAULT_COLORS);
+export const CO_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
+
 export const DEFAULT_THEME: CoTheme = {
   colorScheme: 'light',
   lineHeight: 1.55,
