@@ -10,6 +10,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "scripts": {
+    "build": "esno ../../scripts/build co-design-core"
+  },
   "repository": {
     "url": "https://github.com/cobaltinc/co-design.git",
     "type": "git",

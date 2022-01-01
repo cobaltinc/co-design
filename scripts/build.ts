@@ -2,14 +2,8 @@ import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 
 import { buildPackage, BuildOptions } from './utils/build-package';
-import { buildAllPackages } from './utils/build-all-packages';
 
 const { argv }: { argv: any } = yargs(hideBin(process.argv))
-  .option('all', {
-    type: 'boolean',
-    default: false,
-    description: 'Build all packages.',
-  })
   .option('project', {
     type: 'string',
     description: 'Specify package should be bundled.',
@@ -37,9 +31,5 @@ const { argv }: { argv: any } = yargs(hideBin(process.argv))
   ]);
 
 (async () => {
-  if (argv._[0] === 'all' || argv.all) {
-    await buildAllPackages(argv as BuildOptions);
-  } else if (argv._[0] || argv.project) {
-    await buildPackage((argv._[0] || argv.project) as string, argv as BuildOptions);
-  }
+  await buildPackage((argv._[0] || argv.project) as string, argv as BuildOptions);
 })();

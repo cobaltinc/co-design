@@ -17,7 +17,8 @@
     "directory": "packages/co-design-icons"
   },
   "scripts": {
-    "prebuild": "rimraf src && svgr --icon --typescript --replace-attr-values '#5D636D=currentColor' --out-dir src -- icons"
+    "prebuild": "rimraf src && svgr --icon --typescript --replace-attr-values '#5D636D=currentColor' --out-dir src -- icons",
+    "build": "esno ../../scripts/build co-design-icons"
   },
   "peerDependencies": {
     "react": ">=16.8.0",

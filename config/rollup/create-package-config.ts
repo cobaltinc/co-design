@@ -9,7 +9,7 @@ import json from '@rollup/plugin-json';
 import alias, { Alias } from '@rollup/plugin-alias';
 import replace from '@rollup/plugin-replace';
 import visualizer from 'rollup-plugin-visualizer';
-import { getPackagesList } from '../../scripts/utils/get-packages-list';
+// import { getPackagesList } from '../../scripts/utils/get-packages-list';
 
 interface PkgConfigInput {
   basePath: string;
@@ -24,12 +24,12 @@ interface PkgConfigInput {
 
 export default async function createPackageConfig(config: PkgConfigInput): Promise<RollupOptions> {
   const packageJson = JSON.parse(fs.readFileSync(path.join(config.basePath, './package.json')).toString('utf-8'));
-  const pkgList = await getPackagesList();
+  // const pkgList = await getPackagesList();
 
-  const aliasEntries: Alias[] = pkgList.map((pkg) => ({
-    find: new RegExp(`^${pkg.packageJson.name}`),
-    replacement: path.resolve(pkg.path, 'src'),
-  }));
+  // const aliasEntries: Alias[] = pkgList.map((pkg) => ({
+  //   find: new RegExp(`^${pkg.packageJson.name}`),
+  //   replacement: path.resolve(pkg.path, 'src'),
+  // }));
 
   const plugins = [
     commonjs(),
@@ -41,7 +41,7 @@ export default async function createPackageConfig(config: PkgConfigInput): Promi
       tsconfig: path.resolve(process.cwd(), 'tsconfig.json'),
     }),
     json(),
-    alias({ entries: aliasEntries }),
+    // alias({ entries: aliasEntries }),
     replace({ preventAssignment: true }),
   ];
 

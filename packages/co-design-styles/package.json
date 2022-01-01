@@ -15,6 +15,9 @@
     "type": "git",
     "directory": "packages/co-design-styles"
   },
+  "scripts": {
+    "build": "esno ../../scripts/build co-design-styles"
+  },
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

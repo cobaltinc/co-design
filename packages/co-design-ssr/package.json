@@ -19,6 +19,9 @@
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
+  "scripts": {
+    "build": "esno ../../scripts/build co-design-ssr"
+  },
   "dependencies": {
     "@co-design/styles": "^0.5.1",
     "@emotion/cache": "^11.7.1",

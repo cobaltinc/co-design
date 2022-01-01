@@ -9,8 +9,7 @@
   },
   "scripts": {
     "type": "tsc --noEmit",
-    "prebuild": "yarn workspace @co-design/icons prebuild",
-    "build": "esno scripts/build",
+    "build": "lerna run build --include-dependencies --stream",
     "clean": "rimraf packages/*/{esm,cjs,lib,dist} packages/**/*.tsbuildinfo",
     "storybook": "esno scripts/storybook-start",
     "build-storybook": "build-storybook -c ./config/storybook",

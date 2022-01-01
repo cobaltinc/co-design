@@ -15,6 +15,9 @@
     "type": "git",
     "directory": "packages/co-design-next"
   },
+  "scripts": {
+    "build": "esno ../../scripts/build co-design-next"
+  },
   "peerDependencies": {
     "next": "*",
     "react": ">=16.8.0",
