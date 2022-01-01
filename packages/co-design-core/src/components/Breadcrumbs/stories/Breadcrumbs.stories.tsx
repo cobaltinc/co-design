@@ -26,3 +26,26 @@ export const Default = (props) => {
     </Breadcrumbs>
   );
 };
+
+export const OverrideStyles = (props) => {
+  return (
+    <Breadcrumbs
+      {...props}
+      overrideStyles={{
+        root: {
+          border: '1px solid blue',
+        },
+        breadcrumb: {
+          border: '1px solid red',
+        },
+        separator: {
+          border: '1px solid green',
+        },
+      }}
+    >
+      <Text>Co Design</Text>
+      <Text>Components</Text>
+      <Text>Breadcrumbs</Text>
+    </Breadcrumbs>
+  );
+};

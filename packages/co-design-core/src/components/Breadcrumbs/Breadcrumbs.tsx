@@ -1,10 +1,12 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoSpacing } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
 import { Text } from '../Text';
 import { View } from '../View';
 import useStyles from './Breadcrumbs.style';
 
-export interface BreadcrumbsProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type BreadcrumbsStylesNames = ClassNames<typeof useStyles>;
+
+export interface BreadcrumbsProps extends CoComponentProps<BreadcrumbsStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /** Separator between breadcrumbs */
   separator?: React.ReactNode;
 
@@ -15,8 +17,8 @@ export interface BreadcrumbsProps extends CoComponentProps, React.ComponentProps
 }
 
 export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
-  ({ children, separator = '/', spacing = 'spacing2', className, co, ...props }: BreadcrumbsProps, ref) => {
-    const { classes, cx } = useStyles({ spacing }, { co, name: 'Breadcrumbs' });
+  ({ children, separator = '/', spacing = 'spacing2', className, co, overrideStyles, ...props }: BreadcrumbsProps, ref) => {
+    const { classes, cx } = useStyles({ spacing }, { co, overrideStyles, name: 'Breadcrumbs' });
 
     const items = React.Children.toArray(children).reduce((acc: any[], child: any, index, array) => {
       acc.push(React.cloneElement(child, { className: classes.breadcrumb, key: index }));

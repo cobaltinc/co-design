@@ -3,7 +3,7 @@ import { PolymorphicComponentProps, PolymorphicRef, CoComponentProps, CoOpacity,
 import { View } from '../View';
 import { getFieldValue } from '../../utils';
 
-interface _OverlayProps extends CoComponentProps {
+interface _OverlayProps extends Omit<CoComponentProps, 'overrideStyles'> {
   opacity?: CoOpacity | number;
   color?: string;
   zIndex?: CoZIndex | number;

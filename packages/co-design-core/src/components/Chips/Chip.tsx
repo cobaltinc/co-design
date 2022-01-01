@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
-import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
 
-export interface ChipProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'onChange'> {
+export type ChipStylesNames = ClassNames<typeof useStyles>;
+
+export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'onChange'> {
   /** Chip radius from theme or number to set value in px */
   radius?: CoRadius | number;
 
@@ -61,6 +63,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       defaultChecked,
       onChange,
       co,
+      overrideStyles,
       ...props
     }: ChipProps,
     ref,
@@ -68,7 +71,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
     const uuid = useId(id);
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ radius, size, color: _color }, { name: __staticSelector });
+    const { classes, cx } = useStyles({ radius, size, color: _color }, { co, overrideStyles, name: __staticSelector });
 
     const [value, setValue] = useUncontrolled({
       value: checked,

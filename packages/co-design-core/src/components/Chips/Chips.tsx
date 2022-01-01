@@ -7,51 +7,32 @@ import { Chip } from './Chip';
 export interface ChipsProps<T extends boolean = false>
   extends CoComponentProps,
     Omit<GroupProps, 'value' | 'defaultValue' | 'onChange' | 'classNames' | 'styles'> {
-  spacing?: CoSpacing | number;
-
-  radius?: CoRadius | number;
-
-  /** Predefined chip size */
-  size?: CoSize;
-
-  /** Allow multiple values to be picked */
-  multiple?: T;
-
-  /** Controlled component value */
-  value?: T extends true ? string[] : string;
-
-  /** Uncontrolled component value */
-  defaultValue?: T extends true ? string[] : string;
-
-  /** Called when value changes */
-  onChange?(value: T extends true ? string[] : string): void;
-
-  /** Static id, used to generate inputs names */
   id?: string;
-
-  /** <Chip /> components only */
   children?: React.ReactNode;
-
-  /** Controls chip appearance, defaults to filled with dark theme and to outline in light theme */
   variant?: 'filled' | 'outline';
-
-  /** Active chip color, defaults to theme.primaryColor */
   color?: CoPalette;
+  spacing?: CoSpacing | number;
+  radius?: CoRadius | number;
+  size?: CoSize;
+  multiple?: T;
+  value?: T extends true ? string[] : string;
+  defaultValue?: T extends true ? string[] : string;
+  onChange?(value: T extends true ? string[] : string): void;
 }
 
 export function Chips<T extends boolean>({
-  value,
-  defaultValue,
-  onChange,
+  children,
+  id,
+  variant,
   color,
   spacing = 'spacing2',
   radius = 9999,
   size = 'small',
-  variant,
+  value,
+  defaultValue,
   multiple,
-  children,
-  id,
-  ...others
+  onChange,
+  ...props
 }: ChipsProps<T>) {
   const uuid = useId(id);
   const [_value, setValue] = useUncontrolled<string | string[]>({
@@ -88,7 +69,7 @@ export function Chips<T extends boolean>({
     );
 
   return (
-    <Group spacing={spacing} id={uuid} {...others}>
+    <Group spacing={spacing} id={uuid} {...props}>
       {chips}
     </Group>
   );

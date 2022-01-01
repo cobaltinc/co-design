@@ -1,5 +1,5 @@
 export type { ColorScheme } from './ColorScheme';
-export type { CoComponentProps } from './CoComponentProps';
+export type { CoComponentProps, Co } from './CoComponentProps';
 
 export type { CoNumberSize, CoSize } from './CoSize';
 export type { CoTheme, CoThemeOverride } from './CoTheme';

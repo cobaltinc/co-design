@@ -1,18 +1,20 @@
 import React, { forwardRef } from 'react';
-import { useCoTheme, CoComponentProps, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
+import { useCoTheme, CoComponentProps, CoNumberSize, CoPalette, CoColor, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Burger.style';
 import { useUpdateEffect, useToggle } from '@co-design/hooks';
 import { useCallback } from 'react';
 
-export interface BurgerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'button'> {
+export type BurgerStylesNames = ClassNames<typeof useStyles>;
+
+export interface BurgerProps extends CoComponentProps<BurgerStylesNames>, React.ComponentPropsWithoutRef<'button'> {
   opened?: boolean;
   size?: CoNumberSize;
   color?: CoPalette | CoColor | string;
 }
 
 export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
-  ({ opened = false, color, size = 'medium', co, className, ...props }: BurgerProps, ref) => {
+  ({ opened = false, color, size = 'medium', co, className, overrideStyles, ...props }: BurgerProps, ref) => {
     const theme = useCoTheme();
     const _color =
       (color in theme.palettes
@@ -20,7 +22,7 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
         : color in theme.colors
         ? theme.colors[color]
         : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9]);
-    const { classes, cx } = useStyles({ color: _color, size }, { co, name: 'Burger' });
+    const { classes, cx } = useStyles({ color: _color, size }, { co, overrideStyles, name: 'Burger' });
 
     const [currentOpened, toggleCurrentOpened] = useToggle(opened);
 

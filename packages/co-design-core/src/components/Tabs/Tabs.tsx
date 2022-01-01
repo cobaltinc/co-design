@@ -1,13 +1,15 @@
 import React, { useRef, forwardRef } from 'react';
 import { useUncontrolled, mergeRefs } from '@co-design/hooks';
-import { CoPalette, CoSpacing, CoComponentProps } from '@co-design/styles';
+import { CoPalette, CoSpacing, CoComponentProps, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import { Group, GroupPosition } from '../Group';
 import { TabPane, TabType } from './TabPane';
 import useStyles from './Tabs.style';
 import { clamp } from './utils';
 
-export interface TabsProps extends CoComponentProps, React.ComponentPropsWithRef<'div'> {
+export type TabsStylesNames = ClassNames<typeof useStyles>;
+
+export interface TabsProps extends CoComponentProps<TabsStylesNames>, React.ComponentPropsWithRef<'div'> {
   /** <Tab /> components only */
   children: React.ReactNode;
 
@@ -85,11 +87,12 @@ export const Tabs: TabsComponent = forwardRef<HTMLDivElement, TabsProps>(
       orientation = 'horizontal',
       className,
       co,
+      overrideStyles,
       ...props
     }: TabsProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ tabPadding, orientation }, { co, name: 'Tabs' });
+    const { classes, cx } = useStyles({ tabPadding, orientation }, { co, overrideStyles, name: 'Tabs' });
 
     const controlRefs = useRef<Record<string, HTMLButtonElement>>({});
 

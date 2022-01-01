@@ -1,21 +1,14 @@
 import { createStyles, CoNumberSize, CoPalette, CoColor } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
+import { getFieldValue } from '../../utils';
 
 interface BurgerStyles {
   size: CoNumberSize;
   color: CoPalette | CoColor | string;
 }
 
-export const sizes = {
-  xs: 12,
-  sm: 18,
-  md: 24,
-  lg: 34,
-  xl: 42,
-};
-
-export default createStyles((theme, { size, color }: BurgerStyles, getRef) => {
-  const sizeValue = size in CO_HEIGHTS ? CO_HEIGHTS[size] : size;
+export default createStyles((_, { size, color }: BurgerStyles, getRef) => {
+  const sizeValue = getFieldValue(size, CO_HEIGHTS);
   const opened = { ref: getRef('opened') } as const;
 
   return {
@@ -26,7 +19,6 @@ export default createStyles((theme, { size, color }: BurgerStyles, getRef) => {
       width: sizeValue,
       height: sizeValue,
       padding: 0,
-      // padding: theme.spacing.spacing1,
       backgroundColor: 'transparent',
       border: 0,
       cursor: 'pointer',

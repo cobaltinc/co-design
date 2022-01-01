@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoPalette, CoComponentProps } from '@co-design/styles';
+import { CoColor, CoPalette, CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Heading.style';
 import { warning } from '../../utils';
 
-export interface HeadingProps extends CoComponentProps, React.ComponentPropsWithoutRef<'h1'> {
+export type HeadingStylesNames = ClassNames<typeof useStyles>;
+
+export interface HeadingProps extends CoComponentProps<HeadingStylesNames>, React.ComponentPropsWithoutRef<'h1'> {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   inline?: boolean;
   strong?: boolean;
@@ -13,8 +15,11 @@ export interface HeadingProps extends CoComponentProps, React.ComponentPropsWith
 }
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ children, level = 1, inline = false, strong = false, underline = false, delete: del = false, color, className, co, ...props }, ref) => {
-    const { classes, cx } = useStyles({ inline, strong, underline, color }, { co, name: 'Heading' });
+  (
+    { children, level = 1, inline = false, strong = false, underline = false, delete: del = false, color, className, co, overrideStyles, ...props },
+    ref,
+  ) => {
+    const { classes, cx } = useStyles({ inline, strong, underline, color }, { co, overrideStyles, name: 'Heading' });
 
     let Element = `h${level}` as 'h1';
     if (level < 1 || level > 7) {

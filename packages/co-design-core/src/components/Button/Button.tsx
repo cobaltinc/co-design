@@ -1,11 +1,13 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 
-export interface SharedButtonProps extends CoComponentProps {
+export type ButtonStylesNames = ClassNames<typeof useStyles>;
+
+export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
   size?: CoSize;
   color?: CoPalette;
   variant?: ButtonVariant;
@@ -37,6 +39,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       loading = false,
       className,
       co,
+      overrideStyles,
       ...props
     }: ButtonProps<C>,
     ref: PolymorphicRef<C>,
@@ -49,7 +52,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
         size,
         fullWidth,
       },
-      { co, name: 'Button' },
+      { co, overrideStyles, name: 'Button' },
     );
 
     const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;

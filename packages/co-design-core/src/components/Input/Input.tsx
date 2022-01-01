@@ -1,7 +1,9 @@
 import React, { forwardRef } from 'react';
-import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius } from '@co-design/styles';
+import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
+
+export type InputStylesNames = ClassNames<typeof useStyles>;
 
 export interface InputBaseProps {
   /** Sets border color to red and aria-invalid=true on input element */
@@ -38,7 +40,7 @@ export interface InputBaseProps {
   size?: CoSize;
 }
 
-interface _InputProps extends InputBaseProps, CoComponentProps {
+interface _InputProps extends InputBaseProps, CoComponentProps<InputStylesNames> {
   /** Static css selector base */
   __staticSelector?: string;
 }
@@ -66,12 +68,13 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
       multiline = false,
       className,
       co,
+      overrideStyles,
       ...props
     }: InputProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const { classes, cx } = useStyles({ radius, size, multiline, invalid }, { co, name: __staticSelector });
+    const { classes, cx } = useStyles({ radius, size, multiline, invalid }, { co, overrideStyles, name: __staticSelector });
     const Element: any = component || 'input';
 
     return (

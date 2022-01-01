@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoPalette, CoColor } from '@co-design/styles';
+import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, CoFontSizes, CoPalette, CoColor, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Text.style';
 
-export interface SharedTextProps extends CoComponentProps {
+export type TextStylesNames = ClassNames<typeof useStyles>;
+
+export interface SharedTextProps extends CoComponentProps<TextStylesNames> {
   size?: CoFontSizes | number;
   color?: CoPalette | CoColor | string;
   strong?: boolean | React.CSSProperties['fontWeight'];
@@ -36,6 +38,7 @@ export const Text: TextComponent & { displayName?: string } = forwardRef(
       className,
       style,
       co,
+      overrideStyles,
       ...props
     }: TextProps<C>,
     ref: PolymorphicRef<C>,
@@ -48,7 +51,7 @@ export const Text: TextComponent & { displayName?: string } = forwardRef(
         block,
         inherit,
       },
-      { co, name: 'Text' },
+      { co, overrideStyles, name: 'Text' },
     );
 
     return (

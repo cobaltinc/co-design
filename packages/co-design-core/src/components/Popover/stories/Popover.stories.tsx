@@ -1,4 +1,5 @@
 import React from 'react';
+import { Modal } from '../../Modal';
 import { Center } from '../../Center';
 import { Popover } from '../Popover';
 
@@ -53,14 +54,36 @@ export const Default = (props) => {
   );
 };
 
-export const Test = (props) => {
+export const OverrideStyles = (props) => {
   return (
-    <div style={{ height: 10000 }}>
-      <div style={{ position: 'relative', top: 0, left: 0 }}>
-        <Popover placement="bottom" content={<Content />} {...props}>
-          <button>Popover</button>
-        </Popover>
-      </div>
-    </div>
+    <Center style={{ width: 500, height: 500 }}>
+      <Popover
+        placement="bottom"
+        content={<Content />}
+        {...props}
+        overrideStyles={{
+          arrow: {
+            backgroundColor: '#333',
+            borderColor: '#111',
+          },
+          content: {
+            color: 'white',
+            backgroundColor: '#333',
+          },
+        }}
+      >
+        <button>Popover</button>
+      </Popover>
+    </Center>
+  );
+};
+
+export const InModal = (props) => {
+  return (
+    <Modal opened onClose={() => {}}>
+      <Popover zIndex={3001} placement="bottom" content={<Content />} {...props}>
+        <button>Popover</button>
+      </Popover>
+    </Modal>
   );
 };

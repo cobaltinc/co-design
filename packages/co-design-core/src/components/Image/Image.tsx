@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, CSSProperties, forwardRef, useImperativeHandle } from 'react';
-import { CoRadius, CoComponentProps } from '@co-design/styles';
+import { CoRadius, CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Image.style';
 import { View } from '../View';
 
@@ -15,7 +15,9 @@ const onIntersection: IntersectionObserverCallback = (entries, io) => {
   });
 };
 
-export interface ImageProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'h1'>, 'placeholder'> {
+export type ImageStylesNames = ClassNames<typeof useStyles>;
+
+export interface ImageProps extends CoComponentProps<ImageStylesNames>, Omit<React.ComponentPropsWithoutRef<'h1'>, 'placeholder'> {
   lazy?: boolean;
   threshold?: number;
   src: string;
@@ -29,10 +31,25 @@ export interface ImageProps extends CoComponentProps, Omit<React.ComponentPropsW
 
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
   (
-    { lazy, threshold = 0.5, placeholder, src, radius, width = '100%', height = 'auto', alt, fit, style, className, co, ...props }: ImageProps,
+    {
+      lazy,
+      threshold = 0.5,
+      placeholder,
+      src,
+      radius,
+      width = '100%',
+      height = 'auto',
+      alt,
+      fit,
+      style,
+      className,
+      co,
+      overrideStyles,
+      ...props
+    }: ImageProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ radius }, { co, name: 'Image' });
+    const { classes, cx } = useStyles({ radius }, { co, overrideStyles, name: 'Image' });
     const [loaded, setLoaded] = useState(false);
     const [intersected, setIntersected] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);

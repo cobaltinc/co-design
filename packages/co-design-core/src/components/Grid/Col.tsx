@@ -1,9 +1,11 @@
 import React from 'react';
-import { CoComponentProps, CoSpacing } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Col.style';
 
-export interface ColProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type ColStylesNames = ClassNames<typeof useStyles>;
+
+export interface ColProps extends CoComponentProps<ColStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   span: number;
   columns?: number;
   offset?: number;
@@ -46,6 +48,7 @@ export function Col({
   columns,
   className,
   co,
+  overrideStyles,
   ...props
 }: ColProps) {
   const { classes, cx } = useStyles(
@@ -66,7 +69,7 @@ export function Col({
       columns,
       span,
     },
-    { co, name: 'Col' },
+    { co, overrideStyles, name: 'Col' },
   );
 
   if (!isValidSpan(span) || span > columns) {

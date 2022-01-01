@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { CoComponentProps, CoZIndex, useCoTheme } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoZIndex, useCoTheme } from '@co-design/styles';
 import { View } from '../View';
 import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
@@ -7,7 +7,9 @@ import useStyles, { TooltipPlacement, TooltipTrigger } from './Tooltip.style';
 import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { Transition, CoTransition } from '../Transition';
 
-export interface TooltipProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type TooltipStylesNames = ClassNames<typeof useStyles>;
+
+export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   visible?: boolean;
   label: string;
   withArrow?: boolean;
@@ -61,10 +63,11 @@ export const Tooltip = ({
   onChangeVisible,
   className,
   co,
+  overrideStyles,
   ...props
 }: TooltipProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles(null, { co, name: 'Tooltip' });
+  const { classes, cx } = useStyles(null, { co, overrideStyles, name: 'Tooltip' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
   const balloonRef = useRef<HTMLDivElement>(null);

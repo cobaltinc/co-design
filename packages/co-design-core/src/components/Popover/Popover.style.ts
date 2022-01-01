@@ -83,7 +83,7 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     borderLeft: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
 
     '&[class^="top"]': {
-      bottom: 6,
+      bottom: 7,
       transform: 'rotate(-135deg)',
     },
 
@@ -101,7 +101,7 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     },
 
     '&[class^="bottom"]': {
-      top: 6,
+      top: 7,
       transform: 'rotate(45deg)',
     },
 
@@ -119,7 +119,7 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     },
 
     '&[class^="right"]': {
-      left: 6,
+      left: 7,
       transform: 'rotate(-45deg)',
     },
 
@@ -137,7 +137,7 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     },
 
     '&[class^="left"]': {
-      right: 6,
+      right: 7,
       transform: 'rotate(135deg)',
     },
 

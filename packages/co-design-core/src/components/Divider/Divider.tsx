@@ -1,12 +1,11 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoSpacing } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
 import useStyles from './Divider.style';
-// import { Text } from '../Text';
 import { View } from '../View';
 
-export type DividerStylesNames = 'label';
+export type DividerStylesNames = ClassNames<typeof useStyles>;
 
-export interface DividerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export interface DividerProps extends CoComponentProps<DividerStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   orientation?: 'horizontal' | 'vertical';
   variant?: 'solid' | 'dashed' | 'dotted';
   margin?: CoSpacing | number;
@@ -16,10 +15,20 @@ export interface DividerProps extends CoComponentProps, React.ComponentPropsWith
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
   (
-    { variant = 'solid', orientation = 'horizontal', margin = 'spacing3', label, labelPosition = 'center', className, ...props }: DividerProps,
+    {
+      variant = 'solid',
+      orientation = 'horizontal',
+      margin = 'spacing3',
+      label,
+      labelPosition = 'center',
+      className,
+      co,
+      overrideStyles,
+      ...props
+    }: DividerProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ margin, variant }, { name: 'Divider' });
+    const { classes, cx } = useStyles({ margin, variant }, { co, overrideStyles, name: 'Divider' });
 
     const vertical = orientation === 'vertical';
     const horizontal = !vertical;

@@ -6,7 +6,9 @@ import useStyles from './Switch.style';
 
 export type SwitchStylesNames = ClassNames<typeof useStyles>;
 
-export interface SwitchProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size' | 'children'> {
+export interface SwitchProps
+  extends CoComponentProps<SwitchStylesNames>,
+    Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size' | 'children'> {
   id?: string;
   label?: React.ReactNode;
   color?: CoPalette;
@@ -14,10 +16,10 @@ export interface SwitchProps extends CoComponentProps, Omit<React.ComponentProps
 }
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ id, size = 'small', color, label, className, style, co, ...props }: SwitchProps, ref) => {
+  ({ id, size = 'small', color, label, className, style, co, overrideStyles, ...props }: SwitchProps, ref) => {
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ size, color: _color }, { co, name: 'Switch' });
+    const { classes, cx } = useStyles({ size, color: _color }, { co, overrideStyles, name: 'Switch' });
     const uuid = useId(id);
 
     return (

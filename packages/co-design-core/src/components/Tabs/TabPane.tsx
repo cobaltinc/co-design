@@ -1,9 +1,11 @@
 import React from 'react';
-import { CoPalette, CoComponentProps, useCoTheme } from '@co-design/styles';
+import { CoPalette, CoComponentProps, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './TabPane.style';
 
-export interface TabPaneProps extends CoComponentProps, React.ComponentPropsWithRef<'button'> {
+export type TabPaneStylesNames = ClassNames<typeof useStyles>;
+
+export interface TabPaneProps extends CoComponentProps<TabPaneStylesNames>, React.ComponentPropsWithRef<'button'> {
   active?: boolean;
   color?: CoPalette;
   orientation?: 'horizontal' | 'vertical';
@@ -31,10 +33,11 @@ export const TabPane = ({
   color: overrideColor,
   className,
   co,
+  overrideStyles,
   ...props
 }: TabPaneProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles({ color: overrideColor || color || theme.primaryColor, orientation }, { co, name: 'Tabs' });
+  const { classes, cx } = useStyles({ color: overrideColor || color || theme.primaryColor, orientation }, { co, overrideStyles, name: 'Tabs' });
 
   return (
     <View

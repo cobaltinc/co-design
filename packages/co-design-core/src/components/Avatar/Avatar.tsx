@@ -1,10 +1,12 @@
 import React, { useEffect, useState, forwardRef } from 'react';
-import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoPalette, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoPalette, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import { AvatarPlaceholderIcon } from './AvatarPlaceholderIcon';
 import useStyles, { AvatarShape } from './Avatar.style';
 
-interface _AvatarProps extends CoComponentProps {
+export type AvatarStylesNames = ClassNames<typeof useStyles>;
+
+interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
   src?: string;
   alt?: string;
   size?: CoSize | number;
@@ -18,12 +20,12 @@ type AvatarComponent = <C extends React.ElementType = 'div'>(props: AvatarProps<
 
 export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { children, component, size = 'medium', src, alt, shape = 'circle', color, className, co, ...props }: AvatarProps<C>,
+    { children, component, size = 'medium', src, alt, shape = 'circle', color, className, co, overrideStyles, ...props }: AvatarProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ color: _color, shape, size }, { co, name: 'Avatar' });
+    const { classes, cx } = useStyles({ color: _color, shape, size }, { co, overrideStyles, name: 'Avatar' });
     const [error, setError] = useState(!src);
 
     useEffect(() => {

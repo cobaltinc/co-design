@@ -1,7 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoTheme, CSSObject, CoComponentProps, PolymorphicComponentProps, PolymorphicRef, useCoTheme, useCss } from '@co-design/styles';
-
-type Co = CSSObject | ((theme: CoTheme) => CSSObject);
+import { CoTheme, CSSObject, CoComponentProps, PolymorphicComponentProps, PolymorphicRef, useCoTheme, useCss, Co } from '@co-design/styles';
 
 interface _StyledComponentProps extends Omit<CoComponentProps, 'co'> {
   co?: Co;

@@ -1,12 +1,14 @@
 import React, { forwardRef } from 'react';
-import { CoSize, CoSpacing, CoComponentProps } from '@co-design/styles';
+import { CoSize, CoSpacing, CoComponentProps, ClassNames } from '@co-design/styles';
 import { Avatar } from './Avatar';
 import { AvatarShape } from './Avatar.style';
 import { View } from '../View';
 import { Center } from '../Center';
 import useStyles from './AvatarGroup.style';
 
-export interface AvatarGroupProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type AvatarGroupStylesNames = ClassNames<typeof useStyles>;
+
+export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /** <Avatar /> components only */
   children?: React.ReactNode;
 
@@ -27,8 +29,22 @@ export interface AvatarGroupProps extends CoComponentProps, React.ComponentProps
 }
 
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
-  ({ children, size = 'medium', shape = 'circle', limit = 2, spacing = 'spacing4', total, className, co, ...props }: AvatarGroupProps, ref) => {
-    const { classes, cx } = useStyles({ spacing }, { co, name: 'AvatarGroup' });
+  (
+    {
+      children,
+      size = 'medium',
+      shape = 'circle',
+      limit = 2,
+      spacing = 'spacing4',
+      total,
+      className,
+      co,
+      overrideStyles,
+      ...props
+    }: AvatarGroupProps,
+    ref,
+  ) => {
+    const { classes, cx } = useStyles({ spacing }, { co, overrideStyles, name: 'AvatarGroup' });
 
     const avatars = React.Children.toArray(children)
       .filter((child: React.ReactElement) => child.type === Avatar)

@@ -1,9 +1,11 @@
 import React, { Children, forwardRef } from 'react';
-import { CoComponentProps, CoSpacing } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { GroupPosition } from './Group.style';
 
-export interface GroupProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type GroupStylesNames = ClassNames<typeof useStyles>;
+
+export interface GroupProps extends CoComponentProps<GroupStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   inline?: boolean;
   position?: GroupPosition;
   align?: React.CSSProperties['alignItems'];
@@ -26,6 +28,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
       direction = 'row',
       className,
       co,
+      overrideStyles,
       ...props
     }: GroupProps,
     ref,
@@ -42,7 +45,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
         direction,
         count,
       },
-      { co, name: 'Group' },
+      { co, overrideStyles, name: 'Group' },
     );
 
     const items = (Children.toArray(children) as React.ReactElement[]).map((child) =>

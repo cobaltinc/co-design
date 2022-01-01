@@ -1,9 +1,11 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoShadows, PolymorphicComponentProps, PolymorphicRef, CoSpacing, CoRadius } from '@co-design/styles';
+import { CoComponentProps, CoShadows, PolymorphicComponentProps, PolymorphicRef, CoSpacing, CoRadius, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Paper.style';
 
-export interface SharedPaperProps extends CoComponentProps {
+export type PaperStylesNames = ClassNames<typeof useStyles>;
+
+export interface SharedPaperProps extends CoComponentProps<PaperStylesNames> {
   padding?: CoSpacing | number;
   shadow?: CoShadows;
   radius?: CoRadius | number;
@@ -16,13 +18,24 @@ type PaperComponent = <C extends React.ElementType = 'div'>(props: PaperProps<C>
 
 export const Paper: PaperComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { component, className, children, padding = 'spacing3', radius = 'medium', withBorder = false, shadow = 'medium', ...others }: PaperProps<C>,
+    {
+      component,
+      className,
+      children,
+      padding = 'spacing3',
+      radius = 'medium',
+      withBorder = false,
+      shadow = 'medium',
+      co,
+      overrideStyles,
+      ...props
+    }: PaperProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const { classes, cx } = useStyles({ radius, shadow, padding, withBorder }, { name: 'Paper' });
+    const { classes, cx } = useStyles({ radius, shadow, padding, withBorder }, { co, overrideStyles, name: 'Paper' });
 
     return (
-      <View<any> component={component || 'div'} className={cx(classes.root, className)} ref={ref} {...others}>
+      <View<any> component={component || 'div'} className={cx(classes.root, className)} ref={ref} {...props}>
         {children}
       </View>
     );

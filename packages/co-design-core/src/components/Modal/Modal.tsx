@@ -11,7 +11,9 @@ import { View } from '../View';
 import { GroupedTransition, CoTransition } from '../Transition';
 import useStyles from './Modal.style';
 
-export interface ModalProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
+export type ModalStylesNames = ClassNames<typeof useStyles>;
+
+export interface ModalProps extends CoComponentProps<ModalStylesNames>, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
   /** Mounts modal if true */
   opened: boolean;
 
@@ -87,12 +89,13 @@ export const CoModal = ({
   closeOnClickOutside = true,
   className,
   co,
+  overrideStyles,
   ...props
 }: ModalProps) => {
   const baseId = useId(id);
   const titleId = `${baseId}-title`;
   const bodyId = `${baseId}-body`;
-  const { classes, cx, theme } = useStyles({ size, overflow }, { co, name: 'Modal' });
+  const { classes, cx, theme } = useStyles({ size, overflow }, { co, overrideStyles, name: 'Modal' });
   const focusTrapRef = useFocusTrap(opened);
   const _overlayOpacity = typeof overlayOpacity === 'number' ? overlayOpacity : theme.colorScheme === 'dark' ? 'opacity6' : 'opacity5';
 

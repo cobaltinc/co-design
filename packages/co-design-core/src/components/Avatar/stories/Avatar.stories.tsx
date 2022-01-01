@@ -37,3 +37,20 @@ export const Default = (props) => {
     </div>
   );
 };
+
+export const OverrideStyles = (props) => {
+  return (
+    <div>
+      Grayscale filter
+      <Avatar
+        {...props}
+        src="https://picsum.photos/400/400"
+        overrideStyles={{
+          image: {
+            filter: 'grayscale(80%)',
+          },
+        }}
+      />
+    </div>
+  );
+};

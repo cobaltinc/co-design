@@ -38,3 +38,24 @@ export default {
 export const Default = (props) => {
   return <Button {...props}>Button</Button>;
 };
+
+export const OverrideStyles = (props) => {
+  return (
+    <Button
+      {...props}
+      overrideStyles={{
+        primary: {
+          backgroundColor: 'black',
+          '&:not(:disabled):hover': {
+            backgroundColor: '#222',
+          },
+          '&:not(:disabled):active': {
+            backgroundColor: '#444',
+          },
+        },
+      }}
+    >
+      Button
+    </Button>
+  );
+};

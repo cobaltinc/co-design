@@ -1,12 +1,13 @@
-import type { CoTheme } from '../theme';
+import type { Co, CoTheme } from '../theme';
 import type { CSSObject } from './types';
 import { fromEntries } from './utils/fromEntries';
 import { useCss } from './useCss';
 import { useCoTheme, useCoThemeStyles } from '../theme/CoProvider';
 import { mergeClassNames } from './utils/mergeClassNames';
 
-export interface UseStylesOptions {
-  co?: CSSObject | ((theme: CoTheme) => CSSObject);
+export interface UseStylesOptions<Key extends string> {
+  co?: Co;
+  overrideStyles?: Partial<Record<Key, CSSObject>> | ((theme: CoTheme) => Partial<Record<Key, CSSObject>>);
   name: string;
 }
 
@@ -17,7 +18,7 @@ export function createStyles<Key extends string = string, Params = void>(
 ) {
   const getCssObject = typeof getCssObjectOrCssObject === 'function' ? getCssObjectOrCssObject : () => getCssObjectOrCssObject;
 
-  function useStyles(params: Params, options?: UseStylesOptions) {
+  function useStyles(params: Params, options?: UseStylesOptions<Key>) {
     const theme = useCoTheme();
     const themeStyles = useCoThemeStyles()[options?.name];
 
@@ -32,13 +33,13 @@ export function createStyles<Key extends string = string, Params = void>(
 
     const cssObject = getCssObject(theme, params, createRef);
 
+    const _overrideStyles = typeof options?.overrideStyles === 'function' ? options?.overrideStyles(theme) : options?.overrideStyles || {};
     const _themeStyles = typeof themeStyles === 'function' ? themeStyles(theme) : themeStyles || {};
     const _co = typeof options?.co === 'function' ? options.co(theme) : options?.co;
 
     const classes = fromEntries(
       Object.keys(cssObject).map((key) => {
-        const _mergedStyles = cx(css(cssObject[key]), css(_themeStyles[key]));
-        const mergedStyles = key === 'root' ? cx(_mergedStyles, css(_co)) : _mergedStyles;
+        const mergedStyles = cx(css(cssObject[key]), css(_themeStyles[key]), css(_overrideStyles[key]), css(_co));
         return [key, mergedStyles];
       }),
     ) as Record<Key, string>;

@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { PolymorphicComponentProps, PolymorphicRef, CoTheme, CSSObject, CoPalette, useCoTheme } from '@co-design/styles';
+import { PolymorphicComponentProps, PolymorphicRef, CoPalette, Co } from '@co-design/styles';
 import { Text, SharedTextProps } from '../Text/Text';
 import { Mark } from '../Mark/Mark';
 import { highlighter } from './highlighter';
@@ -8,7 +8,7 @@ interface _HighlightProps extends SharedTextProps {
   children: string;
   highlight: string | string[];
   highlightColor?: CoPalette;
-  highlightStyles?: CSSObject | ((theme: CoTheme) => CSSObject);
+  highlightStyles?: Co;
 }
 
 export type HighlightProps<C extends React.ElementType> = PolymorphicComponentProps<C, _HighlightProps>;
@@ -20,7 +20,6 @@ export const Highlight: HighlightComponent & { displayName?: string } = forwardR
     { children, highlight, highlightColor, component, highlightStyles, ...others }: HighlightProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const theme = useCoTheme();
     const highlightChunks = highlighter(children, highlight);
 
     return (

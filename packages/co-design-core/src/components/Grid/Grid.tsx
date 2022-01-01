@@ -1,9 +1,11 @@
 import React, { Children, forwardRef } from 'react';
-import { CoComponentProps, CoSpacing } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Grid.style';
 
-export interface GridProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type GridStylesNames = ClassNames<typeof useStyles>;
+
+export interface GridProps extends CoComponentProps<GridStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   children: React.ReactNode;
   spacing?: CoSpacing;
   grow?: boolean;
@@ -14,10 +16,21 @@ export interface GridProps extends CoComponentProps, React.ComponentPropsWithout
 
 export const Grid = forwardRef<HTMLDivElement, GridProps>(
   (
-    { children, spacing = 'spacing2', grow = false, justify = 'flex-start', align = 'stretch', columns = 12, className, co, ...props }: GridProps,
+    {
+      children,
+      spacing = 'spacing2',
+      grow = false,
+      justify = 'flex-start',
+      align = 'stretch',
+      columns = 12,
+      className,
+      co,
+      overrideStyles,
+      ...props
+    }: GridProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ spacing, justify, align }, { co, name: 'Grid' });
+    const { classes, cx } = useStyles({ spacing, justify, align }, { co, overrideStyles, name: 'Grid' });
 
     const cols = (Children.toArray(children) as React.ReactElement[]).map((col, index) =>
       React.cloneElement(col, { spacing, grow, columns, key: index }),

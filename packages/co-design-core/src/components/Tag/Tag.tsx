@@ -1,18 +1,22 @@
 import React, { forwardRef } from 'react';
-import { CoPalette, CoComponentProps } from '@co-design/styles';
+import { CoPalette, CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Tag.style';
 import { View } from '../View';
 
-export interface TagProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+export type TagStylesNames = ClassNames<typeof useStyles>;
+
+export interface TagProps extends CoComponentProps<TagStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   color: CoPalette;
   fullWidth?: boolean;
   strong?: boolean;
 }
 
-export const Tag = forwardRef<HTMLDivElement, TagProps>(({ color, fullWidth = false, strong = false, className, co, ...props }, ref) => {
-  const { classes, cx } = useStyles({ color, fullWidth, strong }, { co, name: 'Tag' });
+export const Tag = forwardRef<HTMLDivElement, TagProps>(
+  ({ color, fullWidth = false, strong = false, className, co, overrideStyles, ...props }, ref) => {
+    const { classes, cx } = useStyles({ color, fullWidth, strong }, { co, overrideStyles, name: 'Tag' });
 
-  return <View component="div" ref={ref} className={cx(classes.root, className)} {...props} />;
-});
+    return <View component="div" ref={ref} className={cx(classes.root, className)} {...props} />;
+  },
+);
 
 Tag.displayName = '@co-design/core/Tag';

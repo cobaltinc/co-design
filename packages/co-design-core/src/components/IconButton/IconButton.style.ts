@@ -2,8 +2,6 @@ import { createStyles, CoSize, CoPalette } from '@co-design/styles';
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
-export type IconButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary' | 'transparent';
-
 interface IconButtonStylesProps {
   color?: CoPalette;
   size: CoSize;
