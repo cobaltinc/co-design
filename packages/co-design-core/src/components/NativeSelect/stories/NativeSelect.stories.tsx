@@ -1,5 +1,4 @@
 import React from 'react';
-import { Tooltip } from '../../Tooltip';
 import { NativeSelect } from '../NativeSelect';
 
 export default {
