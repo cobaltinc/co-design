@@ -1,6 +1,6 @@
 {
   "name": "@co-design/core",
-  "version": "0.5.4",
+  "version": "0.6.0",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -24,6 +24,6 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@co-design/styles": "^0.5.1"
+    "@co-design/styles": "^0.6.0"
   }
 }
