@@ -1,5 +1,6 @@
 export * from './Affix';
 export * from './Avatar';
+export * from './AppShell';
 export * from './Breadcrumbs';
 export * from './Burger';
 export * from './Button';
