@@ -1,24 +1,19 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallbackRef } from '../useCallbackRef';
 
-type Callback<T> = (...args: any[]) => T | Promise<T>;
-
-export const useLoading = <T>(fn: Function): [boolean, Callback<T>] => {
+export const useLoading = <T extends (...args: any[]) => Promise<any>>(fn: T): [boolean, T] => {
   const [loading, setLoading] = useState(false);
-  const savedCallback = useRef(fn);
+  const savedCallback = useCallbackRef(fn);
 
   const handler = useCallback(
     async (...args) => {
       setLoading(true);
-      const result = await savedCallback.current(...args);
+      const result = await savedCallback(...args);
       setLoading(false);
       return result;
     },
     [fn],
   );
 
-  useEffect(() => {
-    savedCallback.current = fn;
-  }, [fn]);
-
-  return [loading, handler];
+  return [loading, handler as any];
 };

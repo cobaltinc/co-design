@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useTimeoutFn } from '../useTimeoutFn';
 
-export const useTimeout = (fn: Function, ms: number) => {
+export const useTimeout = (fn: () => void, ms: number) => {
   const [run, clear] = useTimeoutFn(fn, ms);
 
   useEffect(() => {

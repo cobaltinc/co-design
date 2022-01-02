@@ -1,19 +1,16 @@
 import { RefObject, useEffect, useRef } from 'react';
+import { useCallbackRef } from '../useCallbackRef';
 
 const events = ['mousedown', 'touchstart'];
 
 export const useClickAway = <T extends HTMLElement, E extends Event = Event>(handler: (event: E) => void): RefObject<T> => {
   const ref = useRef<T>();
-  const savedCallback = useRef(handler);
-
-  useEffect(() => {
-    savedCallback.current = handler;
-  }, [handler]);
+  const savedCallback = useCallbackRef(handler);
 
   useEffect(() => {
     const handleEvent = (e: any) => {
       const { current: element } = ref;
-      element && !element.contains(e.target) && savedCallback.current(e);
+      element && !element.contains(e.target) && savedCallback(e);
     };
 
     for (const eventName of events) {

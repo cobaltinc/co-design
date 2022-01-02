@@ -1,18 +1,15 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { useCallbackRef } from '../useCallbackRef';
 
-export const useTimeoutFn = (fn: Function, ms: number) => {
+export const useTimeoutFn = (fn: () => void, ms: number) => {
   const timeoutId = useRef<ReturnType<typeof setTimeout>>();
-  const callback = useRef(fn);
-
-  useEffect(() => {
-    callback.current = fn;
-  }, [fn]);
+  const callback = useCallbackRef(fn);
 
   const run = useCallback(() => {
     timeoutId.current && clearTimeout(timeoutId.current);
 
     timeoutId.current = setTimeout(() => {
-      callback.current();
+      callback();
     }, ms);
   }, [ms]);
 

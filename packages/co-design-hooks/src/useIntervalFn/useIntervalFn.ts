@@ -1,18 +1,15 @@
 import { useCallback, useEffect, useRef } from 'react';
+import { useCallbackRef } from '../useCallbackRef';
 
-export const useIntervalFn = (fn: Function, ms: number) => {
+export const useIntervalFn = (fn: () => void, ms: number) => {
   const intervalId = useRef<ReturnType<typeof setInterval>>();
-  const callback = useRef(fn);
-
-  useEffect(() => {
-    callback.current = fn;
-  }, [fn]);
+  const callback = useCallbackRef(fn);
 
   const run = useCallback(() => {
     intervalId.current && clearInterval(intervalId.current);
 
     intervalId.current = setInterval(() => {
-      callback.current();
+      callback();
     }, ms);
   }, [ms]);
 
