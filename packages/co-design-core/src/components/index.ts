@@ -19,6 +19,7 @@ export * from './Input';
 export * from './Kbd';
 export * from './Mark';
 export * from './MediaQuery';
+export * from './Menu';
 export * from './Modal';
 export * from './Overlay';
 export * from './Paper';

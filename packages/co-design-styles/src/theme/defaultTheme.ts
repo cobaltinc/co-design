@@ -11,7 +11,6 @@ import {
   DEFAULT_PALETTES,
   DEFAULT_Z_INDEX,
 } from './tokens';
-import { CSSObject } from '../tss';
 import { attachFunctions } from './functions/attachFunctions';
 
 export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
@@ -19,11 +18,11 @@ export const CO_COLORS = Object.keys(DEFAULT_COLORS);
 export const CO_SIZES = ['xsmall', 'small', 'medium', 'large', 'xlarge'] as const;
 
 export const defaultFontStyles = (theme: CoTheme) => {
-  return (): CSSObject => ({
+  return {
     WebkitFontSmoothing: 'antialiased',
     MozOsxFontSmoothing: 'grayscale',
     fontFamily: theme.fontFamily || 'sans-serif',
-  });
+  };
 };
 
 export const _DEFAULT_THEME: CoThemeBase = {
