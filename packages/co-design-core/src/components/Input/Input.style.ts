@@ -9,6 +9,14 @@ interface InputStyles {
   invalid: boolean;
 }
 
+const FONT_SIZES = {
+  xsmall: 12,
+  small: 14,
+  medium: 14,
+  large: 14,
+  xlarge: 16,
+};
+
 export default createStyles((theme, { size, multiline, radius, invalid }: InputStyles) => {
   const invalidColor = theme.palettes.red[theme.colorScheme === 'dark' ? 5 : 6];
   const sizeStyles = {
@@ -31,7 +39,7 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       appearance: 'none',
       resize: 'none',
       boxSizing: 'border-box',
-      fontSize: getFieldValue(size, theme.fontSizes),
+      fontSize: getFieldValue(size, FONT_SIZES),
       width: '100%',
       color: theme.colorScheme === 'dark' ? theme.palettes.dark[1] : theme.colors.black,
       display: 'block',
@@ -42,11 +50,10 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       borderRadius: getFieldValue(radius, theme.radius),
       border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.palettes.dark[3]}`,
       backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.white,
-      transition: 'border-color 100ms ease',
+      // transition: 'border-color 100ms ease',
 
       '&:focus, &:focus-within': {
-        outline: 'none',
-        borderWidth: 2,
+        outline: `1px solid ${theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6]}`,
         borderColor: theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
       },
 
