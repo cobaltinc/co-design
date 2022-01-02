@@ -32,7 +32,7 @@ export interface CoTheme {
   colors: Record<CoColor, string>;
   palettes: Record<CoPalette, Tuple<string, 10>>;
   fontSizes: Record<CoFontSizes, number>;
-  radius: Record<CoRadius, number>;
+  radius: Record<CoRadius, number | string>;
   spacing: Record<CoSpacing, number>;
   breakpoints: Record<CoBreakpoints, number>;
   shadows: Record<CoShadows, string>;
