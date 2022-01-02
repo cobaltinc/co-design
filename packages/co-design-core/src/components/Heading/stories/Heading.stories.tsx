@@ -22,9 +22,9 @@ export default {
       defaultValue: false,
       control: { type: 'boolean' },
     },
-    delete: {
-      defaultValue: false,
-      control: { type: 'boolean' },
+    align: {
+      options: ['left', 'center', 'right'],
+      control: { type: 'inline-radio' },
     },
     color: {
       control: { type: 'color' },
