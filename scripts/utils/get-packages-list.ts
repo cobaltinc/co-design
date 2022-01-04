@@ -24,7 +24,7 @@ export interface Package {
 }
 
 export async function getPackagesList() {
-  const basePath = path.join(__dirname, '../../src');
+  const basePath = path.join(__dirname, '../../packages');
   const srcPaths = await fs.readdir(basePath);
   const packages: Package[] = [];
 
