@@ -63,7 +63,7 @@ export interface ModalProps extends CoComponentProps<ModalStylesNames>, Omit<Rea
   shadow?: CoShadows;
 
   /** Modal padding from theme or number value for padding in px */
-  padding?: CoSpacing;
+  padding?: CoSpacing | number;
 
   /** Should modal be closed when outside click was registered? */
   closeOnClickOutside?: boolean;
