@@ -15,7 +15,7 @@ export default createStyles((theme, { color, padding }: MenuItemStyles) => ({
     outline: 0,
     width: '100%',
     textAlign: 'left',
-    display: 'inline-block',
+    display: 'block',
     textDecoration: 'none',
     boxSizing: 'border-box',
     padding: `${theme.fn.spacing(1.5)}px ${theme.fn.size({ size: padding, sizes: theme.spacing })}px`,
