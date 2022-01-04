@@ -32,10 +32,10 @@ export const Paper: PaperComponent & { displayName?: string } = forwardRef(
     }: PaperProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const { classes, cx } = useStyles({ radius, shadow, padding, withBorder }, { co, overrideStyles, name: 'Paper' });
+    const { classes, cx } = useStyles({ radius, shadow, padding, withBorder }, { overrideStyles, name: 'Paper' });
 
     return (
-      <View<any> component={component || 'div'} className={cx(classes.root, className)} ref={ref} {...props}>
+      <View<any> component={component || 'div'} className={cx(classes.root, className)} co={co} ref={ref} {...props}>
         {children}
       </View>
     );

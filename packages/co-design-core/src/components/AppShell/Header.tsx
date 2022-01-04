@@ -35,14 +35,14 @@ export const Header = forwardRef<HTMLElement, HeaderProps>(
       fixed = false,
       position = { top: 0, left: 0, right: 0 },
       zIndex = 'sticky',
-      ...others
+      ...props
     }: HeaderProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ height, padding, fixed, position, zIndex }, { name: 'Header', co, overrideStyles });
+    const { classes, cx } = useStyles({ height, padding, fixed, position, zIndex }, { name: 'Header', overrideStyles });
 
     return (
-      <View component="nav" className={cx(classes.root, className)} ref={ref} {...others}>
+      <View component="nav" ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {children}
       </View>
     );

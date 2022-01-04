@@ -10,10 +10,10 @@ export interface KbdProps extends CoComponentProps<KbdStylesNames>, React.Compon
 }
 
 export const Kbd = forwardRef<HTMLElement, KbdProps>(({ children, className, co, overrideStyles, ...props }: KbdProps, ref) => {
-  const { classes, cx } = useStyles(null, { co, overrideStyles, name: 'Kbd' });
+  const { classes, cx } = useStyles(null, { overrideStyles, name: 'Kbd' });
 
   return (
-    <View component="kbd" className={cx(classes.root, className)} ref={ref} {...props}>
+    <View component="kbd" ref={ref} className={cx(classes.root, className)} co={co} {...props}>
       {children}
     </View>
   );

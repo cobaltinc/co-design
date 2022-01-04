@@ -22,7 +22,7 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
         : color in theme.colors
         ? theme.colors[color]
         : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9]);
-    const { classes, cx } = useStyles({ color: _color, size }, { co, overrideStyles, name: 'Burger' });
+    const { classes, cx } = useStyles({ color: _color, size }, { overrideStyles, name: 'Burger' });
 
     const [currentOpened, toggleCurrentOpened] = useToggle(opened);
 
@@ -35,7 +35,16 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
     }, []);
 
     return (
-      <View component="button" type="button" ref={ref} onClick={handleClick} title="burger" className={cx(classes.root, className)} {...props}>
+      <View
+        component="button"
+        type="button"
+        ref={ref}
+        onClick={handleClick}
+        title="burger"
+        className={cx(classes.root, className)}
+        co={co}
+        {...props}
+      >
         <div className={cx(classes.burger, { [classes.opened]: currentOpened })} />
       </View>
     );

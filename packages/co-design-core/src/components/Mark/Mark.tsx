@@ -12,8 +12,8 @@ export interface MarkProps extends CoComponentProps<MarkStylesNames>, React.Comp
 export const Mark = forwardRef<HTMLElement, MarkProps>(({ color, className, co, overrideStyles, ...props }: MarkProps, ref) => {
   const theme = useCoTheme();
   const _color = color || theme.primaryColor;
-  const { classes, cx } = useStyles({ color: _color }, { co, name: 'Mark' });
-  return <View component="mark" ref={ref} className={cx(classes.root, overrideStyles, className)} {...props} />;
+  const { classes, cx } = useStyles({ color: _color }, { overrideStyles, name: 'Mark' });
+  return <View component="mark" ref={ref} className={cx(classes.root, className)} co={co} {...props} />;
 });
 
 Mark.displayName = '@co-design/core/Mark';

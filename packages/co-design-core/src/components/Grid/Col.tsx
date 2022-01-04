@@ -69,7 +69,7 @@ export function Col({
       columns,
       span,
     },
-    { co, overrideStyles, name: 'Col' },
+    { overrideStyles, name: 'Col' },
   );
 
   if (!isValidSpan(span) || span > columns) {
@@ -77,7 +77,7 @@ export function Col({
   }
 
   return (
-    <View className={cx(classes.root, className)} {...props}>
+    <View className={cx(classes.root, className)} co={co} {...props}>
       {children}
     </View>
   );

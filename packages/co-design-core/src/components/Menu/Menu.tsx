@@ -59,7 +59,7 @@ export const Menu: MenuComponent = forwardRef<HTMLDivElement, MenuProps>(
   ({ children, padding = 'medium', onMouseLeave, onMouseEnter, onChange, className, co, overrideStyles, ...props }: MenuProps, ref) => {
     const [hovered, setHovered] = useState(-1);
     const buttonsRefs = useRef<Record<string, HTMLButtonElement>>({});
-    const { classes, cx, theme } = useStyles({ padding }, { co, overrideStyles, name: 'Menu' });
+    const { classes, cx, theme } = useStyles({ padding }, { overrideStyles, name: 'Menu' });
 
     const items = React.Children.toArray(children).filter(
       (item: MenuItemType) => item.type === MenuItem || item.type === Divider || item.type === MenuLabel,
@@ -116,7 +116,15 @@ export const Menu: MenuComponent = forwardRef<HTMLDivElement, MenuProps>(
     });
 
     return (
-      <View ref={ref} className={cx(classes.root, className)} role="menu" aria-orientation="vertical" onMouseLeave={() => setHovered(-1)} {...props}>
+      <View
+        ref={ref}
+        className={cx(classes.root, className)}
+        co={co}
+        role="menu"
+        aria-orientation="vertical"
+        onMouseLeave={() => setHovered(-1)}
+        {...props}
+      >
         {content}
       </View>
     );

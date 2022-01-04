@@ -74,7 +74,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const { classes, cx } = useStyles({ radius, size, multiline, invalid }, { co, overrideStyles, name: __staticSelector });
+    const { classes, cx } = useStyles({ radius, size, multiline, invalid }, { overrideStyles, name: __staticSelector });
     const Element: any = component || 'input';
 
     return (

@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { CoColor, CoPalette, CoSize, CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Spinner.style';
+import { View } from '../View';
 
 export type SpinnerStylesNames = ClassNames<typeof useStyles>;
 
@@ -10,7 +11,7 @@ export interface SpinnerProps extends CoComponentProps, React.ComponentPropsWith
 }
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ size = 'medium', color, className, co, overrideStyles, ...props }, ref) => {
-  const { classes, cx } = useStyles({ size, color }, { co, overrideStyles, name: 'Spinner' });
+  const { classes, cx } = useStyles({ size, color }, { overrideStyles, name: 'Spinner' });
 
   const spinner = (
     <i className={classes.inner}>
@@ -30,9 +31,9 @@ export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ size = 'mediu
   );
 
   return (
-    <div ref={ref} className={cx(classes.root, className)} {...props}>
+    <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
       {spinner}
-    </div>
+    </View>
   );
 });
 

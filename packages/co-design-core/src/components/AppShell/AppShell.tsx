@@ -71,7 +71,7 @@ export const AppShell: AppShellComponent = forwardRef<HTMLDivElement, AppShellPr
         sidebarBreakpoints,
         sidebarHiddenBreakpoint,
       },
-      { co, overrideStyles, name: 'AppShell' },
+      { overrideStyles, name: 'AppShell' },
     );
     const _header = header ? React.cloneElement(header, { fixed, zIndex }) : null;
     const _sidebar = sidebar
@@ -84,7 +84,7 @@ export const AppShell: AppShellComponent = forwardRef<HTMLDivElement, AppShellPr
       : null;
 
     return (
-      <View className={cx(classes.root, className)} ref={ref} {...props}>
+      <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {_header}
 
         <div className={classes.body}>

@@ -92,7 +92,7 @@ export const Tabs: TabsComponent = forwardRef<HTMLDivElement, TabsProps>(
     }: TabsProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ tabPadding, orientation }, { co, overrideStyles, name: 'Tabs' });
+    const { classes, cx } = useStyles({ tabPadding, orientation }, { overrideStyles, name: 'Tabs' });
 
     const controlRefs = useRef<Record<string, HTMLButtonElement>>({});
 
@@ -145,7 +145,7 @@ export const Tabs: TabsComponent = forwardRef<HTMLDivElement, TabsProps>(
     const content = tabs[activeTab].props.children;
 
     return (
-      <View ref={ref} className={cx(classes.root, className)} {...props}>
+      <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         <div className={classes.tabsListWrapper}>
           <Group
             className={classes.tabsList}

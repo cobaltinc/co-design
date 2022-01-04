@@ -26,11 +26,11 @@ export const Scroll = forwardRef<HTMLDivElement, ScrollProps>(
     ref,
   ) => {
     const [scrollbarHovered, setScrollbarHovered] = useState(false);
-    const { classes, cx } = useStyles({ scrollbarSize, scrollbarHovered }, { name: 'ScrollArea', overrideStyles, co });
+    const { classes, cx } = useStyles({ scrollbarSize, scrollbarHovered }, { name: 'ScrollArea', overrideStyles });
 
     return (
       <ScrollArea.Root type={type} scrollHideDelay={scrollHideDelay} ref={ref}>
-        <View className={cx(classes.root, className)} {...props}>
+        <View className={cx(classes.root, className)} co={co} {...props}>
           <ScrollArea.Viewport className={classes.viewport} ref={viewportRef}>
             {children}
           </ScrollArea.Viewport>

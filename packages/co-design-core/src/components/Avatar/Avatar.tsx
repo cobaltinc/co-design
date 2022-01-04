@@ -25,7 +25,7 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
   ) => {
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ color: _color, shape, size }, { co, overrideStyles, name: 'Avatar' });
+    const { classes, cx } = useStyles({ color: _color, shape, size }, { overrideStyles, name: 'Avatar' });
     const [error, setError] = useState(!src);
 
     useEffect(() => {
@@ -33,7 +33,7 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
     }, [src]);
 
     return (
-      <View<any> component={component || 'div'} className={cx(classes.root, className)} ref={ref} {...props}>
+      <View<any> component={component || 'div'} ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {error ? (
           <div className={classes.placeholder} title={alt}>
             {children ? children : <AvatarPlaceholderIcon className={classes.placeholderIcon} />}

@@ -49,7 +49,7 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(
     }: ImageProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ radius }, { co, overrideStyles, name: 'Image' });
+    const { classes, cx } = useStyles({ radius }, { overrideStyles, name: 'Image' });
     const [loaded, setLoaded] = useState(false);
     const [intersected, setIntersected] = useState(false);
     const imgRef = useRef<HTMLImageElement>(null);
@@ -85,7 +85,7 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(
     }, [lazy, threshold]);
 
     return (
-      <View className={cx(classes.root, className)} {...props}>
+      <View className={cx(classes.root, className)} co={co} {...props}>
         <img ref={imgRef} src={src} alt={alt} className={classes.image} style={imageStyle} onLoad={() => setLoaded(true)} />
 
         {(!loaded || (lazy && !intersected)) && placeholder && (

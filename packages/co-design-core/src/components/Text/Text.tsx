@@ -51,7 +51,7 @@ export const Text: TextComponent & { displayName?: string } = forwardRef(
         block,
         inherit,
       },
-      { co, overrideStyles, name: 'Text' },
+      { overrideStyles, name: 'Text' },
     );
 
     return (
@@ -59,6 +59,7 @@ export const Text: TextComponent & { displayName?: string } = forwardRef(
         ref={ref}
         component={component || 'span'}
         className={cx(classes.root, className)}
+        co={co}
         style={{
           fontWeight: inherit ? 'inherit' : typeof strong === 'boolean' ? (strong ? 'bold' : undefined) : strong,
           textTransform: transform,

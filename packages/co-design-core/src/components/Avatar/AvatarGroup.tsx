@@ -33,7 +33,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     { children, size = 'medium', shape = 'circle', limit = 2, spacing = 'large', total, className, co, overrideStyles, ...props }: AvatarGroupProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ spacing }, { co, overrideStyles, name: 'AvatarGroup' });
+    const { classes, cx } = useStyles({ spacing }, { overrideStyles, name: 'AvatarGroup' });
 
     const avatars = React.Children.toArray(children)
       .filter((child: React.ReactElement) => child.type === Avatar)
@@ -55,7 +55,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     const truncatedAvatars = total ? total - Math.min(avatars.length, clampedMax) : extraAvatars;
 
     return (
-      <View className={cx(className, classes.root)} ref={ref} {...props}>
+      <View ref={ref} className={cx(className, classes.root)} co={co} {...props}>
         {avatars.slice(0, avatars.length - extraAvatars)}
         {truncatedAvatars ? (
           <Avatar size={size} shape={shape} className={classes.child} style={{ zIndex: limit + 1 }}>

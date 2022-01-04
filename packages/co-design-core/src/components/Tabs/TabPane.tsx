@@ -37,7 +37,7 @@ export const TabPane = ({
   ...props
 }: TabPaneProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles({ color: overrideColor || color || theme.primaryColor, orientation }, { co, overrideStyles, name: 'Tabs' });
+  const { classes, cx } = useStyles({ color: overrideColor || color || theme.primaryColor, orientation }, { overrideStyles, name: 'Tabs' });
 
   return (
     <View
@@ -45,6 +45,7 @@ export const TabPane = ({
       component="button"
       tabIndex={active ? 0 : -1}
       className={cx(classes.tabPane, { [classes.tabActive]: active }, className)}
+      co={co}
       type="button"
       role="tab"
       aria-selected={active}

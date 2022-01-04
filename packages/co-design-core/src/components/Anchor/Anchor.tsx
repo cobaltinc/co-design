@@ -17,10 +17,10 @@ export const Anchor: AnchorComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const { classes, cx } = useStyles({ color: color || theme.primaryColor, underlineOnHover }, { co, overrideStyles, name: 'Anchor' });
+    const { classes, cx } = useStyles({ color: color || theme.primaryColor, underlineOnHover }, { overrideStyles, name: 'Anchor' });
     const buttonProps = component === 'button' ? { type: 'button' } : null;
 
-    return <Text component={(component || 'a') as any} ref={ref} className={cx(classes.root, className)} {...buttonProps} {...props} />;
+    return <Text component={(component || 'a') as any} ref={ref} className={cx(classes.root, className)} co={co} {...buttonProps} {...props} />;
   },
 );
 

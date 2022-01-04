@@ -19,11 +19,11 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
   ({ id, size = 'small', color, label, className, style, co, overrideStyles, ...props }: SwitchProps, ref) => {
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ size, color: _color }, { co, overrideStyles, name: 'Switch' });
+    const { classes, cx } = useStyles({ size, color: _color }, { overrideStyles, name: 'Switch' });
     const uuid = useId(id);
 
     return (
-      <View className={cx(classes.root, className)} style={style}>
+      <View className={cx(classes.root, className)} co={co} style={style}>
         <input {...props} id={uuid} ref={ref} type="checkbox" className={classes.input} />
 
         {label && (

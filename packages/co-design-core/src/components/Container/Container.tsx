@@ -14,9 +14,9 @@ export interface ContainerProps extends CoComponentProps<ContainerStylesNames>, 
 
 export const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ size = 'large', padding, fluid, break: _break, className, co, overrideStyles, ...props }, ref) => {
-    const { classes, cx } = useStyles({ padding, fluid, size, break: _break }, { co, overrideStyles, name: 'Container' });
+    const { classes, cx } = useStyles({ padding, fluid, size, break: _break }, { overrideStyles, name: 'Container' });
 
-    return <View component="div" ref={ref} className={cx(classes.root, className)} {...props} />;
+    return <View component="div" ref={ref} className={cx(classes.root, className)} co={co} {...props} />;
   },
 );
 

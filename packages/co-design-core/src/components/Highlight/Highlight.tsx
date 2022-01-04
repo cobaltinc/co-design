@@ -17,13 +17,13 @@ type HighlightComponent = <C extends React.ElementType = 'div'>(props: Highlight
 
 export const Highlight: HighlightComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { children, highlight, highlightColor, component, highlightStyles, ...others }: HighlightProps<C>,
+    { children, highlight, highlightColor, component, highlightStyles, ...props }: HighlightProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
     const highlightChunks = highlighter(children, highlight);
 
     return (
-      <Text component={component as any} ref={ref} {...others}>
+      <Text component={component as any} ref={ref} {...props}>
         {highlightChunks.map(({ chunk, highlighted }, i) =>
           highlighted ? (
             <Mark key={i} color={highlightColor} co={highlightStyles}>

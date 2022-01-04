@@ -30,14 +30,14 @@ export const Grid = forwardRef<HTMLDivElement, GridProps>(
     }: GridProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ spacing, justify, align }, { co, overrideStyles, name: 'Grid' });
+    const { classes, cx } = useStyles({ spacing, justify, align }, { overrideStyles, name: 'Grid' });
 
     const cols = (Children.toArray(children) as React.ReactElement[]).map((col, index) =>
       React.cloneElement(col, { spacing, grow, columns, key: index }),
     );
 
     return (
-      <View className={cx(classes.root, className)} ref={ref} {...props}>
+      <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {cols}
       </View>
     );

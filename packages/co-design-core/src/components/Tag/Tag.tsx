@@ -13,9 +13,9 @@ export interface TagProps extends CoComponentProps<TagStylesNames>, React.Compon
 
 export const Tag = forwardRef<HTMLDivElement, TagProps>(
   ({ color, fullWidth = false, strong = false, className, co, overrideStyles, ...props }, ref) => {
-    const { classes, cx } = useStyles({ color, fullWidth, strong }, { co, overrideStyles, name: 'Tag' });
+    const { classes, cx } = useStyles({ color, fullWidth, strong }, { overrideStyles, name: 'Tag' });
 
-    return <View component="div" ref={ref} className={cx(classes.root, className)} {...props} />;
+    return <View component="div" ref={ref} className={cx(classes.root, className)} co={co} {...props} />;
   },
 );
 

@@ -35,7 +35,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
         color: _color,
         size,
       },
-      { co, overrideStyles, name: 'Button' },
+      { overrideStyles, name: 'Button' },
     );
 
     const color = _color || theme.primaryColor;
@@ -49,6 +49,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
         disabled={disabled || loading}
         ref={ref}
         onTouchStart={() => {}}
+        co={co}
         {...props}
       >
         <div className={classes.inner}>{children}</div>

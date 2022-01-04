@@ -13,10 +13,10 @@ export interface EquallyGridProps extends CoComponentProps<EquallyGridStylesName
 
 export const EquallyGrid = forwardRef<HTMLDivElement, EquallyGridProps>(
   ({ children, cols, spacing = 'medium', breakpoints = [], className, co, overrideStyles, ...props }: EquallyGridProps, ref) => {
-    const { classes, cx } = useStyles({ breakpoints, cols, spacing }, { co, overrideStyles, name: 'EquallyGrid' });
+    const { classes, cx } = useStyles({ breakpoints, cols, spacing }, { overrideStyles, name: 'EquallyGrid' });
 
     return (
-      <View className={cx(classes.root, className)} ref={ref} {...props}>
+      <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {children}
       </View>
     );

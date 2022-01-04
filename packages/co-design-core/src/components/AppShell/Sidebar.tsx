@@ -56,14 +56,14 @@ export const Sidebar: SidebarComponent = forwardRef<HTMLElement, SidebarProps>(
       co,
       overrideStyles,
       children,
-      ...others
+      ...props
     }: SidebarProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ width, height, padding, fixed, position, hiddenBreakpoint, zIndex }, { co, overrideStyles, name: 'Sidebar' });
+    const { classes, cx } = useStyles({ width, height, padding, fixed, position, hiddenBreakpoint, zIndex }, { overrideStyles, name: 'Sidebar' });
 
     return (
-      <View component="nav" ref={ref} className={cx(classes.root, { [classes.hidden]: hidden }, className)} {...others}>
+      <View component="nav" ref={ref} className={cx(classes.root, { [classes.hidden]: hidden }, className)} co={co} {...props}>
         {children}
       </View>
     );

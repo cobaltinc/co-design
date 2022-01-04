@@ -95,7 +95,7 @@ export const CoModal = ({
   const baseId = useId(id);
   const titleId = `${baseId}-title`;
   const bodyId = `${baseId}-body`;
-  const { classes, cx, theme } = useStyles({ size, overflow }, { co, overrideStyles, name: 'Modal' });
+  const { classes, cx, theme } = useStyles({ size, overflow }, { overrideStyles, name: 'Modal' });
   const focusTrapRef = useFocusTrap(opened);
   const _overlayOpacity = typeof overlayOpacity === 'number' ? overlayOpacity : theme.colorScheme === 'dark' ? 'opacity6' : 'opacity5';
 
@@ -117,7 +117,7 @@ export const CoModal = ({
       }}
     >
       {(transitionStyles) => (
-        <View className={cx(classes.root, className)} {...props}>
+        <View className={cx(classes.root, className)} co={co} {...props}>
           <div
             className={classes.inner}
             onClick={() => closeOnClickOutside && onClose()}

@@ -28,7 +28,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
     }: DividerProps,
     ref,
   ) => {
-    const { classes, cx } = useStyles({ margin, variant }, { co, overrideStyles, name: 'Divider' });
+    const { classes, cx } = useStyles({ margin, variant }, { overrideStyles, name: 'Divider' });
 
     const vertical = orientation === 'vertical';
     const horizontal = !vertical;
@@ -45,6 +45,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
           },
           className,
         )}
+        co={co}
         {...props}
       >
         {/* {!!label && horizontal && (

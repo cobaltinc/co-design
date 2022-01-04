@@ -71,7 +71,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
     const uuid = useId(id);
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ radius, size, color: _color }, { co, overrideStyles, name: __staticSelector });
+    const { classes, cx } = useStyles({ radius, size, color: _color }, { overrideStyles, name: __staticSelector });
 
     const [value, setValue] = useUncontrolled({
       value: checked,

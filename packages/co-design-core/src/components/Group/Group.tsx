@@ -45,7 +45,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
         direction,
         count,
       },
-      { co, overrideStyles, name: 'Group' },
+      { overrideStyles, name: 'Group' },
     );
 
     const items = (Children.toArray(children) as React.ReactElement[]).map((child) =>
@@ -55,7 +55,7 @@ export const Group = forwardRef<HTMLDivElement, GroupProps>(
     );
 
     return (
-      <View className={cx(classes.root, className)} ref={ref} {...props}>
+      <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {items}
       </View>
     );

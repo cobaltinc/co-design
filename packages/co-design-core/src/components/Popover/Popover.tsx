@@ -69,7 +69,7 @@ export const Popover = ({
   ...props
 }: PopoverProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles({ contentPadding }, { co, overrideStyles, name: 'Popover' });
+  const { classes, cx } = useStyles({ contentPadding }, { overrideStyles, name: 'Popover' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
   const balloonRef = useRef<HTMLDivElement>(null);
@@ -117,6 +117,7 @@ export const Popover = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cx(classes.root, className)}
+      co={co}
     >
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>

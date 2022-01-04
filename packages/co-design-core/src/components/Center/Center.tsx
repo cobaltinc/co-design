@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 import { CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Center.style';
+import { View } from '../View';
 
 export type CenterStylesNames = ClassNames<typeof useStyles>;
 
@@ -9,9 +10,9 @@ export interface CenterProps extends CoComponentProps<CenterStylesNames>, React.
 }
 
 export const Center = forwardRef<HTMLDivElement, CenterProps>(({ inline, className, co, overrideStyles, ...props }, ref) => {
-  const { classes, cx } = useStyles({ inline }, { co, overrideStyles, name: 'Center' });
+  const { classes, cx } = useStyles({ inline }, { overrideStyles, name: 'Center' });
 
-  return <div ref={ref} className={cx(classes.root, className)} {...props} />;
+  return <View ref={ref} className={cx(classes.root, className)} co={co} {...props} />;
 });
 
 Center.displayName = '@co-design/core/Center';

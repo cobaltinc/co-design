@@ -67,7 +67,7 @@ export const Tooltip = ({
   ...props
 }: TooltipProps) => {
   const theme = useCoTheme();
-  const { classes, cx } = useStyles(null, { co, overrideStyles, name: 'Tooltip' });
+  const { classes, cx } = useStyles(null, { overrideStyles, name: 'Tooltip' });
 
   const [currentVisible, setCurrentVisible] = useToggle(visible);
   const balloonRef = useRef<HTMLDivElement>(null);
@@ -116,6 +116,7 @@ export const Tooltip = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       className={cx(classes.root, className)}
+      co={co}
     >
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>

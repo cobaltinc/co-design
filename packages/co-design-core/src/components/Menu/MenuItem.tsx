@@ -59,7 +59,7 @@ export const MenuItem: MenuItemComponent & { displayName?: string } = forwardRef
     }: MenuItemProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const { classes, cx } = useStyles({ color, padding }, { co, overrideStyles, name: 'Menu' });
+    const { classes, cx } = useStyles({ color, padding }, { overrideStyles, name: 'Menu' });
 
     return (
       <View<any>
@@ -67,6 +67,7 @@ export const MenuItem: MenuItemComponent & { displayName?: string } = forwardRef
         type="button"
         role="menuitem"
         className={cx(classes.item, { [classes.itemHovered]: hovered }, className)}
+        co={co}
         onMouseEnter={() => !disabled && onHover()}
         ref={ref}
         disabled={disabled}

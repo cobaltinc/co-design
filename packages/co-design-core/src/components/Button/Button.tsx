@@ -52,7 +52,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
         size,
         fullWidth,
       },
-      { co, overrideStyles, name: 'Button' },
+      { overrideStyles, name: 'Button' },
     );
 
     const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
@@ -60,10 +60,11 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     return (
       <View<any>
         component={component || 'button'}
-        className={cx({ [classes.loading]: loading }, classes.root, classes[variant], className)}
+        ref={ref}
         type={type}
         disabled={disabled || loading}
-        ref={ref}
+        className={cx({ [classes.loading]: loading }, classes.root, classes[variant], className)}
+        co={co}
         onTouchStart={() => {}}
         {...props}
       >
