@@ -29,7 +29,6 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
   balloon: {
     position: 'fixed',
     display: 'inline-block',
-    width: 200,
 
     '&.top': {
       transform: 'translate(-50%, -100%)',
