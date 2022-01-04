@@ -33,6 +33,10 @@ export default createStyles((theme, { color, padding }: MenuItemStyles) => ({
       color: theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[5],
       pointerEvents: 'none',
     },
+
+    '&:hover': {
+      textDecoration: 'none',
+    },
   },
 
   itemHovered: {

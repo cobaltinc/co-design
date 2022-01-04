@@ -2,8 +2,9 @@ import React from 'react';
 import { Paper } from '../../Paper';
 import { Divider } from '../../Divider';
 import { Text } from '../../Text';
-import { Menu } from '../Menu';
 import { Popover } from '../../Popover';
+import { Anchor } from '../../Anchor';
+import { Menu } from '../Menu';
 
 export default {
   title: '@co-design/core/Menu',
@@ -28,6 +29,38 @@ export const Default = () => {
           Settings
         </Menu.Item>
         <Menu.Item
+          icon={<Icon />}
+          rightSection={
+            <Text size="xsmall" color="#999">
+              ⌘K
+            </Text>
+          }
+        >
+          Settings
+        </Menu.Item>
+        <Menu.Item icon={<Icon />}>Settings</Menu.Item>
+        <Divider />
+        <Menu.Label>Label 2</Menu.Label>
+        <Menu.Item icon={<Icon />}>Settings</Menu.Item>
+        <Menu.Item icon={<Icon />} color="red">
+          Settings
+        </Menu.Item>
+      </Menu>
+    </Paper>
+  );
+};
+
+export const Link = () => {
+  return (
+    <Paper padding={0} co={{ width: 300, margin: 40 }}>
+      <Menu>
+        <Menu.Label>Label 1</Menu.Label>
+        <Menu.Item component="a" href="#" icon={<Icon />} onClick={() => alert('Click')}>
+          Settings
+        </Menu.Item>
+        <Menu.Item
+          component={Anchor}
+          href="#"
           icon={<Icon />}
           rightSection={
             <Text size="xsmall" color="#999">
