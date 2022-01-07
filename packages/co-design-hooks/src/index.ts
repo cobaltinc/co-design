@@ -22,6 +22,7 @@ export * from './useMergedRef';
 export * from './useOrientation';
 export * from './useOs';
 export * from './usePageLeave';
+export * from './useQueue';
 export * from './useRafState';
 export * from './useResize';
 export * from './useScrollLock';
