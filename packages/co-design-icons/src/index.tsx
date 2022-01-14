@@ -100,6 +100,7 @@ export { default as Search } from './Search';
 export { default as Share } from './Share';
 export { default as Smile } from './Smile';
 export { default as Sort } from './Sort';
+export { default as Sparkles } from './Sparkles';
 export { default as SquareFill } from './SquareFill';
 export { default as SquareFocus } from './SquareFocus';
 export { default as SquarePileDotted } from './SquarePileDotted';

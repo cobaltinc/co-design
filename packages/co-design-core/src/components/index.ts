@@ -21,6 +21,7 @@ export * from './Mark';
 export * from './MediaQuery';
 export * from './Menu';
 export * from './Modal';
+export * from './NativeSelect';
 export * from './Overlay';
 export * from './Paper';
 export * from './Popover';
