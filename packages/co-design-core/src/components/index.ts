@@ -8,6 +8,7 @@ export * from './Center';
 export * from './Chips';
 export * from './Container';
 export * from './Divider';
+export * from './Drawer';
 export * from './EquallyGrid';
 export * from './Grid';
 export * from './Group';
