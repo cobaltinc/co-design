@@ -16,6 +16,7 @@ export { default as Burger } from './Burger';
 export { default as Calender } from './Calender';
 export { default as CameraFill } from './CameraFill';
 export { default as CameraPlus } from './CameraPlus';
+export { default as Camera } from './Camera';
 export { default as CaretUp } from './CaretUp';
 export { default as CaretDown } from './CaretDown';
 export { default as CaretSort } from './CaretSort';
