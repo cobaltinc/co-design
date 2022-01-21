@@ -11,9 +11,9 @@ export const DEFAULT_PALETTES = {
 
   red: ['#FFF', '#FFF1F1', '#FFD7D9', '#FFB3B8', '#FF8389', '#FA4D56', '#DA1E28', '#A2191F', '#750E13', '#570408'],
 
-  orange: ['#FFF', '#fff4e6', '#ffe8cc', '#ffd8a8', '#ffa94d', '#ff922b', '#fd7e14', '#f76707', '#e8590c', '#d9480f'],
+  orange: ['#FFF', '#FFF9F2', '#FADFC3', '#F3C087', '#F6A851', '#ED8C23', '#E07602', '#A65701', '#8B4901', '#673601'],
 
-  green: ['#FFF', '#ebfbee', '#d3f9d8', '#b2f2bb', '#69db7c', '#51cf66', '#40c057', '#37b24d', '#2f9e44', '#2b8a3e'],
+  green: ['#FFF', '#EFFFF4', '#C9F4D8', '#96E2B0', '#68D08C', '#3FB768', '#24AD53', '#1B803E', '#0E5B28', '#0C3F1D'],
 
   yellow: ['#FFF', '#fff9db', '#fff3bf', '#ffec99', '#ffd43b', '#fcc419', '#fab005', '#f59f00', '#f08c00', '#e67700'],
 } as Record<CoPalette, Tuple<string, 10>>;
