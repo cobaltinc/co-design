@@ -72,6 +72,8 @@ export interface DrawerProps extends CoComponentProps<DrawerStylesNames>, Omit<R
 
   /** Close button aria-label */
   closeButtonLabel?: string;
+
+  target?: HTMLDivElement;
 }
 
 const transitions: Record<DrawerPosition, CoTransition> = {
@@ -204,9 +206,9 @@ export const CoDrawer = ({
   );
 };
 
-export const Drawer = ({ zIndex = 'modal', ...props }: React.ComponentPropsWithoutRef<typeof CoDrawer>) => {
+export const Drawer = ({ zIndex = 'modal', target, ...props }: React.ComponentPropsWithoutRef<typeof CoDrawer>) => {
   return (
-    <Portal zIndex={zIndex}>
+    <Portal zIndex={zIndex} target={target}>
       <CoDrawer {...props} />
     </Portal>
   );

@@ -17,6 +17,7 @@ export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, Reac
   placement?: TooltipPlacement;
   trigger?: TooltipTrigger;
   zIndex?: CoZIndex | number;
+  target?: HTMLDivElement;
   transition?: CoTransition;
   transitionDuration?: number;
   transitionTimingFunction?: string;
@@ -57,6 +58,7 @@ export const Tooltip = ({
   placement = 'top',
   trigger = 'hover',
   zIndex = 'dropdown',
+  target,
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
@@ -118,7 +120,7 @@ export const Tooltip = ({
       className={cx(classes.root, className)}
       co={co}
     >
-      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
+      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
           {(styles) => (
             <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>

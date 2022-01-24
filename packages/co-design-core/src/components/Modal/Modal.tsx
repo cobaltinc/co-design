@@ -67,6 +67,8 @@ export interface ModalProps extends CoComponentProps<ModalStylesNames>, Omit<Rea
 
   /** Should modal be closed when outside click was registered? */
   closeOnClickOutside?: boolean;
+
+  target?: HTMLDivElement;
 }
 
 export const CoModal = ({
@@ -173,9 +175,9 @@ export const CoModal = ({
   );
 };
 
-export const Modal = ({ zIndex = 'modal', ...props }: React.ComponentPropsWithoutRef<typeof CoModal>) => {
+export const Modal = ({ zIndex = 'modal', target, ...props }: React.ComponentPropsWithoutRef<typeof CoModal>) => {
   return (
-    <Portal zIndex={zIndex}>
+    <Portal zIndex={zIndex} target={target}>
       <CoModal {...props} />
     </Portal>
   );

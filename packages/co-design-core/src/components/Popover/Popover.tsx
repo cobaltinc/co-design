@@ -18,6 +18,7 @@ export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, Reac
   placement?: PopoverPlacement;
   trigger?: PopoverTrigger;
   zIndex?: CoZIndex | number;
+  target?: HTMLDivElement;
   transition?: CoTransition;
   transitionDuration?: number;
   transitionTimingFunction?: string;
@@ -59,6 +60,7 @@ export const Popover = ({
   placement = 'top',
   trigger = 'click',
   zIndex = 'dropdown',
+  target,
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
@@ -119,7 +121,7 @@ export const Popover = ({
       className={cx(classes.root, className)}
       co={co}
     >
-      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)}>
+      <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>
         <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
           {(styles) => (
             <View className={cx(placement, classes.balloon)} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
