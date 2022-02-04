@@ -19,12 +19,6 @@ const FONT_SIZES = {
 
 export default createStyles((theme, { size, multiline, radius, invalid }: InputStyles) => {
   const invalidColor = theme.palettes.red[theme.colorScheme === 'dark' ? 5 : 6];
-  const sizeStyles = {
-    minHeight: getFieldValue(size, CO_HEIGHTS),
-    paddingLeft: getFieldValue(size, CO_HEIGHTS) / 3,
-    paddingRight: getFieldValue(size, CO_HEIGHTS) / 3,
-    borderRadius: getFieldValue(radius, theme.radius),
-  };
 
   return {
     wrapper: {
