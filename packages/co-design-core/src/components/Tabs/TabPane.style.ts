@@ -27,11 +27,11 @@ export default createStyles((theme, { color, orientation }: TabControlStyles, ge
 
       '&:disabled': {
         cursor: 'not-allowed',
-        color: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[6],
+        color: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[6],
       },
 
       transition: 'border-color 150ms ease, color 150ms ease',
-      color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.colors.black,
       [orientation === 'horizontal' ? 'borderBottom' : 'borderRight']: '2px solid transparent',
 
       [`&.${tabActive.ref}`]: {

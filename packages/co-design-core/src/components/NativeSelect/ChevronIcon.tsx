@@ -25,7 +25,7 @@ export const ChevronIcon = ({ size, invalid, style, ...props }: ChevronIconProps
       viewBox="0 0 15 15"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      style={{ color: invalid ? theme.palettes.red[6] : theme.colorScheme === 'light' ? theme.palettes.dark[7] : theme.palettes.dark[3], ...style }}
+      style={{ color: invalid ? theme.palettes.red[6] : theme.colorScheme === 'light' ? theme.palettes.gray[7] : theme.palettes.gray[3], ...style }}
       {...props}
     >
       <path

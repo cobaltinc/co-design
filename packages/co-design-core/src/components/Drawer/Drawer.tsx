@@ -196,7 +196,7 @@ export const CoDrawer = ({
                 className={classes.overlay}
                 opacity={_overlayOpacity}
                 zIndex={zIndex}
-                color={overlayColor || (theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.black)}
+                color={overlayColor || (theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.black)}
               />
             </div>
           )}

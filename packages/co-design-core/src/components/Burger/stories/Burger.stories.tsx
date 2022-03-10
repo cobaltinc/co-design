@@ -11,7 +11,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     color: {
-      options: ['purple', 'dark', 'red', 'blue'],
+      options: ['purple', 'gray', 'red', 'blue'],
       control: { type: 'inline-radio' },
     },
     opened: {

@@ -130,7 +130,7 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.palettes.dark[2],
+        backgroundColor: theme.palettes.gray[2],
         color: addAlpha(theme.colors.black, theme.opacity.opacity3),
       },
     },
@@ -140,11 +140,11 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.palettes.dark[3],
+        backgroundColor: theme.palettes.gray[3],
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.palettes.dark[4],
+        backgroundColor: theme.palettes.gray[4],
       },
 
       '&:not(:disabled):focus-visible': {
@@ -161,7 +161,7 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.palettes.dark[2],
+        backgroundColor: theme.palettes.gray[2],
         color: addAlpha(theme.colors.black, theme.opacity.opacity3),
       },
     },

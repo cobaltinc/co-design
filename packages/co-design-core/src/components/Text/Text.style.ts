@@ -30,7 +30,7 @@ export default createStyles((theme, { color, size, lineClamp, block, inherit }: 
       : color in theme.colors
       ? theme.colors[color]
       : color
-    : theme.palettes.dark[theme.colorScheme === 'dark' ? 0 : 9];
+    : theme.palettes.gray[theme.colorScheme === 'dark' ? 0 : 9];
 
   return {
     root: {

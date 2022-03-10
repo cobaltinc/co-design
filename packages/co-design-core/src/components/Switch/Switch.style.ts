@@ -48,8 +48,8 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
       borderRadius: handleSize,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.palettes.dark[3],
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[6] : theme.palettes.dark[4]}`,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[3],
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[4]}`,
       height: switchHeight[size],
       width: switchWidth[size],
       minWidth: switchWidth[size],
@@ -71,7 +71,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
         backgroundColor: theme.colors.white,
         height: handleSize,
         width: handleSize,
-        border: `1px solid ${theme.palettes.dark[3]}`,
+        border: `1px solid ${theme.palettes.gray[3]}`,
         transition: `transform 150ms ease`,
         transform: `translateX(${size === 'xsmall' ? 1 : 2}px)`,
 
@@ -93,13 +93,13 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       },
 
       '&:disabled': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
-        borderColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
+        borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
         cursor: 'not-allowed',
 
         '&::before': {
-          borderColor: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[2],
-          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[3] : theme.palettes.dark[0],
+          borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[0],
         },
       },
     },
@@ -109,7 +109,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       fontSize: theme.fontSizes[size],
       ...defaultFontStyles(theme),
       paddingLeft: theme.spacing.small,
-      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9],
+      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9],
     },
   };
 });

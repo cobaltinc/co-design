@@ -27,7 +27,7 @@ export default createStyles((theme, { scrollbarSize, scrollbarHovered }: ScrollA
       transition: 'background-color 150ms ease, opacity 150ms ease',
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[2],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[2],
         [`& .${thumb}`]: {
           backgroundColor: theme.colorScheme === 'dark' ? theme.fn.rgba('#ffffff', 0.5) : theme.fn.rgba(theme.colors.black, 0.5),
         },
@@ -69,7 +69,7 @@ export default createStyles((theme, { scrollbarSize, scrollbarHovered }: ScrollA
     },
 
     corner: {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[6] : theme.palettes.dark[2],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[2],
       transition: 'opacity 150ms ease',
       opacity: scrollbarHovered ? 1 : 0,
     },

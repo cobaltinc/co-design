@@ -12,7 +12,7 @@ export default createStyles((theme, { padding }: MenuStyles) => ({
   divider: {},
 
   label: {
-    color: theme.colorScheme === 'dark' ? theme.palettes.dark[4] : theme.palettes.dark[5],
+    color: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[5],
     fontSize: theme.fontSizes.small,
     paddingLeft: theme.fn.size({ size: padding, sizes: theme.spacing }),
     paddingRight: theme.fn.size({ size: padding, sizes: theme.spacing }),

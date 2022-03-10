@@ -46,7 +46,7 @@ export default createStyles((theme, { height, width, padding, fixed, position, h
       display: 'flex',
       flexDirection: 'column',
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.darkBackground : theme.colors.lightBackground,
-      borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
+      borderRight: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[3]}`,
       ...breakpoints,
     },
 

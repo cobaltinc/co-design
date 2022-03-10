@@ -13,16 +13,16 @@ export default createStyles((theme, { spacing }: AvatarsGroupStyles) => ({
 
   child: {
     marginLeft: -getFieldValue(spacing, theme.spacing) / 2,
-    background: `${theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.white}`,
-    border: `2px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.colors.white}`,
+    background: `${theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.white}`,
+    border: `2px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.white}`,
   },
 
   truncated: {
     ...defaultFontStyles(theme),
     lineHeight: 1,
-    color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
+    color: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
     width: '100%',
     height: '100%',
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[7] : theme.palettes.dark[3],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[3],
   },
 }));

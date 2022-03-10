@@ -7,7 +7,7 @@ export default {
   argTypes: {
     color: {
       defaultValue: 'purple',
-      options: ['purple', 'red', 'blue', 'dark'],
+      options: ['purple', 'red', 'blue', 'gray'],
       control: { type: 'inline-radio' },
     },
     fullWidth: {

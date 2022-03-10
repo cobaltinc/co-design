@@ -21,7 +21,7 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
         ? theme.palettes[color][theme.colorScheme === 'light' ? 6 : 2]
         : color in theme.colors
         ? theme.colors[color]
-        : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.dark[9]);
+        : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9]);
     const { classes, cx } = useStyles({ color: _color, size }, { overrideStyles, name: 'Burger' });
 
     const [currentOpened, toggleCurrentOpened] = useToggle(opened);

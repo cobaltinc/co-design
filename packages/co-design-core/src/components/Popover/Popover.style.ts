@@ -75,11 +75,11 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     position: 'absolute',
     width: 12,
     height: 12,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.palettes.dark[0],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.palettes.gray[0],
     userSelect: 'none',
     pointerEvents: 'none',
-    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
-    borderLeft: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
+    borderTop: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[3]}`,
+    borderLeft: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[3]}`,
 
     '&[class^="top"]': {
       bottom: 7,
@@ -158,11 +158,11 @@ export default createStyles((theme, { contentPadding }: PopoverStyles) => ({
     position: 'relative',
     padding: getFieldValue(contentPadding, theme.spacing),
     borderRadius: theme.radius.medium,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.dark[9] : theme.palettes.dark[0],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.palettes.gray[0],
     ...defaultFontStyles(theme),
     fontSize: theme.fontSizes.small,
-    color: theme.colorScheme === 'dark' ? theme.palettes.dark[0] : theme.palettes.dark[9],
-    border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[3]}`,
+    color: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
+    border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[3]}`,
     boxShadow: theme.shadows.small,
 
     '&[class^="top"]': {

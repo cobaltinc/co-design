@@ -12,7 +12,7 @@ export default createStyles((theme, { tabPadding, orientation }: TabsStyles, get
   return {
     tabsListWrapper: {
       [orientation === 'horizontal' ? 'borderBottom' : 'borderRight']: `2px solid ${
-        theme.colorScheme === 'dark' ? theme.palettes.dark[8] : theme.palettes.dark[2]
+        theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[2]
       }`,
 
       [`& .${tabsList.ref}`]: {

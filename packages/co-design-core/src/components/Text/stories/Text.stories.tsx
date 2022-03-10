@@ -39,7 +39,7 @@ export default {
       control: { type: 'number' },
     },
     color: {
-      options: [undefined, 'purple', 'blue', 'red', 'dark'],
+      options: [undefined, 'purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
   },

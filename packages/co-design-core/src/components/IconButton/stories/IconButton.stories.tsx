@@ -17,7 +17,7 @@ export default {
     },
     color: {
       defaultValue: 'purple',
-      options: ['purple', 'dark', 'red', 'blue'],
+      options: ['purple', 'gray', 'red', 'blue'],
       control: { type: 'inline-radio' },
     },
     loading: {
