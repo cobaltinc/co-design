@@ -4,6 +4,7 @@ import { Text, SharedTextProps } from '../Text/Text';
 import useStyles from './Anchor.style';
 
 interface _SharedTextProps extends SharedTextProps {
+  /** hover하면 underline 속성을 추가합니다 */
   underlineOnHover?: boolean;
 }
 
