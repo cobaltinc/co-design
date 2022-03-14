@@ -34,19 +34,19 @@ export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React
 
   /**
    * Chip 컴포넌트의 input type을 정합니다.
-   * 이 속성은 Chips 컴포넌트에 의해 컨트롤될 수 있습니다.
+   * 이 속성은 Chips 컴포넌트에 의해 제어될 수 있습니다.
    **/
   type?: 'radio' | 'checkbox';
 
   /**
    * Chip 컴포넌트의 border radius를 정합니다.
-   * 이 속성은 Chips 컴포넌트에서 컨트롤될 수 있습니다.
+   * 이 속성은 Chips 컴포넌트에서 제어될 수 있습니다.
    */
   radius?: CoRadius | number;
 
   /**
    * Chip 컴포넌트의 크기를 정합니다.
-   * 이 속성은 Chips 컴포넌트에 의해 컨트롤될 수 있습니다.
+   * 이 속성은 Chips 컴포넌트에 의해 제어될 수 있습니다.
    */
   size?: CoSize;
 

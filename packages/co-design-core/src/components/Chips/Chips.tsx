@@ -30,14 +30,14 @@ export interface ChipsProps<T extends boolean = false>
 
   /**
    * 현재 value 정합니다.
-   * Chips 컴포넌트를 직접 컨트롤한다면 이 속성을 사용합니다.
+   * Chips 컴포넌트를 직접 제어한다면 이 속성을 사용합니다.
    * multiple이 true인 경우 value를 배열로 넘겨야 합니다.
    */
   value?: T extends true ? string[] : string;
 
   /**
    * 기본 value를 정합니다.
-   * Chips 컴포넌트를 컨트롤하지 않는다면 이 속성을 사용합니다.
+   * Chips 컴포넌트를 제어하지 않는다면 이 속성을 사용합니다.
    * multiple이 true인 경우 value를 배열로 넘거야 합니다.
    */
   defaultValue?: T extends true ? string[] : string;

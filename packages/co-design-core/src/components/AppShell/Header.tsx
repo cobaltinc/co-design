@@ -15,7 +15,7 @@ export interface HeaderProps extends CoComponentProps, React.ComponentPropsWitho
 
   /**
    * Header 컴포넌트를 스크롤 위치와 무관하게 고정합니다.
-   * 이 속성은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
+   * 이 속성은 AppShell 컴포넌트에 의해 제어될 수 있습니다.
    */
   fixed?: boolean;
 
