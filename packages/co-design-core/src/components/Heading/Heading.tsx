@@ -7,12 +7,28 @@ import { View } from '../View';
 export type HeadingStylesNames = ClassNames<typeof useStyles>;
 
 export interface HeadingProps extends CoComponentProps<HeadingStylesNames>, React.ComponentPropsWithoutRef<'h1'> {
+  /** Heading 컴포넌트의 크기를 정합니다. */
   level?: 1 | 2 | 3 | 4 | 5 | 6;
+
+  /** Heading 컴포넌트의 display 속성이 inline으로 변경됩니다. */
   inline?: boolean;
+
+  /**
+   * true일 경우 텍스트에 bold가 적용됩니다.
+   * fontWeight 속성을 직접 지정하는 것도 가능합니다.
+   */
   strong?: boolean | React.CSSProperties['fontWeight'];
+
+  /** 텍스트에 밑줄이 추가됩니다. */
   underline?: boolean;
+
+  /** 텍스트에 취소선이 추가됩니다. */
   delete?: boolean;
+
+  /** 텍스트 색상을 정합니다. */
   color?: CoPalette | CoColor | string;
+
+  /** 텍스트 정렬을 정합니다. */
   align?: 'left' | 'center' | 'right';
 }
 
