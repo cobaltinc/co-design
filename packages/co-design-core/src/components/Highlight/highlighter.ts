@@ -1,8 +1,8 @@
-function escapeRegex(value: string) {
+const escapeRegex = (value: string) => {
   return value.replace(/[-[\]{}()*+?.,\\^$|#]/g, '\\$&');
-}
+};
 
-export function highlighter(value: string, _highlight: string | string[]) {
+export const highlighter = (value: string, _highlight: string | string[]) => {
   const highlight = Array.isArray(_highlight) ? _highlight.map(escapeRegex) : escapeRegex(_highlight);
 
   const shouldHighlight = Array.isArray(highlight) ? highlight.filter((part) => part.trim().length > 0).length > 0 : highlight.trim() !== '';
@@ -26,4 +26,4 @@ export function highlighter(value: string, _highlight: string | string[]) {
     .filter(({ chunk }) => chunk);
 
   return chunks;
-}
+};

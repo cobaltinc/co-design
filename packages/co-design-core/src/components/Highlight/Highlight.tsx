@@ -5,9 +5,16 @@ import { Mark } from '../Mark/Mark';
 import { highlighter } from './highlighter';
 
 interface _HighlightProps extends SharedTextProps {
+  /** 텍스트를 넣습니다. */
   children: string;
+
+  /** 강조 표시할 문자열을 정합니다. */
   highlight: string | string[];
+
+  /** 강조 표시된 텍스트의 색상을 정합니다. */
   highlightColor?: CoPalette;
+
+  /** 강조 표시된 텍스트의 스타일을 정합니다. */
   highlightStyles?: Co;
 }
 
