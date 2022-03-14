@@ -5,8 +5,13 @@ import { Portal } from '../Portal/Portal';
 import { getFieldValue } from '../../utils';
 
 export interface AffixProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+  /** Affix 컴포넌트가 마운트될 DOM을 지정합니다. */
   target?: HTMLDivElement;
+
+  /** Affix 컴포넌트의 z-index를 정합니다. */
   zIndex?: CoZIndex | number;
+
+  /** Affix 컴포넌트의 위치를 정합니다. */
   position?: {
     top?: string | number;
     left?: string | number;
