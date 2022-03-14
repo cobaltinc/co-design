@@ -20,6 +20,14 @@ export default {
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
+    label: {
+      control: { type: 'text' },
+    },
+    labelPosition: {
+      defaultValue: 'center',
+      options: ['left', 'center', 'right'],
+      control: { type: 'inline-radio' },
+    },
   },
 };
 
@@ -27,7 +35,7 @@ export const Default = (props) => {
   return (
     <>
       <span style={{ verticalAlign: 'middle' }}>First</span>
-      <Divider {...props} />
+      <Divider label="Test" {...props} />
       <span style={{ verticalAlign: 'middle' }}>Second</span>
     </>
   );

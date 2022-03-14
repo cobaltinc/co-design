@@ -37,20 +37,24 @@ export default createStyles((theme, { margin, variant }: DividerStyles) => {
     label: {
       display: 'flex',
       alignItems: 'center',
-      color: theme.colors.border,
+      color: borderColor,
 
       '&::before': {
         content: '""',
         flex: 1,
         height: 1,
-        // borderTop: theme.colorScheme === 'light' ? theme.colors.lightBorder : theme.colors.darkBorder,
+        borderTopWidth: 1,
+        borderTopColor: borderColor,
+        borderTopStyle: variant as any,
         marginRight: theme.spacing.small,
       },
 
       '&::after': {
         content: '""',
         flex: 1,
-        // borderTop: theme.colors.lightBorder,
+        borderTopWidth: 1,
+        borderTopColor: borderColor,
+        borderTopStyle: variant as any,
         marginLeft: theme.spacing.small,
       },
     },
