@@ -7,12 +7,13 @@ import useStyles from './Breadcrumbs.style';
 export type BreadcrumbsStylesNames = ClassNames<typeof useStyles>;
 
 export interface BreadcrumbsProps extends CoComponentProps<BreadcrumbsStylesNames>, React.ComponentPropsWithoutRef<'div'> {
-  /** Separator between breadcrumbs */
+  /** Breadcrumb 사이에 들어갈 separator를 정합니다. */
   separator?: React.ReactNode;
 
-  /** React nodes that should be separated */
+  /** 내용으로 들어가는 요소들은 separator에 의해 분리됩니다. */
   children: React.ReactNode;
 
+  /** separator 사이 간격을 지정합니다. */
   spacing?: CoSpacing | number;
 }
 
