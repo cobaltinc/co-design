@@ -41,8 +41,6 @@ interface ChipStyles {
 
 export default createStyles((theme, { radius, size, color }: ChipStyles, getRef) => {
   const label = getRef('label');
-  const outline = getRef('outline');
-  const filled = getRef('filled');
   const iconWrapper = getRef('iconWrapper');
 
   return {
@@ -52,7 +50,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       ref: label,
       ...defaultFontStyles(theme),
       boxSizing: 'border-box',
-      color: theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.black,
       display: 'inline-block',
       alignItems: 'center',
       userSelect: 'none',
@@ -67,30 +65,16 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       whiteSpace: 'nowrap',
       transition: 'background-color 100ms ease',
       WebkitTapHighlightColor: 'transparent',
-    },
-
-    outline: {
-      ref: outline,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.colors.white,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.colors.white,
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[0],
-      },
-    },
-
-    filled: {
-      ref: filled,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[0],
-      borderColor: 'transparent',
-
-      '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.colors.white,
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[0],
       },
     },
 
     iconWrapper: {
       ref: iconWrapper,
-      color: theme.palettes[color][6],
+      color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
       width: getFieldValue(size, iconSizes),
       maxWidth: getFieldValue(size, iconSizes),
       height: getFieldValue(size, iconSizes),
@@ -118,16 +102,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
     checked: {
       paddingLeft: getFieldValue(size, checkedPadding),
       paddingRight: getFieldValue(size, checkedPadding),
-
-      [`&.${outline}`]: {
-        border: `1px solid ${theme.palettes[color][6]}`,
-      },
-
-      [`&.${filled}`]: {
-        '&, &:hover': {
-          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][5] : theme.palettes[color][0],
-        },
-      },
+      border: `1px solid ${theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5]}`,
     },
 
     checkIcon: {
@@ -143,7 +118,6 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       opacity: 0,
       margin: 0,
 
-      // input is hidden by default, these styles add focus to label when user navigates with keyboard
       '&:focus': {
         outline: 'none',
 

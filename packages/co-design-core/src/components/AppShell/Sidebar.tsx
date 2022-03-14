@@ -22,17 +22,17 @@ export interface SidebarProps extends CoComponentProps<SidebarStylesNames>, Reac
 
   /**
    * Sidebar 컴포넌트를 스크롤 위치와 무관하게 고정합니다.
-   * 이 Prop은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
-   **/
+   * 이 속성은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
+   */
   fixed?: boolean;
 
   /**
    * Sidebar 컴포넌트의 위치를 지정합니다.
-   * 이 Prop은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
-   **/
+   * 이 속성은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
+   */
   position?: SidebarPosition;
 
-  /** hidden Prop이 true면서 특정 breakpoint 이하일 경우 Sidebar를 숨깁니다. */
+  /** hidden이 true면서 특정 breakpoint 이하일 경우 Sidebar를 숨깁니다. */
   hiddenBreakpoint?: CoBreakpoints | number;
 
   /** 이 Prop이 true면서 hiddenBreakpoint가 지정된 경우 Sidebar를 숨깁니다. */

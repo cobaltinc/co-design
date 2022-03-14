@@ -7,23 +7,51 @@ import { Chip } from './Chip';
 export interface ChipsProps<T extends boolean = false>
   extends CoComponentProps,
     Omit<GroupProps, 'value' | 'defaultValue' | 'onChange' | 'classNames' | 'styles'> {
+  /** input에 id 속성을 정합니다. */
   id?: string;
+
+  /** Chip 컴포넌트만 넣을 수 있습니다. */
   children?: React.ReactNode;
-  variant?: 'filled' | 'outline';
+
+  /** 포함된 Chip 컴포넌트의 색상을 정합니다. */
   color?: CoPalette;
+
+  /** 포함된 Chip 컴포넌트의 간격을 정합니다. */
   spacing?: CoSpacing | number;
+
+  /** 포함된 Chip 컴포넌트의 border radius를 정합니다. */
   radius?: CoRadius | number;
+
+  /** 포함된 Chip 컴포넌트의 크기를 정합니다. */
   size?: CoSize;
+
+  /** true일 경우 Chip 컴포넌트를 여러 개 선택할 수 있습니다. */
   multiple?: T;
+
+  /**
+   * 현재 value 정합니다.
+   * Chips 컴포넌트를 직접 컨트롤한다면 이 속성을 사용합니다.
+   * multiple이 true인 경우 value를 배열로 넘겨야 합니다.
+   */
   value?: T extends true ? string[] : string;
+
+  /**
+   * 기본 value를 정합니다.
+   * Chips 컴포넌트를 컨트롤하지 않는다면 이 속성을 사용합니다.
+   * multiple이 true인 경우 value를 배열로 넘거야 합니다.
+   */
   defaultValue?: T extends true ? string[] : string;
+
+  /**
+   * value가 변경된 경우 실행됩니다.
+   * multiple이 true인 경우 value가 배열로 넘어옵니다.
+   */
   onChange?(value: T extends true ? string[] : string): void;
 }
 
 export function Chips<T extends boolean>({
   children,
   id,
-  variant,
   color,
   spacing = 'small',
   radius = 'round',
@@ -47,7 +75,6 @@ export function Chips<T extends boolean>({
     .filter((child: React.ReactElement) => child.type === Chip)
     .map((child: React.ReactElement, index) =>
       React.cloneElement(child, {
-        variant,
         radius,
         color,
         __staticSelector: 'Chips',

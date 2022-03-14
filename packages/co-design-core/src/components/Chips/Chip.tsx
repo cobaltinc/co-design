@@ -8,41 +8,55 @@ import useStyles from './Chip.style';
 export type ChipStylesNames = ClassNames<typeof useStyles>;
 
 export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React.ComponentPropsWithoutRef<'input'>, 'size' | 'onChange'> {
-  /** Chip radius from theme or number to set value in px */
-  radius?: CoRadius | number;
-
-  /** Predefined chip size */
-  size?: CoSize;
-
-  /** Chip input type */
-  type?: 'radio' | 'checkbox';
-
-  /** Controls chip appearance, defaults to filled with dark theme and to outline in light theme */
-  variant?: 'outline' | 'filled';
-
-  /** Chip label */
+  /** Chip 컴포넌트의 label 입니다. */
   children: React.ReactNode;
 
-  /** Checked state for controlled component */
-  checked?: boolean;
-
-  /** Default value for uncontrolled component */
-  defaultChecked?: boolean;
-
-  /** Calls when checked state changes */
-  onChange?(checked: boolean): void;
-
-  /** Active color from theme, defaults to theme.primaryColor */
+  /** Chip 컴포넌트의 색상을 정합니다. */
   color?: CoPalette;
 
-  /** Static id to bind input with label */
+  /** Chip 컴포넌트의 input에 id 속성을 정합니다. */
   id?: string;
+
+  /** Chip 컴포넌트의 input에 value를 정합니다. */
+  value: string;
+
+  /**
+   * Chip 컴포넌트의 input에 checked 속성을 제어합니다.
+   * Chip 컴포넌트를 직접 제어한다면 이 속성을 사용합니다.
+   */
+  checked?: boolean;
+
+  /**
+   * Chip 컴포넌트의 input에 defaultChecked 속성을 제어합니다.
+   * Chip 컴포넌트를 직접 제어하지 않는다면 이 속성을 사용합니다.
+   */
+  defaultChecked?: boolean;
+
+  /**
+   * Chip 컴포넌트의 input type을 정합니다.
+   * 이 속성은 Chips 컴포넌트에 의해 컨트롤될 수 있습니다.
+   **/
+  type?: 'radio' | 'checkbox';
+
+  /**
+   * Chip 컴포넌트의 border radius를 정합니다.
+   * 이 속성은 Chips 컴포넌트에서 컨트롤될 수 있습니다.
+   */
+  radius?: CoRadius | number;
+
+  /**
+   * Chip 컴포넌트의 크기를 정합니다.
+   * 이 속성은 Chips 컴포넌트에 의해 컨트롤될 수 있습니다.
+   */
+  size?: CoSize;
+
+  /**
+   * checked 속성이 변경된다면 함수가 실행됩니다.
+   */
+  onChange?(checked: boolean): void;
 
   /** Static selector base */
   __staticSelector?: string;
-
-  /** Input value */
-  value: string;
 }
 
 export const Chip = forwardRef<HTMLInputElement, ChipProps>(
@@ -51,7 +65,6 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       radius = 'round',
       type = 'checkbox',
       size = 'small',
-      variant,
       disabled = false,
       __staticSelector = 'Chip',
       id,
@@ -81,8 +94,6 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       rule: (val) => typeof val === 'boolean',
     });
 
-    const defaultVariant = theme.colorScheme === 'dark' ? 'filled' : 'outline';
-
     return (
       <View className={cx(classes.root, className)} style={style} co={co}>
         <input
@@ -95,10 +106,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
           ref={ref}
           {...props}
         />
-        <label
-          htmlFor={uuid}
-          className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled }, classes[variant || defaultVariant])}
-        >
+        <label htmlFor={uuid} className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled })}>
           {value && (
             <span className={classes.iconWrapper}>
               <CheckboxIcon indeterminate={false} className={classes.checkIcon} />

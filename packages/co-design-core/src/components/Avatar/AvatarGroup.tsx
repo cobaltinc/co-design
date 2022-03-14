@@ -21,7 +21,7 @@ export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesName
   /**
    * 그룹에 추가할 수 있는 최대 Avatar 컴포넌트 수를 정합니다.
    * 지정된 크기를 넘는다면 나머지 Avatar는 잘립니다.
-   **/
+   */
   limit?: number;
 
   /** Avatar 컴포넌트 사이 간격을 정합니다. */
@@ -30,7 +30,7 @@ export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesName
   /**
    * 그룹 내 포함된 Avatar 컴포넌트의 수를 정합니다.
    * 별도로 컴포넌트를 추가하지 않아도 limit와 상호작용 합니다.
-   **/
+   */
   total?: number;
 }
 
