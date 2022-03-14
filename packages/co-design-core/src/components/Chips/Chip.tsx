@@ -55,7 +55,6 @@ export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React
    */
   onChange?(checked: boolean): void;
 
-  /** Static selector base */
   __staticSelector?: string;
 }
 

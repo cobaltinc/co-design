@@ -2,7 +2,7 @@ import { CoBreakpoints, CoTheme } from '@co-design/styles';
 
 type Breakpoints<T> = Partial<Record<CoBreakpoints | (string & {}), T>>;
 
-export function getSortedBreakpoints<T>(breakpoints: Breakpoints<T>, theme: CoTheme) {
+export const getSortedBreakpoints = <T>(breakpoints: Breakpoints<T>, theme: CoTheme) => {
   if (!breakpoints) {
     return [];
   }
@@ -13,4 +13,4 @@ export function getSortedBreakpoints<T>(breakpoints: Breakpoints<T>, theme: CoTh
 
   values.sort((a, b) => b[0] - a[0]);
   return values.reverse() as [number, T][];
-}
+};

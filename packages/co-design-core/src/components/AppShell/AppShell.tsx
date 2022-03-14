@@ -28,25 +28,25 @@ export interface AppShellProps extends CoComponentProps<AppShellStylesNames> {
   padding?: CoSpacing | number;
 }
 
-function getElementHeight(element: React.ReactElement) {
+const getElementHeight = (element: React.ReactElement) => {
   const height = element?.props?.height;
   return typeof height === 'number' ? `${height}px` : typeof height === 'string' ? height : '0px';
-}
+};
 
-function getSidebarWidth(element: React.ReactElement) {
+const getSidebarWidth = (element: React.ReactElement) => {
   const width = typeof element?.props?.width === 'object' ? element?.props?.width?.base : element?.props?.width;
   return typeof width === 'number' ? `${width}px` : typeof width === 'string' ? width : '0px';
-}
+};
 
-function getSidebarBreakpoints(element: React.ReactElement, theme: CoTheme) {
+const getSidebarBreakpoints = (element: React.ReactElement, theme: CoTheme) => {
   const breakpoints = element?.props?.width;
   return breakpoints != null ? getSortedBreakpoints<{ width: number | string; height: number | string }>(breakpoints as any, theme) : [];
-}
+};
 
-function getSidebarHiddenBreakpoint(element: React.ReactElement, theme: CoTheme) {
+const getSidebarHiddenBreakpoint = (element: React.ReactElement, theme: CoTheme) => {
   const breakpoint = element?.props?.hiddenBreakpoint || 'small';
   return breakpoint != null ? theme.fn.size({ size: breakpoint, sizes: theme.breakpoints }) : 0;
-}
+};
 
 type AppShellComponent = ((props: AppShellProps) => React.ReactElement) & {
   displayName: string;

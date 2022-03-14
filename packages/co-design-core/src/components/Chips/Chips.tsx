@@ -49,7 +49,7 @@ export interface ChipsProps<T extends boolean = false>
   onChange?(value: T extends true ? string[] : string): void;
 }
 
-export function Chips<T extends boolean>({
+export const Chips = <T extends boolean>({
   id,
   children,
   color,
@@ -61,7 +61,7 @@ export function Chips<T extends boolean>({
   defaultValue,
   onChange,
   ...props
-}: ChipsProps<T>) {
+}: ChipsProps<T>) => {
   const uuid = useId(id);
   const [_value, setValue] = useUncontrolled<string | string[]>({
     value,
@@ -100,6 +100,6 @@ export function Chips<T extends boolean>({
       {chips}
     </Group>
   );
-}
+};
 
 Chips.displayName = '@co-design/core/Chips';
