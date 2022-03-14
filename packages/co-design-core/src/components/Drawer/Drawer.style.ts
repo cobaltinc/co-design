@@ -23,7 +23,7 @@ interface GetPositionStyles {
   theme: CoTheme;
 }
 
-function getPositionStyles({ position, size, theme }: GetPositionStyles): Partial<Record<keyof React.CSSProperties, any>> {
+const getPositionStyles = ({ position, size, theme }: GetPositionStyles): Partial<Record<keyof React.CSSProperties, any>> => {
   switch (position) {
     case 'top':
       return { top: 0, left: 0, right: 0, height: theme.fn.size({ size, sizes }) };
@@ -40,7 +40,7 @@ function getPositionStyles({ position, size, theme }: GetPositionStyles): Partia
     default:
       return null;
   }
-}
+};
 
 export default createStyles((theme, { position, size }: DrawerStyles, getRef) => {
   const noOverlay = getRef('noOverlay');

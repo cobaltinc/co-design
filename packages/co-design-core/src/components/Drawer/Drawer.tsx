@@ -13,67 +13,69 @@ import useStyles, { DrawerPosition } from './Drawer.style';
 export type DrawerStylesNames = Exclude<ClassNames<typeof useStyles>, 'noOverlay'>;
 
 export interface DrawerProps extends CoComponentProps<DrawerStylesNames>, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
-  /** If true drawer is mounted to the dom */
+  /** true인 경우 Drawer 컴포넌트가 열립니다. */
   opened: boolean;
 
-  /** Called when drawer is closed (Escape key and click outside, depending on options) */
-  onClose(): void;
-
-  /** Drawer body position */
-  position?: DrawerPosition;
-
-  /** Drawer body width (right | left position) or height (top | bottom position), cannot exceed 100vh for height and 100% for width */
-  size?: CoSize | 'full' | number;
-
-  /** Drawer body shadow from theme or any css shadow value */
-  shadow?: CoShadows;
-
-  /** Drawer body padding from theme or number for padding in px */
-  padding?: CoSpacing | number;
-
-  /** Drawer z-index property */
-  zIndex?: CoZIndex | number;
-
-  /** Disables focus trap */
-  noFocusTrap?: boolean;
-
-  /** Disables scroll lock */
-  noScrollLock?: boolean;
-
-  /** Disable onClock trigger for outside events */
-  noCloseOnClickOutside?: boolean;
-
-  /** Disable onClock trigger for escape key press */
-  noCloseOnEscape?: boolean;
-
-  /** Drawer appear and disappear transition, see Transition component for full documentation */
-  transition?: CoTransition;
-
-  /** Transition duration in ms */
-  transitionDuration?: number;
-
-  /** Drawer transitionTimingFunction css property */
-  transitionTimingFunction?: string;
-
-  /** Removes overlay entirely */
-  noOverlay?: boolean;
-
-  /** Sets overlay opacity, defaults to 0.75 in light theme and to 0.85 in dark theme */
-  overlayOpacity?: number;
-
-  /** Sets overlay color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme */
-  overlayColor?: string;
-
-  /** Drawer title, displayed in header before close button */
+  /** Drawer의 타이틀을 정합니다. */
   title?: React.ReactNode;
 
-  /** Hides close button, modal still can be closed with escape key and by clicking outside */
+  /** Drawer 컴포넌트가 등장할 위치를 정합니다. */
+  position?: DrawerPosition;
+
+  /**
+   * Drawer 컴포넌트의 크기를 지정합니다.
+   * position 속성이 left 혹은 right일 경우 너비를
+   * position 속성이 top 혹은 bottom일 경우 높이가 조정됩니다.
+   */
+  size?: CoSize | 'full' | number;
+
+  /** Drawer 컴포넌트에 그림자를 적용합니다. */
+  shadow?: CoShadows;
+
+  /** Drawer 컴포넌트 내부 영역에 padding을 줍니다. */
+  padding?: CoSpacing | number;
+
+  /** Drawer 컴포넌트의 z-index를 정합니다. */
+  zIndex?: CoZIndex | number;
+
+  /** true일 경우 Drawer 컴포넌트로 focus를 옮겨오지 않습니다. */
+  noFocusTrap?: boolean;
+
+  /** true일 경우 스크롤 잠금을 해제합니다. */
+  noScrollLock?: boolean;
+
+  /** true일 경우 바깥 쪽을 클릭해도 Drawer가 닫히지 않습니다. */
+  noCloseOnClickOutside?: boolean;
+
+  /** true일 경우 ESC를 눌러도 Drawer가 닫히지 않습니다. */
+  noCloseOnEscape?: boolean;
+
+  /** transition 속성을 정의합니다. */
+  transition?: CoTransition;
+
+  /** Transition이 실행되는 시간을 ms 단위로 정합니다. */
+  transitionDuration?: number;
+
+  /** Drawer 컴포넌트에 transitionTimingFunction css 속성을 정의합니다. */
+  transitionTimingFunction?: string;
+
+  /** true일 경우 배경 Overlay를 제거합니다. */
+  noOverlay?: boolean;
+
+  /** Overlay의 opacity를 설정합니다. */
+  overlayOpacity?: number;
+
+  /** Overlay 색상을 정합니다. */
+  overlayColor?: string;
+
+  /** true일 경우 Close 버튼이 제거됩니다. */
   hideCloseButton?: boolean;
 
-  /** Close button aria-label */
-  closeButtonLabel?: string;
-
+  /** Drawer 컴포넌트가 마운트될 요소를 정합니다. */
   target?: HTMLDivElement;
+
+  /** Drawer 컴포넌트가 닫힐 때 실행됩니다. */
+  onClose(): void;
 }
 
 const transitions: Record<DrawerPosition, CoTransition> = {
@@ -84,9 +86,8 @@ const transitions: Record<DrawerPosition, CoTransition> = {
 };
 
 export const CoDrawer = ({
-  className,
   opened,
-  onClose,
+  title,
   position = 'left',
   size = 'medium',
   noFocusTrap = false,
@@ -103,9 +104,9 @@ export const CoDrawer = ({
   noOverlay = false,
   shadow = 'medium',
   padding = 'medium',
-  title,
   hideCloseButton,
-  closeButtonLabel,
+  onClose,
+  className,
   overrideStyles,
   ...props
 }: DrawerProps) => {
@@ -154,18 +155,14 @@ export const CoDrawer = ({
           onMouseDown={() => !noCloseOnClickOutside && onClose()}
           {...props}
         >
-          <Paper<'div'>
+          <Paper
             onMouseDown={(event) => event.stopPropagation()}
             className={cx(classes.drawer, className)}
             ref={focusTrapRef}
             style={{ ...transitionStyles.drawer, zIndex: (zIndex in theme.zIndex ? theme.zIndex[zIndex] : zIndex) + 2 }}
             radius={0}
             tabIndex={-1}
-            onKeyDownCapture={(event) => {
-              const shouldTrigger = (event.target as any)?.getAttribute('data-mantine-stop-propagation') !== 'true';
-
-              shouldTrigger && event.nativeEvent.code === 'Escape' && !noCloseOnEscape && onClose();
-            }}
+            onKeyDownCapture={(event) => event.nativeEvent.code === 'Escape' && !noCloseOnEscape && onClose()}
             shadow={shadow}
             padding={padding}
           >
@@ -176,14 +173,7 @@ export const CoDrawer = ({
                 </Text>
 
                 {!hideCloseButton && (
-                  <CloseButton
-                    variant="transparent"
-                    color="dark"
-                    size="small"
-                    onClick={onClose}
-                    aria-label={closeButtonLabel}
-                    className={classes.closeButton}
-                  />
+                  <CloseButton variant="transparent" color="gray" size="small" onClick={onClose} className={classes.closeButton} />
                 )}
               </div>
             )}
