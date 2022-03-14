@@ -7,10 +7,19 @@ import useStyles, { AvatarShape } from './Avatar.style';
 export type AvatarStylesNames = ClassNames<typeof useStyles>;
 
 interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
+  /** Avatar 컴포넌트의 이미지 src를 정합니다. */
   src?: string;
+
+  /** 이미지 설명을 추가합니다. */
   alt?: string;
+
+  /** Avatar 컴포넌트의 크기를 정합니다. */
   size?: CoSize | number;
+
+  /** Avatar 컴포넌트의 모양을 정합니다. */
   shape?: AvatarShape;
+
+  /** Avatar 컴포넌트에 src가 없을 경우 기본 색상을 사용합니다. */
   color?: CoPalette;
 }
 

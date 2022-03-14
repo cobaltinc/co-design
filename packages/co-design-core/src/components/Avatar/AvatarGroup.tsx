@@ -9,22 +9,28 @@ import useStyles from './AvatarGroup.style';
 export type AvatarGroupStylesNames = ClassNames<typeof useStyles>;
 
 export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesNames>, React.ComponentPropsWithoutRef<'div'> {
-  /** <Avatar /> components only */
+  /** Avatar 컴포넌트만 넣을 수 있습니다. */
   children?: React.ReactNode;
 
-  /** Child <Avatar /> components width and height */
+  /** 그룹에 추가된 Avatar 컴포넌트의 크기를 정합니다. */
   size?: CoSize | number;
 
-  /** Child <Avatar /> radius */
+  /** 그룹에 추가된 Avatar 컴포넌트의 모양을 정합니다. */
   shape?: AvatarShape;
 
-  /** Maximum amount of <Avatar /> components rendered, everything after limit is truncated */
+  /**
+   * 그룹에 추가할 수 있는 최대 Avatar 컴포넌트 수를 정합니다.
+   * 지정된 크기를 넘는다면 나머지 Avatar는 잘립니다.
+   **/
   limit?: number;
 
-  /** Spacing between avatars */
+  /** Avatar 컴포넌트 사이 간격을 정합니다. */
   spacing?: CoSpacing | number;
 
-  /** Total number of child <Avatar />, overrides the truncated amount */
+  /**
+   * 그룹 내 포함된 Avatar 컴포넌트의 수를 정합니다.
+   * 별도로 컴포넌트를 추가하지 않아도 limit와 상호작용 합니다.
+   **/
   total?: number;
 }
 
