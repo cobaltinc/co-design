@@ -6,6 +6,7 @@ import { View } from '../View';
 export type CenterStylesNames = ClassNames<typeof useStyles>;
 
 export interface CenterProps extends CoComponentProps<CenterStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+  /** display 속성이 block에서 inline으로 변경됩니다. */
   inline?: boolean;
 }
 
