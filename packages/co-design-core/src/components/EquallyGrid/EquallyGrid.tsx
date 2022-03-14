@@ -6,8 +6,13 @@ import useStyles, { EquallyGridBreakpoint } from './EquallyGrid.style';
 export type EquallyGridStylesNames = ClassNames<typeof useStyles>;
 
 export interface EquallyGridProps extends CoComponentProps<EquallyGridStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+  /** EquallyGrid 컴포넌트에서 관리할 컬럼 수를 정합니다 */
   cols: number;
+
+  /** 컬럼 사이 간격을 정합니다. */
   spacing?: CoSpacing | number;
+
+  /** breakpoint에 따라 컬럼 수를 바꿀 수 있습니다. */
   breakpoints?: EquallyGridBreakpoint[];
 }
 
