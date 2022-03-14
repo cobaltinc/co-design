@@ -30,7 +30,7 @@ export default createStyles((theme) => ({
     position: 'absolute',
     width: 12,
     height: 12,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[8],
     userSelect: 'none',
     pointerEvents: 'none',
 
@@ -91,10 +91,10 @@ export default createStyles((theme) => ({
     position: 'absolute',
     padding: theme.spacing.small,
     borderRadius: theme.radius.medium,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[8],
     ...defaultFontStyles(theme),
     fontSize: theme.fontSizes.small,
-    color: theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.palettes.gray[0],
+    color: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.colors.white,
 
     '&[class^="top"]': {
       bottom: 0,

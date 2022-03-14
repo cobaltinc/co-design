@@ -26,11 +26,13 @@ function getLineClamp(lineClamp: number): CSSObject {
 export default createStyles((theme, { color, size, lineClamp, block, inherit }: TextStyles) => {
   const _color = color
     ? color in theme.palettes
-      ? theme.palettes[color][theme.colorScheme === 'dark' ? 4 : 6]
+      ? theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5]
       : color in theme.colors
       ? theme.colors[color]
       : color
-    : theme.palettes.gray[theme.colorScheme === 'dark' ? 0 : 9];
+    : theme.colorScheme === 'dark'
+    ? theme.colors.white
+    : theme.palettes.gray[8];
 
   return {
     root: {

@@ -105,15 +105,15 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
     },
 
     primary: {
-      backgroundColor: theme.palettes[color][6],
+      backgroundColor: theme.palettes[color][5],
       color: 'white',
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.palettes[color][7],
+        backgroundColor: theme.palettes[color][6],
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.palettes[color][8],
+        backgroundColor: theme.palettes[color][7],
       },
 
       '&:not(:disabled):focus-visible': {
@@ -125,7 +125,7 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
           left: -2,
           right: -2,
           borderRadius: 4,
-          outline: `1px solid ${theme.palettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][5]}`,
         },
       },
 
@@ -140,11 +140,11 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.palettes.gray[3],
+        backgroundColor: theme.palettes.gray[2],
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.palettes.gray[4],
+        backgroundColor: theme.palettes.gray[3],
       },
 
       '&:not(:disabled):focus-visible': {
@@ -161,21 +161,21 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.palettes.gray[2],
+        backgroundColor: theme.palettes.gray[1],
         color: addAlpha(theme.colors.black, theme.opacity.opacity3),
       },
     },
     secondary: {
       backgroundColor: theme.colors.transparent,
-      border: `1px solid ${theme.palettes[color][6]}`,
-      color: theme.palettes[color][6],
+      border: `1px solid ${theme.palettes[color][5]}`,
+      color: theme.palettes[color][5],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.palettes[color][1], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][0], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.palettes[color][2], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][1], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
@@ -187,29 +187,29 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
           left: -2,
           right: -2,
           borderRadius: 4,
-          outline: `1px solid ${theme.palettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][5]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.palettes[color][2], theme.opacity.opacity3),
-        border: `1px solid ${addAlpha(theme.palettes[color][2], theme.opacity.opacity3)}`,
+        color: addAlpha(theme.palettes[color][1], theme.opacity.opacity3),
+        border: `1px solid ${addAlpha(theme.palettes[color][1], theme.opacity.opacity3)}`,
       },
     },
     tertiary: {
-      backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity1),
+      backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity1),
       color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity2),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][7], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
-        outline: `1px solid ${theme.palettes[color][6]}`,
+        outline: `1px solid ${theme.palettes[color][5]}`,
 
         '&::before': {
           content: '""',
@@ -219,12 +219,12 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
           left: -3,
           right: -3,
           borderRadius: 4,
-          outline: `1px solid ${theme.palettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][5]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
+        color: addAlpha(theme.palettes[color][7], theme.opacity.opacity3),
       },
     },
     transparent: {
@@ -232,15 +232,15 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       color: theme.palettes[color][6],
 
       '&:not(:disabled):hover': {
-        backgroundColor: addAlpha(theme.palettes[color][9], theme.opacity.opacity2),
+        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity2),
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
+        backgroundColor: addAlpha(theme.palettes[color][7], theme.opacity.opacity3),
       },
 
       '&:not(:disabled):focus-visible': {
-        outline: `1px solid ${theme.palettes[color][6]}`,
+        outline: `1px solid ${theme.palettes[color][5]}`,
 
         '&::before': {
           content: '""',
@@ -250,12 +250,12 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
           left: -3,
           right: -3,
           borderRadius: 4,
-          outline: `1px solid ${theme.palettes[color][6]}`,
+          outline: `1px solid ${theme.palettes[color][5]}`,
         },
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: addAlpha(theme.palettes[color][8], theme.opacity.opacity3),
+        color: addAlpha(theme.palettes[color][7], theme.opacity.opacity3),
       },
     },
 

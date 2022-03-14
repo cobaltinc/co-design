@@ -11,7 +11,7 @@ export default createStyles((theme, { inline, color }: HeadingStyles) => {
       display: inline ? 'inline' : 'block',
       margin: 0,
       color:
-        color in theme.palettes ? theme.palettes[color][theme.colorScheme === 'light' ? 6 : 4] : color in theme.colors ? theme.colors[color] : color,
+        color in theme.palettes ? theme.palettes[color][theme.colorScheme === 'light' ? 5 : 3] : color in theme.colors ? theme.colors[color] : color,
     },
 
     h1: { ...theme.headings.h1 },

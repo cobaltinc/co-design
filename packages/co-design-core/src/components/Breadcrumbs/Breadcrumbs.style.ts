@@ -19,7 +19,7 @@ export default createStyles((theme, { spacing }: BreadcrumbsStylesProps) => ({
   separator: {
     marginLeft: getFieldValue(spacing, theme.spacing),
     marginRight: getFieldValue(spacing, theme.spacing),
-    color: theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[7],
+    color: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[6],
     lineHeight: 1,
     display: 'flex',
     alignItems: 'center',

@@ -56,7 +56,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       display: 'inline-block',
       alignItems: 'center',
       userSelect: 'none',
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[4]}`,
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[3]}`,
       borderRadius: getFieldValue(radius, theme.radius),
       height: getFieldValue(size, sizes),
       fontSize: getFieldValue(size, theme.fontSizes),
@@ -71,20 +71,20 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
     outline: {
       ref: outline,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.colors.white,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.colors.white,
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[0],
       },
     },
 
     filled: {
       ref: filled,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[1],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[0],
       borderColor: 'transparent',
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[0],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.colors.white,
       },
     },
 
@@ -101,17 +101,17 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
     },
 
     disabled: {
-      backgroundColor: `${theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[1]} !important`,
-      borderColor: `${theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[1]} !important`,
-      color: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[5],
+      backgroundColor: `${theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[0]} !important`,
+      borderColor: `${theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[0]} !important`,
+      color: theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[4],
       cursor: 'not-allowed',
 
       '&:hover': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[1],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[0],
       },
 
       [`& .${iconWrapper}`]: {
-        color: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[5],
+        color: theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[4],
       },
     },
 
@@ -125,7 +125,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
 
       [`&.${filled}`]: {
         '&, &:hover': {
-          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][6] : theme.palettes[color][1],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][5] : theme.palettes[color][0],
         },
       },
     },
@@ -150,7 +150,7 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
         [`& + .${label}`]: {
           outline: 'none',
           boxShadow: `0 0 0 3px ${theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.white}, 0 0 0 4px ${
-            theme.palettes[theme.primaryColor][6]
+            theme.palettes[theme.primaryColor][5]
           }`,
         },
 

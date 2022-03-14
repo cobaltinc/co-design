@@ -35,37 +35,37 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       boxSizing: 'border-box',
       fontSize: getFieldValue(size, FONT_SIZES),
       width: '100%',
-      color: theme.colorScheme === 'dark' ? theme.palettes.gray[1] : theme.colors.black,
+      color: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
       display: 'block',
       textAlign: 'left',
       minHeight: getFieldValue(size, CO_HEIGHTS),
       paddingLeft: getFieldValue(size, CO_HEIGHTS) / 3,
       paddingRight: getFieldValue(size, CO_HEIGHTS) / 3,
       borderRadius: getFieldValue(radius, theme.radius),
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[3]}`,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.white,
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[2]}`,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.colors.white,
       // transition: 'border-color 100ms ease',
 
       '&:focus, &:focus-within': {
-        outline: `1px solid ${theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6]}`,
-        borderColor: theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 4 : 6],
+        outline: `1px solid ${theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 5]}`,
+        borderColor: theme.palettes[theme.primaryColor][theme.colorScheme === 'dark' ? 3 : 5],
       },
 
       '&:disabled': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[1],
-        color: theme.palettes.gray[7],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[0],
+        color: theme.palettes.gray[6],
         opacity: 0.6,
         cursor: 'not-allowed',
 
         '&::placeholder': {
-          color: theme.palettes.gray[7],
+          color: theme.palettes.gray[6],
         },
       },
 
       '&::placeholder': {
         opacity: 1,
         userSelect: 'none',
-        color: theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[5],
+        color: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[4],
       },
 
       '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration':
@@ -97,13 +97,13 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
     },
 
     disabled: {
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[1],
-      color: theme.palettes.gray[7],
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[0],
+      color: theme.palettes.gray[6],
       opacity: 0.6,
       cursor: 'not-allowed',
 
       '&::placeholder': {
-        color: theme.palettes.gray[7],
+        color: theme.palettes.gray[6],
       },
     },
 
@@ -119,10 +119,10 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       justifyContent: 'center',
       width: getFieldValue(size, CO_HEIGHTS),
       color: invalid
-        ? theme.palettes.red[theme.colorScheme === 'dark' ? 6 : 7]
+        ? theme.palettes.red[theme.colorScheme === 'dark' ? 5 : 6]
         : theme.colorScheme === 'dark'
-        ? theme.palettes.gray[2]
-        : theme.palettes.gray[5],
+        ? theme.palettes.gray[1]
+        : theme.palettes.gray[4],
 
       svg: {
         width: '50%',

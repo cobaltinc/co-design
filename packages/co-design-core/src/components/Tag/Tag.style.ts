@@ -14,9 +14,9 @@ export default createStyles((theme, { color, fullWidth, strong }: TagStyles) => 
     padding: `${theme.spacing.xsmall}px ${theme.spacing.small}px`,
     fontWeight: strong ? 'bold' : 'normal',
     fontSize: theme.fontSizes.tiny,
-    color: theme.palettes[color][theme.colorScheme === 'light' ? 6 : 4],
+    color: theme.palettes[color][theme.colorScheme === 'light' ? 5 : 3],
     borderRadius: theme.radius.large,
-    backgroundColor: theme.palettes[color][theme.colorScheme === 'light' ? 2 : 8],
+    backgroundColor: theme.palettes[color][theme.colorScheme === 'light' ? 1 : 7],
     boxSizing: 'border-box',
   },
 }));

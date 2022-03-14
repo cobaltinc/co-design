@@ -22,15 +22,15 @@ export default createStyles((theme, { color, padding }: MenuItemStyles) => ({
     cursor: 'pointer',
     color:
       color in theme.palettes
-        ? theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 7]
+        ? theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6]
         : color in theme.colors
         ? theme.colors[color]
         : theme.colorScheme === 'dark'
-        ? theme.palettes.gray[3]
-        : theme.palettes.gray[7],
+        ? theme.palettes.gray[2]
+        : theme.palettes.gray[6],
 
     '&:disabled': {
-      color: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[5],
+      color: theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[4],
       pointerEvents: 'none',
     },
 
@@ -43,7 +43,7 @@ export default createStyles((theme, { color, padding }: MenuItemStyles) => ({
     backgroundColor: color
       ? theme.fn.rgba(
           color in theme.palettes
-            ? theme.palettes[color][theme.colorScheme === 'dark' ? 8 : 2]
+            ? theme.palettes[color][theme.colorScheme === 'dark' ? 7 : 1]
             : color in theme.colors
             ? theme.colors[color]
             : theme.colorScheme === 'dark'
@@ -52,8 +52,8 @@ export default createStyles((theme, { color, padding }: MenuItemStyles) => ({
           theme.colorScheme === 'dark' ? 0.35 : 1,
         )
       : theme.colorScheme === 'dark'
-      ? theme.fn.rgba(theme.palettes.gray[8], 0.35)
-      : theme.palettes.gray[2],
+      ? theme.fn.rgba(theme.palettes.gray[7], 0.35)
+      : theme.palettes.gray[1],
   },
 
   itemInner: {

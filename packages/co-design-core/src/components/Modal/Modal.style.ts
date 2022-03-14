@@ -51,7 +51,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => ({
     zIndex: 5,
     width: getFieldValue(size, sizes),
     outline: 0,
-    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.colors.white,
+    backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.colors.white,
   },
 
   header: {

@@ -48,8 +48,8 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
       borderRadius: handleSize,
-      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[7] : theme.palettes.gray[3],
-      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[4]}`,
+      backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[2],
+      border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[3]}`,
       height: switchHeight[size],
       width: switchWidth[size],
       minWidth: switchWidth[size],
@@ -71,7 +71,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
         backgroundColor: theme.colors.white,
         height: handleSize,
         width: handleSize,
-        border: `1px solid ${theme.palettes.gray[3]}`,
+        border: `1px solid ${theme.palettes.gray[2]}`,
         transition: `transform 150ms ease`,
         transform: `translateX(${size === 'xsmall' ? 1 : 2}px)`,
 
@@ -81,8 +81,8 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       },
 
       '&:checked': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][4] : theme.palettes[color][6],
-        borderColor: theme.colorScheme === 'dark' ? theme.palettes[color][4] : theme.palettes[color][6],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes[color][3] : theme.palettes[color][5],
+        borderColor: theme.colorScheme === 'dark' ? theme.palettes[color][3] : theme.palettes[color][5],
 
         '&::before': {
           transform: `translateX(${
@@ -93,13 +93,13 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       },
 
       '&:disabled': {
-        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
-        borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
+        backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[1],
+        borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[1],
         cursor: 'not-allowed',
 
         '&::before': {
-          borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[4] : theme.palettes.gray[2],
-          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[0],
+          borderColor: theme.colorScheme === 'dark' ? theme.palettes.gray[3] : theme.palettes.gray[1],
+          backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.colors.white,
         },
       },
     },
@@ -109,7 +109,7 @@ export default createStyles((theme, { size, color }: SwitchStyles) => {
       fontSize: theme.fontSizes[size],
       ...defaultFontStyles(theme),
       paddingLeft: theme.spacing.small,
-      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9],
+      color: theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[8],
     },
   };
 });

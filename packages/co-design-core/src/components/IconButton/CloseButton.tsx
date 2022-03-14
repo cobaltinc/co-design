@@ -7,9 +7,9 @@ export type CloseButtonProps = Omit<IconButtonProps<'button'>, 'children'>;
 type CloseButtonComponent = (props: CloseButtonProps) => React.ReactElement;
 
 export const CloseButton: CloseButtonComponent & { displayName?: string } = forwardRef<HTMLButtonElement, CloseButtonProps>(
-  ({ size = 'medium', ...props }: CloseButtonProps, ref) => {
+  ({ size = 'medium', color = 'gray', ...props }: CloseButtonProps, ref) => {
     return (
-      <IconButton size={size} ref={ref} {...props}>
+      <IconButton size={size} color={color} ref={ref} {...props}>
         <CloseIcon />
       </IconButton>
     );

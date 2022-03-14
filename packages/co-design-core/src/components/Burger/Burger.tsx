@@ -18,7 +18,7 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(
     const theme = useCoTheme();
     const _color =
       (color in theme.palettes
-        ? theme.palettes[color][theme.colorScheme === 'light' ? 6 : 2]
+        ? theme.palettes[color][theme.colorScheme === 'light' ? 5 : 2]
         : color in theme.colors
         ? theme.colors[color]
         : color) || (theme.colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9]);

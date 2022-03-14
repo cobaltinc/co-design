@@ -33,9 +33,9 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
   placeholder: {
     ...defaultFontStyles(theme),
     fontSize: getFieldValue(size, CO_HEIGHTS) / 3,
-    color: theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6],
+    color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
     fontWeight: 700,
-    backgroundColor: theme.palettes[color][theme.colorScheme === 'dark' ? 6 : 2],
+    backgroundColor: theme.palettes[color][theme.colorScheme === 'dark' ? 7 : 2],
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -47,6 +47,6 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
   placeholderIcon: {
     width: '70%',
     height: '70%',
-    color: theme.palettes[color][theme.colorScheme === 'dark' ? 2 : 6],
+    color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
   },
 }));

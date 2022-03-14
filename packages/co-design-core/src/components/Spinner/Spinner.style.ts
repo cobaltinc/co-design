@@ -10,12 +10,12 @@ export default createStyles((theme, { size, color }: SpinnerStyles) => {
   const svgColor =
     color === undefined
       ? theme.colorScheme === 'light'
-        ? theme.palettes.gray[9]
-        : theme.palettes.gray[0]
+        ? theme.palettes.gray[8]
+        : theme.colors.white
       : color in theme.palettes
       ? theme.colorScheme === 'light'
-        ? theme.palettes[color][6]
-        : theme.palettes[color][4]
+        ? theme.palettes[color][5]
+        : theme.palettes[color][3]
       : color in theme.colors
       ? theme.colors[color]
       : color;
