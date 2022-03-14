@@ -6,13 +6,29 @@ import useStyles, { GroupPosition } from './Group.style';
 export type GroupStylesNames = ClassNames<typeof useStyles>;
 
 export interface GroupProps extends CoComponentProps<GroupStylesNames>, React.ComponentPropsWithoutRef<'div'> {
-  inline?: boolean;
-  position?: GroupPosition;
-  align?: React.CSSProperties['alignItems'];
-  noWrap?: boolean;
-  grow?: boolean;
-  spacing?: CoSpacing | number;
+  /** Group 컴포넌트 내 요소들의 방향을 정합니다. */
   direction?: 'row' | 'column';
+
+  /** Group 컴포넌트 내 요소들의 위치를 정합니다. */
+  position?: GroupPosition;
+
+  /** Group 컴포넌트 내 요소들의 세로 정렬을 정합니다. */
+  align?: React.CSSProperties['alignItems'];
+
+  /** Group 컴포넌트의 display 속성이 inline으로 변경됩니다. */
+  inline?: boolean;
+
+  /**
+   * Group 컴포넌트 내 요소들이 nowrap 속성으로 변경됩니다.
+   * nowrap 속성이 적용되면 화면이 좁아져도 줄바꿈이 되지 않습니다.
+   */
+  noWrap?: boolean;
+
+  /** Group 컴포넌트 내 요소들을 상위 요소의 너비에 맞춰 늘립니다. */
+  grow?: boolean;
+
+  /** Group 컴포넌트 내 요소들의 간격을 정합니다. */
+  spacing?: CoSpacing | number;
 }
 
 export const Group = forwardRef<HTMLDivElement, GroupProps>(
