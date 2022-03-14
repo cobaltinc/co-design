@@ -8,8 +8,13 @@ import { useCallback } from 'react';
 export type BurgerStylesNames = ClassNames<typeof useStyles>;
 
 export interface BurgerProps extends CoComponentProps<BurgerStylesNames>, React.ComponentPropsWithoutRef<'button'> {
+  /** true일 경우 X 모양이 되고 false일 경우 버거 모양이 됩니다. */
   opened?: boolean;
+
+  /** Burger 컴포넌트의 크기를 정합니다. */
   size?: CoNumberSize;
+
+  /** Burger 컴포넌트의 색상을 정합니다. */
   color?: CoPalette | CoColor | string;
 }
 
