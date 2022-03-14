@@ -50,15 +50,15 @@ export interface ChipsProps<T extends boolean = false>
 }
 
 export function Chips<T extends boolean>({
-  children,
   id,
+  children,
   color,
   spacing = 'small',
-  radius = 'round',
+  radius = 'medium',
   size = 'small',
+  multiple,
   value,
   defaultValue,
-  multiple,
   onChange,
   ...props
 }: ChipsProps<T>) {
