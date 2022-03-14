@@ -8,31 +8,37 @@ import { CoBreakpoints, CoSpacing, CoZIndex } from '@co-design/styles';
 export type SidebarStylesNames = ClassNames<typeof useStyles>;
 
 export interface SidebarProps extends CoComponentProps<SidebarStylesNames>, React.ComponentPropsWithoutRef<'nav'> {
-  /** Sidebar width with breakpoints */
+  /** breakpoint에 따라 Sidebar의 너비를 지정합니다. */
   width?: SidebarWidth | number;
 
-  /** Sidebar height */
+  /** Sidebar의 높이를 지정합니다. */
   height?: string | number;
 
-  /** Sidebar content */
+  /** Sidebar 내용이 들어갑니다. */
   children: React.ReactNode;
 
-  /** Sidebar padding from theme.spacing or number to set padding in px */
+  /** Sidebar 영역에 padding을 줍니다. */
   padding?: CoSpacing | number;
 
-  /** Set position to fixed */
+  /**
+   * Sidebar 컴포넌트를 스크롤 위치와 무관하게 고정합니다.
+   * 이 Prop은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
+   **/
   fixed?: boolean;
 
-  /** Position for fixed Sidebar */
+  /**
+   * Sidebar 컴포넌트의 위치를 지정합니다.
+   * 이 Prop은 AppShell 컴포넌트에 의해 컨트롤될 수 있습니다.
+   **/
   position?: SidebarPosition;
 
-  /** Breakpoint at which Sidebar will be hidden if hidden prop is true */
+  /** hidden Prop이 true면서 특정 breakpoint 이하일 경우 Sidebar를 숨깁니다. */
   hiddenBreakpoint?: CoBreakpoints | number;
 
-  /** Set to true to hide breakpoint at hiddenBreakpoint */
+  /** 이 Prop이 true면서 hiddenBreakpoint가 지정된 경우 Sidebar를 숨깁니다. */
   hidden?: boolean;
 
-  /** z-index */
+  /** Sidebar 컴포넌트의 z-index를 정합니다. */
   zIndex?: CoZIndex | number;
 }
 

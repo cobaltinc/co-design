@@ -1,24 +1,18 @@
 import { CoSpacing, CoZIndex, createStyles, defaultFontStyles } from '@co-design/styles';
 
-export interface HeaderPosition {
-  top?: number;
-  left?: number;
-  bottom?: number;
-  right?: number;
-}
-
 interface HeaderStyles {
   height: number | string;
   padding: CoSpacing | number;
   fixed: boolean;
-  position: HeaderPosition;
   zIndex: CoZIndex | number;
 }
 
-export default createStyles((theme, { height, padding, fixed, position, zIndex }: HeaderStyles) => ({
+export default createStyles((theme, { height, padding, fixed, zIndex }: HeaderStyles) => ({
   root: {
     ...defaultFontStyles(theme),
-    ...position,
+    top: 0,
+    left: 0,
+    right: 0,
     zIndex: theme.fn.size({ size: zIndex, sizes: theme.zIndex }),
     height,
     maxHeight: height,

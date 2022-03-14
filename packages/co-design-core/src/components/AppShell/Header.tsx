@@ -1,45 +1,31 @@
 import React, { forwardRef } from 'react';
 import { CoComponentProps, CoSpacing, CoZIndex } from '@co-design/styles';
 import { View } from '../View';
-import useStyles, { HeaderPosition } from './Header.style';
+import useStyles from './Header.style';
 
 export interface HeaderProps extends CoComponentProps, React.ComponentPropsWithoutRef<'nav'> {
-  /** Header content */
+  /** Header 내용이 들어갑니다. */
   children: React.ReactNode;
 
-  /** Header height */
+  /** Header 높이를 정합니다. */
   height: number | string;
 
-  /** Header padding from theme.spacing or number to set padding in px */
+  /** Header 영역에 padding을 줍니다. */
   padding?: CoSpacing | number;
 
-  /** Changes position to fixed, controlled by AppShell component if rendered inside */
+  /**
+   * Header 컴포넌트를 스크롤 위치와 무관하게 고정합니다.
+   * 이 Prop은 AppShell에 의해 컨트롤될 수 있습니다.
+   **/
   fixed?: boolean;
 
-  /** Control top, left, right or bottom position values, controlled by AppShell component if rendered inside */
-  position?: HeaderPosition;
-
-  /** z-index */
+  /** Header 컴포넌트의 z-index를 정합니다. */
   zIndex?: CoZIndex | number;
 }
 
 export const Header = forwardRef<HTMLElement, HeaderProps>(
-  (
-    {
-      children,
-      className,
-      co,
-      overrideStyles,
-      height,
-      padding = 0,
-      fixed = false,
-      position = { top: 0, left: 0, right: 0 },
-      zIndex = 'sticky',
-      ...props
-    }: HeaderProps,
-    ref,
-  ) => {
-    const { classes, cx } = useStyles({ height, padding, fixed, position, zIndex }, { name: 'Header', overrideStyles });
+  ({ children, className, co, overrideStyles, height, padding = 0, fixed = false, zIndex = 'sticky', ...props }: HeaderProps, ref) => {
+    const { classes, cx } = useStyles({ height, padding, fixed, zIndex }, { name: 'Header', overrideStyles });
 
     return (
       <View component="nav" ref={ref} className={cx(classes.root, className)} co={co} {...props}>

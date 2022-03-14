@@ -3,10 +3,10 @@ import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef } from '@co
 import { View } from '../View';
 
 interface _SidebarSectionProps extends CoComponentProps {
-  /** Section children */
+  /** Section 내용을 넣습니다. */
   children: React.ReactNode;
 
-  /** Force section to take all available height */
+  /** 가능한 모든 영역을 차지합니다. */
   grow?: boolean;
 }
 

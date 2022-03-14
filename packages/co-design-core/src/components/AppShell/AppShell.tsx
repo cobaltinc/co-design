@@ -9,22 +9,22 @@ import { Header } from './Header';
 export type AppShellStylesNames = ClassNames<typeof useStyles>;
 
 export interface AppShellProps extends CoComponentProps<AppShellStylesNames> {
-  /** <Sidebar /> component */
+  /** AppShell.Sidebar 컴포넌트를 지정합니다. */
   sidebar?: React.ReactElement;
 
-  /** <Header /> component */
+  /** AppShell.Header 컴포넌트를 지정합니다. */
   header?: React.ReactElement;
 
-  /** zIndex prop passed to Sidebar and Header components */
+  /** Sidebar와 Header 컴포넌트에 z-index를 전달합니다. */
   zIndex?: CoZIndex | number;
 
-  /** true to switch from static layout to fixed */
+  /** Sidebar와 Header가 스크롤 위치와 상관없이 고정됩니다. */
   fixed?: boolean;
 
-  /** AppShell content */
+  /** AppShell에 들어갈 내용입니다. */
   children: React.ReactNode;
 
-  /** Content padding */
+  /** children 영역에 padding을 줍니다. */
   padding?: CoSpacing | number;
 }
 
