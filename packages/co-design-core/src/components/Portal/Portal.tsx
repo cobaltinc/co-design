@@ -5,10 +5,19 @@ import { CoZIndex, useCoTheme } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 export interface PortalProps {
+  /** Portal 컴포넌트에 들어갈 요소를 넣습니다. */
   children: React.ReactNode;
+
+  /** Portal 컴포넌트의 z-index를 설정합니다. */
   zIndex?: CoZIndex | number;
+
+  /** Portal 컴포넌트가 마운트될 요소를 정합니다. */
   target?: HTMLDivElement;
+
+  /** Portal 컴포넌트의 가장 바깥 div에 className을 추가합니다. */
   className?: string;
+
+  /** Portal 컴포넌트의 가장 바깥 div에 style을 추가합니다. */
   style?: CSSProperties;
 }
 
