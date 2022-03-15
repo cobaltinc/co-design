@@ -5,6 +5,9 @@ export default {
   title: '@co-design/core/Switch',
   component: Switch,
   argTypes: {
+    label: {
+      control: { type: 'text' },
+    },
     size: {
       defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],

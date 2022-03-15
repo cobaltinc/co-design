@@ -9,9 +9,16 @@ export type SwitchStylesNames = ClassNames<typeof useStyles>;
 export interface SwitchProps
   extends CoComponentProps<SwitchStylesNames>,
     Omit<React.ComponentPropsWithoutRef<'input'>, 'type' | 'size' | 'children'> {
+  /** input에 id를 넣습니다. */
   id?: string;
+
+  /** 우측 영역에 label을 추가합니다. */
   label?: React.ReactNode;
+
+  /** Switch 컴포넌트의 색상을 정합니다. */
   color?: CoPalette;
+
+  /** Switch 컴포넌트의 크기를 정합니다. */
   size?: CoSize;
 }
 
