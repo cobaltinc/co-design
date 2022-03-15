@@ -9,13 +9,19 @@ interface MediaQueryStyles {
 
 export default createStyles((theme, { smallerThan, largerThan, query, style }: MediaQueryStyles) => {
   const media: CSSObject = {};
+  const minWidth = theme.fn.size({ size: largerThan, sizes: theme.breakpoints }) + 1;
+  const maxWidth = theme.fn.size({ size: smallerThan, sizes: theme.breakpoints });
 
-  if (smallerThan) {
-    media[`@media (min-width: ${(smallerThan in theme.breakpoints ? theme.breakpoints[smallerThan] : smallerThan) + 1}px)`] = style;
-  }
+  if (largerThan && smallerThan) {
+    media[`@media (min-width: ${minWidth}px) and (max-width: ${maxWidth}px)`] = style;
+  } else {
+    if (largerThan) {
+      media[`@media (min-width: ${theme.fn.size({ size: largerThan, sizes: theme.breakpoints }) + 1}px)`] = style;
+    }
 
-  if (largerThan) {
-    media[`@media (max-width: ${largerThan in theme.breakpoints ? theme.breakpoints[largerThan] : largerThan}px)`] = style;
+    if (smallerThan) {
+      media[`@media (max-width: ${theme.fn.size({ size: smallerThan, sizes: theme.breakpoints })}px)`] = style;
+    }
   }
 
   if (query) {

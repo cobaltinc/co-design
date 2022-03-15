@@ -6,6 +6,7 @@ import useStyles from './Kbd.style';
 export type KbdStylesNames = ClassNames<typeof useStyles>;
 
 export interface KbdProps extends CoComponentProps<KbdStylesNames>, React.ComponentPropsWithoutRef<'kbd'> {
+  /** Kbd 컴포넌트에 요소를 넣습니다. */
   children: React.ReactNode;
 }
 

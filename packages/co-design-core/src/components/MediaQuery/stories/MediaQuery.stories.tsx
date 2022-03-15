@@ -7,38 +7,38 @@ export default {
 };
 
 export const Default = () => {
-  const hide = { display: 'none' };
+  const highlight = { color: 'blue' };
   return (
     <div>
-      <MediaQuery largerThan="xlarge" style={hide}>
+      <MediaQuery largerThan="xlarge" style={highlight}>
         <div>largerThan xlarge</div>
       </MediaQuery>
-      <MediaQuery largerThan="large" style={hide}>
+      <MediaQuery largerThan="large" style={highlight}>
         <div>largerThan large</div>
       </MediaQuery>
-      <MediaQuery largerThan="medium" style={hide}>
+      <MediaQuery largerThan="medium" style={highlight}>
         <div>largerThan medium</div>
       </MediaQuery>
-      <MediaQuery largerThan="small" style={hide}>
+      <MediaQuery largerThan="small" style={highlight}>
         <div>largerThan small</div>
       </MediaQuery>
-      <MediaQuery largerThan="xsmall" style={hide}>
+      <MediaQuery largerThan="xsmall" style={highlight}>
         <div>largerThan xsmall</div>
       </MediaQuery>
 
-      <MediaQuery smallerThan="xlarge" style={hide}>
+      <MediaQuery smallerThan="xlarge" style={highlight}>
         <div>smallerThan xlarge</div>
       </MediaQuery>
-      <MediaQuery smallerThan="large" style={hide}>
+      <MediaQuery smallerThan="large" style={highlight}>
         <div>smallerThan large</div>
       </MediaQuery>
-      <MediaQuery smallerThan="medium" style={hide}>
+      <MediaQuery smallerThan="medium" style={highlight}>
         <div>smallerThan medium</div>
       </MediaQuery>
-      <MediaQuery smallerThan="small" style={hide}>
+      <MediaQuery smallerThan="small" style={highlight}>
         <div>smallerThan small</div>
       </MediaQuery>
-      <MediaQuery smallerThan="xsmall" style={hide}>
+      <MediaQuery smallerThan="xsmall" style={highlight}>
         <div>smallerThan xsmall</div>
       </MediaQuery>
     </div>
