@@ -19,6 +19,6 @@ export default createStyles((theme, { radius, shadow, padding, withBorder }: Pap
     borderRadius: getFieldValue(radius, theme.radius),
     boxShadow: theme.colorScheme === 'dark' ? theme.shadows[shadow].replaceAll(/0, 0, 0/gi, '255, 255, 255') : theme.shadows[shadow] || 'none',
     padding: getFieldValue(padding, theme.spacing),
-    border: withBorder ? `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[5] : theme.palettes.gray[1]}` : undefined,
+    border: withBorder ? `1px solid ${theme.colorScheme === 'dark' ? theme.colors.darkBorder : theme.colors.lightBorder}` : undefined,
   },
 }));

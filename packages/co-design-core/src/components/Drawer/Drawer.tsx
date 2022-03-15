@@ -165,6 +165,7 @@ export const CoDrawer = ({
             onKeyDownCapture={(event) => event.nativeEvent.code === 'Escape' && !noCloseOnEscape && onClose()}
             shadow={shadow}
             padding={padding}
+            withBorder={false}
           >
             {(title || !hideCloseButton) && (
               <div className={classes.header}>

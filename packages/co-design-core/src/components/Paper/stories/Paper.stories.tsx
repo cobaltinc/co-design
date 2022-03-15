@@ -6,8 +6,8 @@ export default {
   component: Paper,
   argTypes: {
     shadow: {
-      defaultValue: 'medium',
-      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      defaultValue: 'none',
+      options: ['none', 'xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     padding: {
@@ -21,7 +21,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     withBorder: {
-      defaultValue: false,
+      defaultValue: true,
       control: { type: 'boolean' },
     },
   },

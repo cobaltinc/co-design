@@ -6,9 +6,16 @@ import useStyles from './Paper.style';
 export type PaperStylesNames = ClassNames<typeof useStyles>;
 
 export interface SharedPaperProps extends CoComponentProps<PaperStylesNames> {
+  /** Paper 컴포넌트의 padding을 설정합니다. */
   padding?: CoSpacing | number;
+
+  /** Paper 컴포넌트에 shadow를 설정합니다. */
   shadow?: CoShadows;
+
+  /** Paper 컴포넌트에 radius를 설정합니다. */
   radius?: CoRadius | number;
+
+  /** true일 경우 border가 추가됩니다. */
   withBorder?: boolean;
 }
 
@@ -24,8 +31,8 @@ export const Paper: PaperComponent & { displayName?: string } = forwardRef(
       children,
       padding = 'medium',
       radius = 'medium',
-      withBorder = false,
-      shadow = 'medium',
+      withBorder = true,
+      shadow = 'none',
       co,
       overrideStyles,
       ...props

@@ -135,6 +135,7 @@ export const CoModal = ({
               shadow={shadow}
               padding={padding}
               radius={radius}
+              withBorder={false}
               role="dialog"
               aria-labelledby={titleId}
               aria-describedby={bodyId}
