@@ -4,9 +4,16 @@ import { View } from '../View';
 import { getFieldValue } from '../../utils';
 
 interface _OverlayProps extends Omit<CoComponentProps, 'overrideStyles'> {
+  /** Overlay의 투명도를 설정합니다. */
   opacity?: CoOpacity | number;
+
+  /** Overlay 색상을 정합니다. */
   color?: string;
+
+  /** Overlay의 z-index를 설정합니다. */
   zIndex?: CoZIndex | number;
+
+  /** Overlay의 radius를 설정합니다. */
   radius?: CoRadius | number;
 }
 
