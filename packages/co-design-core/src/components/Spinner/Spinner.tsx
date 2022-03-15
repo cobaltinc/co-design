@@ -6,7 +6,10 @@ import { View } from '../View';
 export type SpinnerStylesNames = ClassNames<typeof useStyles>;
 
 export interface SpinnerProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {
+  /** Spinner 컴포넌트의 크기를 정합니다. */
   size?: CoSize | number;
+
+  /** Spinner 컴포넌트의 색상을 정합니다. */
   color?: CoPalette | CoColor | string;
 }
 
