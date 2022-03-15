@@ -6,27 +6,34 @@ import useStyles from './MenuItem.style';
 export type MenuItemStylesNames = ClassNames<typeof useStyles>;
 
 export interface SharedMenuItemProps extends CoComponentProps<MenuItemStylesNames> {
-  /** Item label */
+  /** label 영역에 적용됩니다. */
   children: React.ReactNode;
 
+  /** MenuItem 컴포넌트 영역에 padding이 적용됩니다. */
   padding?: CoSpacing | number;
 
-  /** Icon rendered on the left side of label */
+  /** label 영억 왼쪽에 아이콘이 적용됩니다. */
   icon?: React.ReactNode;
 
-  /** Any color from theme.colors */
+  /** MenuItem 컴포넌트의 색상을 정합니다. */
   color?: CoPalette | CoColor | string;
 
-  /** Any react node to render on the right side of item, for example, keyboard shortcut or badge */
+  /** MenuItem 컴포넌트 우측 영역에 요소를 넣습니다. */
   rightSection?: React.ReactNode;
 
-  /** Is item disabled */
+  /** disabled 상태가 됩니다. */
   disabled?: boolean;
 
-  /** Is item hovered, controlled by parent Menu component */
+  /**
+   * hover 상태가 됩니다.
+   * 이 속성은 Menu 컴포넌트에 의해 제어됩니다.
+   */
   hovered?: boolean;
 
-  /** Called when item is hovered, controlled by parent Menu component */
+  /**
+   * MenuItem 컴포넌트가 hover되면 실행됩니다.
+   * 이 속성은 Menu 컴포넌트에 의해 제어됩니다.
+   */
   onHover?(): void;
 }
 

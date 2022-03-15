@@ -11,7 +11,10 @@ import useStyles from './Menu.style';
 export type MenuStylesNames = ClassNames<typeof useStyles> | MenuItemStylesNames;
 
 export interface MenuProps extends CoComponentProps<MenuStylesNames>, React.ComponentPropsWithRef<'div'> {
+  /** MenuItem 컴포넌트가 포함되어야 합니다. */
   children: React.ReactNode;
+
+  /** Menu 컴포넌트 영역에 padding이 적용됩니다. */
   padding?: CoSpacing | number;
 }
 
@@ -21,7 +24,7 @@ type MenuComponent = {
   Label: React.FC<MenuLabelProps>;
 } & ((props: MenuProps) => React.ReactElement);
 
-function getNextItem(active: number, items: MenuItemType[]) {
+const getNextItem = (active: number, items: MenuItemType[]) => {
   for (let i = active + 1; i < items.length; i += 1) {
     if (!items[i].props.disabled && items[i].type === MenuItem) {
       return i;
@@ -29,9 +32,9 @@ function getNextItem(active: number, items: MenuItemType[]) {
   }
 
   return active;
-}
+};
 
-function findInitialItem(items: MenuItemType[]) {
+const findInitialItem = (items: MenuItemType[]) => {
   for (let i = 0; i < items.length; i += 1) {
     if (!items[i].props.disabled && items[i].type === MenuItem) {
       return i;
@@ -39,9 +42,9 @@ function findInitialItem(items: MenuItemType[]) {
   }
 
   return -1;
-}
+};
 
-function getPreviousItem(active: number, items: MenuItemType[]) {
+const getPreviousItem = (active: number, items: MenuItemType[]) => {
   for (let i = active - 1; i >= 0; i -= 1) {
     if (!items[i].props.disabled && items[i].type === MenuItem) {
       return i;
@@ -53,7 +56,7 @@ function getPreviousItem(active: number, items: MenuItemType[]) {
   }
 
   return active;
-}
+};
 
 export const Menu: MenuComponent = forwardRef<HTMLDivElement, MenuProps>(
   ({ children, padding = 'medium', onMouseLeave, onMouseEnter, onChange, className, co, overrideStyles, ...props }: MenuProps, ref) => {
