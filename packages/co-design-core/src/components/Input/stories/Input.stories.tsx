@@ -69,3 +69,11 @@ export const WithRightSection = (props) => {
     </div>
   );
 };
+
+export const Textarea = (props) => {
+  return (
+    <div style={{ width: 400, padding: 24 }}>
+      <Input component="textarea" multiline {...props} />
+    </div>
+  );
+};

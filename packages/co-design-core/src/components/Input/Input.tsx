@@ -6,38 +6,41 @@ import useStyles from './Input.style';
 export type InputStylesNames = ClassNames<typeof useStyles>;
 
 export interface InputBaseProps {
-  /** Sets border color to red and aria-invalid=true on input element */
-  invalid?: boolean;
+  /** Input 컴포넌트의 크기를 정합니다. */
+  size?: CoSize;
 
-  /** Adds icon on the left side of input */
+  /** Input 컴포넌트의 radius를 정합니다. */
+  radius?: CoRadius | number;
+
+  /** Input 컴포넌트 왼쪽 영역에 요소가 추가됩니다. */
   icon?: React.ReactNode;
 
-  /** Right section of input, similar to icon but on the right */
+  /** Input 컴포넌트 오른쪽 영역에 요소가 추가됩니다. */
   rightSection?: React.ReactNode;
 
-  /** Width of right section, is used to calculate input padding-right */
+  /** 오른쪽 영역의 너비를 정합니다. */
   rightSectionWidth?: number;
 
-  /** Props spread to rightSection div element */
+  /** 오른쪽 영역을 감싸는 div에 속성을 전달합니다. */
   rightSectionProps?: React.ComponentPropsWithoutRef<'div'>;
 
-  /** Properties spread to root element */
+  /** input을 감싸는 요소에 속성을 전달합니다. */
   wrapperProps?: React.ComponentPropsWithoutRef<'div'> & { [key: string]: any };
 
-  /** Sets aria-required=true on input element */
+  /** required 상태가 됩니다. */
   required?: boolean;
 
-  /** Input border-radius from theme or number to set border-radius in px */
-  radius?: CoRadius | number;
+  /**
+   * invalid 상태가 됩니다.
+   * 테두리와 텍스트 색상이 red로 변경됩니다.
+   */
+  invalid?: boolean;
 
   /** Will input have multiple lines? */
   multiline?: boolean;
 
-  /** Disabled input state */
+  /** disabled 상태가 됩니다. */
   disabled?: boolean;
-
-  /** Input size */
-  size?: CoSize;
 }
 
 interface _InputProps extends InputBaseProps, CoComponentProps<InputStylesNames> {
@@ -53,22 +56,22 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'input'>(
     {
       component,
-      invalid = false,
-      required = false,
-      disabled = false,
+      size = 'medium',
+      radius = 'medium',
       icon,
-      style,
       rightSectionWidth = 36,
       rightSection,
       rightSectionProps = {},
-      radius = 'medium',
-      size = 'medium',
       wrapperProps,
-      __staticSelector = 'Input',
+      invalid = false,
+      required = false,
+      disabled = false,
       multiline = false,
       className,
+      style,
       co,
       overrideStyles,
+      __staticSelector = 'Input',
       ...props
     }: InputProps<C>,
     ref: PolymorphicRef<C>,
@@ -84,13 +87,12 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
         <Element
           {...props}
           ref={ref}
-          aria-required={required}
-          aria-invalid={invalid}
           className={cx(classes.input, {
             [classes.withIcon]: icon,
             [classes.invalid]: invalid,
             [classes.disabled]: disabled,
           })}
+          required={required}
           disabled={disabled}
           style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
         />
