@@ -7,16 +7,19 @@ import useStyles from './Scroll.style';
 export type ScrollStylesNames = ClassNames<typeof useStyles>;
 
 export interface ScrollProps extends CoComponentProps<ScrollStylesNames>, React.ComponentPropsWithoutRef<'div'> {
-  /** Scrollbar size in px */
+  /** 스크롤바의 크기를 px 단위로 정합니다. */
   scrollbarSize?: number;
 
-  /** Scrollbars type */
+  /** 스크롤바가 보이는 방식을 선택합니다. */
   type?: 'auto' | 'always' | 'scroll' | 'hover';
 
-  /** Scroll hide delay in ms, for scroll and hover types only */
+  /**
+   * 스크롤바가 사라지는 딜레이를 ms단위로 정합니다.
+   * type 속성이 scroll 혹은 hover일 때 유효합니다.
+   */
   scrollHideDelay?: number;
 
-  /** Get viewport ref */
+  /** viewport의 ref를 받아옵니다. */
   viewportRef?: React.ForwardedRef<HTMLDivElement>;
 }
 
