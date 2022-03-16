@@ -10,35 +10,38 @@ import { clamp } from './utils';
 export type TabsStylesNames = ClassNames<typeof useStyles>;
 
 export interface TabsProps extends CoComponentProps<TabsStylesNames>, React.ComponentPropsWithRef<'div'> {
-  /** <Tab /> components only */
+  /** TabPane 컴포넌트만 포함시킬 수 있습니다. */
   children: React.ReactNode;
 
-  /** Index of initial tab */
+  /** 처음 보여줄 TabPane 번호를 정합니다. */
   initialTab?: number;
 
-  /** Index of active tab, overrides internal state */
+  /**
+   * Active시킬 TabPane 번호를 정합니다.
+   * TabPanes 컴포넌트를 직접 제어할 경우 사용합니다.
+   */
   active?: number;
 
-  /** Active tab color from theme.colors */
+  /** Active된 TabPane의 색상을 정합니다. */
   color?: CoPalette;
 
-  /** True if tabs should take all available space */
+  /** true일 경우 포함된 TabPane이 남은 공간을 모두 사용합니다. */
   grow?: boolean;
 
-  /** Tab controls position */
+  /** TabPane의 가로 위치를 정합니다. */
   position?: GroupPosition;
 
-  /** Called when tab control is clicked with tab index */
+  /** 선택된 TabPane이 변경될 경우 실행됩니다. */
   onTabChange?(tabIndex: number): void;
 
-  /** Controls tab content padding-top */
+  /** Tab 영역과 컨텐츠 영역에 간격을 정합니다. */
   tabPadding?: CoSpacing;
 
-  /** Controls tab orientation */
+  /** Tab의 방향을 정합니다. */
   orientation?: 'horizontal' | 'vertical';
 }
 
-function getPreviousTab(active: number, tabs: TabType[]) {
+const getPreviousTab = (active: number, tabs: TabType[]) => {
   for (let i = active - 1; i >= 0; i -= 1) {
     if (!tabs[i].props.disabled) {
       return i;
@@ -46,9 +49,9 @@ function getPreviousTab(active: number, tabs: TabType[]) {
   }
 
   return active;
-}
+};
 
-function getNextTab(active: number, tabs: TabType[]) {
+const getNextTab = (active: number, tabs: TabType[]) => {
   for (let i = active + 1; i < tabs.length; i += 1) {
     if (!tabs[i].props.disabled) {
       return i;
@@ -56,9 +59,9 @@ function getNextTab(active: number, tabs: TabType[]) {
   }
 
   return active;
-}
+};
 
-function findInitialTab(tabs: TabType[]) {
+const findInitialTab = (tabs: TabType[]) => {
   for (let i = 0; i < tabs.length; i += 1) {
     if (!tabs[i].props.disabled) {
       return i;
@@ -66,7 +69,7 @@ function findInitialTab(tabs: TabType[]) {
   }
 
   return -1;
-}
+};
 
 type TabsComponent = ((props: TabsProps) => React.ReactElement) & {
   displayName: string;
