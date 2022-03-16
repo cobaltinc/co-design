@@ -6,7 +6,7 @@ export default {
   component: NativeSelect,
   argTypes: {
     placeholder: {
-      defaultValue: 'Placeholder',
+      defaultValue: 'Choose one',
       control: { type: 'text' },
     },
     size: {

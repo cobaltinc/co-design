@@ -18,41 +18,37 @@ export interface NativeSelectProps
   extends CoComponentProps<NativeSelectStylesNames>,
     InputBaseProps,
     Omit<React.ComponentPropsWithoutRef<'select'>, 'size'> {
-  /** id is used to bind input and label, if not passed unique id will be generated for each input */
+  /** input에 id를 정합니다. 설정하지 않은 경우 임의의 uuid가 설정됩니다. */
   id?: string;
 
-  /** Adds hidden option to select and sets it as selected if value is not present */
+  /** NativeSelect 컴포넌트의 크기를 정합니다. */
+  size?: CoSize;
+
+  /**
+   * hidden, disabled 속성이 추가된 option을 추가합니다.
+   * value가 설정되지 않은 경우 해당 option이 보입니다.
+   */
   placeholder?: string;
 
-  /** Data used to render options */
+  /** option으로 들어갈 데이터를 정의합니다. */
   data: (string | SelectItem)[];
-
-  /** Style properties added to select element */
-  inputStyle?: React.CSSProperties;
-
-  /** Input size */
-  size?: CoSize;
 }
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
     {
       id,
-      className,
-      required,
-      style,
+      size = 'medium',
       data,
       placeholder,
       wrapperProps,
-      inputStyle,
       defaultValue,
-      onChange,
       value,
+      required,
       invalid,
-      size = 'medium',
       rightSection,
       rightSectionWidth,
-      co,
+      onChange,
       overrideStyles,
       ...props
     }: NativeSelectProps,
@@ -71,7 +67,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 
     if (placeholder) {
       options.unshift(
-        <option key="placeholder" value="" disabled hidden>
+        <option key="placeholder" value="" selected disabled hidden>
           {placeholder}
         </option>,
       );
@@ -83,12 +79,9 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         component="select"
         ref={ref}
         id={uuid}
-        style={inputStyle}
-        aria-required={required}
         required={required}
         value={value === null ? '' : value}
         size={size}
-        co={co}
         overrideStyles={overrideStyles}
         onChange={onChange}
         {...getSelectRightSectionProps({
