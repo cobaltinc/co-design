@@ -10,17 +10,43 @@ import { Transition, CoTransition } from '../Transition';
 export type TooltipStylesNames = ClassNames<typeof useStyles>;
 
 export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+  /**
+   * true일 경우 Tooltip 컴포넌트를 보여줍니다.
+   * Tooltip 컴포넌트를 직접 제어할 경우 사용하는 속성입니다.
+   */
   visible?: boolean;
+
+  /** Tooltip 컴포넌트가 보여줄 문자열을 정합니다. */
   label: string;
+
+  /** Tooltip 컴포넌트에 화살표를 보여줄지 정합니다. */
   withArrow?: boolean;
+
+  /** Tooltip 컴포넌트의 너비를 지정한 값으로 고정합니다. */
   width?: number;
+
+  /** Tooltip 컴포넌트가 보여질 위치를 정합니다. */
   placement?: TooltipPlacement;
+
+  /** Tooltip 컴포넌트를 등장시킬 이벤트를 정합니다. */
   trigger?: TooltipTrigger;
+
+  /** Tooltip 컴포넌트의 z-index를 정합니다. */
   zIndex?: CoZIndex | number;
+
+  /** Tooltip 컴포넌트가 마운트될 요소를 정합니다. */
   target?: HTMLDivElement;
+
+  /** Tooltip 컴포넌트가 등장할 때 실행될 트랜지션을 정합니다. */
   transition?: CoTransition;
+
+  /** 트랜지션이 실행되는 시간을 ms단위로 정합니다. */
   transitionDuration?: number;
+
+  /** 트랜지션의 타이밍 함수를 정합니다. */
   transitionTimingFunction?: string;
+
+  /** visible이 변경될 경우 실행됩니다. */
   onChangeVisible?(visible: boolean): boolean;
 }
 
