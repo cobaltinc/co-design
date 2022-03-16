@@ -14,81 +14,78 @@ import useStyles from './Modal.style';
 export type ModalStylesNames = ClassNames<typeof useStyles>;
 
 export interface ModalProps extends CoComponentProps<ModalStylesNames>, Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
-  /** Mounts modal if true */
-  opened: boolean;
-
-  /** Called when close button clicked and when escape key is pressed */
-  onClose(): void;
-
-  /** Modal title, displayed in header before close button */
-  title?: React.ReactNode;
-
-  /** Modal z-index property */
-  zIndex?: CoZIndex | number;
-
-  /** Control vertical overflow behavior */
-  overflow?: 'outside' | 'inside';
-
-  /** Hides close button, modal still can be closed with escape key and by clicking outside */
-  hideCloseButton?: boolean;
-
-  /** Overlay below modal opacity, defaults to 0.75 in light theme and to 0.85 in dark theme */
-  overlayOpacity?: number;
-
-  /** Overlay below modal color, defaults to theme.black in light theme and to theme.colors.dark[9] in dark theme */
-  overlayColor?: string;
-
-  /** Modal radius */
-  radius?: CoRadius;
-
-  /** Modal body width */
-  size?: CoSize | 'full' | number;
-
-  /** Modal body transition */
-  transition?: CoTransition;
-
-  /** Duration in ms of modal transitions, set to 0 to disable all animations */
-  transitionDuration?: number;
-
-  /** Modal body transitionTimingFunction, defaults to theme.transitionTimingFunction */
-  transitionTimingFunction?: string;
-
-  /** Close button aria-label */
-  closeButtonLabel?: string;
-
-  /** id base, used to generate ids to connect modal title and body with aria- attributes, defaults to random id */
+  /** Modal 컴포넌트의 id를 정합니다. 설정하지 않은 경우 랜덤 생성된 id가 사용됩니다. */
   id?: string;
 
-  /** Modal shadow from theme or css value */
+  /** true일 경우 Modal 컴포넌트가 마운트됩니다. */
+  opened: boolean;
+
+  /** Modal 타이틀을 정합니다. */
+  title?: React.ReactNode;
+
+  /** Modal 컴포넌트의 너비를 정합니다. */
+  size?: CoSize | 'full' | number;
+
+  /** Modal 컴포넌트에 shadow를 적용합니다. */
   shadow?: CoShadows;
 
-  /** Modal padding from theme or number value for padding in px */
+  /** Modal 컴포넌트 body 영역에 padding을 적용합니다. */
   padding?: CoSpacing | number;
 
-  /** Should modal be closed when outside click was registered? */
+  /** Modal 컴포넌트의 radius를 정합니다. */
+  radius?: CoRadius;
+
+  /** Modal 컴포넌트의 z-index를 정합니다. */
+  zIndex?: CoZIndex | number;
+
+  /** Modal 컴포넌트에서 내용이 넘칠 경우에 대한 처리를 정합니다. */
+  overflow?: 'outside' | 'inside';
+
+  /** Modal 컴포넌트가 등장하는 트랜지션을 정합니다. */
+  transition?: CoTransition;
+
+  /** 트랜지션이 실행되는 시간을 ms단위로 정합니다. */
+  transitionDuration?: number;
+
+  /** 트랜지션의 타이밍 함수를 정합니다. */
+  transitionTimingFunction?: string;
+
+  /** 배경 Overlay의 투명도를 정합니다. */
+  overlayOpacity?: number;
+
+  /** 배경 Overlay의 색상을 정합니다. */
+  overlayColor?: string;
+
+  /** true일 경우 X 버튼을 제거합니다. */
+  hideCloseButton?: boolean;
+
+  /** true일 경우 Modal 컴포넌트 바깥을 클릭하면 모달이 닫힙니다. */
   closeOnClickOutside?: boolean;
 
+  /** Modal 컴포넌트가 마운트될 요소를 정합니다. */
   target?: HTMLDivElement;
+
+  /** Modal 컴포넌트가 사라질 때 실행됩니다. */
+  onClose(): void;
 }
 
 export const CoModal = ({
   id,
   opened,
-  title,
-  onClose,
   children,
-  hideCloseButton = false,
-  overlayOpacity,
+  title,
   size = 'medium',
-  transitionDuration = 200,
-  closeButtonLabel,
-  overlayColor,
-  overflow = 'outside',
-  transition = 'pop',
   padding = 'large',
   shadow = 'large',
   radius = 'medium',
+  overlayColor,
+  overlayOpacity,
+  overflow = 'outside',
+  transition = 'pop',
+  transitionDuration = 200,
+  hideCloseButton = false,
   closeOnClickOutside = true,
+  onClose,
   className,
   co,
   overrideStyles,
@@ -153,7 +150,7 @@ export const CoModal = ({
                     {title}
                   </Text>
 
-                  {!hideCloseButton && <CloseButton variant="transparent" color="gray" onClick={onClose} aria-label={closeButtonLabel} />}
+                  {!hideCloseButton && <CloseButton variant="transparent" color="gray" onClick={onClose} />}
                 </div>
               )}
 
