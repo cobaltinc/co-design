@@ -9,7 +9,7 @@ const transitionStatuses = {
   'pre-entering': 'out',
 } as const;
 
-export function getTransitionStyles({
+export const getTransitionStyles = ({
   transition,
   state,
   duration,
@@ -19,7 +19,7 @@ export function getTransitionStyles({
   state: keyof typeof transitionStatuses;
   duration: number;
   timingFunction: React.CSSProperties['transitionTimingFunction'];
-}): React.CSSProperties {
+}): React.CSSProperties => {
   const shared = {
     transitionDuration: `${duration}ms`,
     transitionTimingFunction: timingFunction,
@@ -44,4 +44,4 @@ export function getTransitionStyles({
     ...transition.common,
     ...transition[transitionStatuses[state]],
   };
-}
+};

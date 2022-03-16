@@ -13,7 +13,7 @@ interface UseTransition {
   onExited?(): void;
 }
 
-export function useTransition({ duration, timingFunction, mounted, onEnter, onExit, onEntered, onExited }: UseTransition) {
+export const useTransition = ({ duration, timingFunction, mounted, onEnter, onExit, onEntered, onExited }: UseTransition) => {
   const transitionDuration = duration;
   const [transitionStatus, setStatus] = useState<TransitionStatus>(mounted ? 'entered' : 'exited');
   const timeoutRef = useRef<number>(-1);
@@ -48,4 +48,4 @@ export function useTransition({ duration, timingFunction, mounted, onEnter, onEx
     transitionStatus,
     transitionTimingFunction: timingFunction || 'ease',
   };
-}
+};

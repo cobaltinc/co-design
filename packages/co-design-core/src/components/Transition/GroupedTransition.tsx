@@ -10,31 +10,31 @@ interface GroupedTransitionItem {
 }
 
 export interface GroupedTransitionProps {
-  /** Transitions group */
+  /** 여러 개의 트랜지션을 정의합니다. */
   transitions: Record<string, GroupedTransitionItem>;
 
-  /** Render function with transition group styles argument */
+  /** styles를 넘기는 렌더 함수를 정의합니다. */
   children(styles: Record<string, React.CSSProperties>): React.ReactElement<any, any>;
 
-  /** Transition duration in ms */
+  /** 트랜지션이 실행될 시간을 ms단위로 정합니다. */
   duration?: number;
 
-  /** Transition timing function, defaults to theme.transitionTimingFunction */
+  /** 타이밍 함수를 정의합니다. */
   timingFunction?: string;
 
-  /** When true, component will be mounted */
+  /** true일 경우 자식 컴포넌트가 마운트됩니다. */
   mounted: boolean;
 
-  /** Calls when exit transition ends */
+  /** 종료 트랜지션이 끝나면 실행됩니다. */
   onExited?: () => void;
 
-  /** Calls when exit transition starts */
+  /** 종료 트랜지션이 시작되면 실행됩니다. */
   onExit?: () => void;
 
-  /** Calls when enter transition starts */
+  /** 진입 트랜지션이 시작되면 실행됩니다. */
   onEnter?: () => void;
 
-  /** Calls when enter transition ends */
+  /** 진입 트랜지션이 끝나면 실행됩니다. */
   onEntered?: () => void;
 }
 
