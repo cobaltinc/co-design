@@ -29,6 +29,7 @@ export * from './Overlay';
 export * from './Paper';
 export * from './Popover';
 export * from './Portal';
+export * from './Progress';
 export * from './Scroll';
 export * from './Spinner';
 export * from './Switch';
