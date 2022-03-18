@@ -6,6 +6,7 @@ export * from './Avatar';
 export * from './Breadcrumbs';
 export * from './Burger';
 export * from './Button';
+export * from './Card';
 export * from './Center';
 export * from './Chips';
 export * from './Container';
