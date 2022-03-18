@@ -10,7 +10,7 @@ export interface ProgressProps extends CoComponentProps<ProgressStylesNames>, Re
   /** ProgressBar가 채워지는 %를 정합니다. (0 ~ 100) */
   value?: number;
 
-  /** Progress 컴포넌트의 색상을 정합니다. */
+  /** Progress 컴포넌트의 기본 색상을 정합니다. */
   color?: CoPalette;
 
   /** Progress 컴포넌트의 높이를 정합니다. */
