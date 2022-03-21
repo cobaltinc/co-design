@@ -19,7 +19,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
       component,
       size = 'medium',
       color: _color,
-      variant = 'primary',
+      variant = 'solid',
       type = 'button',
       disabled = false,
       loading = false,
@@ -39,7 +39,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
     );
 
     const color = _color || theme.primaryColor;
-    const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
+    const spinner = <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
 
     return (
       <View<any>

@@ -47,7 +47,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       component,
       size = 'medium',
       color: _color,
-      variant = 'primary',
+      variant = 'solid',
       fullWidth = false,
       type = 'button',
       disabled = false,
@@ -72,7 +72,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       { overrideStyles, name: 'Button' },
     );
 
-    const spinner = <Spinner color={variant === 'primary' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
+    const spinner = <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
 
     return (
       <View<any>

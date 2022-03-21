@@ -150,7 +150,7 @@ export const CoModal = ({
                     {title}
                   </Text>
 
-                  {!hideCloseButton && <CloseButton variant="transparent" color="gray" onClick={onClose} />}
+                  {!hideCloseButton && <CloseButton variant="text" color="gray" onClick={onClose} />}
                 </div>
               )}
 

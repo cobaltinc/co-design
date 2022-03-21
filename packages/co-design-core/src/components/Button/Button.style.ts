@@ -2,7 +2,7 @@ import { createStyles, CoSize, CoTheme, CoPalette, defaultFontStyles } from '@co
 import { addAlpha } from '../../utils';
 import { CO_HEIGHTS } from '../../constants';
 
-export type ButtonVariant = 'primary' | 'secondary' | 'inverse' | 'tertiary' | 'transparent';
+export type ButtonVariant = 'solid' | 'ghost' | 'light-solid' | 'text';
 
 interface ButtonStylesProps {
   color?: CoPalette;

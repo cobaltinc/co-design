@@ -44,7 +44,7 @@ export const OverrideStyles = (props) => {
     <Button
       {...props}
       overrideStyles={{
-        primary: {
+        solid: {
           backgroundColor: 'black',
           '&:not(:disabled):hover': {
             backgroundColor: '#222',
