@@ -2,9 +2,9 @@ export type CoColor = string & {};
 
 export const DEFAULT_COLORS = {
   transparent: 'transparent',
-  white: '#FFF',
-  black: '#000',
-  lightBackground: '#FFF',
+  white: '#FFFFFF',
+  black: '#000000',
+  lightBackground: '#FFFFFF',
   lightBorder: '#E9EBF0',
   darkBackground: '#212121',
   darkBorder: '#424242',

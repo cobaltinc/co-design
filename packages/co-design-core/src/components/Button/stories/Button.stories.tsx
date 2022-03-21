@@ -11,8 +11,8 @@ export default {
       control: { type: 'inline-radio' },
     },
     variant: {
-      defaultValue: 'primary',
-      options: ['primary', 'secondary', 'tertiary', 'inverse', 'transparent'],
+      defaultValue: 'solid',
+      options: ['solid', 'ghost', 'light-solid', 'text'],
       control: { type: 'inline-radio' },
     },
     color: {
