@@ -1,6 +1,6 @@
 import type { Tuple } from '../types';
 
-export type CoPalette = 'gray' | 'purple' | 'blue' | 'red' | 'orange' | 'green' | (string & {});
+export type CoPalette = 'dark' | 'gray' | 'purple' | 'blue' | 'red' | 'orange' | 'green' | (string & {});
 
 export const DEFAULT_PALETTES = {
   dark: ['#EBEBEC', '#C3C4C6', '#9A9BA1', '#71747C', '#54575F', '#474A52', '#383B43', '#2F3137', '#23252A', '#1A1B1F'],
@@ -17,7 +17,3 @@ export const DEFAULT_PALETTES = {
 
   green: ['#EFFFF4', '#C9F4D8', '#96E2B0', '#68D08C', '#3FB768', '#24AD53', '#1B803E', '#0E5B28', '#0C3F1D', '#003412'],
 } as Record<CoPalette, Tuple<string, 10>>;
-
-export const DEFAULT_PALETTES_EXT = {
-  gray: ['#454a54'],
-} as Record<CoPalette, Tuple<string, number>>;
