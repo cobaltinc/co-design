@@ -13,7 +13,7 @@ export interface SelectRightSectionProps {
 
 export const SelectRightSection = ({ shouldClear, clearButtonLabel, onClear, size, invalid }: SelectRightSectionProps) => {
   return shouldClear ? (
-    <CloseButton variant="transparent" aria-label={clearButtonLabel} onClick={onClear} size={size} />
+    <CloseButton variant="text" aria-label={clearButtonLabel} onClick={onClear} size={size} />
   ) : (
     <ChevronIcon invalid={invalid} size={size} />
   );

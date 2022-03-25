@@ -173,9 +173,7 @@ export const CoDrawer = ({
                   {title}
                 </Text>
 
-                {!hideCloseButton && (
-                  <CloseButton variant="transparent" color="gray" size="small" onClick={onClose} className={classes.closeButton} />
-                )}
+                {!hideCloseButton && <CloseButton variant="text" color="gray" size="small" onClick={onClose} className={classes.closeButton} />}
               </div>
             )}
             {children}
