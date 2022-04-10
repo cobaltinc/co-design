@@ -34,6 +34,7 @@ export * from './Progress';
 export * from './RingProgress';
 export * from './Scroll';
 export * from './Spinner';
+export * from './Stack';
 export * from './Switch';
 export * from './Tabs';
 export * from './Tag';
