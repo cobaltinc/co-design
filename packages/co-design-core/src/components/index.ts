@@ -27,6 +27,7 @@ export * from './Menu';
 export * from './Modal';
 export * from './NativeSelect';
 export * from './Overlay';
+export * from './PanelStack';
 export * from './Paper';
 export * from './Popover';
 export * from './Portal';
