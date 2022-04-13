@@ -237,7 +237,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       },
     },
 
-    spinner: {
+    spinnerWrapper: {
       ref: spinner,
       position: 'absolute',
       top: 0,

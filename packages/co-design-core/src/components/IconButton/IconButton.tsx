@@ -23,6 +23,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
       type = 'button',
       disabled = false,
       loading = false,
+      spinnerProps,
       className,
       co,
       overrideStyles,
@@ -39,7 +40,9 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
     );
 
     const color = _color || theme.primaryColor;
-    const spinner = <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
+    const spinner = (
+      <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} {...spinnerProps} />
+    );
 
     return (
       <View<any>
@@ -53,7 +56,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
         {...props}
       >
         <div className={classes.inner}>{children}</div>
-        <div className={classes.spinner}>{spinner}</div>
+        <div className={classes.spinnerWrapper}>{spinner}</div>
       </View>
     );
   },
