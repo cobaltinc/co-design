@@ -286,7 +286,7 @@ export default createStyles((theme, { color: _color, size, fullWidth }: ButtonSt
       alignItems: 'center',
     },
 
-    spinner: {
+    spinnerWrapper: {
       ref: spinner,
       position: 'absolute',
       top: 0,

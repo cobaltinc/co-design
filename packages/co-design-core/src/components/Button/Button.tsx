@@ -4,6 +4,7 @@ import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
+import { SpinnerStylesNames } from '../Spinner';
 
 export type ButtonStylesNames = ClassNames<typeof useStyles>;
 
@@ -34,6 +35,9 @@ export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
 
   /** true일 경우 로딩 상태가 됩니다. */
   loading?: boolean;
+
+  /** Spinner 컴포넌트의 스타일을 오버라이드 합니다. */
+  overrideSpinnerStyles?: SpinnerStylesNames;
 }
 
 export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedButtonProps>;
@@ -54,6 +58,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       leftIcon,
       rightIcon,
       loading = false,
+      overrideSpinnerStyles,
       className,
       co,
       overrideStyles,
@@ -72,7 +77,13 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       { overrideStyles, name: 'Button' },
     );
 
-    const spinner = <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} />;
+    const spinner = (
+      <Spinner
+        color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]}
+        size={CO_HEIGHTS[size] / 2}
+        overrideStyles={overrideSpinnerStyles}
+      />
+    );
 
     return (
       <View<any>
@@ -93,7 +104,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
           {rightIcon && <span className={cx(classes.icon, classes.rightIcon)}>{rightIcon}</span>}
         </div>
 
-        <div className={classes.spinner}>{spinner}</div>
+        <div className={classes.spinnerWrapper}>{spinner}</div>
       </View>
     );
   },
