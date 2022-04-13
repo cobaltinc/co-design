@@ -2,10 +2,8 @@ import React, { forwardRef } from 'react';
 import { CoComponentProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
-import { Spinner } from '../Spinner';
+import { Spinner, SpinnerProps } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
-import { SpinnerStylesNames } from '../Spinner';
-import { OverrideStyles } from '@co-design/styles/src/theme/types/CoComponentProps';
 
 export type ButtonStylesNames = ClassNames<typeof useStyles>;
 
@@ -37,8 +35,8 @@ export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
   /** true일 경우 로딩 상태가 됩니다. */
   loading?: boolean;
 
-  /** Spinner 컴포넌트의 스타일을 오버라이드 합니다. */
-  overrideSpinnerStyles?: OverrideStyles<SpinnerStylesNames>;
+  /** Spinner 컴포넌트의 props들을 오버라이드 합니다. */
+  spinnerProps?: SpinnerProps;
 }
 
 export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedButtonProps>;
@@ -59,7 +57,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       leftIcon,
       rightIcon,
       loading = false,
-      overrideSpinnerStyles,
+      spinnerProps,
       className,
       co,
       overrideStyles,
@@ -79,11 +77,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     );
 
     const spinner = (
-      <Spinner
-        color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]}
-        size={CO_HEIGHTS[size] / 2}
-        overrideStyles={overrideSpinnerStyles}
-      />
+      <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} {...spinnerProps} />
     );
 
     return (
