@@ -5,6 +5,7 @@ import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 import { SpinnerStylesNames } from '../Spinner';
+import { OverrideStyles } from '@co-design/styles/src/theme/types/CoComponentProps';
 
 export type ButtonStylesNames = ClassNames<typeof useStyles>;
 
@@ -37,7 +38,7 @@ export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
   loading?: boolean;
 
   /** Spinner 컴포넌트의 스타일을 오버라이드 합니다. */
-  overrideSpinnerStyles?: SpinnerStylesNames;
+  overrideSpinnerStyles?: OverrideStyles<SpinnerStylesNames>;
 }
 
 export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedButtonProps>;
