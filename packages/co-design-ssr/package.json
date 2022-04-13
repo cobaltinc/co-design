@@ -1,6 +1,6 @@
 {
   "name": "@co-design/ssr",
-  "version": "0.7.2",
+  "version": "0.7.3",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -23,7 +23,7 @@
     "build": "esno ../../scripts/build co-design-ssr"
   },
   "dependencies": {
-    "@co-design/styles": "^0.7.2",
+    "@co-design/styles": "^0.7.3",
     "@emotion/cache": "^11.7.1",
     "@emotion/react": "^11.7.1",
     "@emotion/serialize": "^1.0.2",
