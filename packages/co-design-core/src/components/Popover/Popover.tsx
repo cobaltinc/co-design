@@ -129,6 +129,10 @@ export const Popover = ({
   const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
 
   useUpdateEffect(() => {
+    setCurrentVisible(visible);
+  }, [visible]);
+
+  useUpdateEffect(() => {
     onChangeVisible?.(currentVisible);
   }, [currentVisible]);
 

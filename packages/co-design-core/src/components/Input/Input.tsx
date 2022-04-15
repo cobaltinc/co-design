@@ -98,7 +98,11 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
         />
 
         {rightSection && (
-          <div {...rightSectionProps} style={{ width: rightSectionWidth }} className={classes.rightSection}>
+          <div
+            {...rightSectionProps}
+            style={{ ...rightSectionProps.style, width: rightSectionWidth }}
+            className={cx(classes.rightSection, rightSectionProps.className)}
+          >
             {rightSection}
           </div>
         )}
