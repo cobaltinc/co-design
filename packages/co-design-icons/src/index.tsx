@@ -50,6 +50,7 @@ export { default as Eye } from './Eye';
 export { default as Face } from './Face';
 export { default as Facebook } from './Facebook';
 export { default as Filter } from './Filter';
+export { default as FolderImagePileFill } from './FolderImagePileFill';
 export { default as FolderImagePile } from './FolderImagePile';
 export { default as FolderPlusFill } from './FolderPlusFill';
 export { default as Folder } from './Folder';
