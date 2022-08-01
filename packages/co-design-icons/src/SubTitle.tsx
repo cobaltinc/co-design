@@ -4,7 +4,7 @@ import { SVGProps } from 'react';
 const SvgSubTitle = (props: SVGProps<SVGSVGElement>) => (
   <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path
-      d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 18H4V6H20V18ZM6 10H8V12H6V10ZM6 14H14V16H6V14ZM16 14H18V16H16V14ZM10 10H18V12H10V10Z"
+      d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2Zm0 14H4V6h16v12ZM6 10h2v2H6v-2Zm0 4h8v2H6v-2Zm10 0h2v2h-2v-2Zm-6-4h8v2h-8v-2Z"
       fill="currentColor"
     />
   </svg>
