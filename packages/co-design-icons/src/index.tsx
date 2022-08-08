@@ -44,6 +44,7 @@ export { default as Document1 } from './Document1';
 export { default as Document } from './Document';
 export { default as DownloadFill } from './DownloadFill';
 export { default as EmailFill } from './EmailFill';
+export { default as EmailOpen } from './EmailOpen';
 export { default as Eraser } from './Eraser';
 export { default as Exit } from './Exit';
 export { default as EyeFill } from './EyeFill';
