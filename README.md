@@ -1,5 +1,5 @@
 <h1 align='center'>
-  Co Design System 💫
+  Co-Design 💫
 </h1>
 
 <p align="center"><strong>Co Design is an open-source design system built by <a href="https://present.do">Cobalt, Inc.</a></strong></p>
@@ -20,8 +20,8 @@
 
 | Package name                                      | Description                                 |
 | ------------------------------------------------- | ------------------------------------------- |
-| [`@co-design/core`](./packages/co-design-core)    |  |
-| [`@co-design/hooks`](./packages/co-design-hooks)  |  |
+| [`@co-design/core`](./packages/co-design-core)    | Co-Design UI Components for React |
+| [`@co-design/hooks`](./packages/co-design-hooks)  | Useful React hooks |
 
 ## :page_facing_up: License
 

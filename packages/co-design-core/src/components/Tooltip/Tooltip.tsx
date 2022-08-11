@@ -58,18 +58,18 @@ const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => 
   const rect = target.getBoundingClientRect();
   const splited = placement.split('-');
 
-  if (splited[0] === 'top') top = rect.top + window.pageYOffset;
+  if (splited[0] === 'top') top = rect.top;
   else if (splited[0] === 'right') left = rect.left + rect.width;
-  else if (splited[0] === 'bottom') top = rect.top + rect.height + window.pageYOffset;
+  else if (splited[0] === 'bottom') top = rect.top + rect.height;
   else if (splited[0] === 'left') left = rect.left;
 
-  if (splited[1] === 'top') top = rect.top + window.pageYOffset;
+  if (splited[1] === 'top') top = rect.top;
   else if (splited[1] === 'right') left = rect.left + rect.width;
-  else if (splited[1] === 'bottom') top = rect.top + rect.height + window.pageYOffset;
+  else if (splited[1] === 'bottom') top = rect.top + rect.height;
   else if (splited[1] === 'left') left = rect.left;
   else {
     if (splited[0] === 'top' || splited[0] === 'bottom') left = rect.left + rect.width / 2;
-    else if (splited[0] === 'left' || splited[0] === 'right') top = rect.top + rect.height / 2 + window.pageYOffset;
+    else if (splited[0] === 'left' || splited[0] === 'right') top = rect.top + rect.height / 2;
   }
 
   return { top, left };
