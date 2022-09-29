@@ -73,6 +73,7 @@ export { default as HomeFill } from './HomeFill';
 export { default as HourglassFill } from './HourglassFill';
 export { default as Hourglass } from './Hourglass';
 export { default as ImageFill } from './ImageFill';
+export { default as ImagePlus } from './ImagePlus';
 export { default as InfoCircleFill } from './InfoCircleFill';
 export { default as InfoCircle } from './InfoCircle';
 export { default as Info } from './Info';
