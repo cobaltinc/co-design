@@ -1,0 +1,29 @@
+{
+  "name": "@co-design/primitive",
+  "version": "0.7.11",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "author": "Cobalt. Inc.",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "esno ../../scripts/build co-design-primitive"
+  },
+  "repository": {
+    "url": "https://github.com/cobaltinc/co-design.git",
+    "type": "git",
+    "directory": "packages/co-design-primitive"
+  },
+  "peerDependencies": {
+    "@co-design/archetype": "^0.6.1",
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "dependencies": {
+    "@co-design/styles": "^0.7.3"
+  }
+}

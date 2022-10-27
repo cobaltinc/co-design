@@ -1,0 +1,29 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["./src"],
+  "exclude": [
+    "./lib",
+    "./esm",
+    "./cjs",
+    "**/*.stories.tsx",
+    "**/*.test.tsx",
+    "**/*.test.ts"
+  ],
+  "compilerOptions": {
+    "rootDir": "src",
+    "baseUrl": ".",
+    "outDir": "lib",
+    "declaration": true,
+    "declarationMap": true,
+    "declarationDir": "lib",
+    "composite": true,
+    "paths": {
+      "@co-design/archetype": ["../co-design-archetype/src"],
+      "@co-design/styles": ["../co-design-styles/src"]
+    }
+  },
+  "references": [
+    { "path": "../co-design-archetype" },
+    { "path": "../co-design-styles" }
+  ]
+}
