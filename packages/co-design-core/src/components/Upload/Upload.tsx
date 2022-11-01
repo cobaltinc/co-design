@@ -47,6 +47,7 @@ export const Upload = forwardRef<HTMLDivElement, UploadProps>(
       const changedFile = files?.[0];
       setFile(changedFile);
       onChange?.(changedFile);
+      inputRef.current.value = '';
     }, []);
 
     const handleFileDrop = useCallback((event: React.DragEvent<HTMLDivElement>) => {
@@ -57,6 +58,7 @@ export const Upload = forwardRef<HTMLDivElement, UploadProps>(
       setFile(changedFile);
       onChange?.(changedFile);
       toggleDragging(false);
+      inputRef.current.value = '';
     }, []);
 
     const handleDragEnter = useCallback((event: React.DragEvent<HTMLDivElement>) => {
