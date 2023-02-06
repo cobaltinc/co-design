@@ -86,4 +86,4 @@ export const TabPane = forwardRef<HTMLButtonElement, TabPaneProps>(
   },
 );
 
-TabPane.displayName = '@mantine/core/TabPane';
+TabPane.displayName = '@co-design/core/TabPane';
