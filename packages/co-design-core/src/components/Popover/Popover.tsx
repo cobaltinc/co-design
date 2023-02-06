@@ -14,7 +14,7 @@ export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, Reac
    * true일 경우 Popover 컴포넌트를 보여줍니다.
    * Popover 컴포넌트를 직접 제어할 경우 사용하는 속성입니다.
    */
-  visible?: boolean;
+  opened?: boolean;
 
   /** Popover 컴포넌트에 포함시킬 요소를 넣습니다. */
   content: React.ReactNode;
@@ -49,8 +49,11 @@ export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, Reac
   /** 트랜지션의 타이밍 함수를 정합니다. */
   transitionTimingFunction?: string;
 
-  /** visible이 변경될 경우 실행됩니다. */
-  onChangeVisible?(visible: boolean): void;
+  /** Popover가 열릴 경우 실행됩니다. */
+  onOpen?(): void;
+
+  /** Popover가 닫힐 경우 실행됩니다. */
+  onClose?(): void;
 }
 
 const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => {
@@ -80,7 +83,7 @@ const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => 
 
 export const Popover = ({
   children,
-  visible = false,
+  opened = false,
   content,
   contentPadding = 'medium',
   withArrow = true,
@@ -92,7 +95,8 @@ export const Popover = ({
   transition = 'fade',
   transitionDuration = 100,
   transitionTimingFunction = 'ease',
-  onChangeVisible,
+  onOpen,
+  onClose,
   className,
   co,
   overrideStyles,
@@ -101,7 +105,7 @@ export const Popover = ({
   const theme = useCoTheme();
   const { classes, cx } = useStyles({ contentPadding }, { overrideStyles, name: 'Popover' });
 
-  const [currentVisible, setCurrentVisible] = useToggle(visible);
+  const [currentOpened, setCurrentOpened] = useToggle(opened);
   const balloonRef = useRef<HTMLDivElement>(null);
   const targetRef = useClickAway<HTMLDivElement>((e: MouseEvent) => {
     if (
@@ -111,30 +115,31 @@ export const Popover = ({
       !targetRef.current.contains(e.target as HTMLElement) &&
       !balloonRef.current.contains(e.target as HTMLElement)
     ) {
-      setCurrentVisible(false);
+      setCurrentOpened(false);
     }
   });
 
-  const handleMouseEnter = trigger === 'hover' ? () => setCurrentVisible(true) : undefined;
-  const handleMouseLeave = trigger === 'hover' ? () => setCurrentVisible(false) : undefined;
+  const handleMouseEnter = trigger === 'hover' ? () => setCurrentOpened(true) : undefined;
+  const handleMouseLeave = trigger === 'hover' ? () => setCurrentOpened(false) : undefined;
   const handleClick =
     trigger === 'click'
       ? (e: React.MouseEvent) => {
           if (targetRef.current.contains(e.nativeEvent.target as HTMLElement)) {
-            setCurrentVisible((old) => !old);
+            setCurrentOpened((old) => !old);
           }
         }
       : undefined;
-  const handleFocus = trigger === 'focus' ? () => setCurrentVisible(true) : undefined;
-  const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
+  const handleFocus = trigger === 'focus' ? () => setCurrentOpened(true) : undefined;
+  const handleBlur = trigger === 'focus' ? () => setCurrentOpened(false) : undefined;
 
   useUpdateEffect(() => {
-    setCurrentVisible(visible);
-  }, [visible]);
+    setCurrentOpened(opened);
+  }, [opened]);
 
   useUpdateEffect(() => {
-    onChangeVisible?.(currentVisible);
-  }, [currentVisible]);
+    if (currentOpened) onOpen?.();
+    else onClose?.();
+  }, [currentOpened]);
 
   const contentStyle: React.CSSProperties = {
     width: width ? width : 'auto',
@@ -154,7 +159,7 @@ export const Popover = ({
       co={co}
     >
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>
-        <Transition mounted={currentVisible} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
+        <Transition mounted={currentOpened} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
           {(styles) => (
             <View className={cx(placement, classes.balloon)} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
               <div className={cx(placement, classes.content)} style={contentStyle}>
