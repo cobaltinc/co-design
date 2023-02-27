@@ -1,6 +1,6 @@
 {
   "name": "gatsby-plugin-co-design",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "license": "MIT",
   "author": "Cobalt. Inc.",
   "sideEffects": false,
@@ -18,6 +18,6 @@
     "react-dom": ">=16.8.0"
   },
   "dependencies": {
-    "@co-design/ssr": "^0.7.5"
+    "@co-design/ssr": "^0.7.6"
   }
 }
