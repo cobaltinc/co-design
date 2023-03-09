@@ -99,7 +99,7 @@ export const Tabs: TabsComponent = forwardRef<HTMLDivElement, TabsProps>(
 
     const controlRefs = useRef<Record<string, HTMLButtonElement>>({});
 
-    const tabs = React.Children.toArray(children).filter((item: TabType) => item.type === TabPane) as TabType[];
+    const tabs = React.Children.toArray(children).filter((item: React.ReactElement) => item.type === TabPane) as TabType[];
 
     const [_activeTab, handleActiveTabChange] = useUncontrolled({
       value: active,

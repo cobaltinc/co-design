@@ -33,7 +33,6 @@ export * from './Popover';
 export * from './Portal';
 export * from './Progress';
 export * from './RingProgress';
-export * from './Scroll';
 export * from './Spinner';
 export * from './Stack';
 export * from './Switch';

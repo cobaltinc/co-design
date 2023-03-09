@@ -6,7 +6,7 @@ import { useToggle } from '@co-design/hooks';
 
 export type UploadStylesNames = ClassNames<typeof useStyles>;
 
-export interface UploadProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange'> {
+export interface UploadProps extends CoComponentProps, Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange' | 'children'> {
   /** Upload 컴포넌트 렌더 함수를 정의합니다. */
   children: ((file?: File | File[], dragging?: boolean) => React.ReactNode) | React.ReactNode;
 

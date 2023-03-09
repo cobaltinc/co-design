@@ -65,7 +65,7 @@ export const Menu: MenuComponent = forwardRef<HTMLDivElement, MenuProps>(
     const { classes, cx, theme } = useStyles({ padding }, { overrideStyles, name: 'Menu' });
 
     const items = React.Children.toArray(children).filter(
-      (item: MenuItemType) => item.type === MenuItem || item.type === Divider || item.type === MenuLabel,
+      (item: React.ReactElement) => item.type === MenuItem || item.type === Divider || item.type === MenuLabel,
     ) as MenuItemType[];
 
     const handleKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {

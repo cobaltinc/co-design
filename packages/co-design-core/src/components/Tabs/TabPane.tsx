@@ -38,7 +38,7 @@ export interface TabPaneProps extends CoComponentProps<TabPaneStylesNames>, Reac
   label?: React.ReactNode;
 }
 
-export interface TabType {
+export interface TabType extends React.ReactElement {
   type: any;
   props: TabPaneProps;
   ref: React.ForwardedRef<HTMLButtonElement>;
