@@ -47,14 +47,14 @@ const Content = () => <div>Hi! I'm popover</div>;
 
 export const Default = (props) => {
   const [opened, toggleOpened] = useToggle(false);
-  const handleScroll = () => toggleOpened(false);
 
   useEffect(() => {
+    const handleScroll = () => toggleOpened(false);
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  });
+  }, []);
 
   return (
     <Center style={{ width: 500, height: 500 }}>
