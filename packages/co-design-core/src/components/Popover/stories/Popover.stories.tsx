@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Modal } from '../../Modal';
 import { Center } from '../../Center';
 import { Popover } from '../Popover';
+import { useToggle } from '@co-design/hooks';
 
 export default {
   title: '@co-design/core/Popover',
@@ -45,10 +46,20 @@ export default {
 const Content = () => <div>Hi! I'm popover</div>;
 
 export const Default = (props) => {
+  const [opened, toggleOpened] = useToggle(false);
+
+  useEffect(() => {
+    const handleScroll = () => toggleOpened(false);
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <Center style={{ width: 500, height: 500 }}>
-      <Popover placement="bottom" content={<Content />} {...props}>
-        <button>Popover</button>
+      <Popover opened={opened} placement="bottom" content={<Content />} {...props}>
+        <button onClick={toggleOpened}>Popover</button>
       </Popover>
     </Center>
   );

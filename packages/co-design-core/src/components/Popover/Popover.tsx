@@ -83,7 +83,7 @@ const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => 
 
 export const Popover = ({
   children,
-  opened = false,
+  opened,
   content,
   contentPadding = 'medium',
   withArrow = true,
@@ -159,7 +159,12 @@ export const Popover = ({
       co={co}
     >
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>
-        <Transition mounted={currentOpened} transition={transition} duration={transitionDuration} timingFunction={transitionTimingFunction}>
+        <Transition
+          mounted={opened === undefined ? currentOpened : opened}
+          transition={transition}
+          duration={transitionDuration}
+          timingFunction={transitionTimingFunction}
+        >
           {(styles) => (
             <View className={cx(placement, classes.balloon)} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
               <div className={cx(placement, classes.content)} style={contentStyle}>
