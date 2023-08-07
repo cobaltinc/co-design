@@ -12,6 +12,7 @@
   "scripts": {
     "type": "tsc --noEmit",
     "build": "lerna run build --include-dependencies --stream",
+    "lint": "eslint .",
     "clean": "rimraf packages/*/{esm,cjs,lib,dist} packages/**/*.tsbuildinfo",
     "storybook": "esno scripts/storybook-start",
     "build-storybook": "build-storybook -c ./config/storybook",
