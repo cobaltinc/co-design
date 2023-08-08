@@ -1,4 +1,3 @@
-/* eslint-disable no-param-reassign */
 const path = require('path');
 const { argv } = require('yargs');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin').default;

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { useScrollLock, useFocusTrap, useFocusReturn, useId } from '@co-design/hooks';
 import { CoComponentProps, ClassNames, CoZIndex, CoRadius, CoShadows, CoSpacing, CoSize } from '@co-design/styles';
