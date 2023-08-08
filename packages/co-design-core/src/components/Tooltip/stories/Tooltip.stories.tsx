@@ -37,6 +37,14 @@ export default {
       options: ['hover', 'click', 'focus'],
       control: { type: 'inline-radio' },
     },
+    colorScheme: {
+      options: [undefined, 'light', 'dark'],
+      control: { type: 'inline-radio' },
+    },
+    title: {
+      options: [undefined, 'title'],
+      control: { type: 'text' },
+    },
   },
 };
 
@@ -44,6 +52,16 @@ export const Default = (props) => {
   return (
     <Center style={{ width: 500, height: 500 }}>
       <Tooltip placement="bottom" label="Test" {...props}>
+        <button>Tooltip</button>
+      </Tooltip>
+    </Center>
+  );
+};
+
+export const WithTitle = (props) => {
+  return (
+    <Center style={{ width: 500, height: 500 }}>
+      <Tooltip placement="bottom" title="Title" label="Peek-A-Boo" {...props}>
         <button>Tooltip</button>
       </Tooltip>
     </Center>
