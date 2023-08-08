@@ -6,6 +6,7 @@ import { getFieldValue } from '../../utils';
 import useStyles, { TooltipPlacement, TooltipTrigger } from './Tooltip.style';
 import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { Transition, CoTransition } from '../Transition';
+import { Stack } from '../Stack';
 
 export type TooltipStylesNames = ClassNames<typeof useStyles>;
 
@@ -18,6 +19,9 @@ export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, Reac
 
   /** Tooltip 컴포넌트의 배경색 지정을 위한 ColorScheme 을 정합니다. */
   colorScheme?: ColorScheme;
+
+  /** Tooltip 컴포넌트가 보여줄 제목을 정합니다. */
+  title?: string;
 
   /** Tooltip 컴포넌트가 보여줄 문자열을 정합니다. */
   label: string;
@@ -82,6 +86,7 @@ export const Tooltip = ({
   children,
   visible = false,
   colorScheme,
+  title,
   label,
   withArrow = true,
   width,
@@ -160,7 +165,14 @@ export const Tooltip = ({
           {(styles) => (
             <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
               <div className={cx(placement, classes.content)} style={contentStyle}>
-                {label}
+                {title ? (
+                  <Stack spacing="small">
+                    <span className={classes.title}>{title}</span>
+                    <span className={classes.description}>{label}</span>
+                  </Stack>
+                ) : (
+                  label
+                )}
               </div>
               {withArrow && <div className={cx(placement, classes.arrow)} />}
             </View>

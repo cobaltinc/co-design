@@ -37,6 +37,8 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     backgroundColor: colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9],
     userSelect: 'none',
     pointerEvents: 'none',
+    // content 와 별개로 arrow shadow 지정 필요
+    boxShadow: '-2px -2px 3px -1px rgba(0, 0, 0, 0.1)',
 
     '&[class^="top"]': {
       top: -18,
@@ -152,5 +154,11 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     '&.left-bottom': {
       transform: 'translateY(-100%)',
     },
+  },
+  title: {
+    fontWeight: 700,
+  },
+  description: {
+    color: colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[3],
   },
 }));
