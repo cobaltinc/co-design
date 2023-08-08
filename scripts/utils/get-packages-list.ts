@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax, no-await-in-loop */
 import path from 'path';
 import fs from 'fs-extra';
 
