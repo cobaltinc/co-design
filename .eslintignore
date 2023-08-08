@@ -3,3 +3,6 @@ public
 .cache
 .eslintrc.js
 *.d.ts
+
+packages/gatsby-plugin-co-design
+config/storybook/main.js
