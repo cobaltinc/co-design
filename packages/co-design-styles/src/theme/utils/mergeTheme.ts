@@ -9,7 +9,6 @@ export function mergeTheme(currentTheme: CoTheme, themeOverride?: CoThemeOverrid
     if (key === 'headings' && themeOverride.headings) {
       const sizes = themeOverride.headings
         ? Object.keys(currentTheme.headings).reduce((headingsAcc, h) => {
-            // eslint-disable-next-line no-param-reassign
             headingsAcc[h] = {
               ...currentTheme.headings[h],
               ...themeOverride.headings[h],

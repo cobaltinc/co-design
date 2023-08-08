@@ -1,6 +1,27 @@
-// module.exports = {
-//   extends: ['./packages/eslint/eslint.config'],
-//   parserOptions: {
-//     project: './tsconfig.json',
-//   },
-// };
+module.exports = {
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended',
+    'plugin:react-hooks/recommended'
+  ],
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    project: './tsconfig.json',
+  },
+  plugins: [
+    "react-refresh"
+  ],
+  rules: {
+    'prefer-const': 'off',
+    "no-unsafe-optional-chaining": "off",
+    
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    
+    "react-hooks/exhaustive-deps": "off",
+
+    "react-refresh/only-export-components": "off",
+  }
+};

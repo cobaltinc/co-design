@@ -32,7 +32,6 @@ export const useFocusTrap = (active = true): ((instance: HTMLElement | null) => 
           if (focusElement) {
             focusElement.focus();
           } else if (process.env.NODE_ENV === 'development') {
-            // eslint-disable-next-line no-console
             console.warn('[@co-design/hooks/useFocusTrap] Failed to find focusable element within provided node', node);
           }
         };
@@ -42,7 +41,6 @@ export const useFocusTrap = (active = true): ((instance: HTMLElement | null) => 
           if (node.ownerDocument) {
             processNode(node);
           } else if (process.env.NODE_ENV === 'development') {
-            // eslint-disable-next-line no-console
             console.warn('[@co-design/hooks/useFocusTrap] Ref node is not part of the dom', node);
           }
         });

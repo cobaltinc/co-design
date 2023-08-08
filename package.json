@@ -12,6 +12,7 @@
   "scripts": {
     "type": "tsc --noEmit",
     "build": "lerna run build --include-dependencies --stream",
+    "lint": "eslint . --report-unused-disable-directives",
     "clean": "rimraf packages/*/{esm,cjs,lib,dist} packages/**/*.tsbuildinfo",
     "storybook": "esno scripts/storybook-start",
     "build-storybook": "build-storybook -c ./config/storybook",
@@ -43,8 +44,14 @@
     "@types/react": "^18.0.11",
     "@types/react-dom": "^18.0.0",
     "@types/yargs": "^17.0.7",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
     "esno": "^0.12.1",
     "execa": "^5.0.0",
+    "lerna": "^6.5.1",
     "next": "^12.0.7",
     "rollup": "^2.61.0",
     "rollup-plugin-esbuild": "^4.7.2",
@@ -55,8 +62,7 @@
     "storybook-dark-mode": "^1.0.8",
     "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.2",
-    "yargs": "^17.3.0",
-    "lerna": "^6.5.1"
+    "yargs": "^17.3.0"
   },
   "resolutions": {
     "**/@babel/preset-env": "~7.12.0"

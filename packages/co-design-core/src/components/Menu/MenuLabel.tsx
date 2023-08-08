@@ -15,7 +15,6 @@ export interface MenuLabelType {
 
 export function MenuLabel(
   // Props should be kept for ts integration
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   props: MenuLabelProps,
 ) {
   return null;
