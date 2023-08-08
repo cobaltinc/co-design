@@ -37,6 +37,10 @@ export default {
       options: ['hover', 'click', 'focus'],
       control: { type: 'inline-radio' },
     },
+    colorScheme: {
+      options: [undefined, 'light', 'dark'],
+      control: { type: 'inline-radio' },
+    },
   },
 };
 
