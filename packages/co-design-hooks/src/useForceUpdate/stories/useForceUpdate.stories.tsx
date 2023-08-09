@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useForceUpdate } from '../useForceUpdate';
 
 export default {
@@ -6,11 +6,12 @@ export default {
 };
 
 export const Default = () => {
+  const countRef = useRef(0);
   const forceUpdate = useForceUpdate();
 
   return (
     <div>
-      {Math.random()}
+      {countRef.current++}
       <button onClick={forceUpdate}>Update</button>
     </div>
   );
