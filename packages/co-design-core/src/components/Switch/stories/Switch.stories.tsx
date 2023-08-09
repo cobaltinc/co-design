@@ -9,15 +9,17 @@ export default {
       control: { type: 'text' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    size: 'medium',
+    color: 'purple',
   },
 };
 

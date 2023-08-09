@@ -6,9 +6,11 @@ export default {
   component: Kbd,
   argTypes: {
     children: {
-      defaultValue: 'Ctrl + K',
       control: { type: 'text' },
     },
+  },
+  args: {
+    children: 'Ctrl + K',
   },
 };
 

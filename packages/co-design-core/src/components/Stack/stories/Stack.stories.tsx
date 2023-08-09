@@ -6,19 +6,21 @@ export default {
   component: Stack,
   argTypes: {
     align: {
-      defaultValue: 'start',
       options: ['start', 'center', 'end'],
       control: { type: 'inline-radio' },
     },
     spacing: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     grow: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    align: 'start',
+    spacing: 'medium',
+    grow: false,
   },
 };
 

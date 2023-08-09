@@ -6,14 +6,16 @@ export default {
   component: Anchor,
   argTypes: {
     underlineOnHover: {
-      defaultValue: 'true',
       control: { type: 'boolean' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    underlineOnHover: true,
+    color: 'purple',
   },
 };
 

@@ -6,27 +6,29 @@ export default {
   component: NativeSelect,
   argTypes: {
     placeholder: {
-      defaultValue: 'Choose one',
       control: { type: 'text' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     radius: {
-      defaultValue: 'medium',
       options: ['small', 'medium', 'large', 'round', 'circular'],
       control: { type: 'inline-radio' },
     },
     invalid: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     disabled: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    placeholder: 'Choose one',
+    size: 'medium',
+    radius: 'medium',
+    invalid: false,
+    disabled: false,
   },
 };
 

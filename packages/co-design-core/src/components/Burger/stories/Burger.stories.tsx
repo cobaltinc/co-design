@@ -6,7 +6,6 @@ export default {
   component: Burger,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
@@ -15,9 +14,12 @@ export default {
       control: { type: 'inline-radio' },
     },
     opened: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    size: 'medium',
+    opened: false,
   },
 };
 

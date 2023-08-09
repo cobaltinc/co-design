@@ -6,13 +6,15 @@ export default {
   component: Spinner,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     color: {
       control: { type: 'color' },
     },
+  },
+  args: {
+    size: 'medium',
   },
 };
 

@@ -6,22 +6,24 @@ export default {
   component: Container,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     padding: {
-      defaultValue: 0,
       control: { type: 'number' },
     },
     fluid: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     break: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    size: 'medium',
+    padding: 0,
+    fluid: false,
+    break: false,
   },
 };
 

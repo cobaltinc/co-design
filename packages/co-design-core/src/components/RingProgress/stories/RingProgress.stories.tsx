@@ -6,26 +6,28 @@ export default {
   component: RingProgress,
   argTypes: {
     value: {
-      defaultValue: 20,
       control: { type: 'number' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'gray', 'red', 'blue', 'orange', 'green'],
       control: { type: 'inline-radio' },
     },
     size: {
-      defaultValue: 50,
       control: { type: 'number' },
     },
     thickness: {
-      defaultValue: 4,
       control: { type: 'number' },
     },
     roundCaps: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    value: 20,
+    color: 'purple',
+    size: 50,
+    thickness: 4,
+    roundCaps: false,
   },
 };
 

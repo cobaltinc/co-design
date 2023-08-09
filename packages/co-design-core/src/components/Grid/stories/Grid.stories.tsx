@@ -8,28 +8,30 @@ export default {
   component: Grid,
   argTypes: {
     columns: {
-      defaultValue: 12,
       control: { type: 'number' },
     },
     spacing: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     grow: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     justify: {
-      defaultValue: 'start',
       options: ['start', 'center', 'end'],
       control: { type: 'inline-radio' },
     },
     align: {
-      defaultValue: 'start',
       options: ['start', 'center', 'end'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    columns: 12,
+    spacing: 'medium',
+    grow: false,
+    justify: 'start',
+    align: 'start',
   },
 };
 

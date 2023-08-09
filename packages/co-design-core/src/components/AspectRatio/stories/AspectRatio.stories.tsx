@@ -6,9 +6,11 @@ export default {
   component: AspectRatio,
   argTypes: {
     ratio: {
-      defaultValue: 16 / 9,
       control: { type: 'number' },
     },
+  },
+  args: {
+    ratio: 16 / 9,
   },
 };
 

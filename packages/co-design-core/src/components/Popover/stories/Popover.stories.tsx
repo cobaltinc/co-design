@@ -9,11 +9,9 @@ export default {
   component: Popover,
   argTypes: {
     withArrow: {
-      defaultValue: true,
       control: { type: 'boolean' },
     },
     placement: {
-      defaultValue: 'bottom',
       options: [
         'top-left',
         'top',
@@ -31,15 +29,19 @@ export default {
       control: { type: 'inline-radio' },
     },
     trigger: {
-      defaultValue: 'click',
       options: ['hover', 'click', 'focus'],
       control: { type: 'inline-radio' },
     },
     contentPadding: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    withArrow: true,
+    placement: 'bottom',
+    trigger: 'click',
+    contentPadding: 'medium',
   },
 };
 

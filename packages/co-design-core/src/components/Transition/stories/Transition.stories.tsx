@@ -7,11 +7,9 @@ export default {
   component: Transition,
   argTypes: {
     duration: {
-      defaultValue: 400,
       control: { type: 'number' },
     },
     transition: {
-      defaultValue: 'fade',
       options: [
         'fade',
         'skew-up',
@@ -34,10 +32,14 @@ export default {
       control: { type: 'inline-radio' },
     },
     timingFunction: {
-      defaultValue: 'ease',
       options: ['ease', 'ease-out', 'ease-in'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    duration: 400,
+    transition: 'fade',
+    timingFunction: 'ease',
   },
 };
 

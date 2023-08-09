@@ -6,37 +6,39 @@ export default {
   component: Group,
   argTypes: {
     position: {
-      defaultValue: 'left',
       options: ['left', 'center', 'right', 'apart'],
       control: { type: 'inline-radio' },
     },
     align: {
-      defaultValue: 'align',
       options: ['start', 'center', 'end'],
       control: { type: 'inline-radio' },
     },
     spacing: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     direction: {
-      defaultValue: 'row',
       options: ['row', 'column'],
       control: { type: 'inline-radio' },
     },
     inline: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     grow: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     noWrap: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    position: 'left',
+    align: 'align',
+    spacing: 'medium',
+    direction: 'row',
+    inline: false,
+    grow: false,
+    noWrap: false,
   },
 };
 

@@ -9,24 +9,26 @@ export default {
       control: { type: 'text' },
     },
     src: {
-      defaultValue: 'https://picsum.photos/600/400',
       control: { type: 'text' },
     },
     shape: {
-      defaultValue: 'circle',
       options: ['square', 'round', 'circle'],
       control: { type: 'inline-radio' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    src: 'https://picsum.photos/600/400',
+    shape: 'circle',
+    size: 'medium',
+    color: 'purple',
   },
 };
 

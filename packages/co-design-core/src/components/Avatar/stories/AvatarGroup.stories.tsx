@@ -7,23 +7,25 @@ export default {
   component: AvatarGroup,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     spacing: {
-      defaultValue: 'large',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     limit: {
-      defaultValue: 3,
       control: { type: 'number' },
     },
     total: {
-      defaultValue: 5,
       control: { type: 'number' },
     },
+  },
+  args: {
+    size: 'medium',
+    spacing: 'large',
+    limit: 3,
+    total: 5,
   },
 };
 

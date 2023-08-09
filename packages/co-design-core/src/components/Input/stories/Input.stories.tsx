@@ -7,27 +7,29 @@ export default {
   component: Input,
   argTypes: {
     placeholder: {
-      defaultValue: 'Placeholder',
       control: { type: 'text' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     radius: {
-      defaultValue: 'medium',
       options: ['small', 'medium', 'large', 'round', 'circular'],
       control: { type: 'inline-radio' },
     },
     invalid: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     disabled: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    placeholder: 'Placeholder',
+    size: 'medium',
+    radius: 'medium',
+    invalid: false,
+    disabled: false,
   },
 };
 

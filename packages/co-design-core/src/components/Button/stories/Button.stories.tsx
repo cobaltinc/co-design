@@ -6,32 +6,34 @@ export default {
   component: Button,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     variant: {
-      defaultValue: 'solid',
       options: ['solid', 'ghost', 'light-solid', 'text'],
       control: { type: 'inline-radio' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'gray', 'red', 'blue', 'orange', 'green', 'dark'],
       control: { type: 'inline-radio' },
     },
     fullWidth: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     loading: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     disabled: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    size: 'medium',
+    variant: 'solid',
+    color: 'purple',
+    fullWidth: false,
+    loading: false,
+    disabled: false,
   },
 };
 

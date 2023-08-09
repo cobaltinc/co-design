@@ -15,15 +15,12 @@ export default {
       control: { type: 'inline-radio' },
     },
     strong: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     underline: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     block: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     transform: {
@@ -35,13 +32,19 @@ export default {
       control: { type: 'inline-radio' },
     },
     lineClamp: {
-      defaultValue: undefined,
       control: { type: 'number' },
     },
     color: {
       options: [undefined, 'purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    size: 'medium',
+    strong: false,
+    underline: false,
+    block: false,
   },
 };
 

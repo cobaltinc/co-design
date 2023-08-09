@@ -7,13 +7,15 @@ export default {
   component: Breadcrumbs,
   argTypes: {
     separator: {
-      defaultValue: '/',
       control: { type: 'text' },
     },
     spacing: {
-      defaultValue: 8,
       control: { type: 'number' },
     },
+  },
+  args: {
+    separator: '/',
+    spacing: 8,
   },
 };
 

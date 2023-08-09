@@ -14,9 +14,11 @@ export default {
       control: { type: 'inline-radio' },
     },
     color: {
-      defaultValue: '#000',
       control: { type: 'color' },
     },
+  },
+  args: {
+    color: '#000',
   },
 };
 

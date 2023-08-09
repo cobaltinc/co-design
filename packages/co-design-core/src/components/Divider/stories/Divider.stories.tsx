@@ -6,17 +6,14 @@ export default {
   component: Divider,
   argTypes: {
     orientation: {
-      defaultValue: 'horizontal',
       options: ['horizontal', 'vertical'],
       control: { type: 'inline-radio' },
     },
     variant: {
-      defaultValue: 'solid',
       options: ['solid', 'dashed', 'dotted'],
       control: { type: 'inline-radio' },
     },
     margin: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
@@ -24,10 +21,15 @@ export default {
       control: { type: 'text' },
     },
     labelPosition: {
-      defaultValue: 'center',
       options: ['left', 'center', 'right'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    orientation: 'horizontal',
+    variant: 'solid',
+    margin: 'medium',
+    labelPosition: 'center',
   },
 };
 

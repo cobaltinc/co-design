@@ -7,25 +7,27 @@ export default {
   component: Chips,
   argTypes: {
     size: {
-      defaultValue: 'small',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'gray', 'red', 'blue', 'orange', 'green'],
       control: { type: 'inline-radio' },
     },
     spacing: {
-      defaultValue: 'small',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     radius: {
-      defaultValue: 'medium',
       options: ['small', 'medium', 'large', 'round'],
       control: { type: 'inline-radio' },
     },
+  },
+  args: {
+    size: 'small',
+    color: 'purple',
+    spacing: 'small',
+    radius: 'medium',
   },
 };
 
