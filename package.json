@@ -15,7 +15,7 @@
     "lint": "eslint . --report-unused-disable-directives",
     "clean": "rimraf packages/*/{esm,cjs,lib,dist} packages/**/*.tsbuildinfo",
     "storybook": "storybook dev -p 6006 -c config/storybook",
-    "build-storybook": "storybook build",
+    "build-storybook": "storybook build -c config/storybook",
     "deploy-storybook": "storybook-to-ghpages"
   },
   "dependencies": {
