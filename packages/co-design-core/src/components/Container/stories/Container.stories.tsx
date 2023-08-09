@@ -27,10 +27,12 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <Container {...props} co={(theme) => ({ backgroundColor: theme.palettes.purple[3] })}>
-      Container
-    </Container>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <Container {...props} co={(theme) => ({ backgroundColor: theme.palettes.purple[3] })}>
+        Container
+      </Container>
+    );
+  },
 };

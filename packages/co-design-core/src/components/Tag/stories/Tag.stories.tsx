@@ -23,6 +23,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Tag {...props}>Tag</Tag>;
+export const Default = {
+  render: (props) => {
+    return <Tag {...props}>Tag</Tag>;
+  },
 };

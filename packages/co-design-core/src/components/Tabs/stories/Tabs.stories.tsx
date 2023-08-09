@@ -24,11 +24,13 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <Tabs {...props}>
-      <Tabs.Pane label="Gallery">Hi</Tabs.Pane>
-      <Tabs.Pane label="Message">Hello</Tabs.Pane>
-    </Tabs>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <Tabs {...props}>
+        <Tabs.Pane label="Gallery">Hi</Tabs.Pane>
+        <Tabs.Pane label="Message">Hello</Tabs.Pane>
+      </Tabs>
+    );
+  },
 };

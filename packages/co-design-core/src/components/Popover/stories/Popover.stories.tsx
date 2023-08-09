@@ -47,56 +47,62 @@ export default {
 
 const Content = () => <div>Hi! I'm popover</div>;
 
-export const Default = (props) => {
-  const [opened, toggleOpened] = useToggle(false);
+export const Default = {
+  render: (props) => {
+    const [opened, toggleOpened] = useToggle(false);
 
-  useEffect(() => {
-    const handleScroll = () => toggleOpened(false);
-    window.addEventListener('scroll', handleScroll);
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    useEffect(() => {
+      const handleScroll = () => toggleOpened(false);
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, []);
 
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Popover opened={opened} placement="bottom" content={<Content />} {...props}>
-        <button onClick={toggleOpened}>Popover</button>
-      </Popover>
-    </Center>
-  );
+    return (
+      <Center style={{ width: 500, height: 500 }}>
+        <Popover opened={opened} placement="bottom" content={<Content />} {...props}>
+          <button onClick={toggleOpened}>Popover</button>
+        </Popover>
+      </Center>
+    );
+  },
 };
 
-export const OverrideStyles = (props) => {
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Popover
-        placement="bottom"
-        content={<Content />}
-        {...props}
-        overrideStyles={{
-          arrow: {
-            backgroundColor: '#333',
-            borderColor: '#111',
-          },
-          content: {
-            color: 'white',
-            backgroundColor: '#333',
-          },
-        }}
-      >
-        <button>Popover</button>
-      </Popover>
-    </Center>
-  );
+export const OverrideStyles = {
+  render: (props) => {
+    return (
+      <Center style={{ width: 500, height: 500 }}>
+        <Popover
+          placement="bottom"
+          content={<Content />}
+          {...props}
+          overrideStyles={{
+            arrow: {
+              backgroundColor: '#333',
+              borderColor: '#111',
+            },
+            content: {
+              color: 'white',
+              backgroundColor: '#333',
+            },
+          }}
+        >
+          <button>Popover</button>
+        </Popover>
+      </Center>
+    );
+  },
 };
 
-export const InModal = (props) => {
-  return (
-    <Modal opened onClose={() => {}}>
-      <Popover zIndex={3001} placement="bottom" content={<Content />} {...props}>
-        <button>Popover</button>
-      </Popover>
-    </Modal>
-  );
+export const InModal = {
+  render: (props) => {
+    return (
+      <Modal opened onClose={() => {}}>
+        <Popover zIndex={3001} placement="bottom" content={<Content />} {...props}>
+          <button>Popover</button>
+        </Popover>
+      </Modal>
+    );
+  },
 };

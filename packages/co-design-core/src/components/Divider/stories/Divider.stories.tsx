@@ -33,12 +33,14 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <>
-      <span style={{ verticalAlign: 'middle' }}>First</span>
-      <Divider label="Test" {...props} />
-      <span style={{ verticalAlign: 'middle' }}>Second</span>
-    </>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <>
+        <span style={{ verticalAlign: 'middle' }}>First</span>
+        <Divider label="Test" {...props} />
+        <span style={{ verticalAlign: 'middle' }}>Second</span>
+      </>
+    );
+  },
 };

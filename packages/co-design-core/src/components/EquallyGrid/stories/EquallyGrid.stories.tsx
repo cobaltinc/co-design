@@ -24,19 +24,21 @@ const Box = () => {
   return <View co={(theme) => ({ backgroundColor: theme.primaryColor, width: '100%', height: 100 })} />;
 };
 
-export const Default = (props) => {
-  return (
-    <div>
-      <EquallyGrid {...props}>
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-        <Box />
-      </EquallyGrid>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div>
+        <EquallyGrid {...props}>
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+          <Box />
+        </EquallyGrid>
+      </div>
+    );
+  },
 };

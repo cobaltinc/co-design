@@ -42,15 +42,17 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <>
-      <Group {...props}>
-        <div style={{ width: 100, height: 100, backgroundColor: 'red' }} />
-        <div style={{ width: 150, height: 100, backgroundColor: 'blue' }} />
-        <div style={{ width: 100, height: 200, backgroundColor: 'green' }} />
-        <div style={{ width: 200, height: 150, backgroundColor: 'gray' }} />
-      </Group>
-    </>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <>
+        <Group {...props}>
+          <div style={{ width: 100, height: 100, backgroundColor: 'red' }} />
+          <div style={{ width: 150, height: 100, backgroundColor: 'blue' }} />
+          <div style={{ width: 100, height: 200, backgroundColor: 'green' }} />
+          <div style={{ width: 200, height: 150, backgroundColor: 'gray' }} />
+        </Group>
+      </>
+    );
+  },
 };

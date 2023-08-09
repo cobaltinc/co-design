@@ -23,6 +23,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Switch {...props} />;
+export const Default = {
+  render: (props) => {
+    return <Switch {...props} />;
+  },
 };

@@ -29,16 +29,18 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div>
-      <AvatarGroup {...props}>
-        <Avatar src="https://picsum.photos/600/400?1" />
-        <Avatar src="https://picsum.photos/600/400?2" />
-        <Avatar src="https://picsum.photos/600/400?3" />
-        <Avatar src="https://picsum.photos/600/400?4" />
-        <Avatar src="https://picsum.photos/600/400?5" />
-      </AvatarGroup>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div>
+        <AvatarGroup {...props}>
+          <Avatar src="https://picsum.photos/600/400?1" />
+          <Avatar src="https://picsum.photos/600/400?2" />
+          <Avatar src="https://picsum.photos/600/400?3" />
+          <Avatar src="https://picsum.photos/600/400?4" />
+          <Avatar src="https://picsum.photos/600/400?5" />
+        </AvatarGroup>
+      </div>
+    );
+  },
 };

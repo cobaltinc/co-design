@@ -43,38 +43,40 @@ const Box2 = () => {
   return <View co={(theme) => ({ backgroundColor: theme.palettes.blue[6], width: '100%', minHeight: 150 })} />;
 };
 
-export const Default = (props) => {
-  return (
-    <div>
-      <Grid {...props}>
-        <Col span={3}>
-          <Box1 />
-        </Col>
-        <Col span={4}>
-          <Box1 />
-        </Col>
-        <Col span={3}>
-          <Box2 />
-        </Col>
-        <Col span={4}>
-          <Box1 />
-        </Col>
-        <Col span={5}>
-          <Box2 />
-        </Col>
-        <Col span={2}>
-          <Box1 />
-        </Col>
-        <Col span={5}>
-          <Box2 />
-        </Col>
-        <Col span={2}>
-          <Box1 />
-        </Col>
-        <Col span={12}>
-          <Box2 />
-        </Col>
-      </Grid>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div>
+        <Grid {...props}>
+          <Col span={3}>
+            <Box1 />
+          </Col>
+          <Col span={4}>
+            <Box1 />
+          </Col>
+          <Col span={3}>
+            <Box2 />
+          </Col>
+          <Col span={4}>
+            <Box1 />
+          </Col>
+          <Col span={5}>
+            <Box2 />
+          </Col>
+          <Col span={2}>
+            <Box1 />
+          </Col>
+          <Col span={5}>
+            <Box2 />
+          </Col>
+          <Col span={2}>
+            <Box1 />
+          </Col>
+          <Col span={12}>
+            <Box2 />
+          </Col>
+        </Grid>
+      </div>
+    );
+  },
 };

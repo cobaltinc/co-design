@@ -87,15 +87,17 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  const [opened, toggleOpened] = useToggle();
+export const Default = {
+  render: (props) => {
+    const [opened, toggleOpened] = useToggle();
 
-  return (
-    <>
-      <Button onClick={toggleOpened}>Open</Button>
-      <Drawer {...props} title="Drawer" opened={opened} onClose={() => toggleOpened(false)}>
-        Hello, World!
-      </Drawer>
-    </>
-  );
+    return (
+      <>
+        <Button onClick={toggleOpened}>Open</Button>
+        <Drawer {...props} title="Drawer" opened={opened} onClose={() => toggleOpened(false)}>
+          Hello, World!
+        </Drawer>
+      </>
+    );
+  },
 };

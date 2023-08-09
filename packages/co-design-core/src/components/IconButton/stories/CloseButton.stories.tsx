@@ -33,6 +33,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <CloseButton {...props} />;
+export const Default = {
+  render: (props) => {
+    return <CloseButton {...props} />;
+  },
 };

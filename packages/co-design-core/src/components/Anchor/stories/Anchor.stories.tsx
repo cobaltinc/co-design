@@ -19,6 +19,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Anchor {...props}>https://present.do</Anchor>;
+export const Default = {
+  render: (props) => {
+    return <Anchor {...props}>https://present.do</Anchor>;
+  },
 };

@@ -14,6 +14,8 @@ export default {
   },
 };
 
-export const Default = ({ children }) => {
-  return <Kbd>{children}</Kbd>;
+export const Default = {
+  render: ({ children }) => {
+    return <Kbd>{children}</Kbd>;
+  },
 };

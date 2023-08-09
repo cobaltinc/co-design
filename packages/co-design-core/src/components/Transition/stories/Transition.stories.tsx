@@ -43,14 +43,16 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  const [state, toggle] = useToggle();
-  return (
-    <div>
-      <button onClick={toggle}>Toggle</button>
-      <Transition mounted={state} {...props}>
-        {(styles) => <div style={{ width: 100, height: 100, backgroundColor: 'red', ...styles }} />}
-      </Transition>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    const [state, toggle] = useToggle();
+    return (
+      <div>
+        <button onClick={toggle}>Toggle</button>
+        <Transition mounted={state} {...props}>
+          {(styles) => <div style={{ width: 100, height: 100, backgroundColor: 'red', ...styles }} />}
+        </Transition>
+      </div>
+    );
+  },
 };

@@ -50,14 +50,16 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Tooltip {...props}>
-        <button>Tooltip</button>
-      </Tooltip>
-    </Center>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <Center style={{ width: 500, height: 500 }}>
+        <Tooltip {...props}>
+          <button>Tooltip</button>
+        </Tooltip>
+      </Center>
+    );
+  },
 };
 
 export const WithTitle = (props) => {

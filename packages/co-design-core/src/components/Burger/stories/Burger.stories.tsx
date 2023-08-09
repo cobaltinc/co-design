@@ -23,6 +23,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Burger {...props} />;
+export const Default = {
+  render: (props) => {
+    return <Burger {...props} />;
+  },
 };

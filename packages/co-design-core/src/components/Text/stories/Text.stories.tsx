@@ -48,12 +48,14 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 300 }}>
-      <Text {...props} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 300 }}>
+        <Text {...props} />
+      </div>
+    );
+  },
 };
 
 export const Inherit = () => {

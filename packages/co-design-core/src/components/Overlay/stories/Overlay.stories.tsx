@@ -22,17 +22,19 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  const [visible, setVisible] = useState(false);
+export const Default = {
+  render: (props) => {
+    const [visible, setVisible] = useState(false);
 
-  return (
-    <>
-      <div style={{ height: 100, position: 'relative' }}>
-        {visible && <Overlay {...props} />}
-        <button color={visible ? 'red' : 'teal'}>{!visible ? 'Click as much as you like' : "Won't click, haha"}</button>
-      </div>
+    return (
+      <>
+        <div style={{ height: 100, position: 'relative' }}>
+          {visible && <Overlay {...props} />}
+          <button color={visible ? 'red' : 'teal'}>{!visible ? 'Click as much as you like' : "Won't click, haha"}</button>
+        </div>
 
-      <button onClick={() => setVisible((v) => !v)}>Overlay</button>
-    </>
-  );
+        <button onClick={() => setVisible((v) => !v)}>Overlay</button>
+      </>
+    );
+  },
 };

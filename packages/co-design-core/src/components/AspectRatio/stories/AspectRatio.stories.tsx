@@ -14,12 +14,14 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div>
-      <AspectRatio {...props} co={{ width: 800 }}>
-        <img src="https://picsum.photos/800" />
-      </AspectRatio>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div>
+        <AspectRatio {...props} co={{ width: 800 }}>
+          <img src="https://picsum.photos/800" />
+        </AspectRatio>
+      </div>
+    );
+  },
 };

@@ -31,24 +31,28 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <Chips {...props}>
-      <Chip value="react">React</Chip>
-      <Chip value="ng">Angular</Chip>
-      <Chip value="svelte">Svelte</Chip>
-      <Chip value="vue">Vue</Chip>
-    </Chips>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <Chips {...props}>
+        <Chip value="react">React</Chip>
+        <Chip value="ng">Angular</Chip>
+        <Chip value="svelte">Svelte</Chip>
+        <Chip value="vue">Vue</Chip>
+      </Chips>
+    );
+  },
 };
 
-export const Multiple = (props) => {
-  return (
-    <Chips {...props} multiple>
-      <Chip value="react">React</Chip>
-      <Chip value="ng">Angular</Chip>
-      <Chip value="svelte">Svelte</Chip>
-      <Chip value="vue">Vue</Chip>
-    </Chips>
-  );
+export const Multiple = {
+  render: (props) => {
+    return (
+      <Chips {...props} multiple>
+        <Chip value="react">React</Chip>
+        <Chip value="ng">Angular</Chip>
+        <Chip value="svelte">Svelte</Chip>
+        <Chip value="vue">Vue</Chip>
+      </Chips>
+    );
+  },
 };

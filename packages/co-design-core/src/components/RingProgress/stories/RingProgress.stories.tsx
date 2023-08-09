@@ -31,26 +31,30 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 600, padding: 24 }}>
-      <RingProgress {...props} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 600, padding: 24 }}>
+        <RingProgress {...props} />
+      </div>
+    );
+  },
 };
 
-export const MultipleSection = (props) => {
-  return (
-    <div style={{ width: 600, padding: 24 }}>
-      <RingProgress
-        {...props}
-        sections={[
-          { value: 20, color: 'purple' },
-          { value: 15, color: 'green' },
-          { value: 30, color: 'orange' },
-          { value: 20, color: 'blue' },
-        ]}
-      />
-    </div>
-  );
+export const MultipleSection = {
+  render: (props) => {
+    return (
+      <div style={{ width: 600, padding: 24 }}>
+        <RingProgress
+          {...props}
+          sections={[
+            { value: 20, color: 'purple' },
+            { value: 15, color: 'green' },
+            { value: 30, color: 'orange' },
+            { value: 20, color: 'blue' },
+          ]}
+        />
+      </div>
+    );
+  },
 };

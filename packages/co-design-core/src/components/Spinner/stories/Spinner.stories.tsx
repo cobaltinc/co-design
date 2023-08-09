@@ -18,6 +18,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Spinner {...props} />;
+export const Default = {
+  render: (props) => {
+    return <Spinner {...props} />;
+  },
 };

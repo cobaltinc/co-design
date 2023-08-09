@@ -34,6 +34,8 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return <Heading {...props}>Heading</Heading>;
+export const Default = {
+  render: (props) => {
+    return <Heading {...props}>Heading</Heading>;
+  },
 };

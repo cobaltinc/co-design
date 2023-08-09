@@ -44,14 +44,16 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <>
-      {[...new Array(10)].map((_, index) => (
-        <div key={index}>
-          <Image placeholder={<div>Placeholder</div>} {...props} />
-        </div>
-      ))}
-    </>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <>
+        {[...new Array(10)].map((_, index) => (
+          <div key={index}>
+            <Image placeholder={<div>Placeholder</div>} {...props} />
+          </div>
+        ))}
+      </>
+    );
+  },
 };

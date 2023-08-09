@@ -32,27 +32,31 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div>
-      <Avatar {...props} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div>
+        <Avatar {...props} />
+      </div>
+    );
+  },
 };
 
-export const OverrideStyles = (props) => {
-  return (
-    <div>
-      Grayscale filter
-      <Avatar
-        {...props}
-        src="https://picsum.photos/400/400"
-        overrideStyles={{
-          image: {
-            filter: 'grayscale(80%)',
-          },
-        }}
-      />
-    </div>
-  );
+export const OverrideStyles = {
+  render: (props) => {
+    return (
+      <div>
+        Grayscale filter
+        <Avatar
+          {...props}
+          src="https://picsum.photos/400/400"
+          overrideStyles={{
+            image: {
+              filter: 'grayscale(80%)',
+            },
+          }}
+        />
+      </div>
+    );
+  },
 };

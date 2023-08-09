@@ -29,10 +29,12 @@ export default {
   },
 };
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 300, padding: 24 }}>
-      <Paper {...props}>Paper</Paper>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 300, padding: 24 }}>
+        <Paper {...props}>Paper</Paper>
+      </div>
+    );
+  },
 };

@@ -41,18 +41,22 @@ const Icon = () => (
   </svg>
 );
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <NativeSelect {...props} data={['React', 'Angular', 'Svelte', 'Vue']} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <NativeSelect {...props} data={['React', 'Angular', 'Svelte', 'Vue']} />
+      </div>
+    );
+  },
 };
 
-export const WithIcon = (props) => {
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <NativeSelect icon={<Icon />} {...props} data={['React', 'Angular', 'Svelte', 'Vue']} />
-    </div>
-  );
+export const WithIcon = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <NativeSelect icon={<Icon />} {...props} data={['React', 'Angular', 'Svelte', 'Vue']} />
+      </div>
+    );
+  },
 };
