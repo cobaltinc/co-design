@@ -25,7 +25,7 @@ export default {
     },
   },
   args: {
-    src: 'https://picsum.photos/600/400',
+    src: 'https://fastly.picsum.photos/id/786/600/400.jpg?hmac=vrVktsOjvWZxfPkgOvYp5fejC9rXMVAjyABIkuYkvso',
     shape: 'circle',
     size: 'medium',
     color: 'purple',
@@ -49,7 +49,7 @@ export const OverrideStyles = {
         Grayscale filter
         <Avatar
           {...props}
-          src="https://picsum.photos/400/400"
+          src="https://fastly.picsum.photos/id/786/600/400.jpg?hmac=vrVktsOjvWZxfPkgOvYp5fejC9rXMVAjyABIkuYkvso"
           overrideStyles={{
             image: {
               filter: 'grayscale(80%)',

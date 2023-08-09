@@ -34,11 +34,11 @@ export const Default = {
     return (
       <div>
         <AvatarGroup {...props}>
-          <Avatar src="https://picsum.photos/600/400?1" />
-          <Avatar src="https://picsum.photos/600/400?2" />
-          <Avatar src="https://picsum.photos/600/400?3" />
-          <Avatar src="https://picsum.photos/600/400?4" />
-          <Avatar src="https://picsum.photos/600/400?5" />
+          <Avatar src="https://fastly.picsum.photos/id/786/600/400.jpg?hmac=vrVktsOjvWZxfPkgOvYp5fejC9rXMVAjyABIkuYkvso" />
+          <Avatar src="https://fastly.picsum.photos/id/574/600/400.jpg?hmac=EQ9zsodnVQYwYosJrIVHnQ5Ekp7F9_I05f-21GwANC4" />
+          <Avatar src="https://fastly.picsum.photos/id/119/600/400.jpg?hmac=83QxaIP9GpgV3_Y4_GdVJW76KdowZbCbjakQqiX56CQ" />
+          <Avatar src="https://fastly.picsum.photos/id/1074/600/400.jpg?hmac=-mqpWcJSXqmfo8UkPkASvV1o1NXtm6MpwreadzQAu_o" />
+          <Avatar src="https://fastly.picsum.photos/id/267/600/400.jpg?hmac=WKOJueOyFV6BQONn8kCm7lc3IOjNjFMPP6NDezAPYe0" />
         </AvatarGroup>
       </div>
     );

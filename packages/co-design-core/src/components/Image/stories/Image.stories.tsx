@@ -33,7 +33,7 @@ export default {
     },
   },
   args: {
-    src: 'https://picsum.photos/600/400',
+    src: 'https://fastly.picsum.photos/id/555/600/400.jpg?hmac=X8_WXk4i6QHECXBPK0HYpi1Oz1PH230SJVWaoecqUpY',
     radius: 'small',
     lazy: true,
     threshold: 0.5,
