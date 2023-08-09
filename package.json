@@ -66,7 +66,6 @@
     "storybook": "^7.2.1",
     "storybook-addon-outline": "^1.4.2",
     "storybook-dark-mode": "^3.0.1",
-    "tsconfig-paths-webpack-plugin": "^3.5.2",
     "typescript": "^4.5.2",
     "yargs": "^17.3.0"
   },
