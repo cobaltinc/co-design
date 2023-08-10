@@ -14,6 +14,10 @@ export const Disabled = () => {
   return <Checkbox disabled />;
 };
 
+export const DisabledCheck = () => {
+  return <Checkbox disabled checked />;
+};
+
 export const Indeterminate = () => {
   return <Checkbox indeterminate />;
 };
