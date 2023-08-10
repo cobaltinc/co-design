@@ -41,7 +41,6 @@ export const Checkbox = ({
   const classPrefix = `chemi-checkbox`;
   const [check, setCheck] = useState(checked);
   const theme = useCoTheme();
-  // const {} = useStyles()
 
   useEffect(() => {
     setCheck(checked);

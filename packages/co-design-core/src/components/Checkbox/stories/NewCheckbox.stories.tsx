@@ -1,8 +1,8 @@
 import React from 'react';
-import { Checkbox } from '../Checkbox';
+import { Checkbox } from '../NewCheckbox';
 
 export default {
-  title: '@co-design/core/Checkbox',
+  title: '@co-design/core/NewCheckbox',
   component: Checkbox,
 };
 
