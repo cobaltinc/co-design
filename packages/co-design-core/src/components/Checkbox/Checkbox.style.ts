@@ -12,7 +12,7 @@ export default createStyles((theme) => {
       zIndex: 0,
       '&:hover, &:focus': {
         '&::before': {
-          content: '',
+          content: '""',
           position: 'absolute',
           top: 0,
           right: 0,
@@ -30,7 +30,7 @@ export default createStyles((theme) => {
       },
       '&:active': {
         '&::before': {
-          content: '',
+          content: '""',
           position: 'absolute',
           top: '-2px',
           right: '-2px',
