@@ -62,6 +62,16 @@ export default createStyles((theme) => {
     disabled: {
       cursor: 'not-allowed',
       color: '#c6c6c6',
+      '&:hover, &:focus': {
+        '&::before': {
+          opacity: 0,
+        },
+      },
+      '&:active': {
+        '&::before': {
+          opacity: 0,
+        },
+      },
     },
     block: {
       display: 'flex',

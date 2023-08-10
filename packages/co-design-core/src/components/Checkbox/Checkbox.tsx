@@ -63,7 +63,7 @@ export const Checkbox = ({
     <View
       component="label"
       onClick={onClick}
-      className={cx(classes.wrapper, className, { [classes.block]: block, [classes.disabled]: disabled })}
+      className={cx(classes.wrapper, className, { [classes.block]: block, [classes.disabled]: disabled || error })}
       co={co}
       style={style}
       {...wrapperProps}
@@ -73,7 +73,7 @@ export const Checkbox = ({
         className={classes.input}
         name={name}
         checked={check}
-        disabled={disabled}
+        disabled={disabled || error}
         value={value}
         onChange={handleChange}
         {...props}
