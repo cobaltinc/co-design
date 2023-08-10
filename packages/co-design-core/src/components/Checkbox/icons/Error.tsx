@@ -1,5 +1,5 @@
-import { useCoTheme } from '@co-design/styles';
 import React from 'react';
+import { useCoTheme } from '@co-design/styles';
 
 export const Error = () => {
   const theme = useCoTheme();

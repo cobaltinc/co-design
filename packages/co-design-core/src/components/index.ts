@@ -8,6 +8,7 @@ export * from './Burger';
 export * from './Button';
 export * from './Card';
 export * from './Center';
+export * from './Checkbox';
 export * from './Chips';
 export * from './Container';
 export * from './Divider';
