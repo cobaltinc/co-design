@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import useStyles from './Checkbox.style';
+import { ClassNames, CoComponentProps } from '@co-design/styles';
 import { CheckboxIcon } from './CheckboxIcon';
+import { View } from '../View';
+import useStyles from './Checkbox.style';
+import { useId } from '@co-design/hooks';
 
-export interface CheckboxProps {
-  name?: string;
+export type CheckboxStylesNames = ClassNames<typeof useStyles>;
+
+export interface CheckboxProps extends CoComponentProps<CheckboxStylesNames>, React.ComponentPropsWithoutRef<'input'> {
+  /** Checkbox 를 설명할 label 을 지정합니다.   */
   label?: string;
+
+  /** Checkbox 를 설명할 label 의 색상을 지정합니다.   */
   labelColor?: string;
-  value?: string;
-  checked?: boolean;
+
+  /** Checkbox 를 block 상태로 지정합니다.  */
   block?: boolean;
+
+  /** Checkbox 를 error 상태로 지정합니다.  */
   error?: boolean;
-  disabled?: boolean;
+
+  /** Checkbox 를 indeterminate 상태로 지정합니다.  */
   indeterminate?: boolean;
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
-  onClick?: React.MouseEventHandler<HTMLLabelElement>;
-  className?: string;
-  style?: React.CSSProperties;
+
+  /** Checkbox 를 감싸는 요소를 클릭했을 때 발생할 이벤트를 지정합니다. */
+  onClick?: React.MouseEventHandler<HTMLDivElement>;
+
+  /** Checkbox 를 감싸는 요소에 속성을 전달합니다. */
+  wrapperProps?: React.ComponentPropsWithoutRef<'div'> & { [key: string]: any };
 }
 
 export const Checkbox = ({
@@ -32,10 +44,15 @@ export const Checkbox = ({
   onClick,
   className = '',
   style,
+  wrapperProps,
+  co,
+  overrideStyles,
   ...props
 }: CheckboxProps) => {
+  const inputId = useId();
   const [check, setCheck] = useState(checked);
   const { classes, cx } = useStyles(null, {
+    overrideStyles,
     name: 'Checkbox',
   });
 
@@ -49,21 +66,32 @@ export const Checkbox = ({
   };
 
   return (
-    <label
+    <View
       onClick={onClick}
       className={cx(classes.wrapper, className, { [classes.block]: block, [classes.disabled]: disabled })}
+      co={co}
       style={style}
-      {...props}
+      {...wrapperProps}
     >
-      <input type="checkbox" className={classes.input} name={name} checked={check} disabled={disabled} value={value} onChange={handleChange} />
+      <input
+        id={inputId}
+        type="checkbox"
+        className={classes.input}
+        name={name}
+        checked={check}
+        disabled={disabled}
+        value={value}
+        onChange={handleChange}
+        {...props}
+      />
       <span className={classes.checkmark}>
         <CheckboxIcon check={check} indeterminate={indeterminate} error={error} disabled={disabled} />
       </span>
       {label ? (
-        <span className={classes.text} style={{ color: labelColor }}>
+        <label htmlFor={inputId} className={classes.text} style={{ color: labelColor }}>
           {label}
-        </span>
+        </label>
       ) : null}
-    </label>
+    </View>
   );
 };

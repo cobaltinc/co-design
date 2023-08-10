@@ -10,6 +10,10 @@ export const Default = () => {
   return <Checkbox />;
 };
 
+export const WithLabel = () => {
+  return <Checkbox label="hello" />;
+};
+
 export const Disabled = () => {
   return <Checkbox disabled />;
 };
