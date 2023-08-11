@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ToastType } from './Toast';
-import ToastManager from './ToastManager';
+import { ToastProps, ToastType } from './Toast';
+import ToastArea from './ToastArea';
+import { guid } from '../../utils';
 
 export type ToastOptionType = {
   type: ToastType;
@@ -9,37 +10,41 @@ export type ToastOptionType = {
 };
 
 class ToastCore {
-  createToast?(message: string, option: ToastOptionType): void;
+  toasts: ToastProps[] = [];
   portal: Element | null = null;
+  portalId = `co-toast-portal`;
 
   createPortal() {
-    const portalId = `co-toast-portal`;
-    const portalElement = document.getElementById(portalId);
-
-    if (portalElement) {
-      this.portal = portalElement;
-      return;
-    } else {
+    if (!this.portal) {
       this.portal = document.createElement('div');
-      this.portal.id = portalId;
+      this.portal.id = this.portalId;
       document.body.appendChild(this.portal);
     }
-
-    ReactDOM.render(
-      // TODO: 다른 좋은 방법 찾기
-      // tslint:disable-next-line: jsx-no-bind
-      <ToastManager bind={this.bind.bind(this)} />,
-      this.portal,
-    );
   }
 
-  bind(createToast: (message: string, option: ToastOptionType) => void) {
-    this.createToast = createToast;
+  renderToast() {
+    ReactDOM.render(<ToastArea toasts={this.toasts} removeToast={(id) => this.removeToast(id)} />, this.portal);
+  }
+
+  createToast(message: string, option: ToastOptionType) {
+    const id = guid();
+    const newToast = {
+      id,
+      message,
+      type: option.type,
+      duration: option.duration,
+    };
+    this.toasts = [...this.toasts, newToast];
+  }
+
+  removeToast(id: string) {
+    this.toasts = this.toasts.filter((toast) => toast.id !== id);
   }
 
   show(message: string, option: ToastOptionType = { type: 'default', duration: 4500 }) {
     this.createPortal();
-    this.createToast?.(message, option);
+    this.createToast(message, option);
+    this.renderToast();
   }
 
   success(message: string, duration = 4500) {
