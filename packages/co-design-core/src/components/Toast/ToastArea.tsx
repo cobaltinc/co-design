@@ -18,8 +18,8 @@ const ToastArea = ({ toasts, removeToast }: ToastAreaProps) => {
   return (
     <div className={classes.root}>
       {toasts.map((toast) => {
-        const { id, message, type, duration } = toast;
-        return <Toast id={id} message={message} type={type} duration={duration} key={id} onDone={() => removeToast(id)} />;
+        const { id, message, type, duration, close } = toast;
+        return <Toast id={id} message={message} type={type} duration={duration} close={close} key={id} onDone={() => removeToast(id)} />;
       })}
     </div>
   );

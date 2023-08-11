@@ -6,7 +6,8 @@ import { guid } from '../../utils';
 
 export type ToastOptionType = {
   type: ToastType;
-  duration: number;
+  duration?: number;
+  close?: boolean;
 };
 
 class ToastCore {
@@ -33,30 +34,32 @@ class ToastCore {
       message,
       type: option.type,
       duration: option.duration,
+      close: option.close,
     };
     this.toasts = [...this.toasts, newToast];
   }
 
   removeToast(id: string) {
     this.toasts = this.toasts.filter((toast) => toast.id !== id);
+    this.renderToast();
   }
 
-  show(message: string, option: ToastOptionType = { type: 'default', duration: 4500 }) {
+  show(message: string, option: ToastOptionType = { type: 'default', duration: 4500, close: false }) {
     this.createPortal();
     this.createToast(message, option);
     this.renderToast();
   }
 
-  success(message: string, duration = 4500) {
-    this.show(message, { type: 'success', duration });
+  success(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
+    this.show(message, { type: 'success', ...option });
   }
 
-  error(message: string, duration = 4500) {
-    this.show(message, { type: 'error', duration });
+  error(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
+    this.show(message, { type: 'error', ...option });
   }
 
-  warning(message: string, duration = 4500) {
-    this.show(message, { type: 'warning', duration });
+  warning(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
+    this.show(message, { type: 'warning', ...option });
   }
 }
 
