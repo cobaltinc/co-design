@@ -1,6 +1,5 @@
-import React, { useEffect } from 'react';
-import Toast, { ToastType, ToastProps } from './Toast';
-import './Toast.style.scss';
+import React from 'react';
+import { Toast, ToastType, ToastProps } from './Toast';
 
 // export type ToastPlacementType =
 //   'topLeft' |

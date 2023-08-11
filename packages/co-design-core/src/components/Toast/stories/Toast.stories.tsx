@@ -1,5 +1,5 @@
 import React from 'react';
-import Toast from '../Toast';
+import { Toast } from '../Toast';
 
 export default {
   title: '@co-design/core/Toast',

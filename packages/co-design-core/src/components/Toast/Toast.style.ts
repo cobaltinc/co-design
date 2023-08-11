@@ -38,7 +38,7 @@ export default createStyles((theme, { duration }: ToastStylesParams) => {
       height: '70px',
       padding: '0 20px',
       alignItems: 'center',
-      fontSize: '14px', // $typography-paragraph2
+      fontSize: theme.fontSizes.small,
       color: '#212b36',
       borderRadius: '5px',
       border: '1px solid #cfd8eb',
