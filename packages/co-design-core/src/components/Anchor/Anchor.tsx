@@ -10,7 +10,7 @@ interface _SharedTextProps extends SharedTextProps {
 
 export type AnchorProps<C extends React.ElementType> = PolymorphicComponentProps<C, _SharedTextProps>;
 
-type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorProps<C>) => React.ReactElement;
+type AnchorComponent = <C extends React.ElementType = 'a'>(props: AnchorProps<C>) => React.ReactNode;
 
 export const Anchor: AnchorComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'a'>(
