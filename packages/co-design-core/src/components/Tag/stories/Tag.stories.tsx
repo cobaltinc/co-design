@@ -6,21 +6,25 @@ export default {
   component: Tag,
   argTypes: {
     color: {
-      defaultValue: 'purple',
       options: ['purple', 'red', 'blue', 'gray'],
       control: { type: 'inline-radio' },
     },
     fullWidth: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     strong: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
   },
+  args: {
+    color: 'purple',
+    fullWidth: false,
+    strong: false,
+  },
 };
 
-export const Default = (props) => {
-  return <Tag {...props}>Tag</Tag>;
+export const Default = {
+  render: (props) => {
+    return <Tag {...props}>Tag</Tag>;
+  },
 };

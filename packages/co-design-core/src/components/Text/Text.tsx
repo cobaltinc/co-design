@@ -45,7 +45,7 @@ export interface SharedTextProps extends CoComponentProps<TextStylesNames> {
 
 export type TextProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedTextProps>;
 
-type TextComponent = <C extends React.ElementType = 'span'>(props: TextProps<C>) => React.ReactElement;
+type TextComponent = <C extends React.ElementType = 'span'>(props: TextProps<C>) => React.ReactNode;
 
 export const Text: TextComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'span'>(

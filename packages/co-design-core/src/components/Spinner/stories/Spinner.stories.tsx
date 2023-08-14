@@ -6,7 +6,6 @@ export default {
   component: Spinner,
   argTypes: {
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
@@ -14,8 +13,13 @@ export default {
       control: { type: 'color' },
     },
   },
+  args: {
+    size: 'medium',
+  },
 };
 
-export const Default = (props) => {
-  return <Spinner {...props} />;
+export const Default = {
+  render: (props) => {
+    return <Spinner {...props} />;
+  },
 };

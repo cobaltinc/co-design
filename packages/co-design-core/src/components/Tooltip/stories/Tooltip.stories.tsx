@@ -7,15 +7,12 @@ export default {
   component: Tooltip,
   argTypes: {
     label: {
-      defaultValue: 'Peek-A-Boo',
       control: { type: 'text' },
     },
     withArrow: {
-      defaultValue: true,
       control: { type: 'boolean' },
     },
     placement: {
-      defaultValue: 'bottom',
       options: [
         'top-left',
         'top',
@@ -33,7 +30,6 @@ export default {
       control: { type: 'inline-radio' },
     },
     trigger: {
-      defaultValue: 'hover',
       options: ['hover', 'click', 'focus'],
       control: { type: 'inline-radio' },
     },
@@ -46,24 +42,26 @@ export default {
       control: { type: 'text' },
     },
   },
+  args: {
+    label: 'Peek-A-Boo',
+    withArrow: true,
+    placement: 'bottom',
+    trigger: 'hover',
+    children: <button>Tooltip</button>,
+  },
+  decorators: [
+    (Story) => (
+      <Center style={{ width: 500, height: 500 }}>
+        <Story />
+      </Center>
+    ),
+  ],
 };
 
-export const Default = (props) => {
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Tooltip placement="bottom" label="Test" {...props}>
-        <button>Tooltip</button>
-      </Tooltip>
-    </Center>
-  );
-};
+export const Default = {};
 
-export const WithTitle = (props) => {
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Tooltip placement="bottom" title="Title" label="Peek-A-Boo" {...props}>
-        <button>Tooltip</button>
-      </Tooltip>
-    </Center>
-  );
+export const WithTitle = {
+  args: {
+    title: 'Title',
+  },
 };

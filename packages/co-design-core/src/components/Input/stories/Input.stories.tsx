@@ -7,27 +7,29 @@ export default {
   component: Input,
   argTypes: {
     placeholder: {
-      defaultValue: 'Placeholder',
       control: { type: 'text' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     radius: {
-      defaultValue: 'medium',
       options: ['small', 'medium', 'large', 'round', 'circular'],
       control: { type: 'inline-radio' },
     },
     invalid: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     disabled: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
+  },
+  args: {
+    placeholder: 'Placeholder',
+    size: 'medium',
+    radius: 'medium',
+    invalid: false,
+    disabled: false,
   },
 };
 
@@ -40,40 +42,48 @@ const Icon = () => (
   </svg>
 );
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <Input {...props} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input {...props} />
+      </div>
+    );
+  },
 };
 
-export const WithIcon = (props) => {
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <Input icon={<Icon />} {...props} />
-    </div>
-  );
+export const WithIcon = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input icon={<Icon />} {...props} />
+      </div>
+    );
+  },
 };
 
-export const WithRightSection = (props) => {
-  const withTooltip = (
-    <Tooltip label="Tutorial" placement="bottom">
-      Info
-    </Tooltip>
-  );
+export const WithRightSection = {
+  render: (props) => {
+    const withTooltip = (
+      <Tooltip label="Tutorial" placement="bottom">
+        Info
+      </Tooltip>
+    );
 
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <Input icon={<Icon />} rightSection={withTooltip} rightSectionWidth={50} {...props} />
-    </div>
-  );
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input icon={<Icon />} rightSection={withTooltip} rightSectionWidth={50} {...props} />
+      </div>
+    );
+  },
 };
 
-export const Textarea = (props) => {
-  return (
-    <div style={{ width: 400, padding: 24 }}>
-      <Input component="textarea" multiline {...props} />
-    </div>
-  );
+export const Textarea = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input component="textarea" multiline {...props} />
+      </div>
+    );
+  },
 };

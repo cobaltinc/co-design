@@ -6,20 +6,16 @@ export default {
   component: Heading,
   argTypes: {
     level: {
-      defaultValue: 1,
       options: [1, 2, 3, 4, 5, 6],
       control: { type: 'inline-radio' },
     },
     inline: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     strong: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     underline: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     align: {
@@ -30,8 +26,16 @@ export default {
       control: { type: 'color' },
     },
   },
+  args: {
+    level: 1,
+    inline: false,
+    strong: false,
+    underline: false,
+  },
 };
 
-export const Default = (props) => {
-  return <Heading {...props}>Heading</Heading>;
+export const Default = {
+  render: (props) => {
+    return <Heading {...props}>Heading</Heading>;
+  },
 };

@@ -20,10 +20,10 @@ export default createStyles((theme, { duration }: ToastStylesParams) => {
       transform: 'translate3d(0, -0, -0) scale(1)',
       transition: 'all 400ms ease', // duration slow
       opacity: 0,
-      '&:first-child': {
+      '&:first-of-type': {
         animation: `${toastAnimation} 400ms ease-out forwards`,
       },
-      '&:not(:first-child)': {
+      '&:not(:first-of-type)': {
         marginTop: '8px',
       },
     },

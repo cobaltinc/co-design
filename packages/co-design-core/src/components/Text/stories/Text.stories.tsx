@@ -15,15 +15,12 @@ export default {
       control: { type: 'inline-radio' },
     },
     strong: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     underline: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     block: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     transform: {
@@ -35,7 +32,6 @@ export default {
       control: { type: 'inline-radio' },
     },
     lineClamp: {
-      defaultValue: undefined,
       control: { type: 'number' },
     },
     color: {
@@ -43,14 +39,23 @@ export default {
       control: { type: 'inline-radio' },
     },
   },
+  args: {
+    children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+    size: 'medium',
+    strong: false,
+    underline: false,
+    block: false,
+  },
 };
 
-export const Default = (props) => {
-  return (
-    <div style={{ width: 300 }}>
-      <Text {...props} />
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    return (
+      <div style={{ width: 300 }}>
+        <Text {...props} />
+      </div>
+    );
+  },
 };
 
 export const Inherit = () => {

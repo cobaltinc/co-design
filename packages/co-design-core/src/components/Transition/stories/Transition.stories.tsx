@@ -7,11 +7,9 @@ export default {
   component: Transition,
   argTypes: {
     duration: {
-      defaultValue: 400,
       control: { type: 'number' },
     },
     transition: {
-      defaultValue: 'fade',
       options: [
         'fade',
         'skew-up',
@@ -34,21 +32,27 @@ export default {
       control: { type: 'inline-radio' },
     },
     timingFunction: {
-      defaultValue: 'ease',
       options: ['ease', 'ease-out', 'ease-in'],
       control: { type: 'inline-radio' },
     },
   },
+  args: {
+    duration: 400,
+    transition: 'fade',
+    timingFunction: 'ease',
+  },
 };
 
-export const Default = (props) => {
-  const [state, toggle] = useToggle();
-  return (
-    <div>
-      <button onClick={toggle}>Toggle</button>
-      <Transition mounted={state} {...props}>
-        {(styles) => <div style={{ width: 100, height: 100, backgroundColor: 'red', ...styles }} />}
-      </Transition>
-    </div>
-  );
+export const Default = {
+  render: (props) => {
+    const [state, toggle] = useToggle();
+    return (
+      <div>
+        <button onClick={toggle}>Toggle</button>
+        <Transition mounted={state} {...props}>
+          {(styles) => <div style={{ width: 100, height: 100, backgroundColor: 'red', ...styles }} />}
+        </Transition>
+      </div>
+    );
+  },
 };

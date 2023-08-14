@@ -8,39 +8,31 @@ export default {
   component: Drawer,
   argTypes: {
     position: {
-      defaultValue: 'right',
       options: ['left', 'top', 'bottom', 'right'],
       control: { type: 'inline-radio' },
     },
     size: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge', 'full'],
       control: { type: 'inline-radio' },
     },
     shadow: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     padding: {
-      defaultValue: 'medium',
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
     noFocusTrap: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     noScrollLock: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     noCloseOnClickOutside: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     noCloseOnEscape: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     trannsition: {
@@ -69,7 +61,6 @@ export default {
       control: { type: 'number' },
     },
     noOverlay: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
     overlayOpacity: {
@@ -79,21 +70,34 @@ export default {
       control: { type: 'color' },
     },
     hideCloseButton: {
-      defaultValue: false,
       control: { type: 'boolean' },
     },
   },
+  args: {
+    position: 'right',
+    size: 'medium',
+    shadow: 'medium',
+    padding: 'medium',
+    noFocusTrap: false,
+    noScrollLock: false,
+    noCloseOnClickOutside: false,
+    noCloseOnEscape: false,
+    noOverlay: false,
+    hideCloseButton: false,
+  },
 };
 
-export const Default = (props) => {
-  const [opened, toggleOpened] = useToggle();
+export const Default = {
+  render: (props) => {
+    const [opened, toggleOpened] = useToggle();
 
-  return (
-    <>
-      <Button onClick={toggleOpened}>Open</Button>
-      <Drawer {...props} title="Drawer" opened={opened} onClose={() => toggleOpened(false)}>
-        Hello, World!
-      </Drawer>
-    </>
-  );
+    return (
+      <>
+        <Button onClick={toggleOpened}>Open</Button>
+        <Drawer {...props} title="Drawer" opened={opened} onClose={() => toggleOpened(false)}>
+          Hello, World!
+        </Drawer>
+      </>
+    );
+  },
 };

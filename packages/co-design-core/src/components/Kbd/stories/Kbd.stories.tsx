@@ -6,12 +6,16 @@ export default {
   component: Kbd,
   argTypes: {
     children: {
-      defaultValue: 'Ctrl + K',
       control: { type: 'text' },
     },
   },
+  args: {
+    children: 'Ctrl + K',
+  },
 };
 
-export const Default = ({ children }) => {
-  return <Kbd>{children}</Kbd>;
+export const Default = {
+  render: ({ children }) => {
+    return <Kbd>{children}</Kbd>;
+  },
 };

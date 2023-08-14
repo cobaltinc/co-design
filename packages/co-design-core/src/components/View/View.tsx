@@ -9,7 +9,7 @@ interface _ViewProps extends Omit<CoComponentProps, 'co' | 'overrideStyles'> {
 
 export type ViewProps<C extends React.ElementType> = PolymorphicComponentProps<C, _ViewProps>;
 
-type ViewComponent = <C extends React.ElementType = 'div'>(props: ViewProps<C>) => React.ReactElement;
+type ViewComponent = <C extends React.ElementType = 'div'>(props: ViewProps<C>) => React.ReactNode;
 
 function extractCo(co: Co, theme: CoTheme) {
   return typeof co === 'function' ? co(theme) : co;

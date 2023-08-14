@@ -1,14 +1,10 @@
 {
   "extends": "./tsconfig.base.json",
-  "include": [
-    "packages/co-design-*/src",
-    "./scripts",
-    "./config"
-  ],
-  "exclude": ["public", ".cache", "config/storybook/main.js"],
+  "include": ["packages/co-design-*/src", "./scripts", "./config"],
+  "exclude": ["public", ".cache"],
   "compilerOptions": {
     "paths": {
-      "@co-design/*": ["packages/co-design-*/src"],
+      "@co-design/*": ["packages/co-design-*/src"]
     }
   }
 }
