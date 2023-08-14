@@ -3,18 +3,29 @@ import RadioGroup from './RadioGroup';
 import RadioContext from './RadioContext';
 import useStyles from './Radio.style';
 import { RadioIcon } from './RadioIcon';
+import { ClassNames, CoComponentProps } from '@co-design/styles';
+import { View } from '../View';
 
-export interface RadioProps {
+export type RadioStylesNames = ClassNames<typeof useStyles>;
+
+export interface RadioProps extends CoComponentProps<RadioStylesNames>, Omit<React.ComponentPropsWithoutRef<'input'>, 'onChange' | 'value'> {
+  /** Radio 의 value 를 지정합니다.  */
   value?: string;
-  name?: string;
+
+  /** Radio 를 설명할 label 을 지정합니다.   */
   label?: string;
+
+  /** Radio 를 설명할 label 의 색상을 지정합니다.   */
   labelColor?: string;
-  checked?: boolean;
+
+  /** Radio 를 block 상태로 지정합니다.  */
   block?: boolean;
-  disabled?: boolean;
+
+  /** Change Event 시 발생할 함수를 지정합니다.  */
   onChange?(check: boolean, value?: string): void;
-  className?: string;
-  style?: React.CSSProperties;
+
+  /** Radio 를 감싸는 요소에 속성을 전달합니다. */
+  wrapperProps?: React.ComponentPropsWithoutRef<'label'> & { [key: string]: any };
 }
 
 type IRadio<P> = React.FunctionComponent<P> & {
@@ -32,11 +43,15 @@ const Radio: IRadio<RadioProps> = ({
   onChange,
   className = '',
   style,
+  wrapperProps,
+  co,
+  overrideStyles,
   ...props
 }) => {
   const { dispatch } = useContext(RadioContext);
   const [check, setCheck] = useState(checked);
   const { cx, classes } = useStyles(null, {
+    overrideStyles,
     name: 'Radio',
   });
 
@@ -56,15 +71,32 @@ const Radio: IRadio<RadioProps> = ({
   };
 
   return (
-    <label className={cx(classes.wrapper, { [classes.disabled]: disabled, [classes.block]: block })} style={style} {...props}>
-      <input className={classes.input} type="radio" name={name} value={value} checked={check} disabled={disabled} onChange={handleChange} />
-      <RadioIcon className={classes.radiomark} check={check} disabled={disabled} />
+    <View
+      component="label"
+      className={cx(classes.wrapper, { [classes.disabled]: disabled, [classes.block]: block })}
+      co={co}
+      style={style}
+      {...wrapperProps}
+    >
+      <input
+        className={classes.input}
+        type="radio"
+        name={name}
+        value={value}
+        checked={check}
+        disabled={disabled}
+        onChange={handleChange}
+        {...props}
+      />
+      <span className={classes.radiomark}>
+        <RadioIcon check={check} disabled={disabled} />
+      </span>
       {label ? (
         <span className={classes.text} style={{ color: labelColor }}>
           {label}
         </span>
       ) : null}
-    </label>
+    </View>
   );
 };
 
