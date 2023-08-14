@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View } from '../View';
 import { IconButton } from '../IconButton';
 import ChevronLeft from './icons/ChevronLeft';
 import ChevronRight from './icons/ChevronRight';
 import useStyles from './Pagination.style';
 import { ClassNames, CoComponentProps } from '@co-design/styles';
+import Bullet from './Bullet';
 
 export type PaginationStylesNames = ClassNames<typeof useStyles>;
 
@@ -62,10 +63,6 @@ export const Pagination = ({
     pages = [currentPage - 2, currentPage - 1, currentPage, currentPage + 1, currentPage + 2];
   }
 
-  useEffect(() => {
-    setCurrentPage(activePage);
-  }, [activePage]);
-
   const handleChangePage = (page: number) => {
     onChange?.(page);
     setCurrentPage(page);
@@ -83,16 +80,6 @@ export const Pagination = ({
       onChange?.(currentPage + 1);
       setCurrentPage(currentPage + 1);
     }
-  };
-
-  const Bullet = () => {
-    return (
-      <div className={classes.bullet}>
-        {[0, 1, 2].map((_, index) => (
-          <div key={index} className={classes.circle} />
-        ))}
-      </div>
-    );
   };
 
   return (
@@ -118,7 +105,7 @@ export const Pagination = ({
           <div className={cx(classes.page, { [classes.active]: 1 === currentPage })} onClick={() => handleChangePage(1)}>
             1
           </div>
-          <Bullet />
+          <Bullet className={classes.bullet} circleClassName={classes.circle} />
         </>
       ) : null}
 
@@ -130,7 +117,7 @@ export const Pagination = ({
 
       {totalPage - 2 > currentPage && totalPage > pages.length && showLast ? (
         <>
-          <Bullet />
+          <Bullet className={classes.bullet} circleClassName={classes.circle} />
           <div className={cx(classes.page, { [classes.active]: totalPage === currentPage })} onClick={() => handleChangePage(totalPage)}>
             {totalPage}
           </div>
