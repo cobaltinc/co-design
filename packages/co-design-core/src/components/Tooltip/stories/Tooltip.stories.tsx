@@ -47,27 +47,21 @@ export default {
     withArrow: true,
     placement: 'bottom',
     trigger: 'hover',
+    children: <button>Tooltip</button>,
   },
-};
-
-export const Default = {
-  render: (props) => {
-    return (
+  decorators: [
+    (Story) => (
       <Center style={{ width: 500, height: 500 }}>
-        <Tooltip {...props}>
-          <button>Tooltip</button>
-        </Tooltip>
+        <Story />
       </Center>
-    );
-  },
+    ),
+  ],
 };
 
-export const WithTitle = (props) => {
-  return (
-    <Center style={{ width: 500, height: 500 }}>
-      <Tooltip placement="bottom" title="Title" label="Peek-A-Boo" {...props}>
-        <button>Tooltip</button>
-      </Tooltip>
-    </Center>
-  );
+export const Default = {};
+
+export const WithTitle = {
+  args: {
+    title: 'Title',
+  },
 };

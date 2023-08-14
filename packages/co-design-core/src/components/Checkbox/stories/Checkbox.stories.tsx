@@ -4,40 +4,76 @@ import { Checkbox } from '../Checkbox';
 export default {
   title: '@co-design/core/Checkbox',
   component: Checkbox,
+  argTypes: {
+    label: {
+      control: { type: 'text' },
+    },
+    disabled: {
+      control: { type: 'boolean' },
+    },
+    indeterminate: {
+      control: { type: 'boolean' },
+    },
+    error: {
+      control: { type: 'boolean' },
+    },
+    block: {
+      control: { type: 'boolean' },
+    },
+    checked: {
+      control: { type: 'boolean' },
+    },
+  },
 };
 
-export const Default = () => {
-  return <Checkbox />;
+export const Default = {};
+
+export const WithLabel = {
+  args: {
+    label: 'hello',
+  },
 };
 
-export const WithLabel = () => {
-  return <Checkbox label="hello" />;
+export const Disabled = {
+  args: {
+    disabled: true,
+  },
 };
 
-export const Disabled = () => {
-  return <Checkbox disabled />;
+export const DisabledCheck = {
+  args: {
+    disabled: true,
+    checked: true,
+  },
 };
 
-export const DisabledCheck = () => {
-  return <Checkbox disabled checked />;
+export const Indeterminate = {
+  args: {
+    indeterminate: true,
+  },
 };
 
-export const Indeterminate = () => {
-  return <Checkbox indeterminate />;
+export const Error = {
+  args: {
+    error: true,
+  },
 };
 
-export const Error = () => {
-  return <Checkbox error />;
+export const ErrorCheck = {
+  args: {
+    error: true,
+    checked: true,
+  },
 };
 
-export const ErrorCheck = () => {
-  return <Checkbox checked error />;
+export const Block = {
+  args: {
+    block: true,
+  },
 };
 
-export const Block = () => {
-  return <Checkbox block />;
-};
-
-export const Checked = () => {
-  return <Checkbox checked />;
+export const Checked = {
+  args: {
+    checked: true,
+  },
 };

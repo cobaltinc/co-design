@@ -16,11 +16,8 @@ export default {
   args: {
     underlineOnHover: true,
     color: 'purple',
+    children: 'https://present.do',
   },
 };
 
-export const Default = {
-  render: (props) => {
-    return <Anchor {...props}>https://present.do</Anchor>;
-  },
-};
+export const Default = {};
