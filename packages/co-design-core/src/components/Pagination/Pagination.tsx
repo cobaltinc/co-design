@@ -4,16 +4,28 @@ import { IconButton } from '../IconButton';
 import ChevronLeft from './icons/ChevronLeft';
 import ChevronRight from './icons/ChevronRight';
 import useStyles from './Pagination.style';
+import { ClassNames, CoComponentProps } from '@co-design/styles';
 
-export interface PaginationProps {
+export type PaginationStylesNames = ClassNames<typeof useStyles>;
+
+export interface PaginationProps extends CoComponentProps<PaginationStylesNames>, Omit<React.ComponentPropsWithoutRef<'div'>, 'onChange'> {
+  /** Pagination 의 초기 Active Page 를 설정합니다. */
   activePage?: number;
+
+  /** Pagination 의 한 페이지당 보여줄 아이템의 개수를 설정합니다. */
   itemsCountPerView?: number;
+
+  /** Pagination 의 전체 아이템의 개수를 설정합니다. */
   totalItemsCount: number;
+
+  /** 첫 페이지를 유지하여 보여주고 선택할 수 있도록 설정합니다. */
   showFirst?: boolean;
+
+  /** 마지막 페이지를 유지하여 보여주고 선택할 수 있도록 설정합니다. */
   showLast?: boolean;
+
+  /** Pagination 의 페이지를 변경했을 때 발생할 이벤트를 설정합니다. */
   onChange?(page: number): void;
-  className?: string;
-  style?: React.CSSProperties;
 }
 
 export const Pagination = ({
@@ -25,10 +37,13 @@ export const Pagination = ({
   onChange,
   className = '',
   style,
+  co,
+  overrideStyles,
   ...props
 }: PaginationProps) => {
   const [currentPage, setCurrentPage] = useState(activePage);
   const { cx, classes } = useStyles(null, {
+    overrideStyles,
     name: 'Pagination',
   });
 
@@ -81,7 +96,7 @@ export const Pagination = ({
   };
 
   return (
-    <View className={classes.root} style={style} {...props}>
+    <View className={classes.root} style={style} co={co} {...props}>
       <IconButton
         color="gray"
         variant="text"
