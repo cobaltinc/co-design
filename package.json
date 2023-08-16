@@ -65,7 +65,7 @@
     "rollup-plugin-visualizer": "^5.5.2",
     "storybook": "^7.2.1",
     "storybook-dark-mode": "^3.0.1",
-    "typescript": "^4.5.2",
+    "typescript": "^5.1.6",
     "yargs": "^17.3.0"
   },
   "resolutions": {
