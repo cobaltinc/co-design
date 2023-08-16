@@ -12,7 +12,7 @@ interface _SidebarSectionProps extends CoComponentProps {
 
 export type SidebarSectionProps<C extends React.ElementType> = PolymorphicComponentProps<C, _SidebarSectionProps>;
 
-type SidebarSectionComponent = <C extends React.ElementType = 'div'>(props: SidebarSectionProps<C>) => React.ReactElement;
+type SidebarSectionComponent = <C extends React.ElementType = 'div'>(props: SidebarSectionProps<C>) => React.ReactNode;
 
 export const SidebarSection: SidebarSectionComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>({ component, children, grow = false, co, ...props }: SidebarSectionProps<C>, ref: PolymorphicRef<C>) => (

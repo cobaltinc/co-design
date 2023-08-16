@@ -10,7 +10,7 @@ type _SharedIconButtonProps = Omit<SharedButtonProps, 'leftIcon' | 'rightIcon'>;
 
 export type IconButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, _SharedIconButtonProps>;
 
-type IconButtonComponent = <C extends React.ElementType = 'button'>(props: IconButtonProps<C>) => React.ReactElement;
+type IconButtonComponent = <C extends React.ElementType = 'button'>(props: IconButtonProps<C>) => React.ReactNode;
 
 export const IconButton: IconButtonComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'button'>(

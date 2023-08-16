@@ -41,7 +41,7 @@ export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
 
 export type ButtonProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedButtonProps>;
 
-type ButtonComponent = <C extends React.ElementType = 'button'>(props: ButtonProps<C>) => React.ReactElement;
+type ButtonComponent = <C extends React.ElementType = 'button'>(props: ButtonProps<C>) => React.ReactNode;
 
 export const Button: ButtonComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'button'>(

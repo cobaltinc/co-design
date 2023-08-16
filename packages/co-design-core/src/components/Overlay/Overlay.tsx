@@ -19,7 +19,7 @@ interface _OverlayProps extends Omit<CoComponentProps, 'overrideStyles'> {
 
 export type OverlayProps<C extends React.ElementType> = PolymorphicComponentProps<C, _OverlayProps>;
 
-type OverlayComponent = <C extends React.ElementType = 'div'>(props: OverlayProps<C>) => React.ReactElement;
+type OverlayComponent = <C extends React.ElementType = 'div'>(props: OverlayProps<C>) => React.ReactNode;
 
 export const Overlay: OverlayComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(

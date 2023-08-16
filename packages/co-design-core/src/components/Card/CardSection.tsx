@@ -11,7 +11,7 @@ export interface _CardSectionProps extends CoComponentProps {
 
 export type CardSectionProps<C extends React.ElementType> = PolymorphicComponentProps<C, _CardSectionProps>;
 
-type CardSectionComponent = (<C extends React.ElementType = 'div'>(props: CardSectionProps<C>) => React.ReactElement) & {
+type CardSectionComponent = (<C extends React.ElementType = 'div'>(props: CardSectionProps<C>) => React.ReactNode) & {
   displayName?: string;
 };
 

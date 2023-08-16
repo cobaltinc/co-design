@@ -50,7 +50,7 @@ interface _InputProps extends InputBaseProps, CoComponentProps<InputStylesNames>
 
 export type InputProps<C extends React.ElementType> = PolymorphicComponentProps<C, _InputProps>;
 
-type InputComponent = <C extends React.ElementType = 'input'>(props: InputProps<C>) => React.ReactElement;
+type InputComponent = <C extends React.ElementType = 'input'>(props: InputProps<C>) => React.ReactNode;
 
 export const Input: InputComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'input'>(

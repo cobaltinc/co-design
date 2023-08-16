@@ -25,7 +25,7 @@ interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
 
 export type AvatarProps<C extends React.ElementType> = PolymorphicComponentProps<C, _AvatarProps>;
 
-type AvatarComponent = <C extends React.ElementType = 'div'>(props: AvatarProps<C>) => React.ReactElement;
+type AvatarComponent = <C extends React.ElementType = 'div'>(props: AvatarProps<C>) => React.ReactNode;
 
 export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(

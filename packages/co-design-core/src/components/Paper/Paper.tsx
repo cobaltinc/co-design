@@ -21,7 +21,7 @@ export interface SharedPaperProps extends CoComponentProps<PaperStylesNames> {
 
 export type PaperProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedPaperProps>;
 
-type PaperComponent = <C extends React.ElementType = 'div'>(props: PaperProps<C>) => React.ReactElement;
+type PaperComponent = <C extends React.ElementType = 'div'>(props: PaperProps<C>) => React.ReactNode;
 
 export const Paper: PaperComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(
