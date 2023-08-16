@@ -9,7 +9,7 @@ import { CoTransition, Transition } from '../Transition';
 
 export type PopoverStylesNames = ClassNames<typeof useStyles>;
 
-export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, Omit<React.ComponentPropsWithoutRef<'div'>, 'content'> {
   /**
    * true일 경우 Popover 컴포넌트를 보여줍니다.
    * Popover 컴포넌트를 직접 제어할 경우 사용하는 속성입니다.
