@@ -4,7 +4,6 @@
   "npmClientArgs": [
     "--frozen-lockfile"
   ],
-  "useWorkspaces": true,
   "ignoreChanges": [
     "**/stories/**",
     "**/*.md"
