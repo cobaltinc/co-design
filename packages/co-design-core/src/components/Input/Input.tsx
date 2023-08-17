@@ -12,8 +12,17 @@ export interface InputBaseProps {
   /** Input 컴포넌트의 radius를 정합니다. */
   radius?: CoRadius | number;
 
-  /** Input 컴포넌트 왼쪽 영역에 요소가 추가됩니다. */
+  /** Input 컴포넌트 왼쪽 영역에 아이콘이 추가됩니다. */
   icon?: React.ReactNode;
+
+  /** Input 컴포넌트 왼쪽 영역에 요소가 추가됩니다. */
+  leftSection?: React.ReactNode;
+
+  /** 왼쪽 영역의 너비를 정합니다. */
+  leftSectionWidth?: number;
+
+  /** 왼쪽 영역을 감싸는 div에 속성을 전달합니다. */
+  leftSectionProps?: React.ComponentPropsWithoutRef<'div'>;
 
   /** Input 컴포넌트 오른쪽 영역에 요소가 추가됩니다. */
   rightSection?: React.ReactNode;
@@ -59,6 +68,9 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
       size = 'medium',
       radius = 'medium',
       icon,
+      leftSectionWidth = 36,
+      leftSection,
+      leftSectionProps = {},
       rightSectionWidth = 36,
       rightSection,
       rightSectionProps = {},
@@ -77,13 +89,24 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const { classes, cx } = useStyles({ radius, size, multiline, invalid }, { overrideStyles, name: __staticSelector });
+    const { classes, cx } = useStyles(
+      { radius, size, multiline, invalid, isLeftSectionExist: !!leftSection, leftSectionWidth },
+      { overrideStyles, name: __staticSelector },
+    );
     const Element: any = component || 'input';
 
     return (
       <View className={cx(classes.wrapper, className)} co={co} style={style} {...wrapperProps}>
+        {leftSection && (
+          <div
+            {...leftSectionProps}
+            style={{ ...leftSectionProps.style, width: leftSectionWidth }}
+            className={cx(classes.leftSection, leftSectionProps.className)}
+          >
+            {leftSection}
+          </div>
+        )}
         {icon && <div className={classes.icon}>{icon}</div>}
-
         <Element
           {...props}
           ref={ref}
@@ -96,7 +119,6 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
           disabled={disabled}
           style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
         />
-
         {rightSection && (
           <div
             {...rightSectionProps}

@@ -78,6 +78,22 @@ export const WithRightSection = {
   },
 };
 
+export const WithLeftSection = {
+  render: (props) => {
+    const withTooltip = (
+      <Tooltip label="Tutorial" placement="bottom">
+        Info
+      </Tooltip>
+    );
+
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input icon={<Icon />} leftSection={withTooltip} leftSectionWidth={50} {...props} />
+      </div>
+    );
+  },
+};
+
 export const Textarea = {
   render: (props) => {
     return (

@@ -7,6 +7,8 @@ interface InputStyles {
   size: CoSize;
   multiline: boolean;
   invalid: boolean;
+  isLeftSectionExist: boolean;
+  leftSectionWidth: number;
 }
 
 const FONT_SIZES = {
@@ -17,7 +19,7 @@ const FONT_SIZES = {
   xlarge: 16,
 };
 
-export default createStyles((theme, { size, multiline, radius, invalid }: InputStyles) => {
+export default createStyles((theme, { size, multiline, radius, invalid, isLeftSectionExist, leftSectionWidth }: InputStyles) => {
   const invalidColor = theme.palettes.red[theme.colorScheme === 'dark' ? 5 : 6];
 
   return {
@@ -79,7 +81,7 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
     },
 
     withIcon: {
-      paddingLeft: `${getFieldValue(size, CO_HEIGHTS)}px !important`,
+      paddingLeft: `${getFieldValue(size, CO_HEIGHTS) + (isLeftSectionExist ? leftSectionWidth : 0)}px !important`,
     },
 
     invalid: {
@@ -111,7 +113,7 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       pointerEvents: 'none',
       position: 'absolute',
       zIndex: 1,
-      left: 0,
+      left: isLeftSectionExist ? leftSectionWidth : 0,
       top: 0,
       bottom: 0,
       display: 'flex',
@@ -135,6 +137,16 @@ export default createStyles((theme, { size, multiline, radius, invalid }: InputS
       top: 0,
       bottom: 0,
       right: 0,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    leftSection: {
+      position: 'absolute',
+      top: 0,
+      bottom: 0,
+      left: 0,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
