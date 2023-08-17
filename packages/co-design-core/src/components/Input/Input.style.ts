@@ -26,7 +26,12 @@ export default createStyles((theme, { size, multiline, radius, invalid, isLeftSe
     wrapper: {
       position: 'relative',
     },
-
+    label: {
+      marginBottom: theme.spacing.small,
+    },
+    labelText: {
+      fontSize: theme.fontSizes.small,
+    },
     input: {
       ...defaultFontStyles(theme),
       height: multiline ? 'auto' : getFieldValue(size, CO_HEIGHTS),

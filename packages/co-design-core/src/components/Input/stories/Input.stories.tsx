@@ -103,3 +103,13 @@ export const Textarea = {
     );
   },
 };
+
+export const WithLabel = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input {...props} label="name" />
+      </div>
+    );
+  },
+};

@@ -2,6 +2,8 @@ import React, { forwardRef } from 'react';
 import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
+import { Text, TextProps } from '../Text';
+import { useId } from '@co-design/hooks';
 
 export type InputStylesNames = ClassNames<typeof useStyles>;
 
@@ -50,6 +52,12 @@ export interface InputBaseProps {
 
   /** disabled 상태가 됩니다. */
   disabled?: boolean;
+
+  /** Input 을 섦명할 label을 지정합니다. */
+  label?: string;
+
+  /** Label Text의 Props 를 설정합니다. */
+  labelTextProps?: TextProps<'span'>;
 }
 
 interface _InputProps extends InputBaseProps, CoComponentProps<InputStylesNames> {
@@ -79,6 +87,8 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
       required = false,
       disabled = false,
       multiline = false,
+      label = '',
+      labelTextProps = {},
       className,
       style,
       co,
@@ -88,6 +98,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     }: InputProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
+    const inputId = useId();
     const theme = useCoTheme();
     const { classes, cx } = useStyles(
       { radius, size, multiline, invalid, isLeftSectionExist: !!leftSection, leftSectionWidth },
@@ -96,39 +107,49 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     const Element: any = component || 'input';
 
     return (
-      <View className={cx(classes.wrapper, className)} co={co} style={style} {...wrapperProps}>
-        {leftSection && (
-          <div
-            {...leftSectionProps}
-            style={{ ...leftSectionProps.style, width: leftSectionWidth }}
-            className={cx(classes.leftSection, leftSectionProps.className)}
-          >
-            {leftSection}
-          </div>
+      <>
+        {label && (
+          <label htmlFor={inputId} className={classes.label}>
+            <Text className={classes.labelText} {...labelTextProps}>
+              {label}
+            </Text>
+          </label>
         )}
-        {icon && <div className={classes.icon}>{icon}</div>}
-        <Element
-          {...props}
-          ref={ref}
-          className={cx(classes.input, {
-            [classes.withIcon]: icon,
-            [classes.invalid]: invalid,
-            [classes.disabled]: disabled,
-          })}
-          required={required}
-          disabled={disabled}
-          style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
-        />
-        {rightSection && (
-          <div
-            {...rightSectionProps}
-            style={{ ...rightSectionProps.style, width: rightSectionWidth }}
-            className={cx(classes.rightSection, rightSectionProps.className)}
-          >
-            {rightSection}
-          </div>
-        )}
-      </View>
+        <View className={cx(classes.wrapper, className)} co={co} style={style} {...wrapperProps}>
+          {leftSection && (
+            <div
+              {...leftSectionProps}
+              style={{ ...leftSectionProps.style, width: leftSectionWidth }}
+              className={cx(classes.leftSection, leftSectionProps.className)}
+            >
+              {leftSection}
+            </div>
+          )}
+          {icon && <div className={classes.icon}>{icon}</div>}
+          <Element
+            {...props}
+            ref={ref}
+            className={cx(classes.input, {
+              [classes.withIcon]: icon,
+              [classes.invalid]: invalid,
+              [classes.disabled]: disabled,
+            })}
+            required={required}
+            disabled={disabled}
+            style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
+            id={inputId}
+          />
+          {rightSection && (
+            <div
+              {...rightSectionProps}
+              style={{ ...rightSectionProps.style, width: rightSectionWidth }}
+              className={cx(classes.rightSection, rightSectionProps.className)}
+            >
+              {rightSection}
+            </div>
+          )}
+        </View>
+      </>
     );
   },
 );
