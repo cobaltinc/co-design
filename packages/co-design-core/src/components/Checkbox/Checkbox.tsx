@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ClassNames, CoComponentProps } from '@co-design/styles';
 import { CheckboxIcon } from './CheckboxIcon';
 import { View } from '../View';
@@ -58,6 +58,10 @@ export const Checkbox = ({
     setCheck(event.target.checked);
     onChange?.(event);
   };
+
+  useEffect(() => {
+    setCheck(checked);
+  }, [checked]);
 
   return (
     <View
