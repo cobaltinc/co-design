@@ -107,8 +107,10 @@ export const Textarea = {
 export const WithLabel = {
   render: (props) => {
     return (
-      <div style={{ width: 400, padding: 24 }}>
+      <div style={{ width: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: '16px' }}>
         <Input {...props} label="name" />
+        <Input {...props} label="email" />
+        <Input {...props} label="password" />
       </div>
     );
   },

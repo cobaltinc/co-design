@@ -53,7 +53,7 @@ export interface InputBaseProps {
   /** disabled 상태가 됩니다. */
   disabled?: boolean;
 
-  /** Input 을 섦명할 label을 지정합니다. */
+  /** Input 을 설명할 label을 지정합니다. */
   label?: string;
 
   /** Label Text의 Props 를 설정합니다. */
@@ -106,8 +106,10 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     );
     const Element: any = component || 'input';
 
+    const Wrapper = label ? View : React.Fragment;
+
     return (
-      <>
+      <Wrapper>
         {label && (
           <label htmlFor={inputId} className={classes.label}>
             <Text className={classes.labelText} {...labelTextProps}>
@@ -149,7 +151,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             </div>
           )}
         </View>
-      </>
+      </Wrapper>
     );
   },
 );

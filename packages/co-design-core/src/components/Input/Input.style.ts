@@ -27,6 +27,7 @@ export default createStyles((theme, { size, multiline, radius, invalid, isLeftSe
       position: 'relative',
     },
     label: {
+      display: 'block',
       marginBottom: theme.spacing.small,
     },
     labelText: {
