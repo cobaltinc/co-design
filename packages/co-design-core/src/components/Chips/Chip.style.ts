@@ -67,10 +67,8 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       ...defaultFontStyles(theme),
       boxSizing: 'border-box',
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.black,
-      display: 'flex',
-      width: 'fit-content',
+      display: 'inline-block',
       alignItems: 'center',
-      justifyContent: 'space-around',
       userSelect: 'none',
       border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[3]}`,
       borderRadius: getFieldValue(radius, theme.radius),
@@ -84,13 +82,15 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       transition: 'background-color 100ms ease',
       WebkitTapHighlightColor: 'transparent',
       backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.colors.white,
-      position: 'relative',
+
       '&:hover': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[0],
       },
     },
 
     checkWrapper: {
+      display: 'inline-block',
+      verticalAlign: 'middle',
       ref: iconWrapper,
       color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
       width: getFieldValue(size, checkIconSizes),
@@ -101,8 +101,8 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
     },
 
     closeWrapper: {
-      display: 'flex',
-      alignItems: 'center',
+      display: 'inline-block',
+      verticalAlign: 'middle',
       ref: iconWrapper,
       width: getFieldValue(size, closeIconSizes),
       maxWidth: getFieldValue(size, closeIconSizes),

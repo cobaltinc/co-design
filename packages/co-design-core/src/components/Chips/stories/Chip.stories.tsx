@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Chip } from '../Chip';
+import { Chips } from '../Chips';
 
 export default {
   title: '@co-design/core/Chip',
@@ -38,7 +39,7 @@ export const Deletable = {
   render: (props) => {
     const [chips, setChips] = useState(['React', 'Angular', 'Svelte', 'Vue']);
     return (
-      <div>
+      <Chips>
         {chips.map((chip) => (
           <Chip
             key={chip}
@@ -52,7 +53,7 @@ export const Deletable = {
             {chip}
           </Chip>
         ))}
-      </div>
+      </Chips>
     );
   },
 };
