@@ -1,11 +1,10 @@
-import React, { MouseEventHandler, SyntheticEvent, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
 import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
 import CloseIcon from './CloseIcon';
-import { Text } from '../Text';
 
 export type ChipStylesNames = ClassNames<typeof useStyles>;
 
@@ -107,9 +106,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
           type={type}
           className={classes.input}
           checked={value}
-          onChange={(event) => {
-            setValue(event.currentTarget.checked);
-          }}
+          onChange={(event) => setValue(event.currentTarget.checked)}
           id={uuid}
           disabled={disabled}
           ref={ref}
