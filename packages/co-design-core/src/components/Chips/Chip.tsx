@@ -4,6 +4,7 @@ import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme, ClassNames }
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
+import CloseIcon from './CloseIcon';
 
 export type ChipStylesNames = ClassNames<typeof useStyles>;
 
@@ -55,6 +56,10 @@ export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React
    */
   onChange?(checked: boolean): void;
 
+  /**
+   * Chip 에 Delete Icon 을 추가하고, 클릭 시 onDelete 함수가 실행됩니다.
+   */
+  onDelete?(): void;
   __staticSelector?: string;
 }
 
@@ -74,6 +79,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       checked,
       defaultChecked,
       onChange,
+      onDelete,
       co,
       overrideStyles,
       ...props
@@ -83,6 +89,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
     const uuid = useId(id);
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
+
     const { classes, cx } = useStyles({ radius, size, color: _color }, { overrideStyles, name: __staticSelector });
 
     const [value, setValue] = useUncontrolled({
@@ -105,13 +112,21 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
           ref={ref}
           {...props}
         />
-        <label htmlFor={uuid} className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled })}>
+        <label
+          htmlFor={uuid}
+          className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled, [classes.deletable]: !!onDelete })}
+        >
           {value && (
-            <span className={classes.iconWrapper}>
+            <span className={classes.checkWrapper}>
               <CheckboxIcon indeterminate={false} className={classes.checkIcon} />
             </span>
           )}
           {children}
+          {onDelete && (
+            <span className={classes.closeWrapper} onClick={onDelete}>
+              <CloseIcon className={classes.deleteIcon} />
+            </span>
+          )}
         </label>
       </View>
     );
