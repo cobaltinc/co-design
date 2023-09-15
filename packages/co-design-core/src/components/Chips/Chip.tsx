@@ -91,6 +91,8 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
 
+    const { classes, cx } = useStyles({ radius, size, color: _color }, { overrideStyles, name: __staticSelector });
+
     const [value, setValue] = useUncontrolled({
       value: checked,
       defaultValue: defaultChecked,
@@ -98,8 +100,6 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       onChange,
       rule: (val) => typeof val === 'boolean',
     });
-
-    const { classes, cx } = useStyles({ radius, size, color: _color, checked: value }, { overrideStyles, name: __staticSelector });
 
     return (
       <View className={cx(classes.root, className)} style={style} co={co}>

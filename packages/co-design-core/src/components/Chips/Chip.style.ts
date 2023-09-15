@@ -53,10 +53,9 @@ interface ChipStyles {
   radius: CoRadius | number;
   size: CoSize;
   color: CoPalette;
-  checked: boolean;
 }
 
-export default createStyles((theme, { radius, size, color, checked }: ChipStyles, getRef) => {
+export default createStyles((theme, { radius, size, color }: ChipStyles, getRef) => {
   const label = getRef('label');
   const iconWrapper = getRef('iconWrapper');
 
