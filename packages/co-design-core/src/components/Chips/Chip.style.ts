@@ -9,12 +9,20 @@ export const sizes = {
   xlarge: 40,
 };
 
-const iconSizes = {
+const checkIconSizes = {
   xsmall: 10,
   small: 12,
   medium: 14,
   large: 16,
   xlarge: 18,
+};
+
+const closeIconSizes = {
+  xsmall: 14,
+  small: 16,
+  medium: 18,
+  large: 20,
+  xlarge: 22,
 };
 
 const padding = {
@@ -33,13 +41,22 @@ const checkedPadding = {
   xlarge: 15,
 };
 
+const deletablePadding = {
+  xsmall: 7.5,
+  small: 10,
+  medium: 11.5,
+  large: 13,
+  xlarge: 15,
+};
+
 interface ChipStyles {
   radius: CoRadius | number;
   size: CoSize;
   color: CoPalette;
+  checked: boolean;
 }
 
-export default createStyles((theme, { radius, size, color }: ChipStyles, getRef) => {
+export default createStyles((theme, { radius, size, color, checked }: ChipStyles, getRef) => {
   const label = getRef('label');
   const iconWrapper = getRef('iconWrapper');
 
@@ -51,8 +68,10 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       ...defaultFontStyles(theme),
       boxSizing: 'border-box',
       color: theme.colorScheme === 'dark' ? theme.colors.white : theme.colors.black,
-      display: 'inline-block',
+      display: 'flex',
+      width: 'fit-content',
       alignItems: 'center',
+      justifyContent: 'space-around',
       userSelect: 'none',
       border: `1px solid ${theme.colorScheme === 'dark' ? theme.palettes.gray[2] : theme.palettes.gray[3]}`,
       borderRadius: getFieldValue(radius, theme.radius),
@@ -66,21 +85,30 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       transition: 'background-color 100ms ease',
       WebkitTapHighlightColor: 'transparent',
       backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.colors.white,
-
+      position: 'relative',
       '&:hover': {
         backgroundColor: theme.colorScheme === 'dark' ? theme.palettes.gray[8] : theme.palettes.gray[0],
       },
     },
 
-    iconWrapper: {
+    checkWrapper: {
       ref: iconWrapper,
       color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
-      width: getFieldValue(size, iconSizes),
-      maxWidth: getFieldValue(size, iconSizes),
-      height: getFieldValue(size, iconSizes),
+      width: getFieldValue(size, checkIconSizes),
+      maxWidth: getFieldValue(size, checkIconSizes),
+      height: getFieldValue(size, checkIconSizes),
       marginRight: theme.spacing.small,
-      display: 'inline-block',
-      verticalAlign: 'middle',
+      overflow: 'hidden',
+    },
+
+    closeWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      ref: iconWrapper,
+      width: getFieldValue(size, closeIconSizes),
+      maxWidth: getFieldValue(size, closeIconSizes),
+      height: getFieldValue(size, closeIconSizes),
+      marginLeft: theme.spacing.small,
       overflow: 'hidden',
     },
 
@@ -103,11 +131,23 @@ export default createStyles((theme, { radius, size, color }: ChipStyles, getRef)
       paddingLeft: getFieldValue(size, checkedPadding),
       paddingRight: getFieldValue(size, checkedPadding),
       border: `1px solid ${theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5]}`,
+      color: theme.palettes[color][theme.colorScheme === 'dark' ? 3 : 5],
+    },
+
+    deletable: {
+      paddingLeft: getFieldValue(size, deletablePadding),
+      paddingRight: getFieldValue(size, deletablePadding),
     },
 
     checkIcon: {
-      width: getFieldValue(size, iconSizes),
-      height: getFieldValue(size, iconSizes) / 1.1,
+      width: getFieldValue(size, checkIconSizes),
+      height: getFieldValue(size, checkIconSizes) / 1.1,
+      display: 'block',
+    },
+
+    deleteIcon: {
+      width: getFieldValue(size, closeIconSizes),
+      height: getFieldValue(size, closeIconSizes) / 1.1,
       display: 'block',
     },
 

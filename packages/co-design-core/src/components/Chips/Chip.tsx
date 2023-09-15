@@ -1,9 +1,11 @@
-import React, { forwardRef } from 'react';
+import React, { MouseEventHandler, SyntheticEvent, forwardRef } from 'react';
 import { useUncontrolled, useId } from '@co-design/hooks';
 import { CoComponentProps, CoPalette, CoSize, CoRadius, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import { CheckboxIcon } from './CheckboxIcon';
 import useStyles from './Chip.style';
+import CloseIcon from './CloseIcon';
+import { Text } from '../Text';
 
 export type ChipStylesNames = ClassNames<typeof useStyles>;
 
@@ -55,6 +57,10 @@ export interface ChipProps extends CoComponentProps<ChipStylesNames>, Omit<React
    */
   onChange?(checked: boolean): void;
 
+  /**
+   * Chip 에 Delete Icon 을 추가하고, 클릭 시 onDelete 함수가 실행됩니다.
+   */
+  onDelete?(): void;
   __staticSelector?: string;
 }
 
@@ -74,6 +80,7 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       checked,
       defaultChecked,
       onChange,
+      onDelete,
       co,
       overrideStyles,
       ...props
@@ -83,7 +90,6 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
     const uuid = useId(id);
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ radius, size, color: _color }, { overrideStyles, name: __staticSelector });
 
     const [value, setValue] = useUncontrolled({
       value: checked,
@@ -93,25 +99,38 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
       rule: (val) => typeof val === 'boolean',
     });
 
+    const { classes, cx } = useStyles({ radius, size, color: _color, checked: value }, { overrideStyles, name: __staticSelector });
+
     return (
       <View className={cx(classes.root, className)} style={style} co={co}>
         <input
           type={type}
           className={classes.input}
           checked={value}
-          onChange={(event) => setValue(event.currentTarget.checked)}
+          onChange={(event) => {
+            console.log('change');
+            setValue(event.currentTarget.checked);
+          }}
           id={uuid}
           disabled={disabled}
           ref={ref}
           {...props}
         />
-        <label htmlFor={uuid} className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled })}>
+        <label
+          htmlFor={uuid}
+          className={cx(classes.label, { [classes.checked]: value, [classes.disabled]: disabled, [classes.deletable]: !!onDelete })}
+        >
           {value && (
-            <span className={classes.iconWrapper}>
+            <span className={classes.checkWrapper}>
               <CheckboxIcon indeterminate={false} className={classes.checkIcon} />
             </span>
           )}
           {children}
+          {onDelete && (
+            <span className={classes.closeWrapper} onClick={onDelete}>
+              <CloseIcon className={classes.deleteIcon} />
+            </span>
+          )}
         </label>
       </View>
     );
