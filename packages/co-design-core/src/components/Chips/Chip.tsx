@@ -108,7 +108,6 @@ export const Chip = forwardRef<HTMLInputElement, ChipProps>(
           className={classes.input}
           checked={value}
           onChange={(event) => {
-            console.log('change');
             setValue(event.currentTarget.checked);
           }}
           id={uuid}
