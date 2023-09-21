@@ -1,4 +1,4 @@
-import { createStyles } from '@co-design/styles';
+import { DEFAULT_Z_INDEX, createStyles } from '@co-design/styles';
 
 export default createStyles(() => ({
   root: {
@@ -7,7 +7,7 @@ export default createStyles(() => ({
     right: '24px',
     maxWidth: '450px',
     width: '95%',
-    zIndex: '2000',
+    zIndex: DEFAULT_Z_INDEX.toast,
     '@media (max-width: 500px)': {
       right: '2.5%',
     },
