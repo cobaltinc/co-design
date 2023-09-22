@@ -16,6 +16,12 @@ export interface PopoverProps extends CoComponentProps<PopoverStylesNames>, Omit
    */
   opened?: boolean;
 
+  /**
+   * Popover 의 open 상태를 자식 컴포넌트가 제어할 때 사용합니다.
+   * 만약 자식 컴포넌트에게 제어권을 주고, 강제로 open 상태를 toggle 하고 싶다면 flag 를 사용합니다.
+   */
+  flag?: boolean;
+
   /** Popover 컴포넌트에 포함시킬 요소를 넣습니다. */
   content: React.ReactNode;
 
@@ -84,6 +90,7 @@ const getPositionStyle = (placement: PopoverPlacement, target?: HTMLElement) => 
 export const Popover = ({
   children,
   opened,
+  flag,
   content,
   contentPadding = 'medium',
   withArrow = true,
@@ -115,6 +122,7 @@ export const Popover = ({
       !targetRef.current.contains(e.target as HTMLElement) &&
       !balloonRef.current.contains(e.target as HTMLElement)
     ) {
+      console.log('hhh');
       setCurrentOpened(false);
     }
   });
@@ -133,8 +141,8 @@ export const Popover = ({
   const handleBlur = trigger === 'focus' ? () => setCurrentOpened(false) : undefined;
 
   useUpdateEffect(() => {
-    setCurrentOpened(opened);
-  }, [opened]);
+    setCurrentOpened((prev) => !prev);
+  }, [flag]);
 
   useUpdateEffect(() => {
     if (currentOpened) onOpen?.();
