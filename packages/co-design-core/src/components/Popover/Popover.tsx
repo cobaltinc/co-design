@@ -122,7 +122,6 @@ export const Popover = ({
       !targetRef.current.contains(e.target as HTMLElement) &&
       !balloonRef.current.contains(e.target as HTMLElement)
     ) {
-      console.log('hhh');
       setCurrentOpened(false);
     }
   });
