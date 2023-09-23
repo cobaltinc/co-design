@@ -3,6 +3,7 @@ import { Modal } from '../../Modal';
 import { Center } from '../../Center';
 import { Popover } from '../Popover';
 import { useToggle } from '@co-design/hooks';
+import { Menu } from '../../Menu';
 
 export default {
   title: '@co-design/core/Popover',
@@ -103,6 +104,50 @@ export const InModal = {
           <button>Popover</button>
         </Popover>
       </Modal>
+    );
+  },
+};
+
+export const OpenByChildren = {
+  render: (props) => {
+    return (
+      <Center style={{ width: 500, height: 500 }}>
+        <Popover placement="bottom" content={<Content />} {...props}>
+          <button>Popover</button>
+        </Popover>
+      </Center>
+    );
+  },
+};
+
+export const OpenByChildrenWithFlag = {
+  render: (props) => {
+    const [flag, toggleFlag] = useToggle(false);
+
+    return (
+      <Center style={{ width: 500, height: 500 }}>
+        <Popover
+          flag={flag}
+          placement="bottom"
+          content={
+            <Menu>
+              <Menu.Item>Not close</Menu.Item>
+              <Menu.Item>Not close</Menu.Item>
+              <Menu.Item
+                onClick={() => {
+                  toggleFlag();
+                }}
+              >
+                If click me, Popover close
+              </Menu.Item>
+              <Menu.Item>Not close</Menu.Item>
+            </Menu>
+          }
+          {...props}
+        >
+          <button>Popover</button>
+        </Popover>
+      </Center>
     );
   },
 };
