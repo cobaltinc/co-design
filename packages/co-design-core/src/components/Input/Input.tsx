@@ -1,9 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useId } from 'react';
 import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
 import { Text, TextProps } from '../Text';
-import { useId } from '@co-design/hooks';
 
 export type InputStylesNames = ClassNames<typeof useStyles>;
 
@@ -111,7 +110,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     return (
       <Wrapper>
         {label && (
-          <label htmlFor={inputId} className={classes.label}>
+          <label htmlFor={inputId + name} className={classes.label}>
             <Text className={classes.labelText} {...labelTextProps}>
               {label}
             </Text>
@@ -139,7 +138,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             required={required}
             disabled={disabled}
             style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
-            id={inputId}
+            id={inputId + name}
           />
           {rightSection && (
             <div
