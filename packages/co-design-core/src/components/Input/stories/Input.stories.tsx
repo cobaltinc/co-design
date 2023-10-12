@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Tooltip } from '../../Tooltip';
 import { Input } from '../Input';
+import { Modal } from '../../Modal';
 
 export default {
   title: '@co-design/core/Input',
@@ -112,6 +113,29 @@ export const WithLabel = {
         <Input {...props} label="email" />
         <Input {...props} label="password" />
       </div>
+    );
+  },
+};
+
+// Storybook Context 변경으로 인한 리렌더링으로 focus 풀림
+export const AutoFocus = {
+  render: (props) => {
+    const [opened, setOpened] = useState(false);
+    return (
+      <>
+        <div style={{ width: 400, padding: 24 }}>
+          <button
+            onClick={() => {
+              setOpened(true);
+            }}
+          >
+            open modal
+          </button>
+        </div>
+        <Modal opened={opened} onClose={() => setOpened(false)}>
+          <Input autoFocus {...props} />
+        </Modal>
+      </>
     );
   },
 };
