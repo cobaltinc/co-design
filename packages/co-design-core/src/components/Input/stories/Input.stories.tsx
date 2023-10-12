@@ -115,3 +115,13 @@ export const WithLabel = {
     );
   },
 };
+
+export const AutoFocus = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <Input autoFocus {...props} />
+      </div>
+    );
+  },
+};
