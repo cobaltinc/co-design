@@ -4,6 +4,8 @@ import { Center } from '../../Center';
 import { Popover } from '../Popover';
 import { useToggle } from '@co-design/hooks';
 import { Menu } from '../../Menu';
+import { Drawer } from '../../Drawer';
+import { Button } from '../../Button';
 
 export default {
   title: '@co-design/core/Popover',
@@ -148,6 +150,29 @@ export const OpenByChildrenWithFlag = {
           <button>Popover</button>
         </Popover>
       </Center>
+    );
+  },
+};
+
+export const InDrawer = {
+  render: (props) => {
+    const [opened, toggleOpened] = useToggle();
+
+    return (
+      <div>
+        <Button onClick={toggleOpened}>Open</Button>
+        <Drawer
+          zIndex={2998}
+          opened={opened}
+          onClose={() => {
+            toggleOpened(false);
+          }}
+        >
+          <Popover zIndex={3001} placement="bottom" content={<Content />} {...props}>
+            <button>Popover</button>
+          </Popover>
+        </Drawer>
+      </div>
     );
   },
 };
