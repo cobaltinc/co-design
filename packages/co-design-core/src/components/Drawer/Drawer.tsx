@@ -148,15 +148,8 @@ export const CoDrawer = ({
       }}
     >
       {(transitionStyles) => (
-        <View
-          className={cx(classes.root, { [classes.noOverlay]: noOverlay }, className)}
-          role="dialog"
-          aria-modal
-          onMouseDown={() => !noCloseOnClickOutside && onClose()}
-          {...props}
-        >
+        <View className={cx(classes.root, { [classes.noOverlay]: noOverlay }, className)} role="dialog" aria-modal {...props}>
           <Paper
-            onMouseDown={(event) => event.stopPropagation()}
             className={cx(classes.drawer, className)}
             ref={focusTrapRef}
             style={{ ...transitionStyles.drawer, zIndex: (zIndex in theme.zIndex ? theme.zIndex[zIndex] : zIndex) + 2 }}
@@ -186,6 +179,7 @@ export const CoDrawer = ({
                 opacity={_overlayOpacity}
                 zIndex={zIndex}
                 color={overlayColor || (theme.colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.black)}
+                onMouseDown={() => !noCloseOnClickOutside && onClose()}
               />
             </div>
           )}
