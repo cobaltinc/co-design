@@ -93,6 +93,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
       co,
       overrideStyles,
       __staticSelector = 'Input',
+      name,
       ...props
     }: InputProps<C>,
     ref: PolymorphicRef<C>,
