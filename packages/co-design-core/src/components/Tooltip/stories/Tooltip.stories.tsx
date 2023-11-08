@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { StoryObj } from '@storybook/react';
 import { Center } from '../../Center';
 import { Tooltip } from '../Tooltip';
+import { Popover } from '../../Popover';
+import { Button } from '../../Button';
+import { Menu } from '../../Menu';
 
 export default {
   title: '@co-design/core/Tooltip',
@@ -63,5 +67,29 @@ export const Default = {};
 export const WithTitle = {
   args: {
     title: 'Title',
+  },
+};
+
+export const WithPopover: StoryObj = {
+  render: (arg) => {
+    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+
+    return (
+      <Popover
+        placement="bottom"
+        onOpen={() => setIsPopoverOpen(true)}
+        onClose={() => setIsPopoverOpen(false)}
+        content={
+          <Menu>
+            <Menu.Item>1</Menu.Item>
+            <Menu.Item>2</Menu.Item>
+          </Menu>
+        }
+      >
+        <Tooltip visible={!isPopoverOpen} label="Peek-A-Boo" {...arg}>
+          <Button>hello</Button>
+        </Tooltip>
+      </Popover>
+    );
   },
 };

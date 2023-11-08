@@ -12,6 +12,11 @@ export type TooltipStylesNames = ClassNames<typeof useStyles>;
 
 export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /**
+   * Tooltip 의 초기 visible 상태를 설정합니다
+   */
+  initVisible?: boolean;
+
+  /**
    * true일 경우 Tooltip 컴포넌트를 보여줍니다.
    * Tooltip 컴포넌트를 직접 제어할 경우 사용하는 속성입니다.
    */
@@ -84,7 +89,8 @@ const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => 
 
 export const Tooltip = ({
   children,
-  visible = false,
+  visible,
+  initVisible = false,
   colorScheme,
   title,
   label,
@@ -111,7 +117,7 @@ export const Tooltip = ({
     { overrideStyles, name: 'Tooltip' },
   );
 
-  const [currentVisible, setCurrentVisible] = useToggle(visible);
+  const [currentVisible, setCurrentVisible] = useToggle(initVisible);
   const balloonRef = useRef<HTMLDivElement>(null);
   const targetRef = useClickAway<HTMLDivElement>((e: MouseEvent) => {
     if (
@@ -139,13 +145,17 @@ export const Tooltip = ({
   const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
 
   useUpdateEffect(() => {
+    setCurrentVisible(visible);
+  }, [visible]);
+
+  useUpdateEffect(() => {
     onChangeVisible?.(currentVisible);
   }, [currentVisible]);
 
   const contentStyle: React.CSSProperties = {
     width: width ? width : 'auto',
     whiteSpace: width ? 'normal' : 'nowrap',
-    pointerEvents: visible ? 'all' : 'none',
+    pointerEvents: currentVisible ? 'all' : 'none',
   };
   const positionStyle = getPositionStyle(placement, targetRef.current);
 
