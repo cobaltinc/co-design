@@ -11,6 +11,7 @@ export * from './Center';
 export * from './Checkbox';
 export * from './Chips';
 export * from './Container';
+export * from './ContainerQuery';
 export * from './Divider';
 export * from './Drawer';
 export * from './EquallyGrid';
