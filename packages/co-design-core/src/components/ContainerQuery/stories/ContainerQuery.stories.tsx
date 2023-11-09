@@ -1,5 +1,7 @@
 import React from 'react';
 import { ContainerQuery } from '../ContainerQuery';
+import { View } from '../../View';
+import { Stack } from '../../Stack';
 
 export default {
   title: '@co-design/core/ContainerQuery',
@@ -9,38 +11,21 @@ export default {
 export const Default = () => {
   const highlight = { color: 'blue' };
   return (
-    <div>
-      <ContainerQuery largerThan="xlarge" style={highlight}>
-        <div>largerThan xlarge</div>
+    <Stack
+      co={{
+        width: '100%',
+        containerType: 'inline-size',
+      }}
+    >
+      <ContainerQuery largerThan={900} style={highlight}>
+        <View>largerThan 900</View>
       </ContainerQuery>
-      <ContainerQuery largerThan="large" style={highlight}>
-        <div>largerThan large</div>
+      <ContainerQuery largerThan={1000} style={highlight}>
+        <View>largerThan 1000</View>
       </ContainerQuery>
-      <ContainerQuery largerThan="medium" style={highlight}>
-        <div>largerThan medium</div>
+      <ContainerQuery smallerThan={1000} style={highlight}>
+        <View>smallerThan 1000</View>
       </ContainerQuery>
-      <ContainerQuery largerThan="small" style={highlight}>
-        <div>largerThan small</div>
-      </ContainerQuery>
-      <ContainerQuery largerThan="xsmall" style={highlight}>
-        <div>largerThan xsmall</div>
-      </ContainerQuery>
-
-      <ContainerQuery smallerThan="xlarge" style={highlight}>
-        <div>smallerThan xlarge</div>
-      </ContainerQuery>
-      <ContainerQuery smallerThan="large" style={highlight}>
-        <div>smallerThan large</div>
-      </ContainerQuery>
-      <ContainerQuery smallerThan="medium" style={highlight}>
-        <div>smallerThan medium</div>
-      </ContainerQuery>
-      <ContainerQuery smallerThan="small" style={highlight}>
-        <div>smallerThan small</div>
-      </ContainerQuery>
-      <ContainerQuery smallerThan="xsmall" style={highlight}>
-        <div>smallerThan xsmall</div>
-      </ContainerQuery>
-    </div>
+    </Stack>
   );
 };

@@ -39,6 +39,14 @@ export default async function createPackageConfig(config: PkgConfigInput): Promi
       minify: config.format === 'umd',
       sourceMap: false,
       tsconfig: path.resolve(process.cwd(), 'tsconfig.json'),
+      optimizeDeps: {
+        esbuildOptions: {
+          define: {
+            global: 'globalThis',
+          },
+        },
+        include: [],
+      },
     }),
     json(),
     alias({ entries: aliasEntries }),

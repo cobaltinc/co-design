@@ -20,10 +20,13 @@ export interface ContainerQueryProps {
 
   /** 자식 요소에 적용되는 style 입니다. */
   style?: CSSObject;
+
+  /** 지정 컨테이너의 이름을 설정할 때 사용합니다. */
+  containerName?: string;
 }
 
-export function ContainerQuery({ children, smallerThan, largerThan, query, className, style }: ContainerQueryProps) {
-  const { classes, cx } = useStyles({ smallerThan, largerThan, query, style }, { name: 'ContainerQuery' });
+export function ContainerQuery({ children, smallerThan, largerThan, query, className, style, containerName }: ContainerQueryProps) {
+  const { classes, cx } = useStyles({ smallerThan, largerThan, query, style, containerName }, { name: 'ContainerQuery' });
   const child = React.Children.only(children) as React.ReactElement;
   return React.cloneElement(child, {
     className: cx(classes.containerQuery, child.props?.className, className),
