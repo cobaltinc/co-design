@@ -151,16 +151,12 @@ export const CoDrawer = ({
 
   return (
     <GroupedTransition
-      onExit={() => {
-        if (onExit) onExit();
-      }}
+      onExit={onExit}
       onExited={() => {
         lockScroll(false);
         if (onExited) onExited();
       }}
-      onEnter={() => {
-        if (onEnter) onEnter();
-      }}
+      onEnter={onEnter}
       onEntered={() => {
         lockScroll(!noScrollLock && true);
         if (onEntered) onEntered();
