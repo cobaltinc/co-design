@@ -76,6 +76,18 @@ export interface DrawerProps extends CoComponentProps<DrawerStylesNames>, Omit<R
 
   /** Drawer 컴포넌트가 닫힐 때 실행됩니다. */
   onClose(): void;
+
+  /** Drawer 컴포넌트가 열리는 진입 트랜지션이 시작되면 실행됩니다. */
+  onEnter?(): void;
+
+  /** Drawer 컴포넌트가 열리는 진입 트랜지션이 끝나면 실행됩니다. */
+  onEntered?(): void;
+
+  /** Drawer 컴포넌트가 닫히는 종료 트랜지션이 시작되면 실행됩니다. */
+  onExit?(): void;
+
+  /** Drawer 컴포넌트가 닫히는 종료 트랜지션이 끝나면 실행됩니다. */
+  onExited?(): void;
 }
 
 const transitions: Record<DrawerPosition, CoTransition> = {
@@ -108,6 +120,10 @@ export const CoDrawer = ({
   onClose,
   className,
   overrideStyles,
+  onEnter,
+  onEntered,
+  onExit,
+  onExited,
   ...props
 }: DrawerProps) => {
   const { classes, cx, theme } = useStyles({ size, position }, { overrideStyles, name: 'Drawer' });
@@ -135,8 +151,16 @@ export const CoDrawer = ({
 
   return (
     <GroupedTransition
-      onExited={() => lockScroll(false)}
-      onEntered={() => lockScroll(!noScrollLock && true)}
+      onExit={onExit}
+      onExited={() => {
+        lockScroll(false);
+        if (onExited) onExited();
+      }}
+      onEnter={onEnter}
+      onEntered={() => {
+        lockScroll(!noScrollLock && true);
+        if (onEntered) onEntered();
+      }}
       mounted={opened}
       transitions={{
         overlay: { duration: transitionDuration / 2, transition: 'fade', timingFunction: 'ease' },
