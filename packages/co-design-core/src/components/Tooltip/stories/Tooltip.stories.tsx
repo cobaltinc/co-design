@@ -5,6 +5,7 @@ import { Tooltip } from '../Tooltip';
 import { Popover } from '../../Popover';
 import { Button } from '../../Button';
 import { Menu } from '../../Menu';
+import { useToggle } from '@co-design/hooks';
 
 export default {
   title: '@co-design/core/Tooltip',
@@ -72,24 +73,40 @@ export const WithTitle = {
 
 export const WithPopover: StoryObj = {
   render: (arg) => {
-    const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+    const [visibleFlag, toggleVisibleFlag] = useToggle(false);
+    const [visible, setVisible] = useState(false);
 
     return (
-      <Popover
-        placement="bottom"
-        onOpen={() => setIsPopoverOpen(true)}
-        onClose={() => setIsPopoverOpen(false)}
-        content={
-          <Menu>
-            <Menu.Item>1</Menu.Item>
-            <Menu.Item>2</Menu.Item>
-          </Menu>
-        }
-      >
-        <Tooltip visible={!isPopoverOpen} label="Peek-A-Boo" {...arg}>
-          <Button>hello</Button>
-        </Tooltip>
-      </Popover>
+      <>
+        <Popover
+          placement="bottom"
+          content={
+            <Menu>
+              <Menu.Item>1</Menu.Item>
+              <Menu.Item>2</Menu.Item>
+            </Menu>
+          }
+        >
+          <Tooltip
+            flag={visibleFlag}
+            onChangeVisible={(currentVisible) => {
+              setVisible(currentVisible);
+            }}
+            label="Peek-A-Boo"
+            {...arg}
+          >
+            <Button
+              onClick={() => {
+                if (visible) {
+                  toggleVisibleFlag();
+                }
+              }}
+            >
+              hello
+            </Button>
+          </Tooltip>
+        </Popover>
+      </>
     );
   },
 };
