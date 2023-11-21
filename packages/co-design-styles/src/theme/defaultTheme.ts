@@ -13,6 +13,7 @@ import {
   foundations,
 } from './tokens';
 import { attachFunctions } from './functions/attachFunctions';
+import { fontFace } from './fontFace';
 
 export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
@@ -30,7 +31,8 @@ export const _DEFAULT_THEME: CoThemeBase = {
   locale: 'en',
   colorScheme: 'light',
   lineHeight: 1.55,
-  fontFamily: '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
+  fontFace,
+  fontFamily: 'Poppins, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji',
   fontFamilyMonospace: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace',
   primaryColor: 'purple',
 

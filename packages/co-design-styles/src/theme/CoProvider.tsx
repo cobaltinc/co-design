@@ -49,7 +49,7 @@ const GlobalStyles = () => {
         '*, *::before, *::after': {
           boxSizing: 'border-box',
         },
-
+        ...(theme.fontFace || {}),
         body: {
           fontFamily: theme.fontFamily,
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.darkBackground : theme.colors.lightBackground,

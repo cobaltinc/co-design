@@ -52,6 +52,7 @@ export interface CoTheme {
   extra: Record<string, any>;
 
   foundations?: typeof foundations;
+  fontFace?: Record<string, any>;
 }
 
 export type CoThemeBase = Omit<CoTheme, 'fn'>;
