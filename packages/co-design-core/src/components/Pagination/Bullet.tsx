@@ -9,7 +9,9 @@ const Bullet = ({ circleClassName, ...props }: BulletProps) => {
   return (
     <div {...props}>
       {[0, 1, 2].map((_, index) => (
-        <div key={index} className={circleClassName} />
+        <div key={index} className={circleClassName}>
+          ·
+        </div>
       ))}
     </div>
   );

@@ -4,7 +4,7 @@ import { IconButton } from '../IconButton';
 import ChevronLeft from './icons/ChevronLeft';
 import ChevronRight from './icons/ChevronRight';
 import useStyles from './Pagination.style';
-import { ClassNames, CoComponentProps } from '@co-design/styles';
+import { ClassNames, CoComponentProps, useCoTheme } from '@co-design/styles';
 import Bullet from './Bullet';
 
 export type PaginationStylesNames = ClassNames<typeof useStyles>;
@@ -47,6 +47,7 @@ export const Pagination = ({
     overrideStyles,
     name: 'Pagination',
   });
+  const theme = useCoTheme();
 
   const totalPage = Math.ceil(totalItemsCount / itemsCountPerView);
   let pages = [];
@@ -92,12 +93,20 @@ export const Pagination = ({
         overrideStyles={{
           text: {
             '&:not(:disabled):hover': {
-              borderRadius: 0,
+              background: 'none',
+            },
+          },
+          inner: {
+            '& > *': {
+              width: 20,
+              height: 20,
             },
           },
         }}
       >
-        <ChevronLeft color={currentPage === 1 ? '#D5DADF' : '#171B24'} />
+        <ChevronLeft
+          color={currentPage === 1 ? theme.foundations.tokens.color.icon['icon-disabled'] : theme.foundations.tokens.color.icon['icon-default']}
+        />
       </IconButton>
 
       {currentPage > 3 && totalPage > pages.length && showFirst ? (
@@ -132,12 +141,22 @@ export const Pagination = ({
         overrideStyles={{
           text: {
             '&:not(:disabled):hover': {
-              borderRadius: 0,
+              background: 'none',
+            },
+          },
+          inner: {
+            '& > *': {
+              width: 20,
+              height: 20,
             },
           },
         }}
       >
-        <ChevronRight color={currentPage === totalPage ? '#D5DADF' : '#171B24'} />
+        <ChevronRight
+          color={
+            currentPage === totalPage ? theme.foundations.tokens.color.icon['icon-disabled'] : theme.foundations.tokens.color.icon['icon-default']
+          }
+        />
       </IconButton>
     </View>
   );

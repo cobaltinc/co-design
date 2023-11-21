@@ -6,35 +6,33 @@ export default createStyles((theme) => ({
     alignItems: 'center',
   },
   page: {
-    display: 'inline-block',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     minWidth: '32px',
     height: '32px',
-    padding: '7px 11.5px',
     textAlign: 'center',
-    fontSize: '14px',
-    lineHeight: '20px',
+    fontSize: theme.foundations.font.body['body-02'].fontSize,
+    lineHeight: theme.foundations.font.body['body-02'].lineHeight + 'px',
+    color: theme.foundations.tokens.color.text['text-default'],
     verticalAlign: 'middle',
-    color: '#171b24',
     boxSizing: 'border-box',
-    marginRight: '8px',
+    // TODO: spacing
+    marginRight: '4px',
     cursor: 'pointer',
-    '@media (max-width: 500px)': {
-      minWidth: '24px',
-      height: '24px',
-      padding: '2px 4px',
-    },
+    borderRadius: theme.foundations.tokens.radius['radius-full'],
     '&:last-of-type': {
       marginRight: '0px',
     },
     '&:hover': {
-      backgroundColor: 'rgba(35, 40, 48, 0.12)',
+      backgroundColor: theme.foundations.tokens.color.bg['bg-base-light'],
     },
   },
   active: {
-    backgroundColor: theme.palettes.gray[9],
-    color: 'white',
+    backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
+    color: theme.foundations.tokens.color.text['text-inverse-default'],
     '&:hover': {
-      backgroundColor: theme.palettes.gray[9],
+      backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
     },
   },
   arrow: {
@@ -43,10 +41,10 @@ export default createStyles((theme) => ({
     height: '32px',
     verticalAlign: 'middle',
     '&:first-of-type': {
-      marginRight: '8px',
+      marginRight: '4px',
     },
     '&:last-of-type': {
-      marginLeft: '8px',
+      marginLeft: '4px',
     },
   },
   disabled: {
@@ -54,21 +52,12 @@ export default createStyles((theme) => ({
     cursor: 'not-allowed',
   },
   bullet: {
+    fontSize: theme.foundations.font.body['body-02'].fontSize,
+    lineHeight: theme.foundations.font.body['body-02'].lineHeight + 'px',
+    color: theme.foundations.tokens.color.text['text-default'],
     marginRight: '4px',
-    '@media (max-width: 500px)': {
-      width: '24px',
-      height: '24px',
-    },
   },
   circle: {
     display: 'inline-block',
-    width: '3px',
-    height: '3px',
-    borderRadius: '50%',
-    marginRight: '4px',
-    backgroundColor: '#171b24',
-    '&:last-of-type': {
-      marginRight: '0px',
-    },
   },
 }));
