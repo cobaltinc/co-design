@@ -12,15 +12,16 @@ export type TooltipStylesNames = ClassNames<typeof useStyles>;
 
 export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /**
+   * true일 경우 Tooltip 컴포넌트를 보여줍니다.
    * Tooltip 의 초기 visible 상태를 설정합니다
    */
-  initVisible?: boolean;
+  visible?: boolean;
 
   /**
-   * true일 경우 Tooltip 컴포넌트를 보여줍니다.
-   * Tooltip 컴포넌트를 직접 제어할 경우 사용하는 속성입니다.
+   * Tooltip 의 open 상태를 자식 컴포넌트가 제어할 때 사용합니다.
+   * 만약 자식 컴포넌트에게 제어권을 주고, 강제로 open 상태를 toggle 하고 싶다면 flag 를 사용합니다.
    */
-  visible?: boolean;
+  flag?: boolean;
 
   /** Tooltip 컴포넌트의 배경색 지정을 위한 ColorScheme 을 정합니다. */
   colorScheme?: ColorScheme;
@@ -59,7 +60,7 @@ export interface TooltipProps extends CoComponentProps<TooltipStylesNames>, Reac
   transitionTimingFunction?: string;
 
   /** visible이 변경될 경우 실행됩니다. */
-  onChangeVisible?(visible: boolean): boolean;
+  onChangeVisible?(visible: boolean): void;
 }
 
 const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => {
@@ -89,8 +90,8 @@ const getPositionStyle = (placement: TooltipPlacement, target?: HTMLElement) => 
 
 export const Tooltip = ({
   children,
-  visible,
-  initVisible = false,
+  visible = false,
+  flag,
   colorScheme,
   title,
   label,
@@ -117,7 +118,7 @@ export const Tooltip = ({
     { overrideStyles, name: 'Tooltip' },
   );
 
-  const [currentVisible, setCurrentVisible] = useToggle(initVisible);
+  const [currentVisible, setCurrentVisible] = useToggle(visible);
   const balloonRef = useRef<HTMLDivElement>(null);
   const targetRef = useClickAway<HTMLDivElement>((e: MouseEvent) => {
     if (
@@ -145,8 +146,8 @@ export const Tooltip = ({
   const handleBlur = trigger === 'focus' ? () => setCurrentVisible(false) : undefined;
 
   useUpdateEffect(() => {
-    setCurrentVisible(visible);
-  }, [visible]);
+    setCurrentVisible((prev) => !prev);
+  }, [flag]);
 
   useUpdateEffect(() => {
     onChangeVisible?.(currentVisible);
