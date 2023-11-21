@@ -43,5 +43,5 @@ export const getTransitionStyles = ({
     ...shared,
     ...transition.common,
     ...transition[transitionStatuses[state]],
-  };
+  }; //
 };

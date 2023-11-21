@@ -1,4 +1,4 @@
-import { createAnatomy } from './createAnatomy';
+import { createAnatomy } from '@co-design/anatomy';
 
-export const anatomy = createAnatomy('abc').parts('root', 'label', 'text');
-export const parts = anatomy.build();
+export const anatomy = createAnatomy('abc', ['root', 'label', 'text']);
+export const parts = anatomy.generate();

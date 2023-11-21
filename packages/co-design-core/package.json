@@ -19,6 +19,7 @@
     "directory": "packages/co-design-core"
   },
   "peerDependencies": {
+    "@co-design/anatomy": "^1.0.0",
     "@co-design/hooks": "^0.6.1",
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"

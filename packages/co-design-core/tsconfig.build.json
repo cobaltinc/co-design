@@ -18,6 +18,7 @@
     "declarationDir": "lib",
     "composite": true,
     "paths": {
+      "@co-design/anatomy": ["../co-design-anatomy/src"],
       "@co-design/hooks": ["../co-design-hooks/src"],
       "@co-design/styles": ["../co-design-styles/src"]
     }
