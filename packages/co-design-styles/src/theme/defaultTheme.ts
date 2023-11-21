@@ -10,6 +10,7 @@ import {
   DEFAULT_OPACITY,
   DEFAULT_PALETTES,
   DEFAULT_Z_INDEX,
+  foundations,
 } from './tokens';
 import { attachFunctions } from './functions/attachFunctions';
 
@@ -54,6 +55,8 @@ export const _DEFAULT_THEME: CoThemeBase = {
   zIndex: DEFAULT_Z_INDEX,
 
   extra: {},
+
+  foundations,
 };
 
 export const DEFAULT_THEME = attachFunctions(_DEFAULT_THEME);

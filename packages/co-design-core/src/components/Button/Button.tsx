@@ -66,7 +66,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const color = _color || theme.primaryColor;
+    const color = _color || theme.foundations.tokens.color.bg['bg-primary'];
     const { classes, cx } = useStyles(
       {
         color: _color,

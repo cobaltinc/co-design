@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import type { Tuple } from './Tuple';
 import type { DeepPartial } from './DeepPartial';
-import { CoBreakpoints, CoColor, CoPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing, CoZIndex } from '../tokens';
+import { CoBreakpoints, CoColor, CoPalette, CoFontSizes, CoOpacity, CoRadius, CoShadows, CoSpacing, CoZIndex, foundations } from '../tokens';
 import { CoSize } from './CoSize';
 
 export interface HeadingStyle {
@@ -50,6 +50,8 @@ export interface CoTheme {
 
   fn: CoThemeFunctions;
   extra: Record<string, any>;
+
+  foundations?: typeof foundations;
 }
 
 export type CoThemeBase = Omit<CoTheme, 'fn'>;
