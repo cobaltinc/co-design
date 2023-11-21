@@ -24,6 +24,7 @@
     }
   },
   "references": [
+    { "path": "../co-design-anatomy" },
     { "path": "../co-design-hooks" },
     { "path": "../co-design-styles" }
   ]
