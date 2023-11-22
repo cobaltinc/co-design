@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { SVGProps } from 'react';
 import { Check } from './icons/Check';
-import { DisabledCheck } from './icons/DisabledCheck';
 import { Default } from './icons/Default';
-import { Disabled } from './icons/Disabled';
 
-interface RadioIconProps {
+interface RadioIconProps extends SVGProps<SVGSVGElement> {
   check?: boolean;
   disabled?: boolean;
 }
 
-export const RadioIcon = ({ check = false, disabled = false }: RadioIconProps) => {
-  return check ? disabled ? <DisabledCheck /> : <Check /> : disabled ? <Disabled /> : <Default />;
+export const RadioIcon = ({ check = false, disabled = false, ...restProps }: RadioIconProps) => {
+  return check ? <Check {...restProps} /> : <Default {...restProps} />;
 };

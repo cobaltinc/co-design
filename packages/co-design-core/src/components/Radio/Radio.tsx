@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 import RadioGroup from './RadioGroup';
 import RadioContext from './RadioContext';
 import useStyles from './Radio.style';
@@ -50,10 +50,16 @@ const Radio: IRadio<RadioProps> = ({
 }) => {
   const { dispatch } = useContext(RadioContext);
   const [check, setCheck] = useState(checked);
-  const { cx, classes } = useStyles(null, {
-    overrideStyles,
-    name: 'Radio',
-  });
+  const { cx, classes } = useStyles(
+    {
+      check,
+      disabled,
+    },
+    {
+      overrideStyles,
+      name: 'Radio',
+    },
+  );
 
   useEffect(() => {
     setCheck(checked);
@@ -88,8 +94,8 @@ const Radio: IRadio<RadioProps> = ({
         onChange={handleChange}
         {...props}
       />
-      <span className={classes.radiomark}>
-        <RadioIcon check={check} disabled={disabled} />
+      <span className={classes.iconWrapper}>
+        <RadioIcon className={classes.icon} check={check} disabled={disabled} />
       </span>
       {label ? (
         <span className={classes.text} style={{ color: labelColor }}>
