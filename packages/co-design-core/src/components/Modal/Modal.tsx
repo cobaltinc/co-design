@@ -9,6 +9,8 @@ import { Portal } from '../Portal';
 import { View } from '../View';
 import { GroupedTransition, CoTransition } from '../Transition';
 import useStyles from './Modal.style';
+import { Button, ButtonProps } from '../Button';
+import { ConfirmLabels } from './context';
 
 export type ModalStylesNames = ClassNames<typeof useStyles>;
 
@@ -66,6 +68,16 @@ export interface ModalProps extends CoComponentProps<ModalStylesNames>, Omit<Rea
 
   /** Modal 컴포넌트가 사라질 때 실행됩니다. */
   onClose(): void;
+
+  onCancel?(): void;
+
+  onConfirm?(): void;
+
+  cancelProps?: ButtonProps<'button'>;
+
+  confirmProps?: ButtonProps<'button'>;
+
+  labels?: ConfirmLabels;
 }
 
 export const CoModal = ({
@@ -74,9 +86,9 @@ export const CoModal = ({
   children,
   title,
   size = 'medium',
-  padding = 'large',
-  shadow = 'large',
-  radius = 'medium',
+  padding,
+  shadow,
+  radius,
   overlayColor,
   overlayOpacity,
   overflow = 'outside',
@@ -84,6 +96,11 @@ export const CoModal = ({
   transitionDuration = 200,
   hideCloseButton = false,
   closeOnClickOutside = true,
+  onCancel,
+  onConfirm,
+  cancelProps,
+  confirmProps,
+  labels,
   onClose,
   className,
   co,
@@ -129,8 +146,8 @@ export const CoModal = ({
               onClick={(event) => event.stopPropagation()}
               className={classes.modal}
               shadow={shadow}
-              padding={padding}
-              radius={radius}
+              padding={padding || 0}
+              radius={radius || theme.foundations.tokens.radius['radius-01']}
               withBorder={false}
               role="dialog"
               aria-labelledby={titleId}
@@ -156,6 +173,21 @@ export const CoModal = ({
               <div id={bodyId} className={classes.body}>
                 {children}
               </div>
+
+              {(onCancel || onConfirm) && (
+                <div className={classes.footer}>
+                  {onCancel && (
+                    <Button variant="ghost" onClick={onCancel} {...cancelProps}>
+                      {cancelProps?.children || labels.cancel}
+                    </Button>
+                  )}
+                  {onConfirm && (
+                    <Button onClick={onConfirm} {...confirmProps}>
+                      {confirmProps?.children || labels.confirm}
+                    </Button>
+                  )}
+                </div>
+              )}
             </Paper>
           </div>
 

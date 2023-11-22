@@ -2,7 +2,6 @@ import React, { useReducer } from 'react';
 import { Modal } from './Modal';
 import { randomId } from './utils';
 import { ModalsContext, ModalsContextProps, ModalSettings, ConfirmLabels, OpenConfirmModal, OpenContextModal, ContextModalProps } from './context';
-import { ConfirmModal } from './ConfirmModal';
 import { modalsReducer } from './reducer';
 
 export interface ModalsProviderProps {
@@ -66,13 +65,16 @@ export function ModalsProvider({ children, modalProps, labels, modals }: ModalsP
     return id;
   };
 
+  /**
+   * @deprecated
+   */
   const openConfirmModal = (props: OpenConfirmModal) => {
     const id = props.id || randomId();
     dispatch({
       type: 'OPEN',
       payload: {
         id,
-        type: 'confirm',
+        type: 'content',
         props,
       },
     });
@@ -142,14 +144,14 @@ export function ModalsProvider({ children, modalProps, labels, modals }: ModalsP
           content: <ContextModal innerProps={innerProps} context={ctx} id={state.current.id} />,
         };
       }
-      case 'confirm': {
-        const { modalProps: separatedModalProps, confirmProps: separatedConfirmProps } = separateConfirmModalProps(state.current.props);
+      // case 'confirm': {
+      //   const { modalProps: separatedModalProps } = separateConfirmModalProps(state.current.props);
 
-        return {
-          modalProps: separatedModalProps,
-          content: <ConfirmModal {...separatedConfirmProps} id={state.current.id} labels={state.current.props.labels || labels} />,
-        };
-      }
+      //   return {
+      //     modalProps: separatedModalProps,
+      //     content: <Modal {...separatedConfirmProps} id={state.current.id} labels={state.current.props.labels || labels} />,
+      //   };
+      // }
       case 'content': {
         const { children: currentModalChildren, ...rest } = state.current.props;
 
