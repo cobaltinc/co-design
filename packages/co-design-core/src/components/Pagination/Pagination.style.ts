@@ -30,7 +30,8 @@ export default createStyles((theme) => ({
   },
   active: {
     backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
-    color: theme.foundations.tokens.color.text['text-inverse-default'],
+    color: theme.foundations.tokens.color.text['text-light'],
+    // color: 'red',
     '&:hover': {
       backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
     },
