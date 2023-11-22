@@ -589,6 +589,7 @@ export const foundations = {
         'border-strong': '#d4d6d8ff',
         'border-disabled': '#0000000d',
         'border-primary': '#5a69e8ff',
+        'border-primary-hover': '#4453cfff',
         'border-critical': '#da3c30ff',
         'border-success-light': '#d1ebe3ff',
         'border-primary-light': '#e0e3faff',
