@@ -10,11 +10,7 @@ export default {
       control: { type: 'inline-radio' },
     },
     variant: {
-      options: ['solid', 'ghost', 'light-solid', 'text'],
-      control: { type: 'inline-radio' },
-    },
-    color: {
-      options: ['purple', 'gray', 'red', 'blue', 'orange', 'green', 'dark'],
+      options: ['primary', 'secondary', 'tertiary', 'ghost', 'ghost-light', 'text', 'link', 'critical'],
       control: { type: 'inline-radio' },
     },
     fullWidth: {
@@ -29,8 +25,7 @@ export default {
   },
   args: {
     size: 'medium',
-    variant: 'solid',
-    color: 'purple',
+    variant: 'primary',
     fullWidth: false,
     loading: false,
     disabled: false,
@@ -49,7 +44,7 @@ export const OverrideStyles = {
       <Button
         {...props}
         overrideStyles={{
-          solid: {
+          primary: {
             backgroundColor: 'black',
             '&:not(:disabled):hover': {
               backgroundColor: '#222',

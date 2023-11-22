@@ -11,9 +11,6 @@ export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
   /** Button 컴포넌트의 크기를 정합니다. */
   size?: CoSize;
 
-  /** Button 컴포넌트의 색상을 정합니다. */
-  color?: CoPalette;
-
   /** Button 컴포넌트의 모양을 지정합니다. */
   variant?: ButtonVariant;
 
@@ -49,8 +46,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       children,
       component,
       size = 'medium',
-      color: _color,
-      variant = 'solid',
+      variant = 'primary',
       fullWidth = false,
       type = 'button',
       disabled = false,
@@ -66,10 +62,8 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const color = _color || theme.foundations.tokens.color.bg['bg-primary'];
     const { classes, cx } = useStyles(
       {
-        color: _color,
         size,
         fullWidth,
       },
@@ -77,7 +71,11 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     );
 
     const spinner = (
-      <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} {...spinnerProps} />
+      <Spinner
+        color={isSolid(variant) ? theme.foundations.tokens.color.text['text-light'] : theme.foundations.tokens.color.text['text-base']}
+        size={CO_HEIGHTS[size] / 2}
+        {...spinnerProps}
+      />
     );
 
     return (
@@ -104,5 +102,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     );
   },
 );
+
+const isSolid = (variant: ButtonVariant) => variant === 'primary' || variant === 'secondary' || variant === 'critical';
 
 Button.displayName = '@co-design/core/Button';
