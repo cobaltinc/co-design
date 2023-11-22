@@ -5,6 +5,7 @@ import useStyles from './IconButton.style';
 import { Spinner } from '../Spinner';
 import { CO_HEIGHTS } from '../../constants';
 import { SharedButtonProps } from '../Button/Button';
+import { ButtonVariant } from '../Button';
 
 type _SharedIconButtonProps = Omit<SharedButtonProps, 'leftIcon' | 'rightIcon'>;
 
@@ -18,8 +19,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
       children,
       component,
       size = 'medium',
-      color: _color,
-      variant = 'solid',
+      variant = 'primary',
       type = 'button',
       disabled = false,
       loading = false,
@@ -33,15 +33,17 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
   ) => {
     const { theme, classes, cx } = useStyles(
       {
-        color: _color,
         size,
       },
       { overrideStyles, name: 'Button' },
     );
 
-    const color = _color || theme.primaryColor;
     const spinner = (
-      <Spinner color={variant === 'solid' ? theme.colors.white : theme.palettes[color][6]} size={CO_HEIGHTS[size] / 2} {...spinnerProps} />
+      <Spinner
+        color={isSolid(variant) ? theme.foundations.tokens.color.text['text-light'] : theme.foundations.tokens.color.text['text-base']}
+        size={CO_HEIGHTS[size] / 2}
+        {...spinnerProps}
+      />
     );
 
     return (
@@ -61,5 +63,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
     );
   },
 );
+
+const isSolid = (variant: ButtonVariant) => variant === 'primary' || variant === 'secondary' || variant === 'critical';
 
 IconButton.displayName = '@co-design/core/IconButton';

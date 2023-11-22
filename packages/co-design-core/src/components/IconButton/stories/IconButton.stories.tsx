@@ -6,15 +6,11 @@ export default {
   component: IconButton,
   argTypes: {
     size: {
-      options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
+      options: ['xsmall', 'small', 'medium', 'large'],
       control: { type: 'inline-radio' },
     },
     variant: {
-      options: ['solid', 'ghost', 'light-solid', 'text'],
-      control: { type: 'inline-radio' },
-    },
-    color: {
-      options: ['purple', 'gray', 'red', 'blue'],
+      options: ['primary', 'secondary', 'tertiary', 'ghost', 'ghost-light', 'text', 'link', 'critical'],
       control: { type: 'inline-radio' },
     },
     loading: {
@@ -26,8 +22,7 @@ export default {
   },
   args: {
     size: 'medium',
-    variant: 'solid',
-    color: 'purple',
+    variant: 'primary',
     loading: false,
     disabled: false,
   },
