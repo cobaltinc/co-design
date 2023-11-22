@@ -42,8 +42,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => {
 
     title: {
       ...defaultFontStyles(theme),
-      fontSize: theme.fontSizes.xlarge,
-      marginRight: theme.spacing.medium,
+      fontSize: theme.foundations.typography.heading['heading-06'].fontSize,
       textOverflow: 'ellipsis',
       display: 'block',
       wordBreak: 'break-word',
@@ -61,7 +60,8 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      padding: `${theme.foundations.tokens.size['size-06']}px ${theme.foundations.tokens.size['size-08']}px`,
+      gap: theme.foundations.tokens.size['size-07'],
+      padding: `${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-08']}px ${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-09']}px`,
       backgroundColor: theme.foundations.tokens.color.bg['bg-03'],
       borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
       boxShadow: getBoxShadow(theme.foundations.effect['border-top']),
@@ -71,16 +71,15 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => {
       maxHeight: overflow === 'inside' ? 'calc(100vh - 185px)' : null,
       overflowY: overflow === 'inside' ? 'auto' : null,
       wordBreak: 'break-word',
-      padding: theme.foundations.tokens.size['size-08'],
+      padding: theme.foundations.tokens.size['size-09'],
     },
 
     footer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      // TODO: use spacing
-      gap: 16,
-      padding: `${theme.foundations.tokens.size['size-06']}px ${theme.foundations.tokens.size['size-08']}px`,
+      gap: theme.foundations.tokens.size['size-07'],
+      padding: `${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-09']}px`,
       backgroundColor: theme.foundations.tokens.color.bg['bg-03'],
       borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
       boxShadow: getBoxShadow(theme.foundations.effect['border-bottom']),

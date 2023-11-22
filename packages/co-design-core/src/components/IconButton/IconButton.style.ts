@@ -1,52 +1,46 @@
 import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
 import { addAlpha } from '../../utils';
-import { CO_HEIGHTS } from '../../constants';
 
 interface IconButtonStylesProps {
   color?: CoPalette;
   size: CoSize;
 }
 
-const sizes = {
-  xsmall: {
-    width: CO_HEIGHTS.xsmall,
-    height: CO_HEIGHTS.xsmall,
-  },
-
-  small: {
-    width: CO_HEIGHTS.small,
-    height: CO_HEIGHTS.small,
-  },
-
-  medium: {
-    width: CO_HEIGHTS.medium,
-    height: CO_HEIGHTS.medium,
-  },
-
-  large: {
-    width: CO_HEIGHTS.large,
-    height: CO_HEIGHTS.large,
-  },
-
-  xlarge: {
-    width: CO_HEIGHTS.xlarge,
-    height: CO_HEIGHTS.xlarge,
-  },
-};
-
-const paddings = {
-  xsmall: 8,
-  small: 8,
-  medium: 16,
-  large: 16,
-  xlarge: 24,
-};
-
 export default createStyles((theme, { color: _color, size }: IconButtonStylesProps, getRef) => {
   const loading = getRef('loading');
   const inner = getRef('inner');
   const spinner = getRef('spinner');
   const color = _color || theme.primaryColor;
+
+  const sizes = {
+    xsmall: {
+      width: theme.foundations.tokens.size['size-09'],
+      height: theme.foundations.tokens.size['size-09'],
+    },
+
+    small: {
+      width: theme.foundations.tokens.size['size-11'],
+      height: theme.foundations.tokens.size['size-11'],
+    },
+
+    medium: {
+      width: theme.foundations.tokens.size['size-12'],
+      height: theme.foundations.tokens.size['size-12'],
+    },
+
+    large: {
+      width: theme.foundations.tokens.size['size-14'],
+      height: theme.foundations.tokens.size['size-14'],
+    },
+  };
+
+  const paddings = {
+    xsmall: 8,
+    small: 8,
+    medium: 16,
+    large: 16,
+    xlarge: 24,
+  };
 
   return {
     loading: {

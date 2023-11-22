@@ -165,8 +165,7 @@ export const CoModal = ({
                   <Text id={titleId} strong className={classes.title}>
                     {title}
                   </Text>
-
-                  {!hideCloseButton && <CloseButton variant="text" color="gray" onClick={onClose} />}
+                  {!hideCloseButton && <CloseButton size="small" variant="text" color="gray" onClick={onClose} />}
                 </div>
               )}
 
