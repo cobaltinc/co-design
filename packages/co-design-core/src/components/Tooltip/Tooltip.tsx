@@ -177,10 +177,10 @@ export const Tooltip = ({
             <View className={classes.balloon} style={{ ...positionStyle, ...styles }} ref={balloonRef} {...props}>
               <div className={cx(placement, classes.content)} style={contentStyle}>
                 {title ? (
-                  <Stack spacing="small">
+                  <>
                     <span className={classes.title}>{title}</span>
                     <span className={classes.description}>{label}</span>
-                  </Stack>
+                  </>
                 ) : (
                   label
                 )}

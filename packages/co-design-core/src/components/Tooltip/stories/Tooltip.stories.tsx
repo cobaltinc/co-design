@@ -48,7 +48,7 @@ export default {
     },
   },
   args: {
-    label: 'Peek-A-Boo',
+    label: 'Tooltip',
     withArrow: true,
     placement: 'bottom',
     trigger: 'hover',
@@ -92,7 +92,7 @@ export const WithPopover: StoryObj = {
             onChangeVisible={(currentVisible) => {
               setVisible(currentVisible);
             }}
-            label="Peek-A-Boo"
+            label="Tooltip"
             {...arg}
           >
             <Button

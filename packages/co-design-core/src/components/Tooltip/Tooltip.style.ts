@@ -1,4 +1,5 @@
 import { ColorScheme, createStyles, defaultFontStyles } from '@co-design/styles';
+import { getBoxShadow } from '../../utils';
 
 interface TooltipStyles {
   colorScheme: ColorScheme;
@@ -32,16 +33,14 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
 
   arrow: {
     position: 'absolute',
-    width: 12,
-    height: 12,
-    backgroundColor: colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9],
+    width: 8,
+    height: 8,
+    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg['bg-01'] : theme.foundations.tokens.color.specialty['tooltip-bg'],
     userSelect: 'none',
     pointerEvents: 'none',
-    // content 와 별개로 arrow shadow 지정 필요
-    boxShadow: '-2px -2px 3px -1px rgba(0, 0, 0, 0.1)',
-
+    borderRadius: '1px',
     '&[class^="top"]': {
-      top: -18,
+      top: -17,
       transform: 'translate(-50%) rotate(-135deg)',
     },
 
@@ -54,7 +53,7 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     },
 
     '&[class^="bottom"]': {
-      bottom: -18,
+      bottom: -17,
       transform: 'translate(-50%) rotate(45deg)',
     },
 
@@ -67,7 +66,7 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     },
 
     '&[class^="right"]': {
-      right: -18,
+      right: -17,
       transform: 'translateY(-50%) rotate(-45deg)',
     },
 
@@ -80,7 +79,7 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     },
 
     '&[class^="left"]': {
-      left: -18,
+      left: -17,
       transform: 'translateY(-50%) rotate(135deg)',
     },
 
@@ -94,17 +93,20 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
   },
 
   content: {
+    display: 'flex',
+    flexDirection: 'column',
+    // TODO: spacing
+    gap: '12px',
     position: 'absolute',
-    padding: theme.spacing.small,
-    borderRadius: theme.radius.medium,
-    backgroundColor: colorScheme === 'dark' ? theme.colors.white : theme.palettes.gray[9],
+    // TODO: spacing
+    padding: '12px',
+    borderRadius: theme.foundations.tokens.radius['radius-01'],
+    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg['bg-01'] : theme.foundations.tokens.color.specialty['tooltip-bg'],
     ...defaultFontStyles(theme),
-    fontSize: theme.fontSizes.small,
-    color: colorScheme === 'dark' ? theme.palettes.gray[9] : theme.colors.white,
-
-    // TODO: @co-design/styles 의 shadow token 재정립
-    boxShadow: '0px 0px 4px rgba(0,0,0,0.12), 0px 4px 5px rgba(0,0,0,0.1)',
-
+    fontSize: theme.foundations.font.body.caption.fontSize,
+    lineHeight: theme.foundations.font.body.caption.lineHeight + 'px',
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-default'] : theme.foundations.tokens.color.text['text-light'],
+    boxShadow: `${getBoxShadow(theme.foundations.effect.tooltip[0])}, ${getBoxShadow(theme.foundations.effect.tooltip[1])}`,
     '&[class^="top"]': {
       bottom: 0,
       marginBottom: 12,
@@ -156,9 +158,12 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     },
   },
   title: {
-    fontWeight: 700,
+    fontWeight: theme.foundations.font.heading['heading-09'].fontWeight,
+    fontSize: theme.foundations.font.heading['heading-09'].fontSize,
+    lineHeight: theme.foundations.font.heading['heading-09'].lineHeight + 'px',
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-default'] : theme.foundations.tokens.color.text['text-light'],
   },
   description: {
-    color: colorScheme === 'dark' ? theme.palettes.gray[6] : theme.palettes.gray[3],
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-caption'] : theme.foundations.tokens.color.text['text-inverse-caption'],
   },
 }));
