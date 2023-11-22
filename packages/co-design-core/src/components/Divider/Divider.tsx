@@ -21,6 +21,9 @@ export interface DividerProps extends CoComponentProps<DividerStylesNames>, Reac
 
   /** label 위치를 정합니다. */
   labelPosition?: 'left' | 'center' | 'right';
+
+  /** Divider 컴포넌트의 색상을 진하게 설정합니다. */
+  strong?: boolean;
 }
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>(
@@ -34,11 +37,12 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
       className,
       co,
       overrideStyles,
+      strong = false,
       ...props
     }: DividerProps,
     ref,
   ) => {
-    const { theme, classes, cx } = useStyles({ margin, variant }, { overrideStyles, name: 'Divider' });
+    const { classes, cx } = useStyles({ margin, variant, strong }, { overrideStyles, name: 'Divider' });
 
     const vertical = orientation === 'vertical';
     const horizontal = !vertical;

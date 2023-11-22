@@ -4,6 +4,7 @@ import { getFieldValue } from '../../utils';
 interface DividerStyles {
   variant: string;
   margin: CoSpacing | number;
+  strong: boolean;
 }
 
 export const sizes = {
@@ -14,9 +15,8 @@ export const sizes = {
   xl: 5,
 };
 
-export default createStyles((theme, { margin, variant }: DividerStyles) => {
-  const borderColor = theme.colorScheme === 'light' ? theme.colors.lightBorder : theme.colors.darkBorder;
-
+export default createStyles((theme, { margin, variant, strong }: DividerStyles) => {
+  const borderColor = strong ? theme.foundations.tokens.color.border['border-strong'] : theme.foundations.tokens.color.border['border-default'];
   return {
     withLabel: {
       borderTop: '0 !important',
