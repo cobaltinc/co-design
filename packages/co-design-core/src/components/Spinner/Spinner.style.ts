@@ -9,23 +9,26 @@ interface SpinnerStyles {
 export default createStyles((theme, { size, color }: SpinnerStyles) => {
   const svgColor =
     color === undefined
-      ? theme.colorScheme === 'light'
-        ? theme.palettes.gray[8]
-        : theme.colors.white
+      ? theme.foundations.tokens.color.bg['bg-primary']
       : color in theme.palettes
       ? theme.colorScheme === 'light'
         ? theme.palettes[color][5]
         : theme.palettes[color][3]
-      : color in theme.colors
-      ? theme.colors[color]
       : color;
+
+  const sizes = {
+    xsmall: theme.foundations.tokens.size['size-07'],
+    small: theme.foundations.tokens.size['size-09'],
+    medium: theme.foundations.tokens.size['size-11'],
+    large: theme.foundations.tokens.size['size-14'],
+    xlarge: theme.foundations.tokens.size['size-15'],
+  };
 
   return {
     root: {
       position: 'relative',
-      display: 'inline-block',
-      width: size in CO_HEIGHTS ? CO_HEIGHTS[size] : size,
-      height: size in CO_HEIGHTS ? CO_HEIGHTS[size] : size,
+      width: theme.fn.size({ size, sizes }),
+      height: theme.fn.size({ size, sizes }),
       verticalAlign: 'middle',
     },
 
@@ -41,6 +44,12 @@ export default createStyles((theme, { size, color }: SpinnerStyles) => {
       },
       circle: {
         fill: svgColor,
+      },
+
+      svg: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
       },
     },
   };
