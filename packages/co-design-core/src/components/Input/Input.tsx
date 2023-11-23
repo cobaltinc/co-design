@@ -1,8 +1,9 @@
-import React, { forwardRef, useId } from 'react';
+import React, { ChangeEvent, forwardRef, useId, useImperativeHandle, useRef, useState } from 'react';
 import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
 import { Text, TextProps } from '../Text';
+import { Group } from '../Group';
 
 export type InputStylesNames = ClassNames<typeof useStyles>;
 
@@ -11,7 +12,7 @@ export interface InputBaseProps {
   size?: CoSize;
 
   /** Input 컴포넌트의 radius를 정합니다. */
-  radius?: CoRadius | number;
+  radius?: number;
 
   /** Input 컴포넌트 왼쪽 영역에 아이콘이 추가됩니다. */
   icon?: React.ReactNode;
@@ -57,6 +58,18 @@ export interface InputBaseProps {
 
   /** Label Text의 Props 를 설정합니다. */
   labelTextProps?: TextProps<'span'>;
+
+  /** Input 의 상태를 설명할 helper Text를 지정합니다. */
+  helperText?: string;
+
+  /** Input 의 상태를 설명할 helper Text를 설정합니다. */
+  helperTextProps?: TextProps<'span'>;
+
+  /** Input 의 최대 글자 수를 지정합니다. */
+  maximumLength?: number;
+
+  /** Input 의 hegiht 를 resize 할 수 있게 설정합니다. */
+  flexible?: boolean;
 }
 
 interface _InputProps extends InputBaseProps, CoComponentProps<InputStylesNames> {
@@ -73,7 +86,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     {
       component,
       size = 'medium',
-      radius = 'medium',
+      radius,
       icon,
       leftSectionWidth = 36,
       leftSection,
@@ -88,12 +101,17 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
       multiline = false,
       label = '',
       labelTextProps = {},
+      helperText,
+      helperTextProps = {},
+      maximumLength,
+      flexible,
       className,
       style,
       co,
       overrideStyles,
       __staticSelector = 'Input',
       name,
+      onChange,
       ...props
     }: InputProps<C>,
     ref: PolymorphicRef<C>,
@@ -101,22 +119,33 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     const inputId = useId();
     const theme = useCoTheme();
     const { classes, cx } = useStyles(
-      { radius, size, multiline, invalid, isLeftSectionExist: !!leftSection, leftSectionWidth },
+      { radius, size, multiline, invalid, disabled, flexible, isLeftSectionExist: !!leftSection, leftSectionWidth },
       { overrideStyles, name: __staticSelector },
     );
     const Element: any = component || 'input';
+    const [currentLength, setCurrentLength] = useState(0);
 
     const Wrapper = label ? View : React.Fragment;
 
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+      if (maximumLength) {
+        setCurrentLength(e.target.value.length);
+      }
+      onChange?.(e);
+    };
+
     return (
       <Wrapper>
-        {label && (
-          <label htmlFor={inputId + name} className={classes.label}>
-            <Text className={classes.labelText} {...labelTextProps}>
-              {label}
-            </Text>
-          </label>
-        )}
+        <Group className={classes.labelWrapper} position={label ? 'apart' : 'right'}>
+          {label ? (
+            <label htmlFor={inputId + name}>
+              <Text className={classes.labelText} {...labelTextProps}>
+                {label}
+              </Text>
+            </label>
+          ) : null}
+          {maximumLength ? <Text className={classes.maximumLength}>{`${currentLength} / ${maximumLength}`}</Text> : null}
+        </Group>
         <View className={cx(classes.wrapper, className)} co={co} style={style} {...wrapperProps}>
           {leftSection && (
             <div
@@ -140,6 +169,8 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             disabled={disabled}
             style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
             id={inputId + name}
+            onChange={handleChange}
+            maxLength={maximumLength}
           />
           {rightSection && (
             <div
@@ -149,6 +180,11 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             >
               {rightSection}
             </div>
+          )}
+          {helperText && (
+            <Text className={classes.helperText} {...helperTextProps}>
+              {helperText}
+            </Text>
           )}
         </View>
       </Wrapper>

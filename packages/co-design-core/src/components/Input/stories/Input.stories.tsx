@@ -95,22 +95,12 @@ export const WithLeftSection = {
   },
 };
 
-export const Textarea = {
-  render: (props) => {
-    return (
-      <div style={{ width: 400, padding: 24 }}>
-        <Input component="textarea" multiline {...props} />
-      </div>
-    );
-  },
-};
-
 export const WithLabel = {
   render: (props) => {
     return (
-      <div style={{ width: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ width: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: '32px' }}>
         <Input {...props} label="name" />
-        <Input {...props} label="email" />
+        <Input {...props} label="email" helperText="something wrong" />
         <Input {...props} label="password" />
       </div>
     );
