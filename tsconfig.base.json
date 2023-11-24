@@ -1,17 +1,11 @@
 {
-  "exclude": [
-    "node_modules",
-    "lib",
-    "esm",
-    "cjs",
-    "config/storybook/main.js"
-  ],
+  "exclude": ["node_modules", "lib", "esm", "cjs", "config/storybook/main.js"],
   "compilerOptions": {
     "target": "es2015",
     "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "node",
-    "jsx": "react",
+    "jsx": "react-jsx",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
