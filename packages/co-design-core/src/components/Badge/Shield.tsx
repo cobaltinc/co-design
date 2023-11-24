@@ -4,6 +4,7 @@ import { ComponentPropsWithoutRef, ReactElement, cloneElement } from 'react';
 
 import { BadgeBaseProps } from './Badge';
 import useStyles from './Shield.style';
+import { Typography } from '../Typography';
 
 type ShieldBadgeStylesNames = ClassNames<typeof useStyles>;
 
@@ -31,13 +32,21 @@ const ShieldBadge = ({ title, message, className, co, overrideStyles, ...props }
       {title ? (
         <div className={cx(classes.title, className)}>
           {title.icon ? cloneElement(title.icon, { size: title.iconSize, color: title.color }) : null}
-          {title.text ? <span>{title.text}</span> : null}
+          {title.text ? (
+            <Typography variant="caption" color="text-light">
+              {title.text}
+            </Typography>
+          ) : null}
         </div>
       ) : null}
       {message ? (
         <div className={cx(classes.message, className)}>
           {message.icon ? cloneElement(message.icon, { size: message.iconSize, color: message.color }) : null}
-          {message.text ? <span>{message.text}</span> : null}
+          {message.text ? (
+            <Typography variant="caption" color="text-light">
+              {message.text}
+            </Typography>
+          ) : null}
         </div>
       ) : null}
     </View>

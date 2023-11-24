@@ -5,9 +5,7 @@ export default createStyles((theme) => ({
     position: 'relative',
     display: 'inline-flex',
     borderRadius: theme.foundations.tokens.radius['radius-full'],
-    color: theme.foundations.tokens.color.text['text-light'],
     backgroundColor: theme.foundations.tokens.color.specialty['image-on-bg'],
-    fontSize: theme.foundations.typography.body.caption.fontSize,
   },
   title: {
     display: 'inherit',

@@ -3,6 +3,7 @@ import { ClassNames } from '@co-design/styles';
 import { ComponentPropsWithoutRef } from 'react';
 
 import useStyles from './Badge.style';
+import { Typography } from '../Typography';
 
 export type BadgeStylesNames = ClassNames<typeof useStyles>;
 
@@ -43,15 +44,27 @@ const Badge = ({
 
   let badge = null;
   if (dot) {
-    badge = <sup className={cx(className, classes.badge, classes.dot)} />;
+    badge = <Typography component="sup" className={cx(className, classes.badge, classes.dot)} />;
   } else if (count || showZero) {
     if (count == 0) {
-      badge = showZero ? <sup className={cx(className, classes.badge)}>0</sup> : null;
+      badge = showZero ? (
+        <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
+          0
+        </Typography>
+      ) : null;
     } else {
-      badge = <sup className={cx(className, classes.badge)}>{maxCount && count > maxCount ? `${maxCount}+` : count}</sup>;
+      badge = (
+        <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
+          {maxCount && count > maxCount ? `${maxCount}+` : count}
+        </Typography>
+      );
     }
   } else {
-    badge = <sup className={cx(className, classes.badge)}>{children}</sup>;
+    badge = (
+      <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
+        {children}
+      </Typography>
+    );
   }
 
   return (
