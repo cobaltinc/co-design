@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { useId } from '@co-design/hooks';
-import { CoComponentProps, CoSize, CoPalette, ClassNames, useCoTheme } from '@co-design/styles';
+import { CoComponentProps, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Switch.style';
 
@@ -15,9 +15,6 @@ export interface SwitchProps
   /** 우측 영역에 label을 추가합니다. */
   label?: React.ReactNode;
 
-  /** Switch 컴포넌트의 색상을 정합니다. */
-  color?: CoPalette;
-
   /** Switch 컴포넌트의 크기를 정합니다. */
   size?: 'small' | 'medium';
 
@@ -26,10 +23,8 @@ export interface SwitchProps
 }
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ id, size = 'small', color, label, className, style, co, overrideStyles, disabled = false, ...props }: SwitchProps, ref) => {
-    const theme = useCoTheme();
-    const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ size, color: _color, disabled }, { overrideStyles, name: 'Switch' });
+  ({ id, size = 'small', label, className, style, co, overrideStyles, disabled = false, ...props }: SwitchProps, ref) => {
+    const { classes, cx } = useStyles({ size, disabled }, { overrideStyles, name: 'Switch' });
     const uuid = useId(id);
 
     return (

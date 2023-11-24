@@ -1,13 +1,12 @@
-import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
+import { createStyles, CoSize, defaultFontStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
 interface SwitchStyles {
-  color: CoPalette;
   size: CoSize;
   disabled: boolean;
 }
 
-export default createStyles((theme, { size, color, disabled }: SwitchStyles) => {
+export default createStyles((theme, { size, disabled }: SwitchStyles) => {
   const switchHeight = {
     xsmall: 16,
     small: 16,

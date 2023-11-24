@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoSize, CoPalette, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames } from '@co-design/styles';
+import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner, SpinnerProps } from '../Spinner';

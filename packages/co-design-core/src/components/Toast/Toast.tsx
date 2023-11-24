@@ -5,7 +5,6 @@ import ToastIcon from './ToastIcon';
 import useStyles from './Toast.style';
 import { View } from '../View';
 import { Button } from '../Button';
-import { IconButton } from '../IconButton';
 
 export type ToastStylesNames = ClassNames<typeof useStyles>;
 

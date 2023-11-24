@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Toast from '../core';
 
 export default {
@@ -6,7 +6,7 @@ export default {
 };
 
 export const Default = {
-  render: (props) => {
+  render: () => {
     useEffect(() => {
       Toast.success('마운트 시 알림');
     }, []);
