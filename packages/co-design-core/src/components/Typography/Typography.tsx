@@ -49,6 +49,9 @@ export interface SharedTypographyProps extends CoComponentProps<TypographyStyles
 
   /** 상위 요소의 폰트 관련 속성을 적용합니다. */
   inherit?: boolean;
+
+  /** 텍스트의 vertical trim을 비활성화합니다. */
+  disableTextboxTrim?: boolean;
 }
 
 export type TypographyProps<C extends React.ElementType> = PolymorphicComponentProps<C, SharedTypographyProps>;
@@ -69,6 +72,7 @@ export const Typography: TypographyComponent & { displayName?: string } = forwar
       lineClamp,
       block = false,
       inherit = false,
+      disableTextboxTrim = false,
       className,
       style,
       co,
@@ -84,6 +88,7 @@ export const Typography: TypographyComponent & { displayName?: string } = forwar
         lineClamp,
         block,
         inherit,
+        disableTextboxTrim,
       },
       { overrideStyles, name: 'Typography' },
     );

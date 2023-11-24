@@ -1,5 +1,7 @@
 import { foundations } from '@co-design/styles';
 import { Typography } from '../Typography';
+import { Stack } from '../../Stack';
+import { Button } from '../../Button';
 
 export default {
   title: '@co-design/core/Typography',
@@ -65,13 +67,14 @@ export const Inherit = () => {
         </Typography>{' '}
         ipsum dolor sit amet,{' '}
         <Typography
-          variant="body-01"
+          variant="body-02"
           strong
           co={(theme) => ({
             background: theme.fn.linearGradient(90, 'red', 'green', 'blue'),
-            backgroundClip: 'Typography',
+            backgroundClip: 'text',
             color: 'transparent',
           })}
+          disableTextboxTrim
         >
           consectetur
         </Typography>{' '}
@@ -82,4 +85,51 @@ export const Inherit = () => {
       </Typography>
     </div>
   );
+};
+
+export const Multi = () => {
+  return (
+    <Stack>
+      <Typography
+        co={{
+          backgroundColor: 'sandybrown',
+        }}
+      >
+        Lorem
+      </Typography>
+      <Typography
+        co={{
+          backgroundColor: 'sandybrown',
+        }}
+      >
+        ipsum dolor sit amet,
+      </Typography>
+      <Typography
+        co={{
+          backgroundColor: 'sandybrown',
+        }}
+      >
+        consectetur
+      </Typography>
+    </Stack>
+  );
+};
+
+export const TextboxTrim = {
+  render: (props) => {
+    return (
+      <div style={{ width: 300 }}>
+        <Stack>
+          <Typography
+            variant="body-01"
+            co={{
+              backgroundColor: 'sandybrown',
+            }}
+            {...props}
+          />
+          <Button>hello</Button>
+        </Stack>
+      </div>
+    );
+  },
 };

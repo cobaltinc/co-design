@@ -1,4 +1,6 @@
+import { createStyleObject } from '@capsizecss/core';
 import { createStyles, CSSObject, defaultFontStyles, CoTypography, CoTextSemanticColor, CoPaletteColor, CoTypographyValue } from '@co-design/styles';
+import fontMetrics from '@capsizecss/metrics/arial';
 
 interface TypographyStyles {
   color: CoPaletteColor | CoTextSemanticColor | string;
@@ -6,6 +8,7 @@ interface TypographyStyles {
   lineClamp: number;
   block: boolean;
   inherit: boolean;
+  disableTextboxTrim: boolean;
 }
 
 function getLineClamp(lineClamp: number): CSSObject {
@@ -22,7 +25,26 @@ function getLineClamp(lineClamp: number): CSSObject {
   return null;
 }
 
-export default createStyles((theme, { color, variant, lineClamp, block, inherit }: TypographyStyles) => {
+const createFontStyles = (fontSize: number, lineHeight: number) => {
+  const capsizeStyles = createStyleObject({
+    fontSize,
+    leading: lineHeight,
+    fontMetrics,
+  });
+
+  return {
+    fontSize: capsizeStyles.fontSize,
+    lineHeight: capsizeStyles.lineHeight,
+    '&::before': {
+      ...capsizeStyles['::before'],
+    },
+    '&::after': {
+      ...capsizeStyles['::after'],
+    },
+  };
+};
+
+export default createStyles((theme, { color, variant, lineClamp, block, inherit, disableTextboxTrim }: TypographyStyles) => {
   const _color = color
     ? color in theme.foundations.color
       ? theme.foundations.color[color][theme.colorScheme === 'dark' ? 3 : 5]
@@ -42,11 +64,14 @@ export default createStyles((theme, { color, variant, lineClamp, block, inherit 
       ...getLineClamp(lineClamp),
       color: _color,
       ...defaultFontStyles(theme),
-      fontFamily: inherit ? 'inherit' : theme.fontFamily,
       WebkitTapHighlightColor: 'transparent',
-      fontSize: inherit ? 'inherit' : fontSize,
-      fontWeight: inherit ? 'inherit' : fontWeight,
-      lineHeight: inherit ? 'inherit' : lineHeight + 'px',
+      ...(inherit
+        ? {}
+        : {
+            fontFamily: theme.fontFamily,
+            fontWeight,
+            ...(disableTextboxTrim ? { fontSize, lineHeight: lineHeight + 'px' } : { ...createFontStyles(fontSize, lineHeight) }),
+          }),
     },
   };
 });
