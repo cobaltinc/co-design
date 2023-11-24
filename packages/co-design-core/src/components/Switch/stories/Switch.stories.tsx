@@ -16,6 +16,9 @@ export default {
       options: ['purple', 'blue', 'red', 'gray'],
       control: { type: 'inline-radio' },
     },
+    disabled: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
     size: 'medium',
@@ -26,5 +29,11 @@ export default {
 export const Default = {
   render: (props) => {
     return <Switch {...props} />;
+  },
+};
+
+export const Disabled = {
+  render: (props) => {
+    return <Switch label="Label" disabled {...props} />;
   },
 };

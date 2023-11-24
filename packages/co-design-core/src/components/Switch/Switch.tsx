@@ -19,20 +19,22 @@ export interface SwitchProps
   color?: CoPalette;
 
   /** Switch 컴포넌트의 크기를 정합니다. */
-  size?: CoSize;
+  size?: 'small' | 'medium';
+
+  /** Switch 컴포넌트의 disabled 상태를 정합니다. */
+  disabled?: boolean;
 }
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
-  ({ id, size = 'small', color, label, className, style, co, overrideStyles, ...props }: SwitchProps, ref) => {
+  ({ id, size = 'small', color, label, className, style, co, overrideStyles, disabled = false, ...props }: SwitchProps, ref) => {
     const theme = useCoTheme();
     const _color = color || theme.primaryColor;
-    const { classes, cx } = useStyles({ size, color: _color }, { overrideStyles, name: 'Switch' });
+    const { classes, cx } = useStyles({ size, color: _color, disabled }, { overrideStyles, name: 'Switch' });
     const uuid = useId(id);
 
     return (
       <View className={cx(classes.root, className)} co={co} style={style}>
-        <input {...props} id={uuid} ref={ref} type="checkbox" className={classes.input} />
-
+        <input disabled={disabled} {...props} id={uuid} ref={ref} type="checkbox" className={classes.input} />
         {label && (
           <label className={classes.label} htmlFor={uuid}>
             {label}
