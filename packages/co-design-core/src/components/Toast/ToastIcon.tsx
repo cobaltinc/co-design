@@ -3,8 +3,9 @@ import CheckCircle from './icons/CheckCircle';
 import CloseCircle from './icons/CloseCircle';
 import AlertCircle from './icons/AlertCircle';
 import Close from './icons/Close';
+import InfoCircle from './icons/InfoCircle';
 
-type ToastIconType = 'alert-circle' | 'check-circle' | 'close-circle' | 'close';
+type ToastIconType = 'alert-circle' | 'check-circle' | 'close-circle' | 'close' | 'info-circle';
 
 interface ToastIconProps extends SVGProps<SVGSVGElement> {
   type: ToastIconType;
@@ -28,6 +29,8 @@ const ToastIcon = ({ type, color, size, ...props }: ToastIconProps) => {
       return <CloseCircle style={iconStyle} {...props} />;
     case 'close':
       return <Close style={iconStyle} {...props} />;
+    case 'info-circle':
+      return <InfoCircle style={iconStyle} {...props} />;
     default:
       return <AlertCircle style={iconStyle} {...props} />;
   }

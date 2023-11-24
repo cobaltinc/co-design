@@ -2,6 +2,7 @@ import { createStyles, keyframes } from '@co-design/styles';
 
 interface ToastStylesParams {
   duration: number;
+  type: 'base' | 'primary' | 'success' | 'warning' | 'critical' | 'error'; // error will be deprecated;
 }
 
 const toastAnimation = keyframes({
@@ -14,7 +15,43 @@ const progressAnimation = keyframes({
   to: { width: '0' },
 });
 
-export default createStyles((theme, { duration }: ToastStylesParams) => {
+export default createStyles((theme, { duration, type }: ToastStylesParams) => {
+  const getColorByType = (type) => {
+    switch (type) {
+      case 'base':
+        return {
+          background: theme.foundations.tokens.color.bg['bg-secondary'],
+          progress: theme.foundations.tokens.color.bg['bg-secondary-hover'],
+        };
+      case 'primary':
+        return {
+          background: theme.foundations.tokens.color.bg['bg-primary'],
+          progress: theme.foundations.tokens.color.bg['bg-primary-hover'],
+        };
+      case 'success':
+        return {
+          background: theme.foundations.tokens.color.bg['bg-success'],
+          progress: theme.foundations.tokens.color.bg['bg-success-hover'],
+        };
+      case 'error':
+      case 'critical':
+        return {
+          background: theme.foundations.tokens.color.bg['bg-critical'],
+          progress: theme.foundations.tokens.color.bg['bg-critical-hover'],
+        };
+      case 'warning':
+        return {
+          background: theme.foundations.tokens.color.bg['bg-warning'],
+          progress: theme.foundations.tokens.color.bg['bg-warning-hover'],
+        };
+      default:
+        return {
+          background: theme.foundations.tokens.color.bg['bg-secondary'],
+          progress: theme.foundations.tokens.color.bg['bg-secondary-hover'],
+        };
+    }
+  };
+
   return {
     container: {
       transform: 'translate3d(0, -0, -0) scale(1)',
@@ -33,48 +70,47 @@ export default createStyles((theme, { duration }: ToastStylesParams) => {
     toast: {
       position: 'relative',
       display: 'flex',
-      maxWidth: '450px',
+      maxWidth: '320px',
       width: '100%',
-      height: '70px',
-      padding: '0 20px',
+      minHeight: theme.foundations.tokens.size['size-14'],
+      padding: `${theme.foundations.tokens.size['size-07'] - 2}px ${theme.foundations.tokens.size['size-07']}px`,
+      justifyContent: 'space-between',
       alignItems: 'center',
-      fontSize: theme.fontSizes.small,
-      color: '#212b36',
-      borderRadius: '5px',
-      border: '1px solid #cfd8eb',
-      backgroundColor: 'white',
+      fontSize: theme.foundations.typography.body['body-02'].fontSize,
+      lineHeight: theme.foundations.typography.body['body-02'].lineHeight + 'px',
+      color: theme.foundations.tokens.color.text['text-light'],
+      borderRadius: theme.foundations.tokens.radius['radius-01'],
+      backgroundColor: getColorByType(type).background,
       boxShadow: '0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05)',
       boxSizing: 'border-box',
       overflow: 'hidden',
     },
     progress: {
       position: 'absolute',
-      top: '0',
+      bottom: '0',
       left: '0',
       width: '100%',
       height: '4px',
-      backgroundColor: '#5c6ac4', // TODO: before $indigo
+      backgroundColor: getColorByType(type).progress,
       animation: `${progressAnimation} ${duration}ms linear forwards`,
     },
     icon: {
       verticalAlign: 'middle',
     },
+    closeWrapper: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: theme.foundations.tokens.size['size-08'],
+      height: theme.foundations.tokens.size['size-08'],
+    },
     close: {
       cursor: 'pointer',
-      position: 'absolute',
-      right: '8px',
-      top: '8px',
     },
     message: {
-      marginTop: '-2px',
-      marginLeft: '14px',
+      flex: 1,
+      marginLeft: theme.foundations.tokens.size['size-04'],
       verticalAlign: 'middle',
-    },
-    error: {
-      backgroundColor: '#de3618', // TODO: before $red
-    },
-    warning: {
-      backgroundColor: '#ffca28', // TODO: before $amber
     },
   };
 });

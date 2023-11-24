@@ -25,6 +25,12 @@ export const Default = {
           <button onClick={() => Toast.error('실패', { close: true })}>error</button>
           <button onClick={() => Toast.warning('경고', { close: true })}>warning</button>
         </div>
+        <div>
+          <h2>Close on Interaction</h2>
+          <button onClick={() => Toast.success('성공', { close: true, closeOnTimeout: false })}>success</button>
+          <button onClick={() => Toast.error('실패', { close: true, closeOnTimeout: false })}>error</button>
+          <button onClick={() => Toast.warning('경고', { close: true, closeOnTimeout: false })}>warning</button>
+        </div>
       </div>
     );
   },

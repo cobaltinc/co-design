@@ -8,6 +8,7 @@ export type ToastOptionType = {
   type: ToastType;
   duration?: number;
   close?: boolean;
+  closeOnTimeout?: boolean;
 };
 
 class ToastCore {
@@ -35,6 +36,7 @@ class ToastCore {
       type: option.type,
       duration: option.duration,
       close: option.close,
+      closeOnTimeout: option.closeOnTimeout,
     };
     this.toasts = [...this.toasts, newToast];
   }
@@ -44,22 +46,31 @@ class ToastCore {
     this.renderToast();
   }
 
-  show(message: string, option: ToastOptionType = { type: 'default', duration: 4500, close: false }) {
+  show(message: string, option?: ToastOptionType) {
+    const defaultOption = { type: 'base', duration: 3000, close: false, closeOnTimeout: true };
     this.createPortal();
-    this.createToast(message, option);
+    this.createToast(message, { ...defaultOption, ...option });
     this.renderToast();
   }
 
-  success(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
-    this.show(message, { type: 'success', ...option });
+  primary(message: string, option?: Omit<ToastOptionType, 'type'>) {
+    const defaultOption = { duration: 3000, close: false, closeOnTimeout: true };
+    this.show(message, { type: 'primary', ...defaultOption, ...option });
   }
 
-  error(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
-    this.show(message, { type: 'error', ...option });
+  success(message: string, option?: Omit<ToastOptionType, 'type'>) {
+    const defaultOption = { duration: 3000, close: false, closeOnTimeout: true };
+    this.show(message, { type: 'success', ...defaultOption, ...option });
   }
 
-  warning(message: string, option: Omit<ToastOptionType, 'type'> = { duration: 4500, close: false }) {
-    this.show(message, { type: 'warning', ...option });
+  error(message: string, option?: Omit<ToastOptionType, 'type'>) {
+    const defaultOption = { duration: 3000, close: false, closeOnTimeout: true };
+    this.show(message, { type: 'critical', ...defaultOption, ...option });
+  }
+
+  warning(message: string, option?: Omit<ToastOptionType, 'type'>) {
+    const defaultOption = { duration: 3000, close: false, closeOnTimeout: true };
+    this.show(message, { type: 'warning', ...defaultOption, ...option });
   }
 }
 

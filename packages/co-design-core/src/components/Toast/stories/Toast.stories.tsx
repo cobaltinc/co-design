@@ -6,7 +6,7 @@ export default {
   component: Toast,
   argTypes: {
     type: {
-      options: ['success', 'error', 'warning'],
+      options: ['base', 'primary', 'success', 'error', 'warning'],
       control: { type: 'inline-radio' },
     },
     message: {
@@ -18,11 +18,14 @@ export default {
     close: {
       control: { type: 'boolean' },
     },
+    closeOnTimeout: {
+      control: { type: 'boolean' },
+    },
   },
   args: {
-    type: 'success',
-    message: '성공했습니다.',
-    duration: 1000,
+    type: 'base',
+    message: 'This is a toast message',
+    duration: 3000,
   },
 };
 
@@ -32,17 +35,34 @@ export const Default = {
   },
 };
 
+export const WithAction = {
+  render: (props) => {
+    return (
+      <Toast
+        id="1"
+        action={{
+          label: 'Undo',
+          onAction: () => {
+            console.log('action');
+          },
+        }}
+        {...props}
+      />
+    );
+  },
+};
+
 export const Success = {
   args: {
     type: 'success',
-    message: '성공했습니다.',
+    message: 'This is a toast message',
   },
 };
 
 export const SuccessWithClose = {
   args: {
     type: 'success',
-    message: '성공했습니다.',
+    message: 'This is a toast message',
     close: true,
   },
 };
@@ -74,5 +94,14 @@ export const WarningWithClose = {
     type: 'warning',
     message: '문제가 발생했습니다. 계속해서 같은 문제가 발생한다면 present@present.do로 연락바랍니다.',
     close: true,
+  },
+};
+
+export const CloseOnlyInteraction = {
+  args: {
+    type: 'success',
+    message: 'This is a toast message',
+    close: true,
+    closeOnTimeout: false,
   },
 };
