@@ -46,5 +46,6 @@ export * from './Text';
 export * from './Toast';
 export * from './Tooltip';
 export * from './Transition';
+export * from './Typography';
 export * from './Upload';
 export * from './View';
