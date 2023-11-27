@@ -59,8 +59,8 @@ const getPosition = (
   placeDistanceX: number,
   placeDistanceY: number,
 ) => {
-  const _placeDistanceX = String(placeDistanceX) || placeDistance;
-  const _placeDistanceY = String(placeDistanceY) || placeDistance;
+  const _placeDistanceX = typeof placeDistanceX === 'number' ? String(placeDistanceX) : placeDistance;
+  const _placeDistanceY = typeof placeDistanceY === 'number' ? String(placeDistanceY) : placeDistance;
 
   switch (placement) {
     case 'top-right':

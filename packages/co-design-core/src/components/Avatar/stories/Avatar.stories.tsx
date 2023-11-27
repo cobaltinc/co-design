@@ -1,6 +1,7 @@
 import { Avatar } from '../Avatar';
 import { Badge } from '../../Badge';
 import { foundations, useCoTheme } from '@co-design/styles';
+import { AvatarPlaceholderIcon } from '../AvatarPlaceholderIcon';
 
 export default {
   title: '@co-design/core/Avatar',
@@ -101,6 +102,18 @@ export const TextAvatar = {
     return (
       <div>
         <Avatar {...props}>Kim Da Yeon</Avatar>
+      </div>
+    );
+  },
+};
+
+export const IconAvatar = {
+  render: (props) => {
+    return (
+      <div>
+        <Avatar {...props}>
+          <AvatarPlaceholderIcon />
+        </Avatar>
       </div>
     );
   },

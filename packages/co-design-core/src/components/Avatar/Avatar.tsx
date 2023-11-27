@@ -63,13 +63,17 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
       <View<any> component={component || 'div'} ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {error ? (
           <div className={classes.placeholder} title={alt}>
-            <AvatarPlaceholderIcon className={classes.icon} />
+            <AvatarPlaceholderIcon />
           </div>
         ) : children ? (
           <div className={classes.placeholder} title={alt}>
-            <Typography variant="heading-06" color="text-light">
-              {sliceChildren}
-            </Typography>
+            {typeof children === 'string' ? (
+              <Typography variant="heading-06" color="text-light">
+                {sliceChildren}
+              </Typography>
+            ) : (
+              children
+            )}
           </div>
         ) : (
           <img className={classes.image} src={src} alt={alt} onError={() => setError(true)} />

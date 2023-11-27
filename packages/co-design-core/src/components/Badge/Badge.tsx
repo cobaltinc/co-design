@@ -23,7 +23,7 @@ const Badge = ({
   children,
   badgeContent = 0,
   placement = 'top-right',
-  placeDistance = 4,
+  placeDistance = 2,
   placeDistanceX,
   placeDistanceY,
   maxCount = 99,

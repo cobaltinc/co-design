@@ -40,10 +40,4 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => ({
     height: '100%',
     userSelect: 'none',
   },
-
-  icon: {
-    width: '70%',
-    height: '70%',
-    color,
-  },
 }));
