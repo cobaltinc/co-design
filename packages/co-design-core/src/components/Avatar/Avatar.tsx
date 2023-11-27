@@ -7,12 +7,6 @@ import { Typography } from '../Typography';
 
 export type AvatarStylesNames = ClassNames<typeof useStyles>;
 
-interface AvatarBadgeProps {
-  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
-  placeDistance?: number;
-  content: React.ReactNode;
-}
-
 interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
   /** Avatar 컴포넌트의 이미지 src를 정합니다. */
   src?: string;
@@ -28,8 +22,6 @@ interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
 
   /** Avatar 컴포넌트에 src가 없을 경우 기본 색상을 사용합니다. */
   color?: CoPalette;
-
-  badge?: AvatarBadgeProps;
 }
 
 export type AvatarProps<C extends React.ElementType> = PolymorphicComponentProps<C, _AvatarProps>;

@@ -5,6 +5,7 @@ import { AvatarShape } from './Avatar.style';
 import { View } from '../View';
 import { Center } from '../Center';
 import useStyles from './AvatarGroup.style';
+import { Typography } from '../Typography';
 
 export type AvatarGroupStylesNames = ClassNames<typeof useStyles>;
 
@@ -36,7 +37,7 @@ export interface AvatarGroupProps extends CoComponentProps<AvatarGroupStylesName
 
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
   (
-    { children, size = 'medium', shape = 'circle', limit = 2, spacing = 'large', total, className, co, overrideStyles, ...props }: AvatarGroupProps,
+    { children, size = 'medium', shape = 'circle', limit = 2, spacing = 8, total, className, co, overrideStyles, ...props }: AvatarGroupProps,
     ref,
   ) => {
     const { classes, cx } = useStyles({ spacing }, { overrideStyles, name: 'AvatarGroup' });
@@ -65,7 +66,11 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
         {avatars.slice(0, avatars.length - extraAvatars)}
         {truncatedAvatars ? (
           <Avatar size={size} shape={shape} className={classes.child} style={{ zIndex: limit + 1 }}>
-            <Center className={classes.truncated}>+{truncatedAvatars}</Center>
+            <Center className={classes.truncated}>
+              <Typography variant="heading-06" color="text-light">
+                +{truncatedAvatars}
+              </Typography>
+            </Center>
           </Avatar>
         ) : null}
       </View>
