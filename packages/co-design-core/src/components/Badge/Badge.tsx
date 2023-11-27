@@ -1,6 +1,6 @@
 import { CoComponentProps, View } from '@co-design/core';
 import { ClassNames } from '@co-design/styles';
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, ReactNode } from 'react';
 
 import useStyles from './Badge.style';
 import { Typography } from '../Typography';
@@ -8,12 +8,12 @@ import { Typography } from '../Typography';
 export type BadgeStylesNames = ClassNames<typeof useStyles>;
 
 export interface BadgeBaseProps {
-  count?: number;
-  showZero?: boolean;
+  badgeContent?: ReactNode;
+  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  placeDistance?: number;
+  placeDistanceX?: number;
+  placeDistanceY?: number;
   maxCount?: number;
-  dot?: boolean;
-  backgroundColor?: string;
-  textColor?: string;
   size?: 'small' | 'medium' | 'large' | number;
 }
 
@@ -21,10 +21,12 @@ export interface BadgeProps extends BadgeBaseProps, CoComponentProps<BadgeStyles
 
 const Badge = ({
   children,
-  count = 0,
-  showZero = false,
+  badgeContent = 0,
+  placement = 'top-right',
+  placeDistance = 4,
+  placeDistanceX,
+  placeDistanceY,
   maxCount = 99,
-  dot = false,
   size = 'medium',
   className = '',
   style,
@@ -32,10 +34,18 @@ const Badge = ({
   overrideStyles,
   ...props
 }: BadgeProps) => {
-  const contentLength = maxCount && count > maxCount ? String(maxCount).length : String(count).length;
+  const dot = !badgeContent;
+  const contentLength =
+    typeof badgeContent === 'number'
+      ? maxCount && badgeContent > maxCount
+        ? String(maxCount).length
+        : String(badgeContent).length
+      : typeof badgeContent === 'string'
+      ? badgeContent.length
+      : 1;
 
   const { cx, classes } = useStyles(
-    { size, contentLength },
+    { size, contentLength, dot, placement, placeDistance, placeDistanceX, placeDistanceY },
     {
       overrideStyles,
       name: 'Badge',
@@ -43,32 +53,27 @@ const Badge = ({
   );
 
   let badge = null;
-  if (dot) {
-    badge = <Typography component="sup" className={cx(className, classes.badge, classes.dot)} />;
-  } else if (count || showZero) {
-    if (count == 0) {
-      badge = showZero ? (
+  if (badgeContent) {
+    if (typeof badgeContent === 'number') {
+      badge = (
         <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
-          0
+          {maxCount && badgeContent > maxCount ? `${maxCount}+` : badgeContent}
         </Typography>
-      ) : null;
+      );
     } else {
       badge = (
         <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
-          {maxCount && count > maxCount ? `${maxCount}+` : count}
+          {badgeContent}
         </Typography>
       );
     }
   } else {
-    badge = (
-      <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
-        {children}
-      </Typography>
-    );
+    badge = <Typography component="sup" className={cx(className, classes.badge, classes.dot)} />;
   }
 
   return (
     <View component="span" className={classes.container} style={style} co={co} {...props}>
+      {children}
       {badge}
     </View>
   );

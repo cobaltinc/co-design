@@ -3,8 +3,15 @@ import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, Co
 import { View } from '../View';
 import { AvatarPlaceholderIcon } from './AvatarPlaceholderIcon';
 import useStyles, { AvatarShape } from './Avatar.style';
+import { Typography } from '../Typography';
 
 export type AvatarStylesNames = ClassNames<typeof useStyles>;
+
+interface AvatarBadgeProps {
+  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  placeDistance?: number;
+  content: React.ReactNode;
+}
 
 interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
   /** Avatar 컴포넌트의 이미지 src를 정합니다. */
@@ -21,6 +28,8 @@ interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
 
   /** Avatar 컴포넌트에 src가 없을 경우 기본 색상을 사용합니다. */
   color?: CoPalette;
+
+  badge?: AvatarBadgeProps;
 }
 
 export type AvatarProps<C extends React.ElementType> = PolymorphicComponentProps<C, _AvatarProps>;
@@ -33,19 +42,34 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const _color = color || theme.primaryColor;
+    const _color = color || theme.foundations.tokens.color.icon['icon-default'];
     const { classes, cx } = useStyles({ color: _color, shape, size }, { overrideStyles, name: 'Avatar' });
     const [error, setError] = useState(!src);
 
+    const sliceChildren =
+      children?.length > 2
+        ? children
+            .split(' ') // 문자열의 공백을 기준으로 자름
+            .slice(0, 2) // 최대 2개 까지만 허용
+            .map((string) => string[0]) // 각 문자열의 첫 단어로 변경
+            .join('')
+        : children;
+
     useEffect(() => {
-      !src ? setError(true) : setError(false);
+      !src && !children ? setError(true) : setError(false);
     }, [src]);
 
     return (
       <View<any> component={component || 'div'} ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         {error ? (
           <div className={classes.placeholder} title={alt}>
-            {children ? children : <AvatarPlaceholderIcon className={classes.placeholderIcon} />}
+            <AvatarPlaceholderIcon className={classes.icon} />
+          </div>
+        ) : children ? (
+          <div className={classes.placeholder} title={alt}>
+            <Typography variant="heading-06" color="text-light">
+              {sliceChildren}
+            </Typography>
           </div>
         ) : (
           <img className={classes.image} src={src} alt={alt} onError={() => setError(true)} />
