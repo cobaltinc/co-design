@@ -51,6 +51,16 @@ export const Default = {
   },
 };
 
+export const WithPlaceholder = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24 }}>
+        <NativeSelect {...props} data={['React', 'Angular', 'Svelte', 'Vue']} />
+      </div>
+    );
+  },
+};
+
 export const WithIcon = {
   render: (props) => {
     return (

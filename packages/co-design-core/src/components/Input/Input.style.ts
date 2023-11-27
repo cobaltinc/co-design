@@ -11,28 +11,29 @@ interface InputStyles {
   flexible: boolean;
   isLeftSectionExist: boolean;
   leftSectionWidth: number;
+  isRightSectionExist: boolean;
+  rightSectionWidth: number;
 }
 
-const FONT_SIZES = {
-  xsmall: 12,
-  small: 14,
-  medium: 14,
-  large: 14,
-  xlarge: 16,
-};
-
 export default createStyles(
-  (theme, { size, multiline, radius, invalid, disabled, flexible, isLeftSectionExist, leftSectionWidth }: InputStyles, getRef) => {
+  (
+    theme,
+    {
+      size,
+      multiline,
+      radius,
+      invalid,
+      disabled,
+      flexible,
+      isLeftSectionExist,
+      leftSectionWidth,
+      isRightSectionExist,
+      rightSectionWidth,
+    }: InputStyles,
+    getRef,
+  ) => {
     const helperText = getRef('helperText');
     const invalidColor = theme.foundations.tokens.color.border['border-critical'];
-
-    const labelFonts = {
-      xsmall: 'heading-09',
-      small: 'heading-09',
-      medium: 'heading-08',
-      large: 'heading-07',
-      xlarge: 'heading-07',
-    };
 
     const labelMarginBottom = {
       xsmall: 12,
@@ -52,6 +53,14 @@ export default createStyles(
 
     const paddingX = theme.foundations.tokens.size['size-06'];
 
+    const inputHeights = {
+      xsmall: 28,
+      small: 32,
+      medium: 36,
+      large: 48,
+      xlarge: 56,
+    };
+
     return {
       wrapper: {
         position: 'relative',
@@ -60,16 +69,13 @@ export default createStyles(
         marginBottom: multiline ? theme.foundations.tokens.size['size-04'] : labelMarginBottom[size],
       },
       labelText: {
-        fontSize: theme.foundations.typography.heading[labelFonts[size]].fontSize,
-        lineHeight: theme.foundations.typography.heading[labelFonts[size]].lineHeight + 'px',
-        fontWeight: theme.foundations.typography.heading[labelFonts[size]].fontWeight,
         color: disabled ? theme.foundations.tokens.color.text['text-disabled'] : theme.foundations.tokens.color.text['text-default'],
       },
       input: {
         ...defaultFontStyles(theme),
-        height: multiline ? 'auto' : getFieldValue(size, CO_HEIGHTS),
+        height: multiline ? 'auto' : theme.fn.size({ size, sizes: inputHeights }),
         WebkitTapHighlightColor: 'transparent',
-        lineHeight: multiline ? theme.lineHeight : `${getFieldValue(size, CO_HEIGHTS) - 2}px`,
+        lineHeight: theme.foundations.typography.body['body-02'].lineHeight + 'px',
         appearance: 'none',
         boxSizing: 'border-box',
         fontSize: theme.foundations.typography.body['body-02'].fontSize,
@@ -89,6 +95,7 @@ export default createStyles(
         },
 
         '&:focus, &:focus-within': {
+          width: 'calc(100% - 2px)',
           border: `2px solid ${theme.foundations.tokens.color.border['border-primary']}`,
         },
 
@@ -116,12 +123,15 @@ export default createStyles(
             }),
       },
 
-      withIcon: {
+      withLeft: {
         paddingLeft: `${getFieldValue(size, CO_HEIGHTS) + (isLeftSectionExist ? leftSectionWidth : 0)}px !important`,
       },
 
+      withRight: {
+        paddingRight: `${paddingX + (isRightSectionExist ? rightSectionWidth : 0)}px !important`,
+      },
+
       invalid: {
-        color: `${invalidColor} !important`,
         border: `2px solid ${invalidColor}`,
 
         '&::placeholder': {
@@ -192,7 +202,6 @@ export default createStyles(
 
       helperText: {
         ref: helperText,
-        fontSize: theme.foundations.typography.body.caption.fontSize,
         color: invalid ? invalidColor : theme.foundations.tokens.color.text['text-caption'],
         position: 'absolute',
         top: 'calc(100% + 8px)',

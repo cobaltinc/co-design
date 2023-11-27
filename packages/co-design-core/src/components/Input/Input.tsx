@@ -1,9 +1,10 @@
-import React, { ChangeEvent, forwardRef, useId, useImperativeHandle, useRef, useState } from 'react';
-import { useCoTheme, CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoRadius, ClassNames } from '@co-design/styles';
+import React, { ChangeEvent, forwardRef, useId, useState } from 'react';
+import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, ClassNames, CoTypography } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Input.style';
 import { Text, TextProps } from '../Text';
 import { Group } from '../Group';
+import { Typography } from '../Typography';
 
 export type InputStylesNames = ClassNames<typeof useStyles>;
 
@@ -81,6 +82,14 @@ export type InputProps<C extends React.ElementType> = PolymorphicComponentProps<
 
 type InputComponent = <C extends React.ElementType = 'input'>(props: InputProps<C>) => React.ReactNode;
 
+const labelVariants: Record<string, CoTypography> = {
+  xsmall: 'heading-09',
+  small: 'heading-09',
+  medium: 'heading-08',
+  large: 'heading-07',
+  xlarge: 'heading-07',
+};
+
 export const Input: InputComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'input'>(
     {
@@ -117,9 +126,19 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const inputId = useId();
-    const theme = useCoTheme();
     const { classes, cx } = useStyles(
-      { radius, size, multiline, invalid, disabled, flexible, isLeftSectionExist: !!leftSection, leftSectionWidth },
+      {
+        radius,
+        size,
+        multiline,
+        invalid,
+        disabled,
+        flexible,
+        isLeftSectionExist: !!leftSection,
+        leftSectionWidth,
+        isRightSectionExist: !!rightSection,
+        rightSectionWidth,
+      },
       { overrideStyles, name: __staticSelector },
     );
     const Element: any = component || 'input';
@@ -139,9 +158,9 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
         <Group className={classes.labelWrapper} position={label ? 'apart' : 'right'}>
           {label ? (
             <label htmlFor={inputId + name}>
-              <Text className={classes.labelText} {...labelTextProps}>
+              <Typography variant={labelVariants[size]} className={classes.labelText} {...labelTextProps}>
                 {label}
-              </Text>
+              </Typography>
             </label>
           ) : null}
           {maximumLength ? <Text className={classes.maximumLength}>{`${currentLength} / ${maximumLength}`}</Text> : null}
@@ -161,13 +180,13 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             {...props}
             ref={ref}
             className={cx(classes.input, {
-              [classes.withIcon]: icon,
+              [classes.withLeft]: !!leftSection || !!icon,
+              [classes.withRight]: !!rightSection,
               [classes.invalid]: invalid,
               [classes.disabled]: disabled,
             })}
             required={required}
             disabled={disabled}
-            style={{ paddingRight: rightSection ? rightSectionWidth : theme.spacing.small }}
             id={inputId + name}
             onChange={handleChange}
             maxLength={maximumLength}
@@ -182,9 +201,9 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             </div>
           )}
           {helperText && (
-            <Text className={classes.helperText} {...helperTextProps}>
+            <Typography variant="caption" className={classes.helperText} {...helperTextProps}>
               {helperText}
-            </Text>
+            </Typography>
           )}
         </View>
       </Wrapper>

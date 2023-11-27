@@ -36,22 +36,7 @@ export interface NativeSelectProps
 
 export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
   (
-    {
-      id,
-      size = 'medium',
-      data,
-      placeholder,
-      wrapperProps,
-      defaultValue,
-      value,
-      required,
-      invalid,
-      rightSection,
-      rightSectionWidth,
-      onChange,
-      overrideStyles,
-      ...props
-    }: NativeSelectProps,
+    { id, size = 'medium', data, placeholder, required, invalid, rightSection, rightSectionWidth, overrideStyles, ...props }: NativeSelectProps,
     ref,
   ) => {
     const uuid = useId(id);
@@ -67,11 +52,21 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
 
     if (placeholder) {
       options.unshift(
-        <option key="placeholder" value="" selected disabled hidden>
+        <option key="placeholder" value="" disabled hidden>
           {placeholder}
         </option>,
       );
     }
+
+    const selectRightSectionProps = getSelectRightSectionProps({
+      theme,
+      rightSection,
+      rightSectionWidth,
+      overrideStyles,
+      shouldClear: false,
+      size,
+      invalid,
+    });
 
     return (
       <Input<'select'>
@@ -80,19 +75,16 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
         ref={ref}
         id={uuid}
         required={required}
-        value={value === null ? '' : value}
         size={size}
-        overrideStyles={overrideStyles}
-        onChange={onChange}
-        {...getSelectRightSectionProps({
-          theme,
-          rightSection,
-          rightSectionWidth,
-          overrideStyles,
-          shouldClear: false,
-          size,
-          invalid,
-        })}
+        {...selectRightSectionProps}
+        defaultValue={placeholder ? '' : undefined}
+        overrideStyles={{
+          ...overrideStyles,
+          ...selectRightSectionProps.overrideStyles,
+          input: {
+            padding: `0 ${theme.foundations.tokens.size['size-06']}px`,
+          },
+        }}
         {...props}
       >
         {options}
