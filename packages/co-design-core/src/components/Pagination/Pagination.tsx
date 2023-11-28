@@ -84,7 +84,7 @@ export const Pagination = ({
   };
 
   return (
-    <View className={classes.root} style={style} co={co} {...props}>
+    <View className={cx(classes.root, className)} style={style} co={co} {...props}>
       <IconButton
         color="gray"
         variant="text"
@@ -105,7 +105,7 @@ export const Pagination = ({
         }}
       >
         <ChevronLeft
-          color={currentPage === 1 ? theme.foundations.tokens.color.icon['icon-disabled'] : theme.foundations.tokens.color.icon['icon-default']}
+          color={currentPage === 1 ? theme.foundations.tokens.color.icon.icon_disabled : theme.foundations.tokens.color.icon.icon_default}
         />
       </IconButton>
 
@@ -153,9 +153,7 @@ export const Pagination = ({
         }}
       >
         <ChevronRight
-          color={
-            currentPage === totalPage ? theme.foundations.tokens.color.icon['icon-disabled'] : theme.foundations.tokens.color.icon['icon-default']
-          }
+          color={currentPage === totalPage ? theme.foundations.tokens.color.icon.icon_disabled : theme.foundations.tokens.color.icon.icon_default}
         />
       </IconButton>
     </View>

@@ -40,7 +40,7 @@ interface CurveProps {
 
 export const Curve = ({ size, value, offset, sum, thickness, root, color, lineRoundCaps }: CurveProps) => {
   const theme = useCoTheme();
-  const stroke = color || theme.foundations.tokens.color.bg['bg-base-light'];
+  const stroke = color || theme.foundations.tokens.color.bg.bg_base_light;
 
   return (
     <circle

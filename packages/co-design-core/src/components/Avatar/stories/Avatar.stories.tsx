@@ -76,7 +76,7 @@ export const AvatarIconBadge = {
           placeDistanceY={0}
           overrideStyles={{
             badge: {
-              backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
+              backgroundColor: theme.foundations.tokens.color.bg.bg_primary,
             },
           }}
         >

@@ -35,7 +35,7 @@ export const Step = forwardRef<HTMLDivElement, StepProps>(
     return (
       <View ref={ref} className={cx(classes.root, className)} co={co} {...props}>
         <Badge className={classes.circle} size="large" badgeContent={badgeContent} />
-        <Typography className={classes.label} variant="body-02">
+        <Typography className={classes.label} variant="body_02">
           {label}
         </Typography>
       </View>

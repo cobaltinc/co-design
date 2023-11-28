@@ -82,7 +82,7 @@ export const NativeSelect = forwardRef<HTMLSelectElement, NativeSelectProps>(
           ...overrideStyles,
           ...selectRightSectionProps.overrideStyles,
           input: {
-            padding: `0 ${theme.foundations.tokens.size['size-06']}px`,
+            padding: `0 ${theme.foundations.tokens.size.size_06}px`,
           },
         }}
         {...props}

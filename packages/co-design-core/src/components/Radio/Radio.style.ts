@@ -21,7 +21,7 @@ export default createStyles((theme, { check, disabled }: RadioStylesProps, getRe
         ...(!disabled
           ? {
               [`.${icon}`]: {
-                fill: check ? theme.foundations.tokens.color.border['border-primary-hover'] : theme.foundations.tokens.color.bg['bg-base-light'],
+                fill: check ? theme.foundations.tokens.color.border.border_primary_hover : theme.foundations.tokens.color.bg.bg_base_light,
               },
             }
           : {}),
@@ -49,29 +49,29 @@ export default createStyles((theme, { check, disabled }: RadioStylesProps, getRe
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      width: theme.foundations.tokens.size['size-09'],
-      height: theme.foundations.tokens.size['size-09'],
+      width: theme.foundations.tokens.size.size_09,
+      height: theme.foundations.tokens.size.size_09,
     },
     icon: {
       ref: icon,
-      width: theme.foundations.tokens.size['size-07'],
-      height: theme.foundations.tokens.size['size-07'],
-      stroke: disabled ? theme.foundations.tokens.color.border['border-disabled'] : theme.foundations.tokens.color.border['border-strong'],
+      width: theme.foundations.tokens.size.size_07,
+      height: theme.foundations.tokens.size.size_07,
+      stroke: disabled ? theme.foundations.tokens.color.border.border_disabled : theme.foundations.tokens.color.border.border_strong,
       fill: check
         ? disabled
-          ? theme.foundations.tokens.color.border['border-disabled']
-          : theme.foundations.tokens.color.border['border-primary']
+          ? theme.foundations.tokens.color.border.border_disabled
+          : theme.foundations.tokens.color.border.border_primary
         : disabled
-        ? theme.foundations.tokens.color.bg['bg-disabled']
-        : theme.foundations.tokens.color.bg['bg-01'],
+        ? theme.foundations.tokens.color.bg.bg_disabled
+        : theme.foundations.tokens.color.bg.bg_surface_01,
       '&:focus-visible': {
-        stroke: theme.foundations.tokens.color.border['border-primary'],
+        stroke: theme.foundations.tokens.color.border.border_primary,
       },
     },
     text: {
-      paddingLeft: theme.foundations.tokens.size['size-02'],
-      fontSize: theme.foundations.typography.body['body-02'].fontSize,
-      lineHeight: theme.foundations.typography.body['body-02'].lineHeight + 'px',
+      paddingLeft: theme.foundations.tokens.size.size_02,
+      fontSize: theme.foundations.typography.body.body_02.fontSize,
+      lineHeight: theme.foundations.typography.body.body_02.lineHeight + 'px',
       verticalAlign: 'middle',
     },
     disabled: {

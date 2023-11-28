@@ -14,23 +14,23 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
 
   const sizes = {
     xsmall: {
-      width: theme.foundations.tokens.size['size-09'],
-      height: theme.foundations.tokens.size['size-09'],
+      width: theme.foundations.tokens.size.size_09,
+      height: theme.foundations.tokens.size.size_09,
     },
 
     small: {
-      width: theme.foundations.tokens.size['size-11'],
-      height: theme.foundations.tokens.size['size-11'],
+      width: theme.foundations.tokens.size.size_11,
+      height: theme.foundations.tokens.size.size_11,
     },
 
     medium: {
-      width: theme.foundations.tokens.size['size-12'],
-      height: theme.foundations.tokens.size['size-12'],
+      width: theme.foundations.tokens.size.size_12,
+      height: theme.foundations.tokens.size.size_12,
     },
 
     large: {
-      width: theme.foundations.tokens.size['size-14'],
-      height: theme.foundations.tokens.size['size-14'],
+      width: theme.foundations.tokens.size.size_14,
+      height: theme.foundations.tokens.size.size_14,
     },
   };
 
@@ -67,145 +67,145 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
     },
 
     primary: {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
-      color: theme.foundations.tokens.color.text['text-light'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_primary,
+      color: theme.foundations.tokens.color.text.text_light,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-primary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_primary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-primary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_primary_active,
       },
 
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-disabled'],
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_disabled,
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
     secondary: {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-secondary'],
-      color: theme.foundations.tokens.color.text['text-light'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_secondary,
+      color: theme.foundations.tokens.color.text.text_light,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-secondary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_secondary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-secondary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_secondary_active,
       },
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-disabled'],
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_disabled,
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
     tertiary: {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary'],
-      color: theme.foundations.tokens.color.text['text-base'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary,
+      color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_active,
       },
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-disabled'],
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_disabled,
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
     ghost: {
       backgroundColor: 'transparent',
-      border: `1px solid ${theme.foundations.tokens.color.border['border-ghost']}`,
-      color: theme.foundations.tokens.color.text['text-base'],
+      border: `1px solid ${theme.foundations.tokens.color.border.border_ghost}`,
+      color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_active,
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: theme.foundations.tokens.color.text['text-disabled'],
-        border: `1px solid ${theme.foundations.tokens.color.text['text-disabled']}`,
+        color: theme.foundations.tokens.color.text.text_disabled,
+        border: `1px solid ${theme.foundations.tokens.color.text.text_disabled}`,
       },
     },
-    'ghost-light': {
+    ghost_light: {
       backgroundColor: 'transparent',
-      border: `1px solid ${theme.foundations.tokens.color.border['border-ghost-light']}`,
-      color: theme.foundations.tokens.color.text['text-base'],
+      border: `1px solid ${theme.foundations.tokens.color.border.border_ghost_light}`,
+      color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_active,
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: theme.foundations.tokens.color.text['text-disabled'],
-        border: `1px solid ${theme.foundations.tokens.color.border['border-disabled']}`,
+        color: theme.foundations.tokens.color.text.text_disabled,
+        border: `1px solid ${theme.foundations.tokens.color.border.border_disabled}`,
       },
     },
     text: {
       backgroundColor: 'transparent',
-      color: theme.foundations.tokens.color.text['text-base'],
+      color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-tertiary-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_tertiary_active,
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
     link: {
       height: 'auto',
       padding: 0,
       backgroundColor: 'transparent',
-      color: theme.foundations.tokens.color.text['text-base'],
+      color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
-        color: theme.foundations.tokens.color.text['text-base-hover'],
+        color: theme.foundations.tokens.color.text.text_base_hover,
       },
 
       '&:not(:disabled):active': {
-        color: theme.foundations.tokens.color.text['text-base-active'],
+        color: theme.foundations.tokens.color.text.text_base_active,
       },
 
       [`&:disabled:not(.${loading})`]: {
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
     critical: {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-critical'],
-      color: theme.foundations.tokens.color.text['text-light'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_critical,
+      color: theme.foundations.tokens.color.text.text_light,
 
       '&:not(:disabled):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-critical-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_critical_hover,
       },
 
       '&:not(:disabled):active': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-critical-active'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_critical_active,
       },
       [`&:disabled:not(.${loading})`]: {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-disabled'],
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_disabled,
+        color: theme.foundations.tokens.color.text.text_disabled,
       },
     },
 
     root: {
       ...sizes[size],
       ...defaultFontStyles(theme),
-      borderRadius: theme.foundations.tokens.radius['radius-01'],
+      borderRadius: theme.foundations.tokens.radius.radius_01,
       position: 'relative',
       padding: 0,
       lineHeight: 1,
@@ -228,7 +228,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
           left: -2,
           right: -2,
           borderRadius: 4,
-          outline: `2px solid ${theme.foundations.tokens.color.border['border-dark']}`,
+          outline: `2px solid ${theme.foundations.tokens.color.border.border_dark}`,
         },
       },
 

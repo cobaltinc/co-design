@@ -66,19 +66,19 @@ export const RingProgress2 = forwardRef<HTMLDivElement, RingProgressProps>(
     };
 
     const spaces = {
-      xsmall: theme.foundations.tokens.size['size-04'],
-      small: theme.foundations.tokens.size['size-04'],
-      medium: theme.foundations.tokens.size['size-06'],
-      large: theme.foundations.tokens.size['size-07'],
-      xlarge: theme.foundations.tokens.size['size-07'],
+      xsmall: theme.foundations.tokens.size.size_04,
+      small: theme.foundations.tokens.size.size_04,
+      medium: theme.foundations.tokens.size.size_06,
+      large: theme.foundations.tokens.size.size_07,
+      xlarge: theme.foundations.tokens.size.size_07,
     };
 
     const sizes = {
-      xsmall: theme.foundations.tokens.size['size-07'],
-      small: theme.foundations.tokens.size['size-09'],
-      medium: theme.foundations.tokens.size['size-11'],
-      large: theme.foundations.tokens.size['size-14'],
-      xlarge: theme.foundations.tokens.size['size-15'],
+      xsmall: theme.foundations.tokens.size.size_07,
+      small: theme.foundations.tokens.size.size_09,
+      medium: theme.foundations.tokens.size.size_11,
+      large: theme.foundations.tokens.size.size_14,
+      xlarge: theme.foundations.tokens.size.size_15,
     };
 
     const size = theme.fn.size({ size: _size, sizes });
@@ -86,7 +86,7 @@ export const RingProgress2 = forwardRef<HTMLDivElement, RingProgressProps>(
     const curves = getCurves({
       size,
       thickness: thickness || theme.fn.size({ size: _size, sizes: thicknesses }),
-      sections: Array.isArray(sections) ? sections : [{ value, color: color || theme.foundations.tokens.color.bg['bg-primary'] }],
+      sections: Array.isArray(sections) ? sections : [{ value, color: color || theme.foundations.tokens.color.bg.bg_primary }],
       renderRoundedLineCaps: roundCaps,
     }).map((curve, index) => (
       <Curve

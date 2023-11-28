@@ -20,34 +20,34 @@ export default createStyles((theme, { duration, type }: ToastStylesParams) => {
     switch (type) {
       case 'base':
         return {
-          background: theme.foundations.tokens.color.bg['bg-secondary'],
-          progress: theme.foundations.tokens.color.bg['bg-secondary-hover'],
+          background: theme.foundations.tokens.color.bg.bg_secondary,
+          progress: theme.foundations.tokens.color.bg.bg_secondary_hover,
         };
       case 'primary':
         return {
-          background: theme.foundations.tokens.color.bg['bg-primary'],
-          progress: theme.foundations.tokens.color.bg['bg-primary-hover'],
+          background: theme.foundations.tokens.color.bg.bg_primary,
+          progress: theme.foundations.tokens.color.bg.bg_primary_hover,
         };
       case 'success':
         return {
-          background: theme.foundations.tokens.color.bg['bg-success'],
-          progress: theme.foundations.tokens.color.bg['bg-success-hover'],
+          background: theme.foundations.tokens.color.bg.bg_success,
+          progress: theme.foundations.tokens.color.bg.bg_success_hover,
         };
       case 'error':
       case 'critical':
         return {
-          background: theme.foundations.tokens.color.bg['bg-critical'],
-          progress: theme.foundations.tokens.color.bg['bg-critical-hover'],
+          background: theme.foundations.tokens.color.bg.bg_critical,
+          progress: theme.foundations.tokens.color.bg.bg_critical_hover,
         };
       case 'warning':
         return {
-          background: theme.foundations.tokens.color.bg['bg-warning'],
-          progress: theme.foundations.tokens.color.bg['bg-warning-hover'],
+          background: theme.foundations.tokens.color.bg.bg_warning,
+          progress: theme.foundations.tokens.color.bg.bg_warning_hover,
         };
       default:
         return {
-          background: theme.foundations.tokens.color.bg['bg-secondary'],
-          progress: theme.foundations.tokens.color.bg['bg-secondary-hover'],
+          background: theme.foundations.tokens.color.bg.bg_secondary,
+          progress: theme.foundations.tokens.color.bg.bg_secondary_hover,
         };
     }
   };
@@ -72,14 +72,14 @@ export default createStyles((theme, { duration, type }: ToastStylesParams) => {
       display: 'flex',
       maxWidth: '320px',
       width: '100%',
-      minHeight: theme.foundations.tokens.size['size-14'],
-      padding: `${theme.foundations.tokens.size['size-07'] - 2}px ${theme.foundations.tokens.size['size-07']}px`,
+      minHeight: theme.foundations.tokens.size.size_14,
+      padding: `${theme.foundations.tokens.size.size_07 - 2}px ${theme.foundations.tokens.size.size_07}px`,
       justifyContent: 'space-between',
       alignItems: 'center',
-      fontSize: theme.foundations.typography.body['body-02'].fontSize,
-      lineHeight: theme.foundations.typography.body['body-02'].lineHeight + 'px',
-      color: theme.foundations.tokens.color.text['text-light'],
-      borderRadius: theme.foundations.tokens.radius['radius-01'],
+      fontSize: theme.foundations.typography.body.body_02.fontSize,
+      lineHeight: theme.foundations.typography.body.body_02.lineHeight + 'px',
+      color: theme.foundations.tokens.color.text.text_light,
+      borderRadius: theme.foundations.tokens.radius.radius_01,
       backgroundColor: getColorByType(type).background,
       boxShadow: '0px 1px 3px rgba(63, 63, 68, 0.15), 0px 0px 0px rgba(63, 63, 68, 0.05)',
       boxSizing: 'border-box',
@@ -101,15 +101,15 @@ export default createStyles((theme, { duration, type }: ToastStylesParams) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      width: theme.foundations.tokens.size['size-08'],
-      height: theme.foundations.tokens.size['size-08'],
+      width: theme.foundations.tokens.size.size_08,
+      height: theme.foundations.tokens.size.size_08,
     },
     close: {
       cursor: 'pointer',
     },
     message: {
       flex: 1,
-      marginLeft: theme.foundations.tokens.size['size-04'],
+      marginLeft: theme.foundations.tokens.size.size_04,
       verticalAlign: 'middle',
     },
   };

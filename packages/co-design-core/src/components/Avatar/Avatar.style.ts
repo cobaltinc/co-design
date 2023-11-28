@@ -39,7 +39,7 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => {
 
     placeholder: {
       color,
-      backgroundColor: theme.foundations.tokens.color.specialty['avatar-bg'],
+      backgroundColor: theme.foundations.tokens.color.specialty.avatar_bg,
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',

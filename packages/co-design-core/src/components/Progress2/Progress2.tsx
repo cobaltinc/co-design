@@ -50,10 +50,10 @@ export const Progress2 = forwardRef<HTMLDivElement, ProgressProps>(
     const { classes, cx, theme } = useStyles({ color, size, radius, labelPosition }, { overrideStyles, name: 'Progress' });
 
     const spaces = {
-      small: theme.foundations.tokens.size['size-04'],
-      medium: theme.foundations.tokens.size['size-04'],
-      large: theme.foundations.tokens.size['size-06'],
-      xlarge: theme.foundations.tokens.size['size-06'],
+      small: theme.foundations.tokens.size.size_04,
+      medium: theme.foundations.tokens.size.size_04,
+      large: theme.foundations.tokens.size.size_06,
+      xlarge: theme.foundations.tokens.size.size_06,
     };
 
     return labelPosition === 'top' ? (

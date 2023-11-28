@@ -35,7 +35,7 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     position: 'absolute',
     width: 8,
     height: 8,
-    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg['bg-01'] : theme.foundations.tokens.color.specialty['tooltip-bg'],
+    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg.bg_surface_01 : theme.foundations.tokens.color.specialty.tooltip_bg,
     userSelect: 'none',
     pointerEvents: 'none',
     borderRadius: '1px',
@@ -100,12 +100,12 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     position: 'absolute',
     // TODO: spacing
     padding: '12px',
-    borderRadius: theme.foundations.tokens.radius['radius-01'],
-    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg['bg-01'] : theme.foundations.tokens.color.specialty['tooltip-bg'],
+    borderRadius: theme.foundations.tokens.radius.radius_01,
+    backgroundColor: colorScheme === 'dark' ? theme.foundations.tokens.color.bg.bg_surface_01 : theme.foundations.tokens.color.specialty.tooltip_bg,
     ...defaultFontStyles(theme),
     fontSize: theme.foundations.font.body.caption.fontSize,
     lineHeight: theme.foundations.font.body.caption.lineHeight + 'px',
-    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-default'] : theme.foundations.tokens.color.text['text-light'],
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text.text_default : theme.foundations.tokens.color.text.text_light,
     boxShadow: `${getBoxShadow(theme.foundations.effect.tooltip[0])}, ${getBoxShadow(theme.foundations.effect.tooltip[1])}`,
     '&[class^="top"]': {
       bottom: 0,
@@ -158,12 +158,12 @@ export default createStyles((theme, { colorScheme }: TooltipStyles) => ({
     },
   },
   title: {
-    fontWeight: theme.foundations.font.heading['heading-09'].fontWeight,
-    fontSize: theme.foundations.font.heading['heading-09'].fontSize,
-    lineHeight: theme.foundations.font.heading['heading-09'].lineHeight + 'px',
-    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-default'] : theme.foundations.tokens.color.text['text-light'],
+    fontWeight: theme.foundations.font.heading.heading_09.fontWeight,
+    fontSize: theme.foundations.font.heading.heading_09.fontSize,
+    lineHeight: theme.foundations.font.heading.heading_09.lineHeight + 'px',
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text.text_default : theme.foundations.tokens.color.text.text_light,
   },
   description: {
-    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text['text-caption'] : theme.foundations.tokens.color.text['text-inverse-caption'],
+    color: colorScheme === 'dark' ? theme.foundations.tokens.color.text.text_caption : theme.foundations.tokens.color.text.text_inverse_caption,
   },
 }));

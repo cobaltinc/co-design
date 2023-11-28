@@ -34,7 +34,7 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
     ref: PolymorphicRef<C>,
   ) => {
     const theme = useCoTheme();
-    const _color = color || theme.foundations.tokens.color.icon['icon-default'];
+    const _color = color || theme.foundations.tokens.color.icon.icon_default;
     const { classes, cx } = useStyles({ color: _color, shape, size }, { overrideStyles, name: 'Avatar' });
     const [error, setError] = useState(!src);
 
@@ -60,7 +60,7 @@ export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
         ) : children ? (
           <div className={classes.placeholder} title={alt}>
             {typeof children === 'string' ? (
-              <Typography variant="heading-06" color="text-light">
+              <Typography variant="heading_06" color="text_light">
                 {sliceChildren}
               </Typography>
             ) : (

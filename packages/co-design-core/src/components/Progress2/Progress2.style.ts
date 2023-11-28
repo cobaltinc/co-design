@@ -9,17 +9,17 @@ export interface ProgressStylesParams {
 
 export default createStyles((theme, { color, radius, size, labelPosition }: ProgressStylesParams) => {
   const heights = {
-    small: theme.foundations.tokens.size['size-02'],
-    medium: theme.foundations.tokens.size['size-03'],
-    large: theme.foundations.tokens.size['size-04'],
-    xlarge: theme.foundations.tokens.size['size-05'],
+    small: theme.foundations.tokens.size.size_02,
+    medium: theme.foundations.tokens.size.size_03,
+    large: theme.foundations.tokens.size.size_04,
+    xlarge: theme.foundations.tokens.size.size_05,
   };
 
   const fontSizes = {
     small: theme.foundations.typography.body.caption.fontSize,
     medium: theme.foundations.typography.body.caption.fontSize,
-    large: theme.foundations.typography.body['body-02'].fontSize,
-    xlarge: theme.foundations.typography.body['body-02'].fontSize,
+    large: theme.foundations.typography.body.body_02.fontSize,
+    xlarge: theme.foundations.typography.body.body_02.fontSize,
   };
 
   return {
@@ -31,7 +31,7 @@ export default createStyles((theme, { color, radius, size, labelPosition }: Prog
         : {}),
       position: 'relative',
       height: theme.fn.size({ size, sizes: heights }),
-      backgroundColor: theme.foundations.tokens.color.bg['bg-base-light'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_base_light,
       borderRadius: theme.fn.size({ size: radius, sizes: theme.radius }),
       overflow: 'hidden',
     },
@@ -45,7 +45,7 @@ export default createStyles((theme, { color, radius, size, labelPosition }: Prog
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: color || theme.foundations.tokens.color.bg['bg-primary'],
+      backgroundColor: color || theme.foundations.tokens.color.bg.bg_primary,
       transition: 'width 100ms linear',
 
       '&:first-of-type': {
@@ -59,7 +59,7 @@ export default createStyles((theme, { color, radius, size, labelPosition }: Prog
     },
 
     label: {
-      color: theme.foundations.tokens.color.text['text-default'],
+      color: theme.foundations.tokens.color.text.text_default,
       fontSize: theme.fn.size({ size, sizes: fontSizes }),
       userSelect: 'none',
       overflow: 'hidden',
@@ -67,7 +67,7 @@ export default createStyles((theme, { color, radius, size, labelPosition }: Prog
     },
 
     percent: {
-      color: theme.foundations.tokens.color.text['text-caption'],
+      color: theme.foundations.tokens.color.text.text_caption,
       fontSize: theme.fn.size({ size, sizes: fontSizes }),
     },
   };

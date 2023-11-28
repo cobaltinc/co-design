@@ -63,7 +63,7 @@ export const Typography: TypographyComponent & { displayName?: string } = forwar
     {
       children,
       component,
-      variant = 'body-02',
+      variant = 'body_02',
       color,
       strong,
       underline,

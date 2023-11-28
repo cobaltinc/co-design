@@ -32,7 +32,7 @@ export default createStyles((theme, { color, size, lineClamp, block, inherit }: 
       : color
     : theme.colorScheme === 'dark'
     ? theme.colors.white
-    : theme.foundations.tokens.color.text['text-default'];
+    : theme.foundations.tokens.color.text.text_default;
 
   return {
     root: {

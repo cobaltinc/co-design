@@ -64,7 +64,7 @@ export const Icon: Story = {
         }
         overrideStyles={{
           badge: {
-            backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
+            backgroundColor: theme.foundations.tokens.color.bg.bg_primary,
           },
         }}
       />

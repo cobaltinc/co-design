@@ -51,9 +51,13 @@ export default createStyles((theme, { color, variant, lineClamp, block, inherit,
       : color in theme.foundations.tokens.color.text
       ? theme.foundations.tokens.color.text[color]
       : color
+    : theme.foundations
+    ? theme.colorScheme === 'dark'
+      ? theme.foundations.tokens.color.text.text_light
+      : theme.foundations.tokens.color.text.text_default
     : theme.colorScheme === 'dark'
-    ? theme.foundations.tokens.color.text['text-light']
-    : theme.foundations.tokens.color.text['text-default'];
+    ? theme.colors.white
+    : theme.colors.black;
 
   const { fontSize, fontWeight, lineHeight }: CoTypographyValue =
     variant in theme.foundations.typography.heading ? theme.foundations.typography.heading[variant] : theme.foundations.typography.body[variant];

@@ -16,7 +16,7 @@ interface ModalStyles {
 }
 
 export default createStyles((theme, { overflow, size }: ModalStyles) => {
-  const borderRadius = theme.foundations.tokens.radius['radius-01'];
+  const borderRadius = theme.foundations.tokens.radius.radius_01;
 
   return {
     root: {
@@ -42,7 +42,7 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => {
 
     title: {
       ...defaultFontStyles(theme),
-      fontSize: theme.foundations.typography.heading['heading-06'].fontSize,
+      fontSize: theme.foundations.typography.heading.heading_06.fontSize,
       textOverflow: 'ellipsis',
       display: 'block',
       wordBreak: 'break-word',
@@ -60,29 +60,29 @@ export default createStyles((theme, { overflow, size }: ModalStyles) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'space-between',
-      gap: theme.foundations.tokens.size['size-07'],
-      padding: `${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-08']}px ${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-09']}px`,
-      backgroundColor: theme.foundations.tokens.color.bg['bg-03'],
+      gap: theme.foundations.tokens.size.size_07,
+      padding: `${theme.foundations.tokens.size.size_07}px ${theme.foundations.tokens.size.size_08}px ${theme.foundations.tokens.size.size_07}px ${theme.foundations.tokens.size.size_09}px`,
+      backgroundColor: theme.foundations.tokens.color.bg.bg_surface_03,
       borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
-      boxShadow: getBoxShadow(theme.foundations.effect['border-top']),
+      boxShadow: getBoxShadow(theme.foundations.effect.border_top),
     },
 
     body: {
       maxHeight: overflow === 'inside' ? 'calc(100vh - 185px)' : null,
       overflowY: overflow === 'inside' ? 'auto' : null,
       wordBreak: 'break-word',
-      padding: theme.foundations.tokens.size['size-09'],
+      padding: theme.foundations.tokens.size.size_09,
     },
 
     footer: {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-end',
-      gap: theme.foundations.tokens.size['size-07'],
-      padding: `${theme.foundations.tokens.size['size-07']}px ${theme.foundations.tokens.size['size-09']}px`,
-      backgroundColor: theme.foundations.tokens.color.bg['bg-03'],
+      gap: theme.foundations.tokens.size.size_07,
+      padding: `${theme.foundations.tokens.size.size_07}px ${theme.foundations.tokens.size.size_09}px`,
+      backgroundColor: theme.foundations.tokens.color.bg.bg_surface_03,
       borderRadius: `${borderRadius}px ${borderRadius}px 0 0`,
-      boxShadow: getBoxShadow(theme.foundations.effect['border-bottom']),
+      boxShadow: getBoxShadow(theme.foundations.effect.border_bottom),
     },
   };
 });

@@ -6,8 +6,8 @@ interface StackStyles {
 }
 
 export default createStyles((theme, { orientation, isNeedGap }: StackStyles) => {
-  const stepSize = theme.foundations.tokens.size['size-09'];
-  const stepsGap = theme.foundations.tokens.size['size-04'];
+  const stepSize = theme.foundations.tokens.size.size_09;
+  const stepsGap = theme.foundations.tokens.size.size_04;
   return {
     root: {
       display: 'flex',
@@ -28,7 +28,7 @@ export default createStyles((theme, { orientation, isNeedGap }: StackStyles) => 
       margin: 0,
     },
     connectorActive: {
-      borderColor: theme.foundations.tokens.color.border['border-primary'],
+      borderColor: theme.foundations.tokens.color.border.border_primary,
       transition: 'border-color 0.3s ease',
     },
     verticalBottom: {

@@ -22,7 +22,7 @@ export default createStyles((theme, { spacing }: AvatarsGroupStyles) => {
       ...defaultFontStyles(theme),
       width: '100%',
       height: '100%',
-      backgroundColor: theme.foundations.tokens.color.specialty['avatar-bg'],
+      backgroundColor: theme.foundations.tokens.color.specialty.avatar_bg,
     },
   };
 });

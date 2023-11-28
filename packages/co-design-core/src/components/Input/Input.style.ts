@@ -33,7 +33,7 @@ export default createStyles(
     getRef,
   ) => {
     const helperText = getRef('helperText');
-    const invalidColor = theme.foundations.tokens.color.border['border-critical'];
+    const invalidColor = theme.foundations.tokens.color.border.border_critical;
 
     const labelMarginBottom = {
       xsmall: 12,
@@ -44,14 +44,14 @@ export default createStyles(
     };
 
     const paddingY = {
-      xsmall: theme.foundations.tokens.size['size-03'],
-      small: theme.foundations.tokens.size['size-03'],
-      medium: theme.foundations.tokens.size['size-04'],
-      large: theme.foundations.tokens.size['size-06'],
-      xlarge: theme.foundations.tokens.size['size-06'],
+      xsmall: theme.foundations.tokens.size.size_03,
+      small: theme.foundations.tokens.size.size_03,
+      medium: theme.foundations.tokens.size.size_04,
+      large: theme.foundations.tokens.size.size_06,
+      xlarge: theme.foundations.tokens.size.size_06,
     };
 
-    const paddingX = theme.foundations.tokens.size['size-06'];
+    const paddingX = theme.foundations.tokens.size.size_06;
 
     const inputHeights = {
       xsmall: 28,
@@ -66,43 +66,43 @@ export default createStyles(
         position: 'relative',
       },
       labelWrapper: {
-        marginBottom: multiline ? theme.foundations.tokens.size['size-04'] : labelMarginBottom[size],
+        marginBottom: multiline ? theme.foundations.tokens.size.size_04 : labelMarginBottom[size],
       },
       labelText: {
-        color: disabled ? theme.foundations.tokens.color.text['text-disabled'] : theme.foundations.tokens.color.text['text-default'],
+        color: disabled ? theme.foundations.tokens.color.text.text_disabled : theme.foundations.tokens.color.text.text_default,
       },
       input: {
         ...defaultFontStyles(theme),
         height: multiline ? 'auto' : theme.fn.size({ size, sizes: inputHeights }),
         WebkitTapHighlightColor: 'transparent',
-        lineHeight: theme.foundations.typography.body['body-02'].lineHeight + 'px',
+        lineHeight: theme.foundations.typography.body.body_02.lineHeight + 'px',
         appearance: 'none',
         boxSizing: 'border-box',
-        fontSize: theme.foundations.typography.body['body-02'].fontSize,
+        fontSize: theme.foundations.typography.body.body_02.fontSize,
         width: '100%',
-        color: theme.foundations.tokens.color.text['text-default'],
+        color: theme.foundations.tokens.color.text.text_default,
         display: 'block',
         textAlign: 'left',
-        minHeight: theme.foundations.tokens.size['size-08'] + paddingY[size] * 2,
+        minHeight: theme.foundations.tokens.size.size_08 + paddingY[size] * 2,
         padding: `${paddingY[size]}px ${paddingX}px`,
-        borderRadius: radius || theme.foundations.tokens.radius['radius-01'],
-        border: `1px solid ${theme.foundations.tokens.color.border['border-default']}`,
-        backgroundColor: theme.foundations.tokens.color.bg['bg-01'],
+        borderRadius: radius || theme.foundations.tokens.radius.radius_01,
+        border: `1px solid ${theme.foundations.tokens.color.border.border_default}`,
+        backgroundColor: theme.foundations.tokens.color.bg.bg_surface_01,
         // transition: 'border-color 100ms ease',
 
         '&:not(:disabled):hover': {
-          borderColor: invalid ? invalidColor : theme.foundations.tokens.color.border['border-strong'],
+          borderColor: invalid ? invalidColor : theme.foundations.tokens.color.border.border_strong,
         },
 
         '&:focus, &:focus-within': {
           width: 'calc(100% - 2px)',
-          border: `2px solid ${theme.foundations.tokens.color.border['border-primary']}`,
+          border: `2px solid ${theme.foundations.tokens.color.border.border_primary}`,
         },
 
         '&::placeholder': {
           opacity: 1,
           userSelect: 'none',
-          color: theme.foundations.tokens.color.text['text-placeholder'],
+          color: theme.foundations.tokens.color.text.text_placeholder,
         },
 
         '&::-webkit-inner-spin-button, &::-webkit-outer-spin-button, &::-webkit-search-decoration, &::-webkit-search-cancel-button, &::-webkit-search-results-button, &::-webkit-search-results-decoration':
@@ -149,11 +149,11 @@ export default createStyles(
       },
 
       disabled: {
-        color: theme.foundations.tokens.color.text['text-disabled'],
+        color: theme.foundations.tokens.color.text.text_disabled,
         cursor: 'not-allowed',
-        backgroundColor: theme.foundations.tokens.color.bg['bg-disabled'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_disabled,
         '&::placeholder': {
-          color: theme.foundations.tokens.color.text['text-disabled'],
+          color: theme.foundations.tokens.color.text.text_disabled,
         },
       },
 
@@ -202,13 +202,13 @@ export default createStyles(
 
       helperText: {
         ref: helperText,
-        color: invalid ? invalidColor : theme.foundations.tokens.color.text['text-caption'],
+        color: invalid ? invalidColor : theme.foundations.tokens.color.text.text_caption,
         position: 'absolute',
         top: 'calc(100% + 8px)',
       },
 
       maximumLength: {
-        color: theme.foundations.tokens.color.text['text-caption'],
+        color: theme.foundations.tokens.color.text.text_caption,
         fontSize: theme.foundations.typography.body.caption.fontSize,
       },
     };

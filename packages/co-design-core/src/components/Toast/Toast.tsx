@@ -92,21 +92,21 @@ export const Toast = ({
     <View className={cx(classes.container, { [classes.active]: show })} co={co} {...props}>
       <div className={classes.toast}>
         {closeOnTimeout && <div className={classes.progress} />}
-        <ToastIcon type={iconType} fill={theme.foundations.tokens.color.icon['icon-inverse-white']} size={20} className={classes.icon} />
+        <ToastIcon type={iconType} fill={theme.foundations.tokens.color.icon.icon_inverse_white} size={20} className={classes.icon} />
         <span className={classes.message}>{message}</span>
         {action ? (
           <Button
             variant="text"
             size="xsmall"
             onClick={action.onAction}
-            overrideStyles={{ text: { color: theme.foundations.tokens.color.text['text-light'] } }}
+            overrideStyles={{ text: { color: theme.foundations.tokens.color.text.text_light } }}
           >
             {action.label}
           </Button>
         ) : null}
         {close ? (
           <div className={classes.closeWrapper} onClick={handleClose}>
-            <ToastIcon type="close" fill={theme.foundations.tokens.color.icon['icon-inverse-white']} size={9.71} className={classes.close} />
+            <ToastIcon type="close" fill={theme.foundations.tokens.color.icon.icon_inverse_white} size={9.71} className={classes.close} />
           </div>
         ) : null}
       </div>

@@ -40,7 +40,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
 
     const spinner = (
       <Spinner
-        color={isSolid(variant) ? theme.foundations.tokens.color.text['text-light'] : theme.foundations.tokens.color.text['text-base']}
+        color={isSolid(variant) ? theme.foundations.tokens.color.text.text_light : theme.foundations.tokens.color.text.text_base}
         size={CO_HEIGHTS[size] / 2}
         {...spinnerProps}
       />

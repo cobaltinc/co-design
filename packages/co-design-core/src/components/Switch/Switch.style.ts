@@ -36,17 +36,17 @@ export default createStyles((theme, { size, disabled }: SwitchStyles) => {
   const fontSizes = {
     xsmall: theme.foundations.typography.body.caption.fontSize,
     small: theme.foundations.typography.body.caption.fontSize,
-    medium: theme.foundations.typography.body['body-02'].fontSize,
-    large: theme.foundations.typography.body['body-02'].fontSize,
-    xlarge: theme.foundations.typography.body['body-02'].fontSize,
+    medium: theme.foundations.typography.body.body_02.fontSize,
+    large: theme.foundations.typography.body.body_02.fontSize,
+    xlarge: theme.foundations.typography.body.body_02.fontSize,
   };
 
   const svgSizes = {
-    xsmall: theme.foundations.tokens.size['size-04'],
-    small: theme.foundations.tokens.size['size-04'],
-    medium: theme.foundations.tokens.size['size-06'],
-    large: theme.foundations.tokens.size['size-06'],
-    xlarge: theme.foundations.tokens.size['size-06'],
+    xsmall: theme.foundations.tokens.size.size_04,
+    small: theme.foundations.tokens.size.size_04,
+    medium: theme.foundations.tokens.size.size_06,
+    large: theme.foundations.tokens.size.size_06,
+    xlarge: theme.foundations.tokens.size.size_06,
   };
 
   return {
@@ -59,7 +59,7 @@ export default createStyles((theme, { size, disabled }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       position: 'relative',
       borderRadius: handleSize,
-      backgroundColor: theme.foundations.tokens.color.bg['bg-base'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_base,
       height: switchHeight[size],
       width: switchWidth[size],
       minWidth: switchWidth[size],
@@ -92,7 +92,7 @@ export default createStyles((theme, { size, disabled }: SwitchStyles) => {
       },
 
       '&:checked': {
-        backgroundColor: disabled ? theme.foundations.tokens.color.bg['bg-primary-light-active'] : theme.foundations.tokens.color.bg['bg-primary'],
+        backgroundColor: disabled ? theme.foundations.tokens.color.bg.bg_primary_light_active : theme.foundations.tokens.color.bg.bg_primary,
 
         '&::before': {
           transform: `translateX(${
@@ -106,26 +106,26 @@ export default createStyles((theme, { size, disabled }: SwitchStyles) => {
         },
 
         '&:not(:checked):hover': {
-          backgroundColor: theme.foundations.tokens.color.bg['bg-primary-hover'],
+          backgroundColor: theme.foundations.tokens.color.bg.bg_primary_hover,
         },
       },
       '&:disabled': {
         cursor: 'not-allowed',
       },
       '&:not(:checked):disabled': {
-        color: theme.foundations.tokens.color.text['text-disabled'],
-        backgroundColor: theme.foundations.tokens.color.bg['bg-base-light-active'],
+        color: theme.foundations.tokens.color.text.text_disabled,
+        backgroundColor: theme.foundations.tokens.color.bg.bg_base_light_active,
         '&::before': {
-          backgroundColor: theme.foundations.tokens.color.bg['bg-base-light'],
+          backgroundColor: theme.foundations.tokens.color.bg.bg_base_light,
         },
       },
 
       '&:not(:disabled):not(:checked):hover': {
-        backgroundColor: theme.foundations.tokens.color.bg['bg-base-hover'],
+        backgroundColor: theme.foundations.tokens.color.bg.bg_base_hover,
       },
 
       '&:not(:disabled):focus-visible': {
-        outline: `2px solid ${theme.foundations.tokens.color.border['border-dark']}`,
+        outline: `2px solid ${theme.foundations.tokens.color.border.border_dark}`,
       },
     },
 
@@ -133,8 +133,8 @@ export default createStyles((theme, { size, disabled }: SwitchStyles) => {
       WebkitTapHighlightColor: 'transparent',
       fontSize: fontSizes[size],
       ...defaultFontStyles(theme),
-      paddingLeft: theme.foundations.tokens.size['size-04'],
-      color: disabled ? theme.foundations.tokens.color.text['text-disabled'] : theme.foundations.tokens.color.text['text-caption'],
+      paddingLeft: theme.foundations.tokens.size.size_04,
+      color: disabled ? theme.foundations.tokens.color.text.text_disabled : theme.foundations.tokens.color.text.text_caption,
     },
   };
 });

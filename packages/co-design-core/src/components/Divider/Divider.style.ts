@@ -16,7 +16,7 @@ export const sizes = {
 };
 
 export default createStyles((theme, { margin, variant, strong }: DividerStyles) => {
-  const borderColor = strong ? theme.foundations.tokens.color.border['border-strong'] : theme.foundations.tokens.color.border['border-default'];
+  const borderColor = strong ? theme.foundations.tokens.color.border.border_strong : theme.foundations.tokens.color.border.border_default;
   return {
     withLabel: {
       borderTop: '0 !important',

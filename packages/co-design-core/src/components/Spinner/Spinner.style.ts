@@ -9,7 +9,7 @@ interface SpinnerStyles {
 export default createStyles((theme, { size, color }: SpinnerStyles) => {
   const svgColor =
     color === undefined
-      ? theme.foundations.tokens.color.bg['bg-primary']
+      ? theme.foundations.tokens.color.bg.bg_primary
       : color in theme.palettes
       ? theme.colorScheme === 'light'
         ? theme.palettes[color][5]
@@ -17,11 +17,11 @@ export default createStyles((theme, { size, color }: SpinnerStyles) => {
       : color;
 
   const sizes = {
-    xsmall: theme.foundations.tokens.size['size-07'],
-    small: theme.foundations.tokens.size['size-09'],
-    medium: theme.foundations.tokens.size['size-11'],
-    large: theme.foundations.tokens.size['size-14'],
-    xlarge: theme.foundations.tokens.size['size-15'],
+    xsmall: theme.foundations.tokens.size.size_07,
+    small: theme.foundations.tokens.size.size_09,
+    medium: theme.foundations.tokens.size.size_11,
+    large: theme.foundations.tokens.size.size_14,
+    xlarge: theme.foundations.tokens.size.size_15,
   };
 
   return {

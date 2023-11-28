@@ -12,28 +12,28 @@ export default createStyles((theme) => ({
     minWidth: '32px',
     height: '32px',
     textAlign: 'center',
-    fontSize: theme.foundations.font.body['body-02'].fontSize,
-    lineHeight: theme.foundations.font.body['body-02'].lineHeight + 'px',
-    color: theme.foundations.tokens.color.text['text-default'],
+    fontSize: theme.foundations.font.body.body_02.fontSize,
+    lineHeight: theme.foundations.font.body.body_02.lineHeight + 'px',
+    color: theme.foundations.tokens.color.text.text_default,
     verticalAlign: 'middle',
     boxSizing: 'border-box',
     // TODO: spacing
     marginRight: '4px',
     cursor: 'pointer',
-    borderRadius: theme.foundations.tokens.radius['radius-full'],
+    borderRadius: theme.foundations.tokens.radius.radius_full,
     '&:last-of-type': {
       marginRight: '0px',
     },
     '&:hover': {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-base-light'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_base_light,
     },
   },
   active: {
-    backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
-    color: theme.foundations.tokens.color.text['text-light'],
+    backgroundColor: theme.foundations.tokens.color.bg.bg_primary,
+    color: theme.foundations.tokens.color.text.text_light,
     // color: 'red',
     '&:hover': {
-      backgroundColor: theme.foundations.tokens.color.bg['bg-primary'],
+      backgroundColor: theme.foundations.tokens.color.bg.bg_primary,
     },
   },
   arrow: {
@@ -53,9 +53,9 @@ export default createStyles((theme) => ({
     cursor: 'not-allowed',
   },
   bullet: {
-    fontSize: theme.foundations.font.body['body-02'].fontSize,
-    lineHeight: theme.foundations.font.body['body-02'].lineHeight + 'px',
-    color: theme.foundations.tokens.color.text['text-default'],
+    fontSize: theme.foundations.font.body.body_02.fontSize,
+    lineHeight: theme.foundations.font.body.body_02.lineHeight + 'px',
+    color: theme.foundations.tokens.color.text.text_default,
     marginRight: '4px',
   },
   circle: {

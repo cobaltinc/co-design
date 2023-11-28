@@ -8,10 +8,10 @@ interface StackStyles {
 
 export default createStyles((theme, { variant, labelPosition }: StackStyles) => {
   const backgroundColor = {
-    wait: theme.foundations.tokens.color.bg['bg-base-light-active'],
-    current: theme.foundations.tokens.color.bg['bg-primary'],
-    finished: theme.foundations.tokens.color.bg['bg-primary'],
-    error: theme.foundations.tokens.color.bg['bg-critical'],
+    wait: theme.foundations.tokens.color.bg.bg_base_light_active,
+    current: theme.foundations.tokens.color.bg.bg_primary,
+    finished: theme.foundations.tokens.color.bg.bg_primary,
+    error: theme.foundations.tokens.color.bg.bg_critical,
   };
 
   return {
@@ -22,7 +22,7 @@ export default createStyles((theme, { variant, labelPosition }: StackStyles) => 
       gap: labelPosition === 'bottom' ? 12 : 8,
     },
     label: {
-      color: variant === 'error' ? theme.foundations.tokens.color.text['text-critical'] : theme.foundations.tokens.color.text['text-default'],
+      color: variant === 'error' ? theme.foundations.tokens.color.text.text_critical : theme.foundations.tokens.color.text['text-default'],
     },
     circle: {
       backgroundColor: getFieldValue(variant, backgroundColor),

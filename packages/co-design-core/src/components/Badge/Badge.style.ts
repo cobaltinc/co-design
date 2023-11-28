@@ -13,14 +13,14 @@ interface BadgeStyles {
 export default createStyles((theme, { size, contentLength, dot, placement, placeDistance, placeDistanceX, placeDistanceY }: BadgeStyles) => {
   const sizes = dot
     ? {
-        small: theme.foundations.tokens.size['size-03'],
-        medium: theme.foundations.tokens.size['size-04'],
-        large: theme.foundations.tokens.size['size-05'],
+        small: theme.foundations.tokens.size.size_03,
+        medium: theme.foundations.tokens.size.size_04,
+        large: theme.foundations.tokens.size.size_05,
       }
     : {
-        small: theme.foundations.tokens.size['size-07'],
-        medium: theme.foundations.tokens.size['size-08'],
-        large: theme.foundations.tokens.size['size-09'],
+        small: theme.foundations.tokens.size.size_07,
+        medium: theme.foundations.tokens.size.size_08,
+        large: theme.foundations.tokens.size.size_09,
       };
 
   return {
@@ -34,10 +34,10 @@ export default createStyles((theme, { size, contentLength, dot, placement, place
       ...getPosition(placement, placeDistance, placeDistanceX, placeDistanceY),
       width: theme.fn.size({ size, sizes }) + (contentLength - 1) * 16,
       height: theme.fn.size({ size, sizes }),
-      border: `1px solid ${theme.foundations.tokens.color.border['border-light']}`,
-      borderRadius: theme.foundations.tokens.radius['radius-full'],
-      backgroundColor: theme.foundations.tokens.color.bg['bg-critical'],
-      padding: theme.foundations.tokens.size['size-02'],
+      border: `1px solid ${theme.foundations.tokens.color.border.border_light}`,
+      borderRadius: theme.foundations.tokens.radius.radius_full,
+      backgroundColor: theme.foundations.tokens.color.bg.bg_critical,
+      padding: theme.foundations.tokens.size.size_02,
       zIndex: 10,
       display: 'flex',
       alignItems: 'center',
@@ -47,8 +47,8 @@ export default createStyles((theme, { size, contentLength, dot, placement, place
       padding: 0,
       width: theme.fn.size({ size, sizes }),
       height: theme.fn.size({ size, sizes }),
-      border: `1px solid ${theme.foundations.tokens.color.border['border-light']}`,
-      borderRadius: theme.foundations.tokens.radius['radius-full'],
+      border: `1px solid ${theme.foundations.tokens.color.border.border_light}`,
+      borderRadius: theme.foundations.tokens.radius.radius_full,
     },
   };
 });
