@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text } from '../../Text';
 import { Breadcrumbs } from '../Breadcrumbs';
+import { Typography } from '../../Typography';
 
 export default {
   title: '@co-design/core/Breadcrumbs',
@@ -14,7 +14,6 @@ export default {
     },
   },
   args: {
-    separator: '/',
     spacing: 8,
   },
 };
@@ -23,9 +22,9 @@ export const Default = {
   render: (props) => {
     return (
       <Breadcrumbs {...props}>
-        <Text>Co Design</Text>
-        <Text>Components</Text>
-        <Text>Breadcrumbs</Text>
+        <Typography color="text_caption">Co Design</Typography>
+        <Typography color="text_caption">Components</Typography>
+        <Typography color="text_caption">Breadcrumbs</Typography>
       </Breadcrumbs>
     );
   },
@@ -37,20 +36,19 @@ export const OverrideStyles = {
       <Breadcrumbs
         {...props}
         overrideStyles={{
-          root: {
-            border: '1px solid blue',
-          },
+          root: {},
           breadcrumb: {
-            border: '1px solid red',
+            color: 'teal',
           },
           separator: {
             border: '1px solid green',
           },
         }}
       >
-        <Text>Co Design</Text>
-        <Text>Components</Text>
-        <Text>Breadcrumbs</Text>
+        <Typography color="text_caption">Co Design</Typography>
+        <button disabled>hello</button>
+        <Typography color="text_caption">Components</Typography>
+        <Typography color="text_caption">Breadcrumbs</Typography>
       </Breadcrumbs>
     );
   },

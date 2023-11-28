@@ -2,6 +2,7 @@ export * from './breakpoints';
 export * from './foundations';
 export * from './palettes';
 export * from './colors';
+export * from './fontWeights';
 export * from './fontSizes';
 export * from './headings';
 export * from './opacity';

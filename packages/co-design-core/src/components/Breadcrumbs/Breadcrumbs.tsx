@@ -1,8 +1,9 @@
 import React, { forwardRef } from 'react';
 import { ClassNames, CoComponentProps, CoSpacing } from '@co-design/styles';
-import { Text } from '../Text';
 import { View } from '../View';
 import useStyles from './Breadcrumbs.style';
+import { Typography } from '../Typography';
+import { ChevronRightSmallIcon } from './ChevronRightSmallIcon';
 
 export type BreadcrumbsStylesNames = ClassNames<typeof useStyles>;
 
@@ -18,18 +19,27 @@ export interface BreadcrumbsProps extends CoComponentProps<BreadcrumbsStylesName
 }
 
 export const Breadcrumbs = forwardRef<HTMLDivElement, BreadcrumbsProps>(
-  ({ children, separator = '/', spacing = 'small', className, co, overrideStyles, ...props }: BreadcrumbsProps, ref) => {
+  ({ children, separator, spacing = 'small', className, co, overrideStyles, ...props }: BreadcrumbsProps, ref) => {
     const { classes, cx } = useStyles({ spacing }, { overrideStyles, name: 'Breadcrumbs' });
 
     const items = React.Children.toArray(children).reduce((acc: any[], child: any, index, array) => {
-      acc.push(React.cloneElement(child, { className: classes.breadcrumb, key: index }));
+      acc.push(
+        React.cloneElement(child, {
+          className: cx(classes.breadcrumb),
+          key: index,
+        }),
+      );
 
       if (index !== array.length - 1) {
-        acc.push(
-          <Text size="small" className={classes.separator} key={`separator-${index}`}>
-            {separator}
-          </Text>,
-        );
+        if (separator) {
+          acc.push(
+            <Typography color="text_caption" className={classes.separator} key={`separator-${index}`}>
+              {separator}
+            </Typography>,
+          );
+        } else {
+          acc.push(<ChevronRightSmallIcon className={classes.separator} key={`separator-${index}`} />);
+        }
       }
 
       return acc;
