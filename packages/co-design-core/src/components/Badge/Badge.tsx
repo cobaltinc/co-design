@@ -9,7 +9,7 @@ export type BadgeStylesNames = ClassNames<typeof useStyles>;
 
 export interface BadgeBaseProps {
   badgeContent?: ReactNode;
-  placement?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  placement?: 'none' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   placeDistance?: number;
   placeDistanceX?: number;
   placeDistanceY?: number;
@@ -22,7 +22,7 @@ export interface BadgeProps extends BadgeBaseProps, CoComponentProps<BadgeStyles
 const Badge = ({
   children,
   badgeContent = 0,
-  placement = 'top-right',
+  placement = 'none',
   placeDistance = 2,
   placeDistanceX,
   placeDistanceY,
@@ -56,19 +56,19 @@ const Badge = ({
   if (badgeContent) {
     if (typeof badgeContent === 'number') {
       badge = (
-        <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
+        <Typography component="sup" variant="caption" color="text-light" className={cx(classes.badge, className)}>
           {maxCount && badgeContent > maxCount ? `${maxCount}+` : badgeContent}
         </Typography>
       );
     } else {
       badge = (
-        <Typography component="sup" variant="caption" color="text-light" className={cx(className, classes.badge)}>
+        <Typography component="sup" variant="caption" color="text-light" className={cx(classes.badge, className)}>
           {badgeContent}
         </Typography>
       );
     }
   } else {
-    badge = <Typography component="sup" className={cx(className, classes.badge, classes.dot)} />;
+    badge = <Typography component="sup" className={cx(classes.badge, classes.dot, className)} />;
   }
 
   return (

@@ -4,7 +4,7 @@ interface BadgeStyles {
   size: 'small' | 'medium' | 'large' | number;
   contentLength: number;
   dot: boolean;
-  placement: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
+  placement: 'none' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   placeDistance: number;
   placeDistanceX: number;
   placeDistanceY: number;
@@ -30,7 +30,7 @@ export default createStyles((theme, { size, contentLength, dot, placement, place
       verticalAlign: 'middle',
     },
     badge: {
-      position: 'absolute',
+      position: placement === 'none' ? 'static' : 'absolute',
       ...getPosition(placement, placeDistance, placeDistanceX, placeDistanceY),
       width: theme.fn.size({ size, sizes }) + (contentLength - 1) * 16,
       height: theme.fn.size({ size, sizes }),
@@ -54,7 +54,7 @@ export default createStyles((theme, { size, contentLength, dot, placement, place
 });
 
 const getPosition = (
-  placement: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left',
+  placement: 'none' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left',
   placeDistance: number,
   placeDistanceX: number,
   placeDistanceY: number,
@@ -72,6 +72,6 @@ const getPosition = (
     case 'bottom-left':
       return { top: 'auto', bottom: `${_placeDistanceY}p`, left: `${_placeDistanceX}px`, right: 'auto' };
     default:
-      return { top: `${_placeDistanceY}px`, bottom: 'auto', left: 'auto', right: `${_placeDistanceX}px` };
+      return { top: 'auto', bottom: 'auto', left: 'auto', right: 'auto' };
   }
 };
