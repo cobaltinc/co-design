@@ -14,6 +14,7 @@ import {
 } from './tokens';
 import { attachFunctions } from './functions/attachFunctions';
 import { fontFace } from './fontFace';
+import { DEFAULT_FONT_WEIGHTS } from './tokens/fontWeights';
 
 export const CO_PALETTES = Object.keys(DEFAULT_PALETTES);
 export const CO_COLORS = Object.keys(DEFAULT_COLORS);
@@ -43,6 +44,8 @@ export const _DEFAULT_THEME: CoThemeBase = {
   shadows: DEFAULT_SHADOWS,
 
   fontSizes: DEFAULT_FONT_SIZES,
+
+  fontWeights: DEFAULT_FONT_WEIGHTS,
 
   radius: DEFAULT_RADIUS,
 

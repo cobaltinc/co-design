@@ -9,6 +9,9 @@ export default {
       options: ['xsmall', 'small', 'medium', 'large', 'xlarge'],
       control: { type: 'inline-radio' },
     },
+    color: {
+      control: { type: 'text' },
+    },
     variant: {
       options: ['primary', 'secondary', 'tertiary', 'ghost', 'ghost-light', 'text', 'link', 'critical'],
       control: { type: 'inline-radio' },

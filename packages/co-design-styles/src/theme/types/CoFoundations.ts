@@ -1,5 +1,10 @@
 import { foundations } from '../tokens';
 
-export type CoTextSemanticColor = keyof typeof foundations.tokens.color.text;
+export type FoundationSemanticColor =
+  | keyof typeof foundations.tokens.color.text
+  | keyof typeof foundations.tokens.color.bg
+  | keyof typeof foundations.tokens.color.border
+  | keyof typeof foundations.tokens.color.icon
+  | keyof typeof foundations.tokens.color.specialty;
 
-export type CoPaletteColor = keyof typeof foundations.color;
+export type FoundationPaletteColor = keyof typeof foundations.color;

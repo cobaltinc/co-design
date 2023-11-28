@@ -1,1 +1,1 @@
-// export { useExtractedMargins } from './use-extracted-margins/use-extracted-margins';
+export * from './getColor';

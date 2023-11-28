@@ -28,7 +28,7 @@ export default ({ children, defaultActive, onChange, className = '', style, ...p
     })(),
   });
 
-  const radios = convertReactNodeTo<RadioProps>('Radio.Group', 'Radio', children).map((element, index, elements) => {
+  const radios = convertReactNodeTo<RadioProps>('Radio.Group', 'Radio', children).map((element) => {
     const radioComponent = element as React.ReactElement<RadioProps>;
     return React.cloneElement<RadioProps>(radioComponent, {
       checked: radioComponent.props.value === (state?.active as any)?.value,

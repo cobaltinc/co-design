@@ -1,13 +1,5 @@
 import { forwardRef } from 'react';
-import {
-  CoComponentProps,
-  PolymorphicComponentProps,
-  PolymorphicRef,
-  CoTypography,
-  ClassNames,
-  CoTextSemanticColor,
-  CoPaletteColor,
-} from '@co-design/styles';
+import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, CoTypography, ClassNames, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Typography.style';
 
@@ -18,7 +10,7 @@ export interface SharedTypographyProps extends CoComponentProps<TypographyStyles
   variant?: CoTypography;
 
   /** 폰트 색상을 정합니다. */
-  color?: CoTextSemanticColor | CoPaletteColor | string;
+  color?: CoColor;
 
   /**
    * true일 경우 폰트에 bold가 적용됩니다.
@@ -64,7 +56,7 @@ export const Typography: TypographyComponent & { displayName?: string } = forwar
       children,
       component,
       variant = 'body_02',
-      color,
+      color = 'text_default',
       strong,
       underline,
       transform,

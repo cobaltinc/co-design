@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoPalette } from '@co-design/styles';
+import { createStyles, CoSize, CoPalette, getColor } from '@co-design/styles';
 
 export type AvatarShape = 'square' | 'round' | 'circle';
 
@@ -8,7 +8,7 @@ interface AvatarStyles {
   color: CoPalette;
 }
 
-export default createStyles((theme, { size, shape, color }: AvatarStyles) => {
+export default createStyles((theme, { size, shape, color: _color }: AvatarStyles) => {
   const sizes = {
     xsmall: 24,
     small: 32,
@@ -16,6 +16,7 @@ export default createStyles((theme, { size, shape, color }: AvatarStyles) => {
     large: 64,
     xlarge: 64,
   };
+  const color = getColor(theme, _color);
 
   return {
     root: {

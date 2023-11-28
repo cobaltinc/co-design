@@ -1,5 +1,4 @@
-import { createStyles, CoSize, CoPalette, defaultFontStyles } from '@co-design/styles';
-import { addAlpha } from '../../utils';
+import { createStyles, CoSize, CoPalette, defaultFontStyles, getColor } from '@co-design/styles';
 
 interface IconButtonStylesProps {
   color?: CoPalette;
@@ -10,7 +9,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
   const loading = getRef('loading');
   const inner = getRef('inner');
   const spinner = getRef('spinner');
-  const color = _color || theme.primaryColor;
+  const backgroundColor = getColor(theme, _color);
 
   const sizes = {
     xsmall: {
@@ -205,6 +204,7 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
     root: {
       ...sizes[size],
       ...defaultFontStyles(theme),
+      ...(backgroundColor ? { backgroundColor } : {}),
       borderRadius: theme.foundations.tokens.radius.radius_01,
       position: 'relative',
       padding: 0,
@@ -218,7 +218,6 @@ export default createStyles((theme, { color: _color, size }: IconButtonStylesPro
       WebkitAppearance: 'none',
       outline: 'none',
       border: 'none',
-
       '&:not(:disabled):focus-visible': {
         '&::before': {
           content: '""',

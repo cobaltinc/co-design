@@ -1,10 +1,10 @@
-import { createStyles, CoSize, CoTheme, CoPalette, defaultFontStyles } from '@co-design/styles';
+import { createStyles, CoSize, CoTheme, defaultFontStyles, CoColor, getColor } from '@co-design/styles';
 import { CO_HEIGHTS } from '../../constants';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'ghost-light' | 'text' | 'link' | 'critical';
 
 interface ButtonStylesProps {
-  color?: CoPalette;
+  color?: CoColor;
   size: CoSize;
   fullWidth: boolean;
 }
@@ -78,10 +78,11 @@ const getWidthStyles = (fullWidth: boolean) => ({
   width: fullWidth ? '100%' : 'auto',
 });
 
-export default createStyles((theme, { size, fullWidth }: ButtonStylesProps, getRef) => {
+export default createStyles((theme, { size, color, fullWidth }: ButtonStylesProps, getRef) => {
   const loading = getRef('loading');
   const inner = getRef('inner');
   const spinner = getRef('spinner');
+  const _color = getColor(theme, color);
 
   return {
     loading: {
@@ -246,6 +247,7 @@ export default createStyles((theme, { size, fullWidth }: ButtonStylesProps, getR
       ...getWidthStyles(fullWidth),
       ...defaultFontStyles(theme),
       ...getFontStyles(theme)[size],
+      ...(_color ? { backgroundColor: _color } : {}),
       borderRadius: theme.foundations.tokens.radius.radius_01,
       position: 'relative',
       lineHeight: 1,

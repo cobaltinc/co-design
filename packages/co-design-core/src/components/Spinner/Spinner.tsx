@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoColor, CoPalette, CoSize, CoComponentProps, ClassNames } from '@co-design/styles';
+import { CoColor, CoSize, CoComponentProps, ClassNames } from '@co-design/styles';
 import useStyles from './Spinner.style';
 import { View } from '../View';
 
@@ -10,7 +10,7 @@ export interface SpinnerProps extends CoComponentProps, React.ComponentPropsWith
   size?: CoSize | number;
 
   /** Spinner 컴포넌트의 색상을 정합니다. */
-  color?: CoPalette | CoColor | string;
+  color?: CoColor;
 }
 
 export const Spinner = forwardRef<HTMLDivElement, SpinnerProps>(({ size = 'medium', color, className, co, overrideStyles, ...props }, ref) => {

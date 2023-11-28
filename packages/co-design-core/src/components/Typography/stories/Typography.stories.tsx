@@ -61,13 +61,13 @@ export const Default = {
 export const Inherit = () => {
   return (
     <div>
-      <Typography variant="heading-03" block>
+      <Typography variant="heading_03" block>
         <Typography inherit underline>
           Lorem
         </Typography>{' '}
         ipsum dolor sit amet,{' '}
         <Typography
-          variant="body-02"
+          variant="body_02"
           strong
           co={(theme) => ({
             background: theme.fn.linearGradient(90, 'red', 'green', 'blue'),
@@ -121,7 +121,7 @@ export const TextboxTrim = {
       <div style={{ width: 300 }}>
         <Stack>
           <Typography
-            variant="body-01"
+            variant="body_01"
             co={{
               backgroundColor: 'sandybrown',
             }}

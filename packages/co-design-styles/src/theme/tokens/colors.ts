@@ -1,4 +1,4 @@
-export type CoColor = string & {};
+import { CoColor } from '../types';
 
 export const DEFAULT_COLORS = {
   transparent: 'transparent',

@@ -7,10 +7,10 @@ export interface ProgressStylesParams {
 export default createStyles((theme, { size }: ProgressStylesParams) => {
   const fontSizes = {
     xsmall: theme.foundations.typography.body.caption.fontSize,
-    small: theme.foundations.typography.body['body-02'].fontSize,
-    medium: theme.foundations.typography.body['body-02'].fontSize,
-    large: theme.foundations.typography.body['body-01'].fontSize,
-    xlarge: theme.foundations.typography.body['body-01'].fontSize,
+    small: theme.foundations.typography.body.body_02.fontSize,
+    medium: theme.foundations.typography.body.body_02.fontSize,
+    large: theme.foundations.typography.body.body_01.fontSize,
+    xlarge: theme.foundations.typography.body.body_01.fontSize,
   };
 
   return {

@@ -6,7 +6,6 @@ import { getFieldValue } from '../../utils';
 import useStyles, { TooltipPlacement, TooltipTrigger } from './Tooltip.style';
 import { useClickAway, useToggle, useUpdateEffect } from '@co-design/hooks';
 import { Transition, CoTransition } from '../Transition';
-import { Stack } from '../Stack';
 
 export type TooltipStylesNames = ClassNames<typeof useStyles>;
 

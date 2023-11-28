@@ -1,20 +1,14 @@
-import { CoColor, CoPalette, CoSize, createStyles } from '@co-design/styles';
-import { CO_HEIGHTS } from '../../constants';
+import { CoColor, CoSize, createStyles, getColor } from '@co-design/styles';
+// import { CO_HEIGHTS } from '../../constants';
 
 interface SpinnerStyles {
   size: CoSize | number;
-  color?: CoPalette | CoColor | string;
+  color?: CoColor;
 }
 
 export default createStyles((theme, { size, color }: SpinnerStyles) => {
-  const svgColor =
-    color === undefined
-      ? theme.foundations.tokens.color.bg.bg_primary
-      : color in theme.palettes
-      ? theme.colorScheme === 'light'
-        ? theme.palettes[color][5]
-        : theme.palettes[color][3]
-      : color;
+  const _color = getColor(theme, color);
+  const svgColor = _color ? _color : theme.foundations.tokens.color.bg.bg_primary;
 
   const sizes = {
     xsmall: theme.foundations.tokens.size.size_07,

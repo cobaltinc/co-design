@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { PolymorphicComponentProps, PolymorphicRef, ClassNames } from '@co-design/styles';
+import { PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './IconButton.style';
 import { Spinner } from '../Spinner';
@@ -49,7 +49,7 @@ export const IconButton: IconButtonComponent & { displayName?: string } = forwar
     return (
       <View<any>
         component={component || 'button'}
-        className={cx({ [classes.loading]: loading }, classes.root, classes[variant], className)}
+        className={cx({ [classes.loading]: loading }, classes[variant], classes.root, className)}
         type={type}
         disabled={disabled || loading}
         ref={ref}

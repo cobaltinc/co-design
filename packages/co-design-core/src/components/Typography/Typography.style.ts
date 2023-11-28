@@ -1,9 +1,9 @@
 import { createStyleObject } from '@capsizecss/core';
-import { createStyles, CSSObject, defaultFontStyles, CoTypography, CoTextSemanticColor, CoPaletteColor, CoTypographyValue } from '@co-design/styles';
+import { createStyles, CSSObject, defaultFontStyles, CoTypography, CoTypographyValue, getColor, CoColor } from '@co-design/styles';
 import fontMetrics from '@capsizecss/metrics/arial';
 
 interface TypographyStyles {
-  color: CoPaletteColor | CoTextSemanticColor | string;
+  color: CoColor;
   variant: CoTypography;
   lineClamp: number;
   block: boolean;
@@ -45,19 +45,7 @@ const createFontStyles = (fontSize: number, lineHeight: number) => {
 };
 
 export default createStyles((theme, { color, variant, lineClamp, block, inherit, disableTextboxTrim }: TypographyStyles) => {
-  const _color = color
-    ? color in theme.foundations.color
-      ? theme.foundations.color[color][theme.colorScheme === 'dark' ? 3 : 5]
-      : color in theme.foundations.tokens.color.text
-      ? theme.foundations.tokens.color.text[color]
-      : color
-    : theme.foundations
-    ? theme.colorScheme === 'dark'
-      ? theme.foundations.tokens.color.text.text_light
-      : theme.foundations.tokens.color.text.text_default
-    : theme.colorScheme === 'dark'
-    ? theme.colors.white
-    : theme.colors.black;
+  const _color = getColor(theme, color);
 
   const { fontSize, fontWeight, lineHeight }: CoTypographyValue =
     variant in theme.foundations.typography.heading ? theme.foundations.typography.heading[variant] : theme.foundations.typography.body[variant];

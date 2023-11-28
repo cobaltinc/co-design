@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames } from '@co-design/styles';
+import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, useCoTheme, ClassNames, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles, { ButtonVariant } from './Button.style';
 import { Spinner, SpinnerProps } from '../Spinner';
@@ -10,6 +10,9 @@ export type ButtonStylesNames = ClassNames<typeof useStyles>;
 export interface SharedButtonProps extends CoComponentProps<ButtonStylesNames> {
   /** Button 컴포넌트의 크기를 정합니다. */
   size?: CoSize;
+
+  /** Button 컴포넌트의 색상을 정합니다. */
+  color?: CoColor;
 
   /** Button 컴포넌트의 모양을 지정합니다. */
   variant?: ButtonVariant;
@@ -46,6 +49,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       children,
       component,
       size = 'medium',
+      color,
       variant = 'primary',
       fullWidth = false,
       type = 'button',
@@ -65,6 +69,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
     const { classes, cx } = useStyles(
       {
         size,
+        color,
         fullWidth,
       },
       { overrideStyles, name: 'Button' },
@@ -84,7 +89,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
         ref={ref}
         type={type}
         disabled={disabled || loading}
-        className={cx({ [classes.loading]: loading }, classes.root, classes[variant], className)}
+        className={cx({ [classes.loading]: loading }, classes[variant], classes.root, className)}
         co={co}
         onTouchStart={() => {}}
         {...props}

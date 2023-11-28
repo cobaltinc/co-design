@@ -1,5 +1,5 @@
 import React, { useEffect, useState, forwardRef } from 'react';
-import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, CoPalette, useCoTheme, ClassNames } from '@co-design/styles';
+import { CoComponentProps, CoSize, PolymorphicComponentProps, PolymorphicRef, ClassNames, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import { AvatarPlaceholderIcon } from './AvatarPlaceholderIcon';
 import useStyles, { AvatarShape } from './Avatar.style';
@@ -21,7 +21,7 @@ interface _AvatarProps extends CoComponentProps<AvatarStylesNames> {
   shape?: AvatarShape;
 
   /** Avatar 컴포넌트에 src가 없을 경우 기본 색상을 사용합니다. */
-  color?: CoPalette;
+  color?: CoColor;
 }
 
 export type AvatarProps<C extends React.ElementType> = PolymorphicComponentProps<C, _AvatarProps>;
@@ -30,12 +30,22 @@ type AvatarComponent = <C extends React.ElementType = 'div'>(props: AvatarProps<
 
 export const Avatar: AvatarComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'div'>(
-    { children, component, size = 'medium', src, alt, shape = 'circle', color, className, co, overrideStyles, ...props }: AvatarProps<C>,
+    {
+      children,
+      component,
+      size = 'medium',
+      src,
+      alt,
+      shape = 'circle',
+      color = 'icon_default',
+      className,
+      co,
+      overrideStyles,
+      ...props
+    }: AvatarProps<C>,
     ref: PolymorphicRef<C>,
   ) => {
-    const theme = useCoTheme();
-    const _color = color || theme.foundations.tokens.color.icon.icon_default;
-    const { classes, cx } = useStyles({ color: _color, shape, size }, { overrideStyles, name: 'Avatar' });
+    const { classes, cx } = useStyles({ color, shape, size }, { overrideStyles, name: 'Avatar' });
     const [error, setError] = useState(!src);
 
     const sliceChildren =

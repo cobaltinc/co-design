@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useRef } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import RadioGroup from './RadioGroup';
 import RadioContext from './RadioContext';
 import useStyles from './Radio.style';
@@ -79,7 +79,7 @@ const Radio: IRadio<RadioProps> = ({
   return (
     <View
       component="label"
-      className={cx(classes.wrapper, { [classes.disabled]: disabled, [classes.block]: block })}
+      className={cx(classes.wrapper, { [classes.disabled]: disabled, [classes.block]: block }, className)}
       co={co}
       style={style}
       {...wrapperProps}
@@ -95,7 +95,7 @@ const Radio: IRadio<RadioProps> = ({
         {...props}
       />
       <span className={classes.iconWrapper}>
-        <RadioIcon className={classes.icon} check={check} disabled={disabled} />
+        <RadioIcon className={classes.icon} check={check} />
       </span>
       {label ? (
         <span className={classes.text} style={{ color: labelColor }}>

@@ -67,7 +67,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
         {truncatedAvatars ? (
           <Avatar size={size} shape={shape} className={classes.child} style={{ zIndex: limit + 1 }}>
             <Center className={classes.truncated}>
-              <Typography variant="heading-06" color="text-light">
+              <Typography variant="heading_06" color="text_light">
                 +{truncatedAvatars}
               </Typography>
             </Center>
