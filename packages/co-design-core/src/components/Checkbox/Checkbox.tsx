@@ -49,10 +49,13 @@ export const Checkbox = ({
   ...props
 }: CheckboxProps) => {
   const [check, setCheck] = useState(checked);
-  const { classes, cx } = useStyles(null, {
-    overrideStyles,
-    name: 'Checkbox',
-  });
+  const { classes, cx } = useStyles(
+    { error, checked: check || indeterminate, disabled },
+    {
+      overrideStyles,
+      name: 'Checkbox',
+    },
+  );
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCheck(event.target.checked);
@@ -67,7 +70,11 @@ export const Checkbox = ({
     <View
       component="label"
       onClick={onClick}
-      className={cx(classes.wrapper, className, { [classes.block]: block, [classes.disabled]: disabled || error })}
+      className={cx(classes.wrapper, className, {
+        [classes.checked]: check || indeterminate,
+        [classes.block]: block,
+        [classes.disabled]: disabled,
+      })}
       co={co}
       style={style}
       {...wrapperProps}
@@ -77,14 +84,12 @@ export const Checkbox = ({
         className={classes.input}
         name={name}
         checked={check}
-        disabled={disabled || error}
+        disabled={disabled}
         value={value}
         onChange={handleChange}
         {...props}
       />
-      <span className={classes.checkmark}>
-        <CheckboxIcon check={check} indeterminate={indeterminate} error={error} disabled={disabled} />
-      </span>
+      <CheckboxIcon className={classes.checkmark} check={check} indeterminate={indeterminate} />
       {label ? (
         <span className={classes.text} style={{ color: labelColor }}>
           {label}

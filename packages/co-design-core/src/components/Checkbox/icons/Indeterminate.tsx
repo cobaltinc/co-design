@@ -1,13 +1,14 @@
-import React from 'react';
+import { SVGProps } from 'react';
 
-export const Indeterminate = () => {
+export const Indeterminate = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <rect x="4.6665" y="4" width="16" height="16" rx="2" fill="currentFill" />
       <path
         fillRule="evenodd"
         clipRule="evenodd"
-        d="M15.8333 2.5H4.16667C3.25 2.5 2.5 3.25 2.5 4.16667V15.8333C2.5 16.75 3.25 17.5 4.16667 17.5H15.8333C16.75 17.5 17.5 16.75 17.5 15.8333V4.16667C17.5 3.25 16.75 2.5 15.8333 2.5V2.5ZM14.1667 10.8333H5.83333V9.16667H14.1667V10.8333V10.8333Z"
-        fill="#8A3FFC"
+        d="M7.9165 12C7.9165 11.5858 8.25229 11.25 8.6665 11.25H16.6665C17.0807 11.25 17.4165 11.5858 17.4165 12C17.4165 12.4142 17.0807 12.75 16.6665 12.75H8.6665C8.25229 12.75 7.9165 12.4142 7.9165 12Z"
+        fill="currentColor"
       />
     </svg>
   );

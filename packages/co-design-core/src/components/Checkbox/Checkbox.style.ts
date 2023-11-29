@@ -1,8 +1,18 @@
 import { createStyles } from '@co-design/styles';
 
-export default createStyles((theme) => {
+interface CheckboxStyles {
+  error?: boolean;
+  checked?: boolean;
+  disabled?: boolean;
+}
+
+export default createStyles((theme, { error, checked, disabled }: CheckboxStyles, getRef) => {
+  const checkmark = getRef('checkmark');
+  const wrapper = getRef('wrapper');
+
   return {
     wrapper: {
+      ref: wrapper,
       position: 'relative',
       display: 'inline-flex',
       alignItems: 'center',
@@ -10,36 +20,20 @@ export default createStyles((theme) => {
       userSelect: 'none',
       verticalAlign: 'middle',
       zIndex: 0,
-      '&:hover, &:focus': {
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0,
-          borderRadius: '2px',
-          zIndex: -1,
-          boxSizing: 'border-box',
-          backgroundColor: theme.palettes.gray[3],
-        },
-        '&::selection': {
-          backgroundColor: theme.palettes.purple[6],
-          borderColor: theme.palettes.purple[7],
-        },
-      },
-      '&:active': {
-        '&::before': {
-          content: '""',
-          position: 'absolute',
-          top: '-2px',
-          right: '-2px',
-          bottom: '-2px',
-          left: '-2px',
-          borderRadius: '2px',
-          zIndex: '-1',
-        },
-      },
+      ...(!disabled && !error
+        ? {
+            '&:hover': {
+              [`.${checkmark}`]: {
+                fill: checked ? theme.foundations.tokens.color.bg.bg_primary : theme.foundations.tokens.color.bg.bg_base_light,
+              },
+            },
+            '&:focus': {
+              [`.${checkmark}`]: {
+                color: theme.foundations.tokens.color.border.border_primary,
+              },
+            },
+          }
+        : {}),
     },
     input: {
       position: 'absolute',
@@ -48,10 +42,9 @@ export default createStyles((theme) => {
       opacity: 0,
     },
     checkmark: {
-      display: 'inline-block',
-      width: '20px',
-      height: '20px',
-      verticalAlign: 'middle',
+      ref: checkmark,
+      color: theme.foundations.tokens.color.border.border_strong,
+      fill: theme.foundations.tokens.color.bg.bg_surface_01,
     },
     text: {
       paddingLeft: '4px',
@@ -59,18 +52,17 @@ export default createStyles((theme) => {
       lineHeight: '20px',
       verticalAlign: 'middle',
     },
+    checked: {
+      [`.${checkmark}`]: {
+        color: theme.foundations.tokens.color.icon.icon_inverse_white,
+        fill: !error ? theme.foundations.tokens.color.bg.bg_primary : theme.foundations.tokens.color.bg.bg_critical,
+      },
+    },
     disabled: {
       cursor: 'not-allowed',
-      color: '#c6c6c6',
-      '&:hover, &:focus': {
-        '&::before': {
-          opacity: 0,
-        },
-      },
-      '&:active': {
-        '&::before': {
-          opacity: 0,
-        },
+      [`.${checkmark}`]: {
+        color: theme.foundations.tokens.color.border.border_default,
+        fill: theme.foundations.tokens.color.bg.bg_disabled,
       },
     },
     block: {

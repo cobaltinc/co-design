@@ -1,14 +1,9 @@
-import React from 'react';
+import { SVGProps } from 'react';
 
-export const Default = () => {
+export const Default = (props: SVGProps<SVGSVGElement>) => {
   return (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M16.25 2.5H3.75C3.05964 2.5 2.5 3.05964 2.5 3.75V16.25C2.5 16.9404 3.05964 17.5 3.75 17.5H16.25C16.9404 17.5 17.5 16.9404 17.5 16.25V3.75C17.5 3.05964 16.9404 2.5 16.25 2.5ZM3.75 16.25V3.75H16.25V16.25H3.75Z"
-        fill="#161616"
-      />
+    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <rect x="5.6665" y="5" width="14" height="14" rx="1" fill="currentFill" stroke="currentColor" stroke-width="2" />
     </svg>
   );
 };
