@@ -83,11 +83,11 @@ export type InputProps<C extends React.ElementType> = PolymorphicComponentProps<
 type InputComponent = <C extends React.ElementType = 'input'>(props: InputProps<C>) => React.ReactNode;
 
 const labelVariants: Record<string, CoTypography> = {
-  xsmall: 'heading-09',
-  small: 'heading-09',
-  medium: 'heading-08',
-  large: 'heading-07',
-  xlarge: 'heading-07',
+  xsmall: 'heading_09',
+  small: 'heading_09',
+  medium: 'heading_08',
+  large: 'heading_07',
+  xlarge: 'heading_07',
 };
 
 export const Input: InputComponent & { displayName?: string } = forwardRef(

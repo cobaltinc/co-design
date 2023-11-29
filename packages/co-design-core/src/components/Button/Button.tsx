@@ -96,12 +96,9 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
       >
         <div className={classes.inner}>
           {leftIcon && <span className={cx(classes.icon, classes.leftIcon)}>{leftIcon}</span>}
-
           <span className={classes.label}>{children}</span>
-
           {rightIcon && <span className={cx(classes.icon, classes.rightIcon)}>{rightIcon}</span>}
         </div>
-
         <div className={classes.spinnerWrapper}>{spinner}</div>
       </View>
     );

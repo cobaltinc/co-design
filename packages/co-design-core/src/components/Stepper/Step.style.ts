@@ -22,9 +22,10 @@ export default createStyles((theme, { variant, labelPosition }: StackStyles) => 
       gap: labelPosition === 'bottom' ? 12 : 8,
     },
     label: {
-      color: variant === 'error' ? theme.foundations.tokens.color.text.text_critical : theme.foundations.tokens.color.text['text-default'],
+      color: variant === 'error' ? theme.foundations.tokens.color.text.text_critical : theme.foundations.tokens.color.text.text_default,
     },
     circle: {
+      color: theme.foundations.tokens.color.text.text_light,
       backgroundColor: getFieldValue(variant, backgroundColor),
       transition: 'background-color 0.3s ease',
     },
