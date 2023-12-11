@@ -3,6 +3,5 @@
   "npmClient": "yarn",
   "npmClientArgs": ["--frozen-lockfile"],
   "ignoreChanges": ["**/stories/**", "**/*.md"],
-  "packages": ["packages/*"],
-  "useWorkspaces": true
+  "packages": ["packages/*"]
 }
