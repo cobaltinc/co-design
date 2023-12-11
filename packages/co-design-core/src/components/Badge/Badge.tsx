@@ -1,9 +1,9 @@
-import { CoComponentProps, View } from '@co-design/core';
-import { ClassNames, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
+import { ClassNames, CoComponentProps, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
 import { ReactNode, forwardRef } from 'react';
 
 import useStyles from './Badge.style';
 import { Typography } from '../Typography';
+import { View } from '../View';
 
 export type BadgeStylesNames = ClassNames<typeof useStyles>;
 

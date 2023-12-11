@@ -1,4 +1,4 @@
-import { createStyles } from '@co-design/core';
+import { createStyles } from '@co-design/styles';
 
 export default createStyles((theme) => ({
   wrapper: {

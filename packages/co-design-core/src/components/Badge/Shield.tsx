@@ -1,10 +1,10 @@
-import { CoComponentProps, View } from '@co-design/core';
-import { ClassNames, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
+import { ClassNames, PolymorphicComponentProps, PolymorphicRef, CoComponentProps } from '@co-design/styles';
 import { ComponentPropsWithoutRef, ReactElement, cloneElement, forwardRef } from 'react';
 
 import { _BadgeProps } from './Badge';
 import useStyles from './Shield.style';
 import { Typography } from '../Typography';
+import { View } from '../View';
 
 type ShieldBadgeStylesNames = ClassNames<typeof useStyles>;
 

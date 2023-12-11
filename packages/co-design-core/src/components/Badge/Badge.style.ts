@@ -1,4 +1,4 @@
-import { createStyles } from '@co-design/core';
+import { createStyles } from '@co-design/styles';
 
 interface BadgeStyles {
   size: 'small' | 'medium' | 'large' | number;
