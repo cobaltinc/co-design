@@ -8,4 +8,4 @@ export const DEFAULT_COLORS = {
   lightBorder: '#E9EBF0',
   darkBackground: '#212121',
   darkBorder: '#424242',
-} as Record<CoColor, string>;
+} as Record<string, CoColor>;

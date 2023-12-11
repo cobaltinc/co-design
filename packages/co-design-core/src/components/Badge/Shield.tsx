@@ -1,8 +1,8 @@
 import { CoComponentProps, View } from '@co-design/core';
-import { ClassNames } from '@co-design/styles';
-import { ComponentPropsWithoutRef, ReactElement, cloneElement } from 'react';
+import { ClassNames, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
+import { ComponentPropsWithoutRef, ReactElement, cloneElement, forwardRef } from 'react';
 
-import { BadgeBaseProps } from './Badge';
+import { _BadgeProps } from './Badge';
 import useStyles from './Shield.style';
 import { Typography } from '../Typography';
 
@@ -16,41 +16,53 @@ interface Props {
   color?: string;
 }
 
-export interface ShieldBadgeProps extends BadgeBaseProps, CoComponentProps<ShieldBadgeStylesNames>, Omit<ComponentPropsWithoutRef<'span'>, 'title'> {
+export interface _ShieldBadgeProps
+  extends Omit<_BadgeProps, 'overrideStyles'>,
+    CoComponentProps<ShieldBadgeStylesNames>,
+    Omit<ComponentPropsWithoutRef<'span'>, 'title'> {
   title?: Props;
   message?: Props;
 }
 
-const ShieldBadge = ({ title, message, className, co, overrideStyles, ...props }: ShieldBadgeProps) => {
-  const { cx, classes } = useStyles(null, {
-    overrideStyles,
-    name: 'ShieldBadge',
-  });
+export type ShieldBadgeProps<C extends React.ElementType> = PolymorphicComponentProps<C, _ShieldBadgeProps>;
 
-  return (
-    <View component="span" className={classes.wrapper} co={co} {...props}>
-      {title ? (
-        <div className={cx(classes.title, className)}>
-          {title.icon ? cloneElement(title.icon, { size: title.iconSize, color: title.color }) : null}
-          {title.text ? (
-            <Typography variant="caption" color="text-light">
-              {title.text}
-            </Typography>
-          ) : null}
-        </div>
-      ) : null}
-      {message ? (
-        <div className={cx(classes.message, className)}>
-          {message.icon ? cloneElement(message.icon, { size: message.iconSize, color: message.color }) : null}
-          {message.text ? (
-            <Typography variant="caption" color="text-light">
-              {message.text}
-            </Typography>
-          ) : null}
-        </div>
-      ) : null}
-    </View>
-  );
-};
+type ShieldBadgeComponent = <C extends React.ElementType = 'span'>(props: ShieldBadgeProps<C>) => React.ReactNode;
+
+const ShieldBadge: ShieldBadgeComponent & { displayName?: string } = forwardRef(
+  <C extends React.ElementType = 'span'>(
+    { title, message, component, className, co, overrideStyles, ...props }: ShieldBadgeProps<C>,
+    ref: PolymorphicRef<C>,
+  ) => {
+    const { cx, classes } = useStyles(null, {
+      overrideStyles,
+      name: 'ShieldBadge',
+    });
+
+    return (
+      <View<any> ref={ref} component={component || 'span'} className={classes.wrapper} co={co} {...props}>
+        {title ? (
+          <div className={cx(classes.title, className)}>
+            {title.icon ? cloneElement(title.icon, { size: title.iconSize, color: title.color }) : null}
+            {title.text ? (
+              <Typography variant="caption" color="text_light">
+                {title.text}
+              </Typography>
+            ) : null}
+          </div>
+        ) : null}
+        {message ? (
+          <div className={cx(classes.message, className)}>
+            {message.icon ? cloneElement(message.icon, { size: message.iconSize, color: message.color }) : null}
+            {message.text ? (
+              <Typography variant="caption" color="text_light">
+                {message.text}
+              </Typography>
+            ) : null}
+          </div>
+        ) : null}
+      </View>
+    );
+  },
+);
 
 export default ShieldBadge;

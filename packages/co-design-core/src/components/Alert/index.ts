@@ -1,2 +1,2 @@
-export { Paper } from './Alert';
-export type { PaperProps } from './Alert';
+export { Alert } from './Alert';
+export type { AlertProps } from './Alert';
