@@ -1,6 +1,18 @@
 import { createStyleObject } from '@capsizecss/core';
 import { createStyles, CSSObject, defaultFontStyles, CoTypography, CoTypographyValue, getColor, CoColor } from '@co-design/styles';
-import fontMetrics from '@capsizecss/metrics/arial';
+
+// @capsizecss/metrics/arial
+const fontMetrics = {
+  familyName: 'Arial',
+  category: 'sans-serif',
+  capHeight: 1467,
+  ascent: 1854,
+  descent: -434,
+  lineGap: 67,
+  unitsPerEm: 2048,
+  xHeight: 1062,
+  xWidthAvg: 904,
+};
 
 interface TypographyStyles {
   color: CoColor;

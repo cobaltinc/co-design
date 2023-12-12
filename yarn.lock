@@ -1242,11 +1242,6 @@
   dependencies:
     csstype "^3.1.1"
 
-"@capsizecss/metrics@^1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@capsizecss/metrics/-/metrics-1.2.0.tgz#7c6f8817efa910eb1b0257a785300ab4e033ad26"
-  integrity sha512-zUYcqaR0rv4TYXyY97G1vRMMOyz+3EteXqLsM1XO/N8LnThwR1wYSE5cU15CUx3KPAiAEIbUZ13B7+plxYjHUA==
-
 "@colors/colors@1.5.0":
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
