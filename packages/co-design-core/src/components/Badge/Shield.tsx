@@ -1,5 +1,5 @@
 import { ClassNames, PolymorphicComponentProps, PolymorphicRef, CoComponentProps } from '@co-design/styles';
-import { ComponentPropsWithoutRef, ReactElement, cloneElement, forwardRef } from 'react';
+import React, { cloneElement, forwardRef } from 'react';
 
 import { _BadgeProps } from './Badge';
 import useStyles from './Shield.style';
@@ -10,7 +10,7 @@ type ShieldBadgeStylesNames = ClassNames<typeof useStyles>;
 
 interface Props {
   text?: string;
-  icon?: ReactElement;
+  icon?: React.ReactElement;
   size?: number;
   iconSize?: number;
   color?: string;
@@ -19,7 +19,7 @@ interface Props {
 export interface _ShieldBadgeProps
   extends Omit<_BadgeProps, 'overrideStyles'>,
     CoComponentProps<ShieldBadgeStylesNames>,
-    Omit<ComponentPropsWithoutRef<'span'>, 'title'> {
+    Omit<React.ComponentPropsWithoutRef<'span'>, 'title'> {
   title?: Props;
   message?: Props;
 }

@@ -1,4 +1,4 @@
-import { createStyles, CoSize, CoSpacing } from '@co-design/styles';
+import { createStyles, CoSpacing } from '@co-design/styles';
 
 interface MenuStyles {
   padding: CoSpacing | number;

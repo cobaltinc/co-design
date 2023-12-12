@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import { CoComponentProps } from '@co-design/styles';
-import { View } from '../View/View';
+import { View } from '../View';
 import useStyles from './AspectRatio.style';
 
 export interface AspectRatioProps extends CoComponentProps, React.ComponentPropsWithoutRef<'div'> {

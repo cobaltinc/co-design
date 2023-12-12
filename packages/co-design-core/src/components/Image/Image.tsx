@@ -58,7 +58,6 @@ export const Image = forwardRef<HTMLImageElement, ImageProps>(
       height = 'auto',
       alt,
       fit,
-      style,
       className,
       co,
       overrideStyles,

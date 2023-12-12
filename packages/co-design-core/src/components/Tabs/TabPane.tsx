@@ -51,7 +51,6 @@ export const TabPane = forwardRef<HTMLButtonElement, TabPaneProps>(
       buttonRef,
       color,
       orientation = 'horizontal',
-      icon: __,
       label,
       icon,
       color: overrideColor,

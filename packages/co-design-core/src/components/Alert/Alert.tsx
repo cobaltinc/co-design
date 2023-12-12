@@ -1,4 +1,4 @@
-import React, { ReactNode, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, ClassNames } from '@co-design/styles';
 
 import useStyles from './Alert.style';
@@ -45,7 +45,7 @@ export const Alert: AlertComponent & { displayName?: string } = forwardRef(
           )}
           {children && (
             <Typography disableTextboxTrim variant="body_02" className={classes.content}>
-              {children as ReactNode}
+              {children as React.ReactNode}
             </Typography>
           )}
         </Stack>

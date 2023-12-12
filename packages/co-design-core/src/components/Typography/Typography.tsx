@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { CoComponentProps, PolymorphicComponentProps, PolymorphicRef, CoTypography, ClassNames, CoColor } from '@co-design/styles';
 import { View } from '../View';
 import useStyles from './Typography.style';

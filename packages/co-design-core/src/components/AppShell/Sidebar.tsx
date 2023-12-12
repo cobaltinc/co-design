@@ -1,9 +1,8 @@
 import React, { forwardRef } from 'react';
-import { ClassNames, CoComponentProps } from '@co-design/styles';
+import { ClassNames, CoComponentProps, CoBreakpoints, CoSpacing, CoZIndex } from '@co-design/styles';
 import { View } from '../View';
 import { SidebarSection } from './SidebarSection';
 import useStyles, { SidebarPosition, SidebarWidth } from './Sidebar.style';
-import { CoBreakpoints, CoSpacing, CoZIndex } from '@co-design/styles';
 
 export type SidebarStylesNames = ClassNames<typeof useStyles>;
 

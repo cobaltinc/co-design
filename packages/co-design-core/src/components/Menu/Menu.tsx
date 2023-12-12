@@ -1,6 +1,5 @@
 import React, { useState, useRef, forwardRef } from 'react';
-import { useId } from '@co-design/hooks';
-import { CoComponentProps, ClassNames, CoShadows, CoSize, CoSpacing } from '@co-design/styles';
+import { CoComponentProps, ClassNames, CoSpacing } from '@co-design/styles';
 import { View } from '../View';
 import { Divider } from '../Divider';
 import { Text } from '../Text';
@@ -59,7 +58,7 @@ const getPreviousItem = (active: number, items: MenuItemType[]) => {
 };
 
 export const Menu: MenuComponent = forwardRef<HTMLDivElement, MenuProps>(
-  ({ children, padding = 'medium', onMouseLeave, onMouseEnter, onChange, className, co, overrideStyles, ...props }: MenuProps, ref) => {
+  ({ children, padding = 'medium', className, co, overrideStyles, ...props }: MenuProps, ref) => {
     const [hovered, setHovered] = useState(-1);
     const buttonsRefs = useRef<Record<string, HTMLButtonElement>>({});
     const { classes, cx, theme } = useStyles({ padding }, { overrideStyles, name: 'Menu' });

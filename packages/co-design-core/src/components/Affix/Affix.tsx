@@ -21,7 +21,7 @@ export interface AffixProps extends CoComponentProps, React.ComponentPropsWithou
 }
 
 export const Affix = forwardRef<HTMLDivElement, AffixProps>(
-  ({ target, zIndex = 'sticky', position = { bottom: 20, right: 20 }, className, co, ...props }: AffixProps, ref) => {
+  ({ target, zIndex = 'sticky', position = { bottom: 20, right: 20 }, co, ...props }: AffixProps, ref) => {
     const theme = useCoTheme();
     return (
       <Portal zIndex={getFieldValue(zIndex, theme.zIndex)} target={target}>

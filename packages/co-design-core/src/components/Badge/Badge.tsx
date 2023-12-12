@@ -1,5 +1,5 @@
 import { ClassNames, CoComponentProps, PolymorphicComponentProps, PolymorphicRef } from '@co-design/styles';
-import { ReactNode, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 
 import useStyles from './Badge.style';
 import { Typography } from '../Typography';
@@ -8,7 +8,7 @@ import { View } from '../View';
 export type BadgeStylesNames = ClassNames<typeof useStyles>;
 
 export interface _BadgeProps extends CoComponentProps<BadgeStylesNames> {
-  badgeContent?: ReactNode;
+  badgeContent?: React.ReactNode;
   placement?: 'none' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
   placeDistance?: number;
   placeDistanceX?: number;

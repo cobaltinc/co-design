@@ -1,11 +1,11 @@
-import { SVGProps } from 'react';
+import React from 'react';
 import AlertCircle from './icons/AlertCircle';
 import CheckCircle from './icons/CheckCircle';
 import InfoCircle from './icons/InfoCircle';
 import XCircle from './icons/XCircle';
 import { useCoTheme } from '@co-design/styles';
 
-interface AlertIconProps extends SVGProps<SVGSVGElement> {
+interface AlertIconProps extends React.SVGProps<SVGSVGElement> {
   severity: 'base' | 'info' | 'success' | 'warning' | 'critical';
   color?: string;
   size?: number;

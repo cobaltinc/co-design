@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { CoComponentProps, CoTheme, useCoTheme, ClassNames, CoSpacing, CoZIndex, CoBreakpoints } from '@co-design/styles';
+import { CoComponentProps, CoTheme, useCoTheme, ClassNames, CoSpacing, CoZIndex } from '@co-design/styles';
 import { View } from '../View';
 import { getSortedBreakpoints } from './getSortedBreakpoints';
 import useStyles from './AppShell.style';

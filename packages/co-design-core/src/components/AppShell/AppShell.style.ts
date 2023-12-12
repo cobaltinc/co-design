@@ -1,4 +1,4 @@
-import { createStyles, CoTheme, CSSObject, CoSpacing, CoBreakpoints } from '@co-design/styles';
+import { createStyles, CoTheme, CSSObject, CoSpacing } from '@co-design/styles';
 
 interface AppShellStyles {
   padding: CoSpacing | number;

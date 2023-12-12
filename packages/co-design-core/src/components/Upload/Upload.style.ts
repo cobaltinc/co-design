@@ -1,6 +1,6 @@
 import { createStyles } from '@co-design/styles';
 
-export default createStyles((theme) => {
+export default createStyles(() => {
   return {
     root: {
       position: 'relative',
