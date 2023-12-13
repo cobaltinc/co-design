@@ -5,7 +5,7 @@ export default createStyles(() => ({
     position: 'fixed',
     top: '24px',
     right: '24px',
-    maxWidth: '450px',
+    maxWidth: '320px',
     width: '95%',
     zIndex: DEFAULT_Z_INDEX.toast,
     '@media (max-width: 500px)': {
