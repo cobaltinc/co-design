@@ -21,7 +21,7 @@ export type BadgeProps<C extends React.ElementType> = PolymorphicComponentProps<
 
 type BadgeComponent = <C extends React.ElementType = 'span'>(props: BadgeProps<C>) => React.ReactNode;
 
-const Badge: BadgeComponent & { displayName?: string } = forwardRef(
+export const Badge: BadgeComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'span'>(
     {
       children,
@@ -88,5 +88,3 @@ const Badge: BadgeComponent & { displayName?: string } = forwardRef(
 );
 
 Badge.displayName = '@co-design/core/Badge';
-
-export default Badge;

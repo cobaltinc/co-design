@@ -28,7 +28,7 @@ export type ShieldBadgeProps<C extends React.ElementType> = PolymorphicComponent
 
 type ShieldBadgeComponent = <C extends React.ElementType = 'span'>(props: ShieldBadgeProps<C>) => React.ReactNode;
 
-const ShieldBadge: ShieldBadgeComponent & { displayName?: string } = forwardRef(
+export const ShieldBadge: ShieldBadgeComponent & { displayName?: string } = forwardRef(
   <C extends React.ElementType = 'span'>(
     { title, message, component, className, co, overrideStyles, ...props }: ShieldBadgeProps<C>,
     ref: PolymorphicRef<C>,
@@ -66,5 +66,3 @@ const ShieldBadge: ShieldBadgeComponent & { displayName?: string } = forwardRef(
 );
 
 ShieldBadge.displayName = '@co-design/core/ShieldBadge';
-
-export default ShieldBadge;

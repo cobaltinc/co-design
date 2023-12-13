@@ -1,2 +1,4 @@
-export { default as Badge } from './Badge';
-export { default as ShieldBadge } from './Shield';
+export { Badge } from './Badge';
+export { ShieldBadge } from './Shield';
+export type { BadgeProps } from './Badge';
+export type { ShieldBadgeProps } from './Shield';

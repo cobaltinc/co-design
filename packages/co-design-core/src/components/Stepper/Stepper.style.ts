@@ -1,11 +1,11 @@
 import { createStyles } from '@co-design/styles';
 
-interface StackStyles {
+interface StepperStyles {
   orientation?: 'horizontal' | 'vertical';
   isNeedGap?: boolean;
 }
 
-export default createStyles((theme, { orientation, isNeedGap }: StackStyles) => {
+export default createStyles((theme, { orientation, isNeedGap }: StepperStyles) => {
   const stepSize = theme.foundations.tokens.size.size_09;
   const stepsGap = theme.foundations.tokens.size.size_04;
   return {

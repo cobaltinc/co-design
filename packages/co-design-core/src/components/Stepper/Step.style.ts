@@ -1,12 +1,12 @@
 import { createStyles } from '@co-design/styles';
 import { getFieldValue } from '../../utils';
 
-interface StackStyles {
+interface StepStyles {
   variant?: 'wait' | 'current' | 'finished' | 'error';
   labelPosition?: 'right' | 'bottom';
 }
 
-export default createStyles((theme, { variant, labelPosition }: StackStyles) => {
+export default createStyles((theme, { variant, labelPosition }: StepStyles) => {
   const backgroundColor = {
     wait: theme.foundations.tokens.color.bg.bg_base_light_active,
     current: theme.foundations.tokens.color.bg.bg_primary,
