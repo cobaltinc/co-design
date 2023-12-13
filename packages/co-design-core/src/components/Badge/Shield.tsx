@@ -65,4 +65,6 @@ const ShieldBadge: ShieldBadgeComponent & { displayName?: string } = forwardRef(
   },
 );
 
+ShieldBadge.displayName = '@co-design/core/ShieldBadge';
+
 export default ShieldBadge;

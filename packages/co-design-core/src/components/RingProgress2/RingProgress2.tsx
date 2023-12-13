@@ -10,7 +10,7 @@ import { Text } from '../Text';
 
 export type RingProgressStylesNames = ClassNames<typeof useStyles>;
 
-export interface RingProgressProps extends CoComponentProps<RingProgressStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+export interface RingProgress2Props extends CoComponentProps<RingProgressStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /** Curve가 채워지는 %를 정합니다. (0 ~ 100) */
   value: number;
 
@@ -37,7 +37,7 @@ export interface RingProgressProps extends CoComponentProps<RingProgressStylesNa
   labelPosition?: 'bottom' | 'side';
 }
 
-export const RingProgress2 = forwardRef<HTMLDivElement, RingProgressProps>(
+export const RingProgress2 = forwardRef<HTMLDivElement, RingProgress2Props>(
   (
     {
       value,
@@ -52,7 +52,7 @@ export const RingProgress2 = forwardRef<HTMLDivElement, RingProgressProps>(
       style,
       overrideStyles,
       ...props
-    }: RingProgressProps,
+    }: RingProgress2Props,
     ref,
   ) => {
     const { classes, cx, theme } = useStyles({ size: _size }, { overrideStyles, name: 'RingProgress' });

@@ -8,7 +8,7 @@ import { Stack } from '../Stack';
 
 export type ProgressStylesNames = ClassNames<typeof useStyles>;
 
-export interface ProgressProps extends CoComponentProps<ProgressStylesNames>, React.ComponentPropsWithoutRef<'div'> {
+export interface Progress2Props extends CoComponentProps<ProgressStylesNames>, React.ComponentPropsWithoutRef<'div'> {
   /** ProgressBar가 채워지는 %를 정합니다. (0 ~ 100) */
   value?: number;
 
@@ -31,7 +31,7 @@ export interface ProgressProps extends CoComponentProps<ProgressStylesNames>, Re
   showPercent?: boolean;
 }
 
-export const Progress2 = forwardRef<HTMLDivElement, ProgressProps>(
+export const Progress2 = forwardRef<HTMLDivElement, Progress2Props>(
   (
     {
       value,
@@ -44,7 +44,7 @@ export const Progress2 = forwardRef<HTMLDivElement, ProgressProps>(
       className,
       overrideStyles,
       ...props
-    }: ProgressProps,
+    }: Progress2Props,
     ref,
   ) => {
     const { classes, cx, theme } = useStyles({ color, size, radius, labelPosition }, { overrideStyles, name: 'Progress' });

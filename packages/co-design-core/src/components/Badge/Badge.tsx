@@ -87,4 +87,6 @@ const Badge: BadgeComponent & { displayName?: string } = forwardRef(
   },
 );
 
+Badge.displayName = '@co-design/core/Badge';
+
 export default Badge;
