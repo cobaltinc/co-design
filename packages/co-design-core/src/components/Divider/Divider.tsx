@@ -63,7 +63,7 @@ export const Divider = forwardRef<HTMLDivElement, DividerProps>(
         {...props}
       >
         {!!label && horizontal && (
-          <Text size="xsmall" co={{ marginTop: 2 }} className={cx(classes.label, classes[labelPosition])}>
+          <Text size="xsmall" className={cx(classes.label, classes[labelPosition])}>
             {label}
           </Text>
         )}
