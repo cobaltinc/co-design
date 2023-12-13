@@ -89,7 +89,7 @@ export const Button: ButtonComponent & { displayName?: string } = forwardRef(
         ref={ref}
         type={type}
         disabled={disabled || loading}
-        className={cx({ [classes.loading]: loading }, classes[variant], classes.root, className)}
+        className={cx({ [classes.loading]: loading }, classes.root, classes[variant], className)}
         co={co}
         onTouchStart={() => {}}
         {...props}

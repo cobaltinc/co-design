@@ -41,6 +41,16 @@ export const Default = {
   },
 };
 
+export const ColorProp = {
+  render: (props) => {
+    return (
+      <Button color="red" {...props}>
+        Button
+      </Button>
+    );
+  },
+};
+
 export const OverrideStyles = {
   render: (props) => {
     return (
