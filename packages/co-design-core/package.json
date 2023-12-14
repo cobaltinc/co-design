@@ -1,6 +1,6 @@
 {
   "name": "@co-design/core",
-  "version": "0.10.3",
+  "version": "0.10.4",
   "main": "cjs/index.js",
   "module": "esm/index.js",
   "types": "lib/index.d.ts",
@@ -25,6 +25,6 @@
   },
   "dependencies": {
     "@capsizecss/core": "^3.1.1",
-    "@co-design/styles": "^0.10.1"
+    "@co-design/styles": "^0.10.2"
   }
 }
