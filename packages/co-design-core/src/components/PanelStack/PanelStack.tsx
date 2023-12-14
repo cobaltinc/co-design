@@ -80,8 +80,10 @@ export const PanelStack = <T extends Panel<object>>({
   const [mount, toggleMount] = useToggle(true);
   const handlePushPanel = useCallback(
     (panel: T) => {
+      onPush?.(panel);
+      append(panel);
       toggleMount(false);
-      pushAnimate(panel);
+      pushAnimate();
     },
     [onPush, append, toggleMount],
   );
@@ -91,10 +93,8 @@ export const PanelStack = <T extends Panel<object>>({
     popAnimate();
   }, [onPop, pop]);
 
-  const [pushAnimate] = useTimeoutFn((panel) => {
+  const [pushAnimate] = useTimeoutFn(() => {
     toggleMount(true);
-    onPush?.(panel);
-    append(panel);
   }, transitionDuration);
 
   const [popAnimate] = useTimeoutFn(() => {
