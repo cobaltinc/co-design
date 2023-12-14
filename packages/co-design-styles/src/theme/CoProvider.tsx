@@ -54,7 +54,7 @@ const GlobalStyles = () => {
           backgroundColor: theme.colorScheme === 'dark' ? theme.colors.darkBackground : theme.colors.lightBackground,
           color: theme.colorScheme === 'dark' ? theme.palettes.gray[0] : theme.palettes.gray[9],
           lineHeight: theme.lineHeight,
-          fontSizes: theme.fontSizes.medium,
+          fontSize: theme.fontSizes.medium,
         } as any,
       })}
     />
