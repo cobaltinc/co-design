@@ -78,27 +78,23 @@ export const PanelStack = <T extends Panel<object>>({
   const [panels, { append, pop }] = useList(initialPanel ? [initialPanel] : []);
 
   const [mount, toggleMount] = useToggle(true);
-
   const handlePushPanel = useCallback(
     (panel: T) => {
-      onPush?.(panel);
-      append(panel);
       toggleMount(false);
-      pushAnimate();
+      pushAnimate(panel);
     },
     [onPush, append, toggleMount],
   );
 
-  const handlePopPanel = useCallback(
-    (panel: T) => {
-      toggleMount(false);
-      popAnimate();
-    },
-    [onPop, pop],
-  );
+  const handlePopPanel = useCallback(() => {
+    toggleMount(false);
+    popAnimate();
+  }, [onPop, pop]);
 
-  const [pushAnimate] = useTimeoutFn(() => {
+  const [pushAnimate] = useTimeoutFn((panel) => {
     toggleMount(true);
+    onPush?.(panel);
+    append(panel);
   }, transitionDuration);
 
   const [popAnimate] = useTimeoutFn(() => {
@@ -123,7 +119,7 @@ export const PanelStack = <T extends Panel<object>>({
                 <>
                   <Group spacing="small" align="center" className={classes.header}>
                     {index !== 0 && (
-                      <IconButton variant="text" color="dark" size="small" className={classes.back} onClick={() => handlePopPanel(panel)}>
+                      <IconButton variant="text" color="dark" size="small" className={classes.back} onClick={() => handlePopPanel()}>
                         <ArrowLeft />
                       </IconButton>
                     )}
