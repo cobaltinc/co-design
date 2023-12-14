@@ -144,8 +144,6 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     const Element: any = component || 'input';
     const [currentLength, setCurrentLength] = useState(0);
 
-    const Wrapper = label ? View : React.Fragment;
-
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (maximumLength) {
         setCurrentLength(e.target.value.length);
@@ -154,17 +152,19 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
     };
 
     return (
-      <Wrapper>
-        <Group className={classes.labelWrapper} position={label ? 'apart' : 'right'}>
-          {label ? (
-            <label htmlFor={inputId + name}>
-              <Typography variant={labelVariants[size]} className={classes.labelText} {...labelTextProps}>
-                {label}
-              </Typography>
-            </label>
-          ) : null}
-          {maximumLength ? <Text className={classes.maximumLength}>{`${currentLength} / ${maximumLength}`}</Text> : null}
-        </Group>
+      <View className={classes.root}>
+        {(label || maximumLength) && (
+          <Group className={classes.labelWrapper} position={label ? 'apart' : 'right'}>
+            {label ? (
+              <label htmlFor={inputId + name}>
+                <Typography variant={labelVariants[size]} className={classes.labelText} {...labelTextProps}>
+                  {label}
+                </Typography>
+              </label>
+            ) : null}
+            {maximumLength ? <Text className={classes.maximumLength}>{`${currentLength} / ${maximumLength}`}</Text> : null}
+          </Group>
+        )}
         <View className={cx(classes.wrapper, className)} co={co} style={style} {...wrapperProps}>
           {leftSection && (
             <div
@@ -206,7 +206,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
             </Typography>
           )}
         </View>
-      </Wrapper>
+      </View>
     );
   },
 );

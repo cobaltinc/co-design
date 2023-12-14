@@ -89,7 +89,17 @@ export const WithLeftSection = {
 
     return (
       <div style={{ width: 400, padding: 24 }}>
-        <Input icon={<Icon />} leftSection={withTooltip} leftSectionWidth={50} {...props} />
+        <Input
+          icon={<Icon />}
+          leftSection={withTooltip}
+          leftSectionWidth={50}
+          overrideStyles={{
+            leftSection: {
+              backgroundColor: 'gray',
+            },
+          }}
+          {...props}
+        />
       </div>
     );
   },
@@ -102,6 +112,18 @@ export const WithLabel = {
         <Input {...props} label="name" />
         <Input {...props} label="email" helperText="something wrong" />
         <Input {...props} label="password" />
+      </div>
+    );
+  },
+};
+
+export const MultiInput = {
+  render: (props) => {
+    return (
+      <div style={{ width: 400, padding: 24, display: 'flex', flexDirection: 'column', gap: '32px' }}>
+        <Input {...props} />
+        <Input {...props} helperText="something wrong" />
+        <Input {...props} />
       </div>
     );
   },

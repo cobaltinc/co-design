@@ -62,6 +62,7 @@ export default createStyles(
     };
 
     return {
+      root: {},
       wrapper: {
         position: 'relative',
       },
@@ -90,13 +91,14 @@ export default createStyles(
         backgroundColor: theme.foundations.tokens.color.bg.bg_surface_01,
         // transition: 'border-color 100ms ease',
 
-        '&:not(:disabled):hover': {
+        '&:not(:disabled):not(:focus):hover': {
           borderColor: invalid ? invalidColor : theme.foundations.tokens.color.border.border_strong,
         },
 
         '&:focus, &:focus-within': {
           width: 'calc(100% - 2px)',
-          border: `2px solid ${theme.foundations.tokens.color.border.border_primary}`,
+          borderColor: theme.foundations.tokens.color.border.border_primary,
+          outline: `1px solid ${theme.foundations.tokens.color.border.border_primary}`,
         },
 
         '&::placeholder': {
@@ -132,7 +134,8 @@ export default createStyles(
       },
 
       invalid: {
-        border: `2px solid ${invalidColor}`,
+        outline: `1px solid ${invalidColor}`,
+        borderColor: invalidColor,
 
         '&::placeholder': {
           opacity: 1,
@@ -188,6 +191,7 @@ export default createStyles(
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        margin: 1,
       },
 
       leftSection: {
@@ -198,6 +202,7 @@ export default createStyles(
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        margin: 1,
       },
 
       helperText: {
