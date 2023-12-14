@@ -37,7 +37,7 @@ export default {
 
 export const Default = {
   render: (props) => {
-    return <Button {...props}>Button</Button>;
+    return <Button {...props}>Try Something</Button>;
   },
 };
 

@@ -212,6 +212,7 @@ export default createStyles((theme, { size, color, fullWidth }: ButtonStylesProp
       height: 'auto',
       padding: 0,
       backgroundColor: 'transparent',
+      overflow: 'visible',
       color: theme.foundations.tokens.color.text.text_base,
 
       '&:not(:disabled):hover': {
