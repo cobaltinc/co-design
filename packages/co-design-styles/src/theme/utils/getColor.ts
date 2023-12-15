@@ -23,7 +23,7 @@ export const getColor = (theme: CoTheme, color: CoColor, colorScale?: number): s
       return theme.palettes[color][colorScale ? colorScale : 5];
     }
   }
-  if (window !== undefined && !CSS.supports('color', color)) {
+  if (typeof window !== 'undefined' && !CSS.supports('color', color)) {
     console.warn(`[@co-design/styles] Color ${color} is not supported by the browser. Please use a valid CSS color. [${color}]`);
     return 'inherit';
   }
