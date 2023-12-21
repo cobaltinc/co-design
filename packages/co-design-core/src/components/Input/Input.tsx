@@ -179,6 +179,7 @@ export const Input: InputComponent & { displayName?: string } = forwardRef(
           <Element
             {...props}
             ref={ref}
+            name={name}
             className={cx(classes.input, {
               [classes.withLeft]: !!leftSection || !!icon,
               [classes.withRight]: !!rightSection,
